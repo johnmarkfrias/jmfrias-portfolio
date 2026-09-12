@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { navLinks, socials } from "../../data/socials";
-import logoFooter from "../../assets/logo-footer.svg";
+import logoFooter from "/public/assets/logo-footer.svg";
 
 function Footer() {
   const [openSection, setOpenSection] = useState(null);

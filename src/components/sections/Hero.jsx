@@ -3,8 +3,8 @@
 import { useState, useEffect } from "react";
 import { FaInstagram, FaLinkedinIn, FaGithub } from "react-icons/fa";
 import Button from "../common/Button";
-import heroPhoto from "../../assets/hero.png";
-import eyeButtonSvg from "../../assets/eye-button.svg";
+import heroPhoto from "/public/assets/hero.png";
+import eyeButtonSvg from "/public/assets/eye-button.svg";
 import { ROLES } from "../../data/roles";
 
 function Hero() {

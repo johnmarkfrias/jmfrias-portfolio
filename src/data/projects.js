@@ -1,11 +1,11 @@
 // src/data/projects.js
 
-import ashfordImg from "../assets/ashford.png";
-import hannahMellulImg from "../assets/hannah-mellul.png";
-import fnqConnectImg from "../assets/fnq-connect.png";
-import sulcaImg from "../assets/sulca.png";
-import cobellImg from "../assets/cobell.png";
-import wellnessProImg from "../assets/wellness-pro.png";
+import ashfordImg from "/public/assets/ashford.png";
+import hannahMellulImg from "/public/assets/hannah-mellul.png";
+import fnqConnectImg from "/public/assets/fnq-connect.png";
+import sulcaImg from "/public/assets/sulca.png";
+import cobellImg from "/public/assets/cobell.png";
+import wellnessProImg from "/public/assets/wellness-pro.png";
 
 export const projectCategories = [
   { id: "all", label: "All Projects" },

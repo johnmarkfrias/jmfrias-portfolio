@@ -5,7 +5,7 @@ import { Link, NavLink } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
 import { navLinks } from "../../data/socials";
-import logo from "../../assets/JMFrias.dev.svg";
+import logo from "/public/assets/JMFrias.dev.svg";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);

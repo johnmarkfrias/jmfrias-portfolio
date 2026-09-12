@@ -3,16 +3,12 @@
 import { useState, useEffect } from "react";
 import SectionBadge from "../common/SectionBadge";
 import Button from "../common/Button";
-import gradPhoto1 from "../../assets/gradpic.jpg";
-import gradPhoto2 from "../../assets/gradpic2.png";
-import gradPhoto3 from "../../assets/gradpic3.jpg";
-import gradPhoto4 from "../../assets/gradpic4.jpg";
 
 const PHOTOS = [
-  { src: gradPhoto1, alt: "John Mark Frias graduation portrait 1" },
-  { src: gradPhoto2, alt: "John Mark Frias graduation portrait 2" },
-  { src: gradPhoto3, alt: "John Mark Frias graduation portrait 3" },
-  { src: gradPhoto4, alt: "John Mark Frias graduation portrait 4" },
+  { src: "/public/assets/gradpic.jpg", alt: "John Mark Frias graduation portrait 1" },
+  { src: "/public/assets/gradpic2.png", alt: "John Mark Frias graduation portrait 2" },
+  { src: "/public/assets/gradpic3.jpg", alt: "John Mark Frias graduation portrait 3" },
+  { src: "/public/assets/gradpic4.jpg", alt: "John Mark Frias graduation portrait 4" },
 ];
 
 function About() {
@@ -85,7 +81,6 @@ function About() {
             Designing Solutions, Building Experiences
           </h2>
 
-          {/* Full-width sa mobile at tablet, restricted width sa desktop */}
           <p className="w-full lg:max-w-xl text-slate-600 text-sm sm:text-base leading-relaxed mb-4">
             I'm a full stack developer based in Lucena City, Quezon, with a
             focus on WordPress builds — from custom themes and plugin work to
@@ -101,7 +96,6 @@ function About() {
             plugin's one weird bug.
           </p>
 
-          {/* Action Buttons: Full-width stacked sa mobile lamang, compact inline sa tablet at desktop */}
           <div className="w-full sm:w-auto flex flex-col sm:flex-row items-center gap-3">
             <div className="w-full sm:w-auto sm:min-w-[160px] text-center [&>a]:w-full [&>a]:justify-center [&>button]:w-full [&>button]:justify-center">
               <Button href="/about" variant="primary">
