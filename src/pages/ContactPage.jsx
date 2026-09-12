@@ -1,0 +1,231 @@
+// src/pages/ContactPage.jsx
+
+import { useState } from "react";
+import { Helmet } from "react-helmet-async";
+import SectionBadge from "../components/common/SectionBadge";
+
+function ContactPage() {
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const emailAddress = "johnmarkm.frias@gmail.com";
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const mailtoUrl = `mailto:${emailAddress}?subject=${encodeURIComponent(
+      formData.subject || `Portfolio Inquiry from ${formData.fullName}`
+    )}&body=${encodeURIComponent(
+      `Name: ${formData.fullName}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+    )}`;
+    window.location.href = mailtoUrl;
+  };
+
+  return (
+    <>
+      <Helmet>
+        <title>Contact | John Mark M. Frias - Web Developer</title>
+        <meta
+          name="description"
+          content="Get in touch with John Mark M. Frias for web development, WordPress builds, UI design, or collaboration inquiries."
+        />
+        <link rel="canonical" href="https://jmfrias.dev/contact" />
+      </Helmet>
+
+      <main className="w-full bg-white text-slate-900 pt-[100px] md:pt-[120px] pb-[80px] lg:pb-[120px] overflow-x-hidden">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 2xl:px-8 text-left">
+          
+          {/* Header Block: 2-Column Split Header */}
+          <header className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-end mb-12 sm:mb-16 lg:mb-20 pb-8 border-b border-slate-100">
+            
+            {/* Left: Badge and Main Heading */}
+            <div className="lg:col-span-7">
+              <SectionBadge>GET IN TOUCH</SectionBadge>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-extrabold text-slate-900 mt-4 tracking-tight leading-[1.12]">
+                Let's talk about your next project.
+              </h1>
+            </div>
+
+            {/* Right: Subtitle Description */}
+            <div className="lg:col-span-5 lg:pb-1">
+              <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-xl">
+                Whether you need a custom WordPress site, front-end development, or full-stack web solutions, feel free to reach out directly or send a message below.
+              </p>
+            </div>
+          </header>
+
+          {/* Main 2-Column Body: Info List & Form */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+            
+            {/* Left Column: Direct Info List */}
+            <div className="lg:col-span-5 space-y-7 sm:space-y-8 lg:pt-2">
+              
+              {/* Email */}
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-2xl bg-sky-50 text-sky-500 flex items-center justify-center shrink-0 shadow-2xs">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+                    <rect width="20" height="16" x="2" y="4" rx="2" />
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-base font-bold text-slate-900 leading-snug">Email</h3>
+                  <a 
+                    href={`mailto:${emailAddress}`}
+                    className="text-sm text-slate-600 hover:text-blue-600 transition-colors mt-0.5 block break-all font-medium"
+                  >
+                    {emailAddress}
+                  </a>
+                </div>
+              </div>
+
+              {/* Phone */}
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-2xl bg-sky-50 text-sky-500 flex items-center justify-center shrink-0 shadow-2xs">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-base font-bold text-slate-900 leading-snug">Phone</h3>
+                  <p className="text-sm text-slate-600 mt-0.5 leading-relaxed font-medium">
+                    +63 947 534 8264 (Smart) / +63 994 496 1686 (Globe)
+                  </p>
+                </div>
+              </div>
+
+              {/* Location */}
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-2xl bg-sky-50 text-sky-500 flex items-center justify-center shrink-0 shadow-2xs">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-base font-bold text-slate-900 leading-snug">Location</h3>
+                  <p className="text-sm text-slate-600 mt-0.5 leading-relaxed font-medium">
+                    Lucena City, Quezon &bull; Imus, Cavite<br />
+                    Philippines
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+            {/* Right Column: Contact Form */}
+            <div className="lg:col-span-7">
+              <form 
+                onSubmit={handleSubmit}
+                className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 md:p-10 shadow-sm space-y-5"
+              >
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  {/* Full Name */}
+                  <div>
+                    <label 
+                      htmlFor="fullName" 
+                      className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-2"
+                    >
+                      Full Name <span className="text-blue-600">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="fullName"
+                      name="fullName"
+                      required
+                      value={formData.fullName}
+                      onChange={handleChange}
+                      placeholder="John Doe"
+                      className="w-full bg-slate-50/70 border border-slate-200/90 rounded-xl px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 focus:bg-white transition-all"
+                    />
+                  </div>
+
+                  {/* Email */}
+                  <div>
+                    <label 
+                      htmlFor="email" 
+                      className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-2"
+                    >
+                      Email Address <span className="text-blue-600">*</span>
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="john@example.com"
+                      className="w-full bg-slate-50/70 border border-slate-200/90 rounded-xl px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 focus:bg-white transition-all"
+                    />
+                  </div>
+                </div>
+
+                {/* Subject */}
+                <div>
+                  <label 
+                    htmlFor="subject" 
+                    className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-2"
+                  >
+                    Subject <span className="text-blue-600">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    required
+                    value={formData.subject}
+                    onChange={handleChange}
+                    placeholder="New Website Project / Consultation"
+                    className="w-full bg-slate-50/70 border border-slate-200/90 rounded-xl px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 focus:bg-white transition-all"
+                  />
+                </div>
+
+                {/* Message */}
+                <div>
+                  <label 
+                    htmlFor="message" 
+                    className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-2"
+                  >
+                    Message <span className="text-blue-600">*</span>
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={5}
+                    required
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="Tell me a bit about your project, timeline, and goals..."
+                    className="w-full bg-slate-50/70 border border-slate-200/90 rounded-xl px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 focus:bg-white transition-all resize-none"
+                  ></textarea>
+                </div>
+
+                {/* Submit Action Button */}
+                <div className="pt-2">
+                  <button
+                    type="submit"
+                    className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 rounded-full text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 active:scale-95 transition-all shadow-xs"
+                  >
+                    Send Message
+                  </button>
+                </div>
+              </form>
+            </div>
+
+          </div>
+
+        </div>
+      </main>
+    </>
+  );
+}
+
+export default ContactPage;
