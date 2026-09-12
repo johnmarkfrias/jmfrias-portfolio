@@ -5,10 +5,10 @@ import SectionBadge from "../common/SectionBadge";
 import Button from "../common/Button";
 
 const PHOTOS = [
-  { src: "../public/assets/gradpic.jpg", alt: "John Mark Frias graduation portrait 1" },
-  { src: "../public/assets/gradpic2.png", alt: "John Mark Frias graduation portrait 2" },
-  { src: "../public/assets/gradpic3.jpg", alt: "John Mark Frias graduation portrait 3" },
-  { src: "../public/assets/gradpic4.jpg", alt: "John Mark Frias graduation portrait 4" },
+  { src: "../../public/assets/gradpic.jpg", alt: "John Mark Frias graduation portrait 1" },
+  { src: "../../public/assets/gradpic2.png", alt: "John Mark Frias graduation portrait 2" },
+  { src: "../../public/assets/gradpic3.jpg", alt: "John Mark Frias graduation portrait 3" },
+  { src: "../../public/assets/gradpic4.jpg", alt: "John Mark Frias graduation portrait 4" },
 ];
 
 function About() {
