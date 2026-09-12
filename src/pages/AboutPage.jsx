@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import SectionBadge from "../components/common/SectionBadge";
 import Button from "../components/common/Button";
-import gradPic from "../assets/gradpic.jpg";
+import gradPic from "/public/assets/gradpic.jpg";
 
 function AboutPage() {
   useEffect(() => {
