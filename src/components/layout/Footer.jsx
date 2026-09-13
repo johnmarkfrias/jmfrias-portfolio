@@ -19,11 +19,11 @@ function Footer() {
     >
       <div className="max-w-[1440px] mx-auto px-[4%] 2xl:px-8">
         
-        {/* Main Footer Row: Pantay ang hatian gamit ang justify-between */}
-        <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-0 lg:gap-8 pb-12 lg:pb-16 border-b border-slate-800/80">
+        {/* Main Footer Row: Inalis ang border-b sa mobile/tablet (border-b-0), ibinalik lang sa desktop (lg:border-b) */}
+        <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-0 lg:gap-8 pb-8 lg:pb-16 border-b-0 lg:border-b border-slate-800/80">
           
           {/* Column 1: Brand Logo & Bio (Left side) */}
-          <div className="flex flex-col items-start text-left pb-8 lg:pb-0 w-full lg:w-fit max-w-sm">
+          <div className="flex flex-col items-start text-left pb-6 lg:pb-0 w-full lg:w-fit max-w-sm">
             <Link 
               to="/" 
               className="inline-block mb-4 select-none" 
@@ -60,8 +60,8 @@ function Footer() {
             </div>
           </div>
 
-          {/* Column 2: Quick Links (Fit-content & Centered via margin-auto) */}
-          <div className="w-full lg:w-fit lg:mx-auto border-b border-slate-800 lg:border-b-0 py-3.5 lg:py-0">
+          {/* Column 2: Quick Links (Inalis din ang border sa mobile) */}
+          <div className="w-full lg:w-fit lg:mx-auto py-2.5 lg:py-0">
             <button
               type="button"
               onClick={() => toggleAccordion("quick-links")}
@@ -106,8 +106,8 @@ function Footer() {
             </div>
           </div>
 
-          {/* Column 3: Contacts (Fit-content parent container) */}
-          <div className="w-full lg:w-fit border-b border-slate-800 lg:border-b-0 py-3.5 lg:py-0">
+          {/* Column 3: Contacts (Inalis din ang border sa mobile) */}
+          <div className="w-full lg:w-fit py-2.5 lg:py-0">
             <button
               type="button"
               onClick={() => toggleAccordion("contacts")}
@@ -162,8 +162,8 @@ function Footer() {
 
         </div>
 
-        {/* Sub-footer (Copyright & Back to top) */}
-        <div className="pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+        {/* Sub-footer: flex-col-reverse sa mobile/tablet (nasa itaas ang Back to Top, nasa ilalim ang Copyright) */}
+        <div className="pt-6 flex flex-col-reverse sm:flex-row justify-between items-center gap-4 text-xs text-slate-500">
           <p className="text-center sm:text-left">
             © {new Date().getFullYear()} John Mark Frias. All rights reserved.
           </p>
