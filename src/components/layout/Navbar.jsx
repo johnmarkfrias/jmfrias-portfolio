@@ -12,7 +12,6 @@ function Navbar() {
 
   const closeMenu = () => setIsOpen(false);
 
-  // Lock background scroll kapag bukas ang menu
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -26,11 +25,10 @@ function Navbar() {
 
   return (
     <header className="w-full bg-white border-b border-slate-200 sticky top-0 z-50">
-      <nav 
-        aria-label="Main Navigation" 
+      <nav
+        aria-label="Main Navigation"
         className="max-w-[1440px] mx-auto flex items-center justify-between px-[4%] 2xl:px-8 py-3.5 sm:py-4"
       >
-        {/* LOGO: Pinaliit sa mobile (h-5.5) */}
         <Link
           to="/"
           onClick={closeMenu}
@@ -46,7 +44,6 @@ function Navbar() {
           />
         </Link>
 
-        {/* DESKTOP NAVIGATION (lg+) */}
         <ul className="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-700">
           {navLinks.map((link) => (
             <li key={link.path}>
@@ -64,7 +61,7 @@ function Navbar() {
           ))}
         </ul>
 
-        {/* DESKTOP CTA BUTTON (lg+) */}
+        {/* DESKTOP CTA — removed the duplicate <Button> */}
         <div className="hidden lg:flex items-center">
           <Link
             to="/contact"
@@ -74,7 +71,6 @@ function Navbar() {
           </Link>
         </div>
 
-        {/* BURGER BUTTON */}
         <button
           type="button"
           onClick={() => setIsOpen(true)}
@@ -86,7 +82,6 @@ function Navbar() {
         </button>
       </nav>
 
-      {/* BACKDROP OVERLAY */}
       <div
         className={`fixed inset-0 bg-black/40 z-50 transition-opacity duration-300 lg:hidden ${
           isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
@@ -95,16 +90,20 @@ function Navbar() {
         aria-hidden="true"
       />
 
-      {/* OFF-CANVAS */}
+      {/* OFF-CANVAS: fixed height + safe-area handling */}
       <aside
         aria-label="Navigation Drawer"
-        className={`fixed top-0 left-0 h-screen h-dvh w-[280px] sm:w-[320px] bg-white z-50 shadow-xl flex flex-col justify-between p-6 transition-transform duration-300 ease-in-out lg:hidden ${
+        className={`fixed top-0 left-0 h-[100dvh] w-[280px] sm:w-[320px] bg-white z-50 shadow-xl flex flex-col justify-between transition-transform duration-300 ease-in-out lg:hidden overflow-y-auto ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
+        style={{
+          paddingTop: "1.5rem",
+          paddingLeft: "1.5rem",
+          paddingRight: "1.5rem",
+          paddingBottom: "max(1.5rem, env(safe-area-inset-bottom))",
+        }}
       >
-        {/* Drawer Upper Content */}
         <div className="w-full flex flex-col">
-          {/* Header na may Logo at Simpleng Close (X) Button */}
           <div className="flex items-center justify-between pb-6">
             <img
               src={logo}
@@ -123,7 +122,6 @@ function Navbar() {
             </button>
           </div>
 
-          {/* Nav Links */}
           <ul className="flex flex-col gap-5 pt-4">
             {navLinks.map((link) => (
               <li key={link.path}>
@@ -145,8 +143,7 @@ function Navbar() {
           </ul>
         </div>
 
-        {/* Drawer Bottom CTA */}
-        <div className="w-full pt-4">
+        <div className="w-full pt-4 shrink-0">
           <Link
             to="/contact"
             onClick={closeMenu}

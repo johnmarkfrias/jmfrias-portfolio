@@ -1,16 +1,13 @@
 // src/components/common/Button.jsx
-// Reusable na Button component. Ginagamit sa Hero, About, at CTA sections
-// sa halip na mag-ulit-ulit ng parehong className sa bawat button.
-//
-// Props:
-//   variant: "primary" | "outline"  (default: "primary")
-//   as: "a" | "button"              (default: "a")
-//   href: link kapag "a"
-//   onClick: function kapag "button"
-//   type: "button" | "submit"       (default: "button", importante sa forms)
+// Reusable Button component. Ginagamit sa Hero, About, at CTA sections.
 
 const baseStyles =
-  "inline-block font-semibold px-6 py-3 rounded-lg transition-colors text-sm";
+  "inline-flex flex-col justify-center items-center font-semibold rounded-lg transition-colors text-sm whitespace-nowrap " +
+  "px-5 py-2.5 " +          // Mobile
+  "sm:px-6 sm:py-3 " +       // Small mobile / small tablet
+  "md:px-7 md:py-3.5 " +     // Tablet
+  "lg:px-8 lg:py-4 " +       // Laptop
+  "xl:px-10 xl:py-5";        // Desktop
 
 const variantStyles = {
   primary: "bg-blue-600 text-white hover:bg-blue-700",

@@ -105,7 +105,7 @@ function About() {
             <div className="w-full sm:w-auto sm:min-w-[160px] text-center [&>a]:w-full [&>a]:justify-center [&>button]:w-full [&>button]:justify-center">
               <Button href="/projects" variant="outline">
                 View Projects
-              </Button>
+              </Button><Button>jOHN</Button>
             </div>
           </div>
         </div>
