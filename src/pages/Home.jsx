@@ -24,15 +24,6 @@ function Home() {
         <link rel="canonical" href="https://jmfrias.dev/" />
       </Helmet>
 
-      <Section className="bg-green-500">
-        <Container className="bg-gray-500">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div className="bg-yellow-500">Column 1 content</div>
-            <div className="bg-red-500">Column 2 content</div>
-          </div>
-        </Container>
-      </Section>
-
       <Hero />
       <About />
       <Skills />
