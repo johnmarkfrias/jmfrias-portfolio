@@ -14,6 +14,9 @@ function Hero() {
   const [currentText, setCurrentText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
 
+  // ---------------------------------------------------------------------------
+  // Typewriter Effect
+  // ---------------------------------------------------------------------------
   useEffect(() => {
     const fullText = ROLES[roleIndex];
     let timeout;
@@ -37,10 +40,13 @@ function Hero() {
     return () => clearTimeout(timeout);
   }, [currentText, isDeleting, roleIndex]);
 
+  // ---------------------------------------------------------------------------
+  // Subcomponent: Social Media Links
+  // ---------------------------------------------------------------------------
   const SocialLinks = ({ className = "" }) => (
     <aside
       aria-label="Social Media Links"
-      className={`flex items-center gap-4 lg:gap-6 ${className}`}
+      className={`flex items-center gap-4 lg:gap-9 ${className}`}
     >
       <a
         href="https://instagram.com"
@@ -73,24 +79,32 @@ function Hero() {
   );
 
   return (
-    <Section id="home" aria-label="Hero Section">
-      <Container className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+    <Section id="home" aria-label="Hero Section" className="py-12 lg:py-20">
+      {/* 
+        Main Container:
+        - Uses a 2-column CSS Grid on desktop (50% / 50% equal columns)
+        - Falls back to a single column on tablet/mobile screens
+      */}
+      <Container className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
         
-        {/* Left Area (Desktop: 7 Cols | Tablet/Mobile: Full Width) */}
-        <div className="order-2 lg:order-1 lg:col-span-7 flex flex-col lg:flex-row items-center lg:items-stretch gap-8 lg:gap-12 w-full">
+        {/* ===================================================================
+            LEFT COLUMN (Equal 50% width on Desktop)
+            Contains: Vertical Social Sidebar + Bio / Introduction Content
+        =================================================================== */}
+        <div className="order-2 lg:order-1 flex flex-col lg:flex-row items-start gap-6 lg:gap-15 w-full">
           
-          {/* Desktop/Laptop Column: 3 Icons (Vertically Centered) */}
-          <div className="hidden lg:flex flex-col justify-center items-center shrink-0">
+          {/* 1. Desktop Social Bar: Left-docked, vertically centered */}
+          <div className="hidden lg:flex flex-col justify-center items-center shrink-0 self-center">
             <SocialLinks className="flex-col" />
           </div>
 
-          {/* Details & Text Content (Always Left-Aligned across all screens) */}
-          <div className="flex flex-col items-start text-left w-full min-w-0">
+          {/* 2. Text Content & Actions */}
+          <div className="flex-1 flex flex-col items-start text-left w-full min-w-0">
             <p className="text-xs sm:text-sm font-semibold tracking-wider text-slate-500 uppercase mb-2">
               Hello, My Name Is
             </p>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[44px] xl:text-[50px] font-extrabold text-slate-900 mb-2 leading-tight tracking-tight whitespace-normal sm:whitespace-nowrap">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[42px] xl:text-[48px] font-extrabold text-slate-900 mb-2 leading-tight tracking-tight">
               JOHN MARK M. FRIAS
             </h1>
 
@@ -107,7 +121,8 @@ function Hero() {
               <span>&gt;</span>
             </p>
 
-            <p className="w-full lg:max-w-[596px] text-slate-600 text-sm sm:text-base leading-relaxed mb-6 sm:mb-8">
+            {/* Bio Paragraph */}
+            <p className="w-full text-slate-600 text-sm sm:text-base leading-relaxed mb-6 sm:mb-8">
               With a passion in building functional, user-friendly, and visually
               appealing Websites and Software. I take the initiative to learn and
               leverage new technologies, including AI to deliver smarter, faster
@@ -115,9 +130,9 @@ function Hero() {
               to put that into practice.
             </p>
 
-            {/* Buttons */}
+            {/* CTA Buttons */}
             <div className="w-full sm:w-auto flex items-center justify-start gap-3">
-              <div className="flex-1 sm:flex-none sm:w-auto sm:min-w-[280px] text-center [&>a]:w-full [&>a]:justify-center [&>button]:w-full [&>button]:justify-center">
+              <div className="flex-1 sm:flex-none sm:w-auto sm:min-w-[240px] text-center [&>a]:w-full [&>a]:justify-center [&>button]:w-full [&>button]:justify-center">
                 <Button href="/cv.pdf" variant="primary">
                   Download CV
                 </Button>
@@ -138,17 +153,19 @@ function Hero() {
               </a>
             </div>
 
-            {/* Mobile / Tablet Social Icons (Centered <=425px, Left-aligned >425px) */}
+            {/* Mobile / Tablet Social Icons (Horizontal row under content) */}
             <div className="flex lg:hidden mt-6 md:mt-8 w-full justify-center min-[426px]:justify-start">
               <SocialLinks className="flex-row" />
             </div>
-
           </div>
         </div>
 
-        {/* Right Area: Hero Image (Desktop: 5 Cols) */}
-        <div className="order-1 lg:order-2 lg:col-span-5 w-full flex items-center justify-center">
-          <div className="w-full max-w-[360px] sm:max-w-[440px] md:max-w-[480px] lg:max-w-[520px] xl:max-w-[560px] h-auto overflow-hidden">
+        {/* ===================================================================
+            RIGHT COLUMN (Equal 50% width on Desktop)
+            Contains: Centered Hero Photo
+        =================================================================== */}
+        <div className="order-1 lg:order-2 w-full flex items-center justify-center">
+          <div className="w-full max-w-[360px] sm:max-w-[420px] lg:max-w-[480px] xl:max-w-[520px] overflow-hidden rounded-2xl">
             <img
               src={heroPhoto}
               alt="John Mark Frias"

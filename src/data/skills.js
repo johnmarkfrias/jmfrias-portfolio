@@ -9,6 +9,13 @@ export const skills = [
       "Full stack development across platforms, from planning the architecture to launching the final feature to production. I write clean, maintainable structured code built to scale as a project grows.",
   },
   {
+    id: "api-integration",
+    icon: "FaNetworkWired",
+    title: "API Integration",
+    description:
+      "Connecting disparate architectures and third-party systems using RESTful and GraphQL endpoints, webhook automations, and secure authentication flows.",
+  },
+  {
     id: "ui-ux-design",
     icon: "FaPencilRuler",
     title: "UI / UX Design",
@@ -18,7 +25,7 @@ export const skills = [
   {
     id: "manual-automated-testing",
     icon: "FaBug",
-    title: "Manual / Automated Testing",
+    title: "QA Testing",
     description:
       "Ensuring code quality through structured manual and automated testing before deployment to catch issues early.",
   },
@@ -32,7 +39,7 @@ export const skills = [
   {
     id: "automation",
     icon: "FaRobot",
-    title: "Automation",
+    title: "n8n Automation",
     description:
       "Building scripts and workflows that eliminate repetitive manual tasks, saving time and reducing human error.",
   },
