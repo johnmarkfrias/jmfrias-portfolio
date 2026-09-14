@@ -37,7 +37,6 @@ function Hero() {
     return () => clearTimeout(timeout);
   }, [currentText, isDeleting, roleIndex]);
 
-  // Social Links Component para iwas duplication
   const SocialLinks = ({ className = "" }) => (
     <aside
       aria-label="Social Media Links"
@@ -80,12 +79,12 @@ function Hero() {
         {/* Left Area (Desktop: 7 Cols | Tablet/Mobile: Full Width) */}
         <div className="order-2 lg:order-1 lg:col-span-7 flex flex-col lg:flex-row items-center lg:items-stretch gap-8 lg:gap-12 w-full">
           
-          {/* Column 1: Social Icons (Desktop & Laptop Lang - Centered Vertically) */}
+          {/* Desktop/Laptop Column: 3 Icons (Vertically Centered) */}
           <div className="hidden lg:flex flex-col justify-center items-center shrink-0">
             <SocialLinks className="flex-col" />
           </div>
 
-          {/* Column 2: Details & Content */}
+          {/* Details & Text Content (Always Left-Aligned across all screens) */}
           <div className="flex flex-col items-start text-left w-full min-w-0">
             <p className="text-xs sm:text-sm font-semibold tracking-wider text-slate-500 uppercase mb-2">
               Hello, My Name Is
@@ -117,7 +116,7 @@ function Hero() {
             </p>
 
             {/* Buttons */}
-            <div className="w-full sm:w-auto flex items-center gap-3">
+            <div className="w-full sm:w-auto flex items-center justify-start gap-3">
               <div className="flex-1 sm:flex-none sm:w-auto sm:min-w-[280px] text-center [&>a]:w-full [&>a]:justify-center [&>button]:w-full [&>button]:justify-center">
                 <Button href="/cv.pdf" variant="primary">
                   Download CV
@@ -139,8 +138,8 @@ function Hero() {
               </a>
             </div>
 
-            {/* Social Icons para sa Mobile at Tablet (Nasa ibaba ng buttons: 24px mt sa mobile, 32px mt sa tablet) */}
-            <div className="flex lg:hidden mt-6 md:mt-8 w-full justify-start">
+            {/* Mobile / Tablet Social Icons (Centered <=425px, Left-aligned >425px) */}
+            <div className="flex lg:hidden mt-6 md:mt-8 w-full justify-center min-[426px]:justify-start">
               <SocialLinks className="flex-row" />
             </div>
 
