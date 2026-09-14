@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import {
   FaLaptopCode,
   FaPencilRuler,
@@ -19,6 +20,21 @@ const iconMap = {
   FaBug,
   FaPaintBrush,
   FaRobot,
+};
+
+// I-map ang bawat skill title/id sa target category filter
+const getCategoryRoute = (skill) => {
+  const title = (skill.title || "").toLowerCase();
+  if (title.includes("full stack") || title.includes("web")) {
+    return "/projects?category=website-development";
+  }
+  if (title.includes("ui") || title.includes("ux")) {
+    return "/projects?category=ui-ux-design";
+  }
+  if (title.includes("graphic")) {
+    return "/projects?category=graphic-design";
+  }
+  return null;
 };
 
 function SkillsPage() {
@@ -47,18 +63,14 @@ function SkillsPage() {
       <main className="w-full bg-white text-slate-900 pt-[100px] md:pt-[120px] pb-[80px] lg:pb-[120px] overflow-x-hidden">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 2xl:px-8 text-left">
           
-          {/* 2-Column Split Header: Badge & Heading sa kaliwa, Description sa kanan */}
+          {/* Header */}
           <header className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-end mb-12 sm:mb-16 lg:mb-20 pb-8 border-b border-slate-100">
-            
-            {/* Left Column: Badge & Main Heading */}
             <div className="lg:col-span-7">
               <SectionBadge>SKILLS & STACK</SectionBadge>
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-extrabold text-slate-900 mt-4 tracking-tight leading-[1.12]">
                 Areas Of Expertise
               </h1>
             </div>
-
-            {/* Right Column: Subtitle Description */}
             <div className="lg:col-span-5 lg:pb-1">
               <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-xl">
                 Delivering complete digital solutions across every phase — from initial concept and prototype to deployment, testing, and automation.
@@ -66,7 +78,7 @@ function SkillsPage() {
             </div>
           </header>
 
-          {/* Section 1: 5-Card Grid (3 sa itaas, 2 centered sa ibaba) */}
+          {/* Section 1: 5-Card Grid */}
           <section aria-label="Areas of Expertise" className="mb-20 sm:mb-28">
             <div 
               role="list"
@@ -80,24 +92,38 @@ function SkillsPage() {
                   columnSpanClasses = "lg:col-start-2 lg:col-span-2";
                 }
 
+                const targetRoute = getCategoryRoute(skill);
+                const CardContent = (
+                  <SkillCard
+                    icon={IconComponent}
+                    title={skill.title}
+                    description={skill.description}
+                  />
+                );
+
                 return (
                   <div 
-                    key={skill.id} 
+                    key={skill.id || index} 
                     role="listitem" 
                     className={`h-full ${columnSpanClasses}`}
                   >
-                    <SkillCard
-                      icon={IconComponent}
-                      title={skill.title}
-                      description={skill.description}
-                    />
+                    {targetRoute ? (
+                      <Link
+                        to={targetRoute}
+                        className="block h-full transition-all duration-200 hover:-translate-y-1 focus:outline-none"
+                      >
+                        {CardContent}
+                      </Link>
+                    ) : (
+                      CardContent
+                    )}
                   </div>
                 );
               })}
             </div>
           </section>
 
-          {/* Section 2: Tools & Technologies (Frame 297 Design: Blue Pills with White Vector Icons) */}
+          {/* Section 2: Tools & Technologies */}
           <section aria-label="Tools and Technologies" className="border-t border-slate-100 pt-16 text-left">
             <div className="max-w-2xl mb-10">
               <SectionBadge>STACK & TOOLS</SectionBadge>
@@ -122,7 +148,6 @@ function SkillsPage() {
                         key={idx}
                         className="flex items-center gap-3.5 bg-blue-600 hover:bg-blue-700 text-white px-4 py-3.5 rounded-2xl shadow-xs transition-colors duration-200 select-none"
                       >
-                        {/* Transparent Icon Container */}
                         <div className="w-10 h-10 rounded-xl bg-transparent flex items-center justify-center shrink-0 text-white">
                           <svg
                             viewBox="0 0 24 24"
@@ -136,8 +161,6 @@ function SkillsPage() {
                             <path d={tech.svgPath} />
                           </svg>
                         </div>
-
-                        {/* White Technology Name */}
                         <span className="font-semibold text-sm tracking-tight truncate text-white">
                           {tech.name}
                         </span>

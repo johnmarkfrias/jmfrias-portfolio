@@ -1,19 +1,60 @@
 // src/pages/ProjectsPage.jsx
 
-import { useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { projects, projectCategories } from "../data/projects";
 import ProjectCard from "../components/common/ProjectCard";
 import SectionBadge from "../components/common/SectionBadge";
 
+// Helper para iparehas ang text kahit may gitling, spaces, o slashes
+const cleanString = (str = "") => str.toLowerCase().replace(/[^a-z0-9]/g, "");
+
 function ProjectsPage() {
-  const [activeCategory, setActiveCategory] = useState("all");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const categoryParam = searchParams.get("category");
+
+  // Hanapin ang tamang category ID base sa param sa URL
+  const initialCategory = useMemo(() => {
+    if (!categoryParam) return "all";
+
+    const cleanParam = cleanString(categoryParam);
+    const matched = projectCategories.find(
+      (c) =>
+        cleanString(c.id) === cleanParam ||
+        cleanString(c.label) === cleanParam ||
+        cleanParam.includes(cleanString(c.id)) ||
+        cleanString(c.id).includes(cleanParam)
+    );
+
+    return matched ? matched.id : "all";
+  }, [categoryParam]);
+
+  const [activeCategory, setActiveCategory] = useState(initialCategory);
+
+  // Panatilihing synced kapag nagbago ang URL param
+  useEffect(() => {
+    setActiveCategory(initialCategory);
+  }, [initialCategory]);
+
+  const handleCategoryChange = (id) => {
+    setActiveCategory(id);
+    if (id === "all") {
+      searchParams.delete("category");
+      setSearchParams(searchParams);
+    } else {
+      setSearchParams({ category: id });
+    }
+  };
 
   const filteredProjects =
     activeCategory === "all"
       ? projects
-      : projects.filter((project) => project.category === activeCategory);
+      : projects.filter(
+          (project) =>
+            project.category === activeCategory ||
+            cleanString(project.category) === cleanString(activeCategory)
+        );
 
   return (
     <>
@@ -29,7 +70,7 @@ function ProjectsPage() {
       <main className="w-full bg-white text-slate-900 pt-[100px] md:pt-[120px] pb-[80px] lg:pb-[120px] overflow-x-hidden">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 2xl:px-8 text-left">
           
-          {/* 2-Column Split Header */}
+          {/* Header */}
           <header className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-end mb-10 sm:mb-12 pb-8 border-b border-slate-100">
             <div className="lg:col-span-7">
               <SectionBadge>PORTFOLIO</SectionBadge>
@@ -45,7 +86,7 @@ function ProjectsPage() {
             </div>
           </header>
 
-          {/* Filter Selection Tabs (Pwesto ng red boxes) */}
+          {/* Filter Selection Tabs */}
           <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 mb-10 sm:mb-14">
             {projectCategories.map((category) => {
               const isActive = activeCategory === category.id;
@@ -53,7 +94,7 @@ function ProjectsPage() {
                 <button
                   key={category.id}
                   type="button"
-                  onClick={() => setActiveCategory(category.id)}
+                  onClick={() => handleCategoryChange(category.id)}
                   className={`text-xs sm:text-sm font-semibold px-5 py-2.5 rounded-full transition-all duration-200 select-none border active:scale-95 ${
                     isActive
                       ? "bg-blue-600 border-blue-600 text-white shadow-sm"

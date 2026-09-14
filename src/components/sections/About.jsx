@@ -1,6 +1,8 @@
 // src/components/sections/About.jsx
 
 import { useState, useEffect } from "react";
+import Section from "../layout/Section";
+import Container from "../layout/Container";
 import SectionBadge from "../common/SectionBadge";
 import Button from "../common/Button";
 
@@ -39,12 +41,8 @@ function About() {
   };
 
   return (
-    <section 
-      id="about" 
-      aria-label="About Section"
-      className="bg-blue-50 py-[60px] md:py-[80px] lg:py-[100px] xl:py-[120px]"
-    >
-      <div className="max-w-[1440px] mx-auto px-[4%] 2xl:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 lg:gap-16 items-center">
+    <Section id="about" aria-label="About Section" className="bg-blue-50">
+      <Container className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 lg:gap-16 items-center">
 
         {/* Column 1: Image Deck Wrapper */}
         <div className="w-full min-w-0 flex items-center justify-center px-2 sm:px-4 lg:px-6">
@@ -82,18 +80,11 @@ function About() {
           </h2>
 
           <p className="w-full lg:max-w-xl text-slate-600 text-sm sm:text-base leading-relaxed mb-4">
-            I'm a full stack developer based in Lucena City, Quezon, with a
-            focus on WordPress builds — from custom themes and plugin work to
-            full site architecture and performance tuning.
+            I am John Mark Mendoza Frias, an aspiring full-stack developer born in Lucena City, Quezon Province. My journey in technology began during senior high school under the ICT strand, where I learned how to build my first website. That experience sparked my interest in the field, leading me to move to Imus, Cavite, to pursue my college degree.
           </p>
 
           <p className="w-full lg:max-w-xl text-slate-600 text-sm sm:text-base leading-relaxed mb-6 sm:mb-8">
-            I graduated Cum Laude with a BS in Information Technology from
-            Cavite State University, Imus Campus, and moved from an internship
-            building WordPress sites straight into professional development
-            work. I like projects where the brief is specific and the details
-            matter: a portfolio page's grid, a checkout flow's edge cases, a
-            plugin's one weird bug.
+            I graduated Cum Laude with a Bachelor of Science in Information Technology from Cavite State University – Imus Campus. I chose this path to keep up with new technologies and create practical solutions for everyday use. As I grow in my career, my goal is to keep learning and build clean, reliable websites and applications.
           </p>
 
           <div className="w-full sm:w-auto flex flex-col sm:flex-row items-center gap-3">
@@ -105,13 +96,13 @@ function About() {
             <div className="w-full sm:w-auto sm:min-w-[160px] text-center [&>a]:w-full [&>a]:justify-center [&>button]:w-full [&>button]:justify-center">
               <Button href="/projects" variant="outline">
                 View Projects
-              </Button><Button>jOHN</Button>
+              </Button>
             </div>
           </div>
         </div>
 
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 }
 
