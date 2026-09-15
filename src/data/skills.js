@@ -6,7 +6,7 @@ export const skills = [
     icon: "FaLaptopCode",
     title: "Full Stack Development",
     description:
-      "Full stack development across platforms, from planning the architecture to launching the final feature to production. I write clean, maintainable structured code built to scale as a project grows.",
+      "Full stack development across platforms, from planning the architecture to launching the final feature to production.",
   },
   {
     id: "api-integration",

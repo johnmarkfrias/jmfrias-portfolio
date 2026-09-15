@@ -80,11 +80,11 @@ function About() {
           </h2>
 
           <p className="w-full lg:max-w-xl text-slate-600 text-sm sm:text-base leading-relaxed mb-4">
-            I am John Mark Mendoza Frias, an aspiring full-stack developer born in Lucena City, Quezon Province. My journey in technology began during senior high school under the ICT strand, where I learned how to build my first website. That experience sparked my interest in the field, leading me to move to Imus, Cavite, to pursue my college degree.
+            I am a Full-Stack Web Developer based in Lucena City, Quezon Province, specializing in building scalable, responsive, and high-performance digital solutions. My foundation began in technical secondary education under the ICT strand at ARK Technological Institute, where I launched my first web project and committed to a career in software development.
           </p>
 
           <p className="w-full lg:max-w-xl text-slate-600 text-sm sm:text-base leading-relaxed mb-6 sm:mb-8">
-            I graduated Cum Laude with a Bachelor of Science in Information Technology from Cavite State University – Imus Campus. I chose this path to keep up with new technologies and create practical solutions for everyday use. As I grow in my career, my goal is to keep learning and build clean, reliable websites and applications.
+            I graduated <span className="font-medium text-slate-900">Cum Laude</span> with a Bachelor of Science in Information Technology from Cavite State University – Imus Campus. Blending structured software engineering with clean interface design, I focus on building reliable, fast-loading, and user-centric web applications tailored to solve modern operational problems.
           </p>
 
           <div className="w-full sm:w-auto flex flex-col sm:flex-row items-center gap-3">
