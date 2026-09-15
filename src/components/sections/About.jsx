@@ -80,7 +80,7 @@ function About() {
           </h2>
 
           <p className="w-full lg:max-w-xl text-slate-600 text-sm sm:text-base leading-relaxed mb-4">
-            I am a Full-Stack Web Developer based in Lucena City, Quezon Province, specializing in building scalable, responsive, and high-performance digital solutions. My foundation began in technical secondary education under the ICT strand at ARK Technological Institute, where I launched my first web project and committed to a career in software development.
+            I am a Full-Stack Web Developer based in Lucena City, Quezon Province, specializing in building scalable, responsive, and high-performance digital solutions. My foundation began in technical secondary education under the ICT strand at ARK Technological Institute, where I launched my first web project and committed to a career in web and software development.
           </p>
 
           <p className="w-full lg:max-w-xl text-slate-600 text-sm sm:text-base leading-relaxed mb-6 sm:mb-8">
