@@ -218,12 +218,12 @@ function Hero() {
         </div>
 
         {/* ===================================================================
-            RIGHT COLUMN: Pop-Out Circle Canvas (Clean Flat Blue Circle)
+            RIGHT COLUMN: Pop-Out Circle Canvas (Scaled for Mobile Viewports)
         =================================================================== */}
         <div className="order-1 lg:order-2 lg:col-span-6 w-full flex items-center justify-center pt-6 sm:pt-8 lg:pt-0">
           <div className="relative w-[260px] sm:w-[380px] md:w-[420px] lg:w-[480px] aspect-square flex items-center justify-center">
 
-            {/* 1. Base Circle: Bottom Torso is clipped inside (Shadow Removed) */}
+            {/* 1. Base Circle: Bottom Torso is clipped inside */}
             <div className="anim-circle relative w-full h-full rounded-full bg-gradient-to-tr from-[#1652e8] via-[#2166fa] to-[#3b87ff] overflow-hidden flex items-end justify-center z-10">
               <img
                 src={heroPhoto}
@@ -284,34 +284,34 @@ function Hero() {
             </div>
 
             {/* ===============================================================
-                GROUP B: OUTSIDE CIRCLE (Balanced & Well-Spaced Left Arc)
+                GROUP B: OUTSIDE CIRCLE (Orbiting with Clean Spacing)
             =============================================================== */}
 
-            {/* React.js: Top-left outskirts */}
-            <div style={{ animationDelay: "1.35s" }} className="anim-logo absolute -top-5 sm:-top-8 left-[14%] sm:left-[16%] z-30 pointer-events-none">
-              <div className="swing-b drop-shadow-[0_6px_16px_rgba(0,216,255,0.45)]">
-                <FaReact className="text-[#00D8FF] text-3xl sm:text-5xl lg:text-6xl" />
-              </div>
-            </div>
-
-            {/* CSS3: Perfectly spaced between top React and mid Tailwind */}
-            <div style={{ animationDelay: "1.45s" }} className="anim-logo absolute top-[15%] -left-8 sm:-left-12 z-30 pointer-events-none">
+            {/* CSS3: In the exact red-square position (upper-left flank, above HTML5) */}
+            <div style={{ animationDelay: "1.35s" }} className="anim-logo absolute top-[6%] -left-3 sm:-left-5 lg:-left-6 z-30 pointer-events-none">
               <div className="swing-b drop-shadow-[0_4px_12px_rgba(21,114,182,0.4)]">
                 <FaCss3Alt className="text-[#1572B6] text-2xl sm:text-4xl lg:text-5xl" />
               </div>
             </div>
 
-            {/* Tailwind CSS: Mid-left flank with breathing room */}
-            <div style={{ animationDelay: "1.55s" }} className="anim-logo absolute top-[36%] -left-8 sm:-left-12 z-30 pointer-events-none">
-              <div className="swing-a drop-shadow-[0_4px_12px_rgba(6,182,212,0.4)]">
-                <SiTailwindcss className="text-[#06B6D4] text-2xl sm:text-4xl lg:text-5xl" />
+            {/* React.js: Top-left outskirts */}
+            <div style={{ animationDelay: "1.45s" }} className="anim-logo absolute -top-5 sm:-top-8 left-[14%] sm:left-[16%] z-30 pointer-events-none">
+              <div className="swing-b drop-shadow-[0_6px_16px_rgba(0,216,255,0.45)]">
+                <FaReact className="text-[#00D8FF] text-3xl sm:text-5xl lg:text-6xl" />
               </div>
             </div>
 
             {/* Node.js: Top-right outskirts */}
-            <div style={{ animationDelay: "1.65s" }} className="anim-logo absolute -top-4 sm:-top-6 right-[14%] sm:right-[16%] z-30 pointer-events-none">
+            <div style={{ animationDelay: "1.55s" }} className="anim-logo absolute -top-4 sm:-top-6 right-[14%] sm:right-[16%] z-30 pointer-events-none">
               <div className="swing-a drop-shadow-[0_6px_14px_rgba(51,153,51,0.4)]">
                 <FaNodeJs className="text-[#339933] text-3xl sm:text-5xl lg:text-6xl" />
+              </div>
+            </div>
+
+            {/* Tailwind CSS: Mid-left flank */}
+            <div style={{ animationDelay: "1.65s" }} className="anim-logo absolute top-[36%] -left-6 sm:-left-12 z-30 pointer-events-none">
+              <div className="swing-a drop-shadow-[0_4px_12px_rgba(6,182,212,0.4)]">
+                <SiTailwindcss className="text-[#06B6D4] text-2xl sm:text-4xl lg:text-5xl" />
               </div>
             </div>
 
