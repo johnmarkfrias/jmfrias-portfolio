@@ -9,9 +9,11 @@ import {
   FaNodeJs, 
   FaHtml5, 
   FaPhp,
-  FaGitAlt
+  FaGitAlt,
+  FaCss3Alt
 } from "react-icons/fa";
-import { SiTailwindcss, SiJavascript, SiFigma } from "react-icons/si";
+import { SiTailwindcss, SiJavascript, SiFigma, SiN8N } from "react-icons/si";
+import { VscVscode } from "react-icons/vsc";
 import Section from "../layout/Section";
 import Container from "../layout/Container";
 import Button from "../common/Button";
@@ -216,13 +218,13 @@ function Hero() {
         </div>
 
         {/* ===================================================================
-            RIGHT COLUMN: Pop-Out Circle Canvas (Scaled for Mobile Viewports)
+            RIGHT COLUMN: Pop-Out Circle Canvas (Clean Flat Blue Circle)
         =================================================================== */}
         <div className="order-1 lg:order-2 lg:col-span-6 w-full flex items-center justify-center pt-6 sm:pt-8 lg:pt-0">
-          <div className="relative w-[260px] xs:w-[290px] sm:w-[380px] md:w-[420px] lg:w-[480px] aspect-square flex items-center justify-center">
+          <div className="relative w-[260px] sm:w-[380px] md:w-[420px] lg:w-[480px] aspect-square flex items-center justify-center">
 
-            {/* 1. Base Circle: Bottom Torso is clipped inside */}
-            <div className="anim-circle relative w-full h-full rounded-full bg-gradient-to-tr from-[#1652e8] via-[#2166fa] to-[#3b87ff] shadow-xl sm:shadow-2xl shadow-blue-600/35 overflow-hidden flex items-end justify-center z-10">
+            {/* 1. Base Circle: Bottom Torso is clipped inside (Shadow Removed) */}
+            <div className="anim-circle relative w-full h-full rounded-full bg-gradient-to-tr from-[#1652e8] via-[#2166fa] to-[#3b87ff] overflow-hidden flex items-end justify-center z-10">
               <img
                 src={heroPhoto}
                 alt="John Mark Frias"
@@ -246,63 +248,84 @@ function Hero() {
                 GROUP A: INSIDE CIRCLE (High Contrast, Scaled Down on Mobile)
             =============================================================== */}
 
-            {/* JavaScript: Pure Yellow glyph (no black border) */}
+            {/* JavaScript: Pure Yellow glyph */}
             <div style={{ animationDelay: "0.95s" }} className="anim-logo absolute top-[19%] right-[11%] z-30 pointer-events-none">
               <div className="swing-a drop-shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
-                <SiJavascript className="text-[#F7DF1E] text-2xl xs:text-3xl sm:text-4xl lg:text-[44px]" />
+                <SiJavascript className="text-[#F7DF1E] text-2xl sm:text-4xl lg:text-[44px]" />
               </div>
             </div>
 
             {/* HTML5: High-contrast red-orange */}
             <div style={{ animationDelay: "1.05s" }} className="anim-logo absolute top-[23%] left-[10%] z-30 pointer-events-none">
               <div className="swing-b drop-shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
-                <FaHtml5 className="text-[#E34F26] text-2xl xs:text-3xl sm:text-4xl lg:text-[46px]" />
+                <FaHtml5 className="text-[#E34F26] text-2xl sm:text-4xl lg:text-[46px]" />
               </div>
             </div>
 
             {/* Git: Lower-left inside */}
             <div style={{ animationDelay: "1.15s" }} className="anim-logo absolute top-[52%] left-[6%] z-30 pointer-events-none">
               <div className="swing-a drop-shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
-                <FaGitAlt className="text-[#F05032] text-xl xs:text-2xl sm:text-3xl lg:text-4xl" />
+                <FaGitAlt className="text-[#F05032] text-xl sm:text-3xl lg:text-4xl" />
               </div>
             </div>
 
             {/* Figma: Lower-right inside */}
             <div style={{ animationDelay: "1.25s" }} className="anim-logo absolute top-[50%] right-[6%] z-30 pointer-events-none">
               <div className="swing-b drop-shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
-                <SiFigma className="text-[#F24E1E] text-xl xs:text-2xl sm:text-3xl lg:text-4xl" />
+                <SiFigma className="text-[#F24E1E] text-xl sm:text-3xl lg:text-4xl" />
+              </div>
+            </div>
+
+            {/* n8n Automation: Mid-left inside curve */}
+            <div style={{ animationDelay: "1.30s" }} className="anim-logo absolute top-[38%] left-[7%] z-30 pointer-events-none">
+              <div className="swing-a drop-shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
+                <SiN8N className="text-[#FF6D5A] text-xl sm:text-3xl lg:text-4xl" />
               </div>
             </div>
 
             {/* ===============================================================
-                GROUP B: OUTSIDE CIRCLE (Orbiting with Tighter Mobile Clearance)
+                GROUP B: OUTSIDE CIRCLE (Balanced & Well-Spaced Left Arc)
             =============================================================== */}
 
             {/* React.js: Top-left outskirts */}
             <div style={{ animationDelay: "1.35s" }} className="anim-logo absolute -top-5 sm:-top-8 left-[14%] sm:left-[16%] z-30 pointer-events-none">
               <div className="swing-b drop-shadow-[0_6px_16px_rgba(0,216,255,0.45)]">
-                <FaReact className="text-[#00D8FF] text-3xl xs:text-4xl sm:text-5xl lg:text-6xl" />
+                <FaReact className="text-[#00D8FF] text-3xl sm:text-5xl lg:text-6xl" />
+              </div>
+            </div>
+
+            {/* CSS3: Perfectly spaced between top React and mid Tailwind */}
+            <div style={{ animationDelay: "1.45s" }} className="anim-logo absolute top-[15%] -left-8 sm:-left-12 z-30 pointer-events-none">
+              <div className="swing-b drop-shadow-[0_4px_12px_rgba(21,114,182,0.4)]">
+                <FaCss3Alt className="text-[#1572B6] text-2xl sm:text-4xl lg:text-5xl" />
+              </div>
+            </div>
+
+            {/* Tailwind CSS: Mid-left flank with breathing room */}
+            <div style={{ animationDelay: "1.55s" }} className="anim-logo absolute top-[36%] -left-8 sm:-left-12 z-30 pointer-events-none">
+              <div className="swing-a drop-shadow-[0_4px_12px_rgba(6,182,212,0.4)]">
+                <SiTailwindcss className="text-[#06B6D4] text-2xl sm:text-4xl lg:text-5xl" />
               </div>
             </div>
 
             {/* Node.js: Top-right outskirts */}
-            <div style={{ animationDelay: "1.45s" }} className="anim-logo absolute -top-4 sm:-top-6 right-[14%] sm:right-[16%] z-30 pointer-events-none">
+            <div style={{ animationDelay: "1.65s" }} className="anim-logo absolute -top-4 sm:-top-6 right-[14%] sm:right-[16%] z-30 pointer-events-none">
               <div className="swing-a drop-shadow-[0_6px_14px_rgba(51,153,51,0.4)]">
-                <FaNodeJs className="text-[#339933] text-3xl xs:text-4xl sm:text-5xl lg:text-6xl" />
+                <FaNodeJs className="text-[#339933] text-3xl sm:text-5xl lg:text-6xl" />
               </div>
             </div>
 
-            {/* Tailwind CSS: Mid-left flank */}
-            <div style={{ animationDelay: "1.55s" }} className="anim-logo absolute top-[28%] -left-6 xs:-left-8 sm:-left-12 z-30 pointer-events-none">
-              <div className="swing-a drop-shadow-[0_4px_12px_rgba(6,182,212,0.4)]">
-                <SiTailwindcss className="text-[#06B6D4] text-2xl xs:text-3xl sm:text-4xl lg:text-5xl" />
+            {/* VS Code: Upper-right flank */}
+            <div style={{ animationDelay: "1.75s" }} className="anim-logo absolute top-[14%] -right-6 sm:-right-10 z-30 pointer-events-none">
+              <div className="swing-a drop-shadow-[0_4px_12px_rgba(0,122,204,0.4)]">
+                <VscVscode className="text-[#007ACC] text-2xl sm:text-4xl lg:text-5xl" />
               </div>
             </div>
 
             {/* PHP: Mid-right flank */}
-            <div style={{ animationDelay: "1.65s" }} className="anim-logo absolute top-[28%] -right-6 xs:-right-8 sm:-right-12 z-30 pointer-events-none">
+            <div style={{ animationDelay: "1.85s" }} className="anim-logo absolute top-[34%] -right-6 sm:-right-12 z-30 pointer-events-none">
               <div className="swing-b drop-shadow-[0_4px_12px_rgba(119,123,180,0.4)]">
-                <FaPhp className="text-[#777BB4] text-2xl xs:text-3xl sm:text-4xl lg:text-5xl" />
+                <FaPhp className="text-[#777BB4] text-2xl sm:text-4xl lg:text-5xl" />
               </div>
             </div>
 
