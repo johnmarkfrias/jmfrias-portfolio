@@ -38,7 +38,6 @@ function Skills() {
         
         {/* Two-Column Header Block */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 lg:gap-16 mb-10 md:mb-16">
-          {/* Left: Badge & Heading */}
           <div className="text-left shrink-0">
             <SectionBadge>SKILLS & STACK</SectionBadge>
             <h2
@@ -49,10 +48,9 @@ function Skills() {
             </h2>
           </div>
 
-          {/* Right: Inline Description with Link */}
           <div className="max-w-xl text-left">
             <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-              Delivering complete digital solutions across every phase — from initial concept and prototype to deployment, testing, and automation.{" "}
+              Delivering complete digital solutions across every phase — from initial concept and prototype to deployment, testing, and automation.
             </p>
           </div>
         </div>
@@ -60,7 +58,7 @@ function Skills() {
         {/* Responsive Reordered Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-16 items-center">
           
-          {/* Cards Grid: Appears FIRST on mobile/tablet (order-1), RIGHT on desktop (lg:order-2) */}
+          {/* 1. Cards Grid: Top on mobile/tablet (order-1), Right on desktop (lg:order-2) */}
           <div className="order-1 lg:order-2 lg:col-span-6">
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3.5 sm:gap-4">
               {skills.map((skill) => {
@@ -79,7 +77,6 @@ function Skills() {
                         : "bg-slate-50/60 border-slate-200 text-slate-700 hover:bg-blue-600 hover:border-blue-600 hover:text-white hover:shadow-lg hover:shadow-blue-600/20"
                     }`}
                   >
-                    {/* Icon Container */}
                     <div
                       className={`w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center transition-colors mb-3 ${
                         isSelected
@@ -90,7 +87,6 @@ function Skills() {
                       <IconComponent className="w-5 h-5 transition-transform duration-200 group-hover:scale-110" />
                     </div>
 
-                    {/* Skill Title */}
                     <span
                       className={`text-xs sm:text-sm font-semibold transition-colors leading-tight ${
                         isSelected
@@ -106,8 +102,8 @@ function Skills() {
             </div>
           </div>
 
-          {/* Description Panel: Appears SECOND on mobile/tablet (order-2), LEFT on desktop (lg:order-1) */}
-          <div className="order-2 lg:order-1 lg:col-span-6 flex flex-col justify-center text-left border-l-4 border-blue-600 pl-5 sm:pl-8 py-2">
+          {/* 2. Description Panel: Bottom on mobile/tablet (order-2), Left on desktop (lg:order-1) */}
+          <div className="order-2 lg:order-1 lg:col-span-6 flex flex-col justify-center text-left border-0 md:border-l-4 md:border-blue-600 pl-0 md:pl-8 py-0 md:py-2">
             <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 tracking-tight transition-all duration-200">
               {activeSkill?.title}
             </h3>
@@ -130,11 +126,11 @@ function Skills() {
               </div>
             )}
 
-            {/* CTA Buttons */}
-            <div className="flex flex-wrap items-center gap-3 sm:gap-3.5 mt-6 sm:mt-8">
+            {/* CTA Button */}
+            <div className="w-full md:w-auto mt-6 sm:mt-8">
               <Link
                 to="/projects"
-                className="inline-flex items-center justify-center px-5 py-2.5 sm:px-6 sm:py-3 rounded-lg text-sm sm:text-base font-semibold text-white bg-blue-600 hover:bg-blue-700 active:scale-95 transition-all shadow-sm"
+                className="w-full md:w-auto flex md:inline-flex items-center justify-center px-5 py-3 rounded-lg text-sm sm:text-base font-semibold text-white bg-blue-600 hover:bg-blue-700 active:scale-95 transition-all shadow-sm text-center"
               >
                 View Related Projects
               </Link>

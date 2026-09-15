@@ -13,13 +13,13 @@ function ProjectCard({ title, description, tags, image, liveUrl }) {
           loading="lazy"
         />
 
-        {/* Subtle Dark Gradient Fade sa Ilalim */}
+        {/* Subtle Dark Gradient Fade */}
         <div 
           className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" 
           aria-hidden="true" 
         />
 
-        {/* Action Button sa Bottom-Right na may Clean Up-Right Arrow (↗) */}
+        {/* Action Button: Bottom-Right */}
         {liveUrl && (
           <div className="absolute bottom-3.5 right-3.5 z-10 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-out">
             <a
@@ -30,8 +30,6 @@ function ProjectCard({ title, description, tags, image, liveUrl }) {
               aria-label={`View live site for ${title}`}
             >
               <span>View Site</span>
-              
-              {/* Clean North-East Arrow */}
               <svg
                 className="w-3.5 h-3.5 transition-transform duration-200 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5"
                 viewBox="0 0 24 24"
@@ -52,18 +50,6 @@ function ProjectCard({ title, description, tags, image, liveUrl }) {
 
       {/* Content Details */}
       <div className="p-5 sm:p-6 flex flex-col flex-1">
-        {/* Category / Stack Badges */}
-        <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-3">
-          {tags?.map((tag, idx) => (
-            <span
-              key={idx}
-              className="text-[11px] sm:text-xs font-medium text-blue-600 bg-blue-50/90 px-2.5 py-0.5 sm:py-1 rounded-md tracking-tight"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-
         {/* Title */}
         <h3 className="text-base sm:text-lg lg:text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors duration-200 mb-2 leading-snug">
           {title}
@@ -73,6 +59,18 @@ function ProjectCard({ title, description, tags, image, liveUrl }) {
         <p className="text-xs sm:text-sm text-slate-600 leading-relaxed m-0 line-clamp-3">
           {description}
         </p>
+
+        {/* Category / Stack Badges (Positioned Below Description) */}
+        <div className="flex flex-wrap gap-1.5 sm:gap-2 mt-4 pt-1">
+          {tags?.map((tag, idx) => (
+            <span
+              key={idx}
+              className="text-[11px] sm:text-xs font-medium text-blue-600 bg-blue-50/90 px-2.5 py-0.5 sm:py-1 rounded-md tracking-tight"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
       </div>
     </div>
   );
