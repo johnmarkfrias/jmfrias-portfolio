@@ -81,9 +81,8 @@ function Hero() {
   );
 
   return (
-    <Section id="home" aria-label="Hero Section" className="py-12 lg:py-16 overflow-hidden">
+    <Section id="home" aria-label="Hero Section" className="pt-20 sm:pt-24 lg:pt-16 pb-12 lg:pb-16 overflow-hidden">
       <style>{`
-        /* Circle Expansion */
         @keyframes circleEntrance {
           0% {
             opacity: 0;
@@ -99,7 +98,6 @@ function Hero() {
           }
         }
 
-        /* Portrait Rise */
         @keyframes portraitPopUp {
           0% {
             opacity: 0;
@@ -115,7 +113,6 @@ function Hero() {
           }
         }
 
-        /* Brand Icon Spring Pop */
         @keyframes logoPopIn {
           0% {
             opacity: 0;
@@ -134,15 +131,14 @@ function Hero() {
           }
         }
 
-        /* Continuous Drift Animations */
         @keyframes gentleSwingA {
           0%, 100% { transform: translateY(0px) rotate(0deg); }
-          50% { transform: translateY(-8px) rotate(4deg); }
+          50% { transform: translateY(-7px) rotate(4deg); }
         }
 
         @keyframes gentleSwingB {
           0%, 100% { transform: translateY(0px) rotate(0deg); }
-          50% { transform: translateY(8px) rotate(-4deg); }
+          50% { transform: translateY(7px) rotate(-4deg); }
         }
 
         .anim-circle {
@@ -220,13 +216,13 @@ function Hero() {
         </div>
 
         {/* ===================================================================
-            RIGHT COLUMN: Pop-Out Circle Canvas
+            RIGHT COLUMN: Pop-Out Circle Canvas (Scaled for Mobile Viewports)
         =================================================================== */}
-        <div className="order-1 lg:order-2 lg:col-span-6 w-full flex items-center justify-center">
-          <div className="relative w-[340px] sm:w-[420px] md:w-[460px] lg:w-[500px] aspect-square flex items-center justify-center">
+        <div className="order-1 lg:order-2 lg:col-span-6 w-full flex items-center justify-center pt-6 sm:pt-8 lg:pt-0">
+          <div className="relative w-[260px] xs:w-[290px] sm:w-[380px] md:w-[420px] lg:w-[480px] aspect-square flex items-center justify-center">
 
-            {/* 1. Base Circle: Clips lower suit cleanly */}
-            <div className="anim-circle relative w-full h-full rounded-full bg-gradient-to-tr from-[#1652e8] via-[#2166fa] to-[#3b87ff] shadow-2xl shadow-blue-600/35 overflow-hidden flex items-end justify-center z-10">
+            {/* 1. Base Circle: Bottom Torso is clipped inside */}
+            <div className="anim-circle relative w-full h-full rounded-full bg-gradient-to-tr from-[#1652e8] via-[#2166fa] to-[#3b87ff] shadow-xl sm:shadow-2xl shadow-blue-600/35 overflow-hidden flex items-end justify-center z-10">
               <img
                 src={heroPhoto}
                 alt="John Mark Frias"
@@ -234,7 +230,7 @@ function Hero() {
               />
             </div>
 
-            {/* 2. Pop-out Top Layer: Only the head & shoulders break free above the circle */}
+            {/* 2. Pop-out Top Layer: Head & Shoulders break free above circle */}
             <div
               aria-hidden="true"
               className="absolute inset-0 flex items-end justify-center z-20 pointer-events-none select-none [clip-path:polygon(0_-30%,100%_-30%,100%_48%,0_48%)]"
@@ -247,66 +243,66 @@ function Hero() {
             </div>
 
             {/* ===============================================================
-                GROUP A: INSIDE CIRCLE (Warm / High-Contrast Complementary Logos)
+                GROUP A: INSIDE CIRCLE (High Contrast, Scaled Down on Mobile)
             =============================================================== */}
 
             {/* JavaScript: Pure Yellow glyph (no black border) */}
-            <div style={{ animationDelay: "0.95s" }} className="anim-logo absolute top-[18%] right-[11%] z-30 pointer-events-none">
-              <div className="swing-a drop-shadow-[0_4px_10px_rgba(0,0,0,0.28)]">
-                <SiJavascript className="text-[#F7DF1E] text-3xl sm:text-4xl lg:text-[46px]" />
+            <div style={{ animationDelay: "0.95s" }} className="anim-logo absolute top-[19%] right-[11%] z-30 pointer-events-none">
+              <div className="swing-a drop-shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
+                <SiJavascript className="text-[#F7DF1E] text-2xl xs:text-3xl sm:text-4xl lg:text-[44px]" />
               </div>
             </div>
 
             {/* HTML5: High-contrast red-orange */}
-            <div style={{ animationDelay: "1.05s" }} className="anim-logo absolute top-[22%] left-[10%] z-30 pointer-events-none">
-              <div className="swing-b drop-shadow-[0_4px_12px_rgba(0,0,0,0.25)]">
-                <FaHtml5 className="text-[#E34F26] text-3xl sm:text-4xl lg:text-[48px]" />
+            <div style={{ animationDelay: "1.05s" }} className="anim-logo absolute top-[23%] left-[10%] z-30 pointer-events-none">
+              <div className="swing-b drop-shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
+                <FaHtml5 className="text-[#E34F26] text-2xl xs:text-3xl sm:text-4xl lg:text-[46px]" />
               </div>
             </div>
 
-            {/* Git: Lower-left inside flank */}
+            {/* Git: Lower-left inside */}
             <div style={{ animationDelay: "1.15s" }} className="anim-logo absolute top-[52%] left-[6%] z-30 pointer-events-none">
-              <div className="swing-a drop-shadow-[0_4px_10px_rgba(0,0,0,0.25)]">
-                <FaGitAlt className="text-[#F05032] text-2xl sm:text-3xl lg:text-4xl" />
+              <div className="swing-a drop-shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
+                <FaGitAlt className="text-[#F05032] text-xl xs:text-2xl sm:text-3xl lg:text-4xl" />
               </div>
             </div>
 
-            {/* Figma: Lower-right inside flank */}
+            {/* Figma: Lower-right inside */}
             <div style={{ animationDelay: "1.25s" }} className="anim-logo absolute top-[50%] right-[6%] z-30 pointer-events-none">
-              <div className="swing-b drop-shadow-[0_4px_10px_rgba(0,0,0,0.25)]">
-                <SiFigma className="text-[#F24E1E] text-2xl sm:text-3xl lg:text-4xl" />
+              <div className="swing-b drop-shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
+                <SiFigma className="text-[#F24E1E] text-xl xs:text-2xl sm:text-3xl lg:text-4xl" />
               </div>
             </div>
 
             {/* ===============================================================
-                GROUP B: OUTSIDE CIRCLE (Floating on Clean Background)
+                GROUP B: OUTSIDE CIRCLE (Orbiting with Tighter Mobile Clearance)
             =============================================================== */}
 
-            {/* React.js: Top-left outskirts (Hero flagship mark) */}
-            <div style={{ animationDelay: "1.35s" }} className="anim-logo absolute -top-8 left-[14%] sm:left-[16%] z-30 pointer-events-none">
-              <div className="swing-b drop-shadow-[0_10px_20px_rgba(0,216,255,0.45)]">
-                <FaReact className="text-[#00D8FF] text-4xl sm:text-5xl lg:text-6xl" />
+            {/* React.js: Top-left outskirts */}
+            <div style={{ animationDelay: "1.35s" }} className="anim-logo absolute -top-5 sm:-top-8 left-[14%] sm:left-[16%] z-30 pointer-events-none">
+              <div className="swing-b drop-shadow-[0_6px_16px_rgba(0,216,255,0.45)]">
+                <FaReact className="text-[#00D8FF] text-3xl xs:text-4xl sm:text-5xl lg:text-6xl" />
               </div>
             </div>
 
             {/* Node.js: Top-right outskirts */}
-            <div style={{ animationDelay: "1.45s" }} className="anim-logo absolute -top-6 right-[14%] sm:right-[16%] z-30 pointer-events-none">
-              <div className="swing-a drop-shadow-[0_9px_18px_rgba(51,153,51,0.4)]">
-                <FaNodeJs className="text-[#339933] text-4xl sm:text-5xl lg:text-6xl" />
+            <div style={{ animationDelay: "1.45s" }} className="anim-logo absolute -top-4 sm:-top-6 right-[14%] sm:right-[16%] z-30 pointer-events-none">
+              <div className="swing-a drop-shadow-[0_6px_14px_rgba(51,153,51,0.4)]">
+                <FaNodeJs className="text-[#339933] text-3xl xs:text-4xl sm:text-5xl lg:text-6xl" />
               </div>
             </div>
 
             {/* Tailwind CSS: Mid-left flank */}
-            <div style={{ animationDelay: "1.55s" }} className="anim-logo absolute top-[28%] -left-10 sm:-left-12 z-30 pointer-events-none">
-              <div className="swing-a drop-shadow-[0_8px_16px_rgba(6,182,212,0.4)]">
-                <SiTailwindcss className="text-[#06B6D4] text-3xl sm:text-4xl lg:text-5xl" />
+            <div style={{ animationDelay: "1.55s" }} className="anim-logo absolute top-[28%] -left-6 xs:-left-8 sm:-left-12 z-30 pointer-events-none">
+              <div className="swing-a drop-shadow-[0_4px_12px_rgba(6,182,212,0.4)]">
+                <SiTailwindcss className="text-[#06B6D4] text-2xl xs:text-3xl sm:text-4xl lg:text-5xl" />
               </div>
             </div>
 
             {/* PHP: Mid-right flank */}
-            <div style={{ animationDelay: "1.65s" }} className="anim-logo absolute top-[28%] -right-10 sm:-right-12 z-30 pointer-events-none">
-              <div className="swing-b drop-shadow-[0_8px_16px_rgba(119,123,180,0.4)]">
-                <FaPhp className="text-[#777BB4] text-3xl sm:text-4xl lg:text-5xl" />
+            <div style={{ animationDelay: "1.65s" }} className="anim-logo absolute top-[28%] -right-6 xs:-right-8 sm:-right-12 z-30 pointer-events-none">
+              <div className="swing-b drop-shadow-[0_4px_12px_rgba(119,123,180,0.4)]">
+                <FaPhp className="text-[#777BB4] text-2xl xs:text-3xl sm:text-4xl lg:text-5xl" />
               </div>
             </div>
 
