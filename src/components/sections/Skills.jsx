@@ -53,25 +53,6 @@ function Skills() {
           <div className="max-w-xl text-left">
             <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
               Delivering complete digital solutions across every phase — from initial concept and prototype to deployment, testing, and automation.{" "}
-              <a
-                href="#contact"
-                className="group/link inline-flex items-center gap-1 font-semibold text-blue-600 hover:text-blue-700 underline underline-offset-4 decoration-blue-300 hover:decoration-blue-600 transition-colors whitespace-nowrap"
-              >
-                <span>Get in touch</span>
-                <svg
-                  className="w-3.5 h-3.5 transition-transform duration-200 group-hover/link:translate-x-0.5"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M5 12h14" />
-                  <path d="m12 5 7 7-7 7" />
-                </svg>
-              </a>
             </p>
           </div>
         </div>
@@ -157,12 +138,6 @@ function Skills() {
               >
                 View Related Projects
               </Link>
-              <a
-                href="#contact"
-                className="inline-flex items-center justify-center px-5 py-2.5 sm:px-6 sm:py-3 rounded-lg text-sm sm:text-base font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 active:scale-95 transition-all"
-              >
-                Get In Touch
-              </a>
             </div>
           </div>
 
