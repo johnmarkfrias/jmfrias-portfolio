@@ -6,16 +6,17 @@
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
+import ScrollToTop from "./components/common/ScrollToTop"; // <-- 1. Import here
 import Home from "./pages/Home";
 import AboutPage from "./pages/AboutPage";
 import SkillsPage from "./pages/SkillsPage";
 import ProjectsPage from "./pages/ProjectsPage";
 import ContactPage from "./pages/ContactPage";
-//comment
 
 function App() {
   return (
     <>
+      <ScrollToTop /> {/* <-- 2. Placed here to watch every page transition */}
       <Navbar />
       <main>
         <Routes>
