@@ -1,6 +1,6 @@
 // src/components/sections/Projects.jsx
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { projects } from "../../data/projects";
 import ProjectCard from "../common/ProjectCard";
@@ -10,6 +10,7 @@ function Projects() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsPerView, setItemsPerView] = useState(3);
   const [isHovered, setIsHovered] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(true);
 
   useEffect(() => {
     const handleResize = () => {
@@ -27,16 +28,44 @@ function Projects() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const maxIndex = Math.max(0, projects.length - itemsPerView);
+  const totalOriginal = projects.length;
+
+  // Append clone cards to eliminate rewind snapping
+  const displayProjects = useMemo(() => {
+    return [...projects, ...projects.slice(0, itemsPerView)];
+  }, [itemsPerView]);
 
   const nextSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
-  }, [maxIndex]);
+    setIsTransitioning(true);
+    setCurrentIndex((prev) => prev + 1);
+  }, []);
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
+    setIsTransitioning(true);
+    if (currentIndex === 0) {
+      // Instantly jump to the clone, then slide backwards
+      setIsTransitioning(false);
+      setCurrentIndex(totalOriginal);
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          setIsTransitioning(true);
+          setCurrentIndex(totalOriginal - 1);
+        });
+      });
+    } else {
+      setCurrentIndex((prev) => prev - 1);
+    }
   };
 
+  // Seamless jump without animation once clone is reached
+  const handleTransitionEnd = () => {
+    if (currentIndex >= totalOriginal) {
+      setIsTransitioning(false);
+      setCurrentIndex(0);
+    }
+  };
+
+  // Auto-slide interval
   useEffect(() => {
     if (isHovered) return;
 
@@ -57,7 +86,6 @@ function Projects() {
         
         {/* Two-Column Header Block */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 lg:gap-16 mb-12 md:mb-16">
-          {/* Left: Section Badge & Title */}
           <div className="text-left shrink-0">
             <SectionBadge>PROJECTS</SectionBadge>
             <h2 
@@ -68,7 +96,6 @@ function Projects() {
             </h2>
           </div>
 
-          {/* Right: Inline Description with Link */}
           <div className="max-w-xl text-left">
             <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
               These are selected websites and applications I built on my own and with other teams. Browse my recent work to see how I can help with your next project.{" "}
@@ -102,14 +129,19 @@ function Projects() {
           onMouseLeave={() => setIsHovered(false)}
         >
           <div 
-            className="flex transition-transform duration-700 ease-out will-change-transform"
+            onTransitionEnd={handleTransitionEnd}
+            className={`flex ${
+              isTransitioning 
+                ? "transition-transform duration-700 ease-out" 
+                : "transition-none"
+            } will-change-transform`}
             style={{
               transform: `translateX(-${currentIndex * (100 / itemsPerView)}%)`,
             }}
           >
-            {projects.map((project) => (
+            {displayProjects.map((project, idx) => (
               <div 
-                key={project.id}
+                key={`${project.id}-${idx}`}
                 className="px-3 shrink-0"
                 style={{ width: `${100 / itemsPerView}%` }}
               >
@@ -127,7 +159,7 @@ function Projects() {
 
         {/* Bottom Bar: Arrow Controls on Left, Dots on Right */}
         <div className="flex items-center justify-between mt-8 md:mt-10 px-1">
-          {/* Arrow Buttons (Left) */}
+          {/* Arrow Buttons */}
           <div className="flex items-center gap-2.5">
             <button
               type="button"
@@ -168,16 +200,19 @@ function Projects() {
             </button>
           </div>
 
-          {/* Dots / Pills (Right) */}
+          {/* Dots / Pills Indicator */}
           <div className="flex items-center gap-2">
-            {Array.from({ length: maxIndex + 1 }).map((_, index) => (
+            {Array.from({ length: totalOriginal }).map((_, index) => (
               <button
                 key={index}
                 type="button"
-                onClick={() => setCurrentIndex(index)}
+                onClick={() => {
+                  setIsTransitioning(true);
+                  setCurrentIndex(index);
+                }}
                 aria-label={`Go to slide ${index + 1}`}
                 className={`h-2 rounded-full transition-all duration-500 ease-out cursor-pointer ${
-                  currentIndex === index 
+                  currentIndex % totalOriginal === index 
                     ? "w-10 bg-blue-600 shadow-sm" 
                     : "w-2 bg-slate-300 hover:bg-slate-400"
                 }`}
