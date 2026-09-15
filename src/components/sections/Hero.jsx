@@ -115,21 +115,26 @@ function Hero() {
           }
         }
 
-        @keyframes logoPopIn {
+        /* 
+          Radial Bloom Explosion: 
+          Starts tucked directly behind chest/center (--tx, --ty offset to 0),
+          then propels outward to its target location with spring momentum.
+        */
+        @keyframes burstFromBack {
           0% {
             opacity: 0;
-            transform: scale(0);
+            transform: translate(var(--tx), var(--ty)) scale(0);
           }
-          65% {
+          50% {
+            opacity: 0.85;
+          }
+          75% {
             opacity: 1;
-            transform: scale(1.22);
-          }
-          85% {
-            transform: scale(0.94);
+            transform: translate(calc(var(--tx) * -0.08), calc(var(--ty) * -0.08)) scale(1.15);
           }
           100% {
             opacity: 1;
-            transform: scale(1);
+            transform: translate(0px, 0px) scale(1);
           }
         }
 
@@ -151,8 +156,8 @@ function Hero() {
           animation: portraitPopUp 1.2s cubic-bezier(0.32, 1, 0.55, 1) 0.35s both;
         }
 
-        .anim-logo {
-          animation: logoPopIn 0.85s cubic-bezier(0.30, 1.25, 0.55, 1) both;
+        .logo-burst {
+          animation: burstFromBack 1.1s cubic-bezier(0.34, 1.35, 0.64, 1) both;
         }
 
         .swing-a {
@@ -166,9 +171,7 @@ function Hero() {
 
       <Container className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
         
-        {/* ===================================================================
-            LEFT COLUMN: Intro Content
-        =================================================================== */}
+        {/* LEFT COLUMN: Intro Content */}
         <div className="order-2 lg:order-1 lg:col-span-6 flex flex-col lg:flex-row items-start gap-6 lg:gap-12 w-full">
           <div className="hidden lg:flex flex-col justify-center items-center shrink-0 self-center">
             <SocialLinks className="flex-col" />
@@ -217,13 +220,11 @@ function Hero() {
           </div>
         </div>
 
-        {/* ===================================================================
-            RIGHT COLUMN: Pop-Out Circle Canvas (Scaled for Mobile Viewports)
-        =================================================================== */}
+        {/* RIGHT COLUMN: Pop-Out Circle Canvas */}
         <div className="order-1 lg:order-2 lg:col-span-6 w-full flex items-center justify-center pt-6 sm:pt-8 lg:pt-0">
           <div className="relative w-[260px] sm:w-[380px] md:w-[420px] lg:w-[480px] aspect-square flex items-center justify-center">
 
-            {/* 1. Base Circle: Bottom Torso is clipped inside */}
+            {/* 1. Base Circle: Bottom Torso clipped inside */}
             <div className="anim-circle relative w-full h-full rounded-full bg-gradient-to-tr from-[#1652e8] via-[#2166fa] to-[#3b87ff] overflow-hidden flex items-end justify-center z-10">
               <img
                 src={heroPhoto}
@@ -245,85 +246,118 @@ function Hero() {
             </div>
 
             {/* ===============================================================
-                GROUP A: INSIDE CIRCLE (High Contrast, Scaled Down on Mobile)
+                GROUP A: INSIDE CIRCLE (Burst out from chest center behind photo)
             =============================================================== */}
 
-            {/* JavaScript: Pure Yellow glyph */}
-            <div style={{ animationDelay: "0.95s" }} className="anim-logo absolute top-[19%] right-[11%] z-30 pointer-events-none">
+            {/* JavaScript: Bursts to top-right inside */}
+            <div 
+              style={{ animationDelay: "1.10s", "--tx": "-95px", "--ty": "80px" }} 
+              className="logo-burst absolute top-[19%] right-[11%] z-30 pointer-events-none"
+            >
               <div className="swing-a drop-shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
                 <SiJavascript className="text-[#F7DF1E] text-2xl sm:text-4xl lg:text-[44px]" />
               </div>
             </div>
 
-            {/* HTML5: High-contrast red-orange */}
-            <div style={{ animationDelay: "1.05s" }} className="anim-logo absolute top-[23%] left-[10%] z-30 pointer-events-none">
+            {/* HTML5: Bursts to top-left inside */}
+            <div 
+              style={{ animationDelay: "1.15s", "--tx": "95px", "--ty": "70px" }} 
+              className="logo-burst absolute top-[23%] left-[10%] z-30 pointer-events-none"
+            >
               <div className="swing-b drop-shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
                 <FaHtml5 className="text-[#E34F26] text-2xl sm:text-4xl lg:text-[46px]" />
               </div>
             </div>
 
-            {/* Git: Lower-left inside */}
-            <div style={{ animationDelay: "1.15s" }} className="anim-logo absolute top-[52%] left-[6%] z-30 pointer-events-none">
-              <div className="swing-a drop-shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
-                <FaGitAlt className="text-[#F05032] text-xl sm:text-3xl lg:text-4xl" />
-              </div>
-            </div>
-
-            {/* Figma: Lower-right inside */}
-            <div style={{ animationDelay: "1.25s" }} className="anim-logo absolute top-[50%] right-[6%] z-30 pointer-events-none">
-              <div className="swing-b drop-shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
-                <SiFigma className="text-[#F24E1E] text-xl sm:text-3xl lg:text-4xl" />
-              </div>
-            </div>
-
-            {/* n8n Automation: Mid-left inside curve */}
-            <div style={{ animationDelay: "1.30s" }} className="anim-logo absolute top-[38%] left-[7%] z-30 pointer-events-none">
+            {/* n8n Automation: Bursts to mid-left inside */}
+            <div 
+              style={{ animationDelay: "1.20s", "--tx": "100px", "--ty": "30px" }} 
+              className="logo-burst absolute top-[38%] left-[7%] z-30 pointer-events-none"
+            >
               <div className="swing-a drop-shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
                 <SiN8N className="text-[#FF6D5A] text-xl sm:text-3xl lg:text-4xl" />
               </div>
             </div>
 
+            {/* Git: Bursts to lower-left inside */}
+            <div 
+              style={{ animationDelay: "1.25s", "--tx": "100px", "--ty": "-10px" }} 
+              className="logo-burst absolute top-[52%] left-[6%] z-30 pointer-events-none"
+            >
+              <div className="swing-a drop-shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
+                <FaGitAlt className="text-[#F05032] text-xl sm:text-3xl lg:text-4xl" />
+              </div>
+            </div>
+
+            {/* Figma: Bursts to lower-right inside */}
+            <div 
+              style={{ animationDelay: "1.30s", "--tx": "-100px", "--ty": "0px" }} 
+              className="logo-burst absolute top-[50%] right-[6%] z-30 pointer-events-none"
+            >
+              <div className="swing-b drop-shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
+                <SiFigma className="text-[#F24E1E] text-xl sm:text-3xl lg:text-4xl" />
+              </div>
+            </div>
+
             {/* ===============================================================
-                GROUP B: OUTSIDE CIRCLE (Orbiting with Clean Spacing)
+                GROUP B: OUTSIDE CIRCLE (Burst out to orbital positions)
             =============================================================== */}
 
-            {/* CSS3: In the exact red-square position (upper-left flank, above HTML5) */}
-            <div style={{ animationDelay: "1.35s" }} className="anim-logo absolute top-[6%] -left-3 sm:-left-5 lg:-left-6 z-30 pointer-events-none">
+            {/* CSS3: Bursts up & left to upper flank */}
+            <div 
+              style={{ animationDelay: "1.35s", "--tx": "130px", "--ty": "110px" }} 
+              className="logo-burst absolute top-[6%] -left-3 sm:-left-5 lg:-left-6 z-30 pointer-events-none"
+            >
               <div className="swing-b drop-shadow-[0_4px_12px_rgba(21,114,182,0.4)]">
                 <FaCss3Alt className="text-[#1572B6] text-2xl sm:text-4xl lg:text-5xl" />
               </div>
             </div>
 
-            {/* React.js: Top-left outskirts */}
-            <div style={{ animationDelay: "1.45s" }} className="anim-logo absolute -top-5 sm:-top-8 left-[14%] sm:left-[16%] z-30 pointer-events-none">
+            {/* React.js: Bursts straight up & slightly left */}
+            <div 
+              style={{ animationDelay: "1.40s", "--tx": "80px", "--ty": "140px" }} 
+              className="logo-burst absolute -top-5 sm:-top-8 left-[14%] sm:left-[16%] z-30 pointer-events-none"
+            >
               <div className="swing-b drop-shadow-[0_6px_16px_rgba(0,216,255,0.45)]">
                 <FaReact className="text-[#00D8FF] text-3xl sm:text-5xl lg:text-6xl" />
               </div>
             </div>
 
-            {/* Node.js: Top-right outskirts */}
-            <div style={{ animationDelay: "1.55s" }} className="anim-logo absolute -top-4 sm:-top-6 right-[14%] sm:right-[16%] z-30 pointer-events-none">
+            {/* Node.js: Bursts straight up & slightly right */}
+            <div 
+              style={{ animationDelay: "1.45s", "--tx": "-80px", "--ty": "140px" }} 
+              className="logo-burst absolute -top-4 sm:-top-6 right-[14%] sm:right-[16%] z-30 pointer-events-none"
+            >
               <div className="swing-a drop-shadow-[0_6px_14px_rgba(51,153,51,0.4)]">
                 <FaNodeJs className="text-[#339933] text-3xl sm:text-5xl lg:text-6xl" />
               </div>
             </div>
 
-            {/* Tailwind CSS: Mid-left flank */}
-            <div style={{ animationDelay: "1.65s" }} className="anim-logo absolute top-[36%] -left-6 sm:-left-12 z-30 pointer-events-none">
-              <div className="swing-a drop-shadow-[0_4px_12px_rgba(6,182,212,0.4)]">
-                <SiTailwindcss className="text-[#06B6D4] text-2xl sm:text-4xl lg:text-5xl" />
-              </div>
-            </div>
-
-            {/* VS Code: Upper-right flank */}
-            <div style={{ animationDelay: "1.75s" }} className="anim-logo absolute top-[14%] -right-6 sm:-right-10 z-30 pointer-events-none">
+            {/* VS Code: Bursts up & right to upper flank */}
+            <div 
+              style={{ animationDelay: "1.50s", "--tx": "-130px", "--ty": "90px" }} 
+              className="logo-burst absolute top-[14%] -right-6 sm:-right-10 z-30 pointer-events-none"
+            >
               <div className="swing-a drop-shadow-[0_4px_12px_rgba(0,122,204,0.4)]">
                 <VscVscode className="text-[#007ACC] text-2xl sm:text-4xl lg:text-5xl" />
               </div>
             </div>
 
-            {/* PHP: Mid-right flank */}
-            <div style={{ animationDelay: "1.85s" }} className="anim-logo absolute top-[34%] -right-6 sm:-right-12 z-30 pointer-events-none">
+            {/* Tailwind CSS: Bursts directly sideways to mid-left */}
+            <div 
+              style={{ animationDelay: "1.55s", "--tx": "140px", "--ty": "35px" }} 
+              className="logo-burst absolute top-[36%] -left-6 sm:-left-12 z-30 pointer-events-none"
+            >
+              <div className="swing-a drop-shadow-[0_4px_12px_rgba(6,182,212,0.4)]">
+                <SiTailwindcss className="text-[#06B6D4] text-2xl sm:text-4xl lg:text-5xl" />
+              </div>
+            </div>
+
+            {/* PHP: Bursts directly sideways to mid-right */}
+            <div 
+              style={{ animationDelay: "1.60s", "--tx": "-140px", "--ty": "40px" }} 
+              className="logo-burst absolute top-[34%] -right-6 sm:-right-12 z-30 pointer-events-none"
+            >
               <div className="swing-b drop-shadow-[0_4px_12px_rgba(119,123,180,0.4)]">
                 <FaPhp className="text-[#777BB4] text-2xl sm:text-4xl lg:text-5xl" />
               </div>
