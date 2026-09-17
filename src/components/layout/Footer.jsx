@@ -25,10 +25,19 @@ const renderSocialIcon = (id = "") => {
       return <FaTiktok className="w-4 h-4" />;
     case "threads":
       return (
-        <img 
-          src={threadsLogo} 
-          alt="Threads" 
-          className="w-4 h-4 object-contain brightness-0 invert" 
+        <span
+          className="w-4 h-4 bg-current inline-block transition-colors"
+          style={{
+            maskImage: `url(${threadsLogo})`,
+            WebkitMaskImage: `url(${threadsLogo})`,
+            maskRepeat: "no-repeat",
+            WebkitMaskRepeat: "no-repeat",
+            maskPosition: "center",
+            WebkitMaskPosition: "center",
+            maskSize: "contain",
+            WebkitMaskSize: "contain",
+          }}
+          aria-hidden="true"
         />
       );
     default:
