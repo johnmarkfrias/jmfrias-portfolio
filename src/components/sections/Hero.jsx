@@ -100,7 +100,7 @@ function Hero() {
           100% { opacity: 1; transform: translateY(0) scale(1); }
         }
 
-        /* Natural, slow bloom: pops out gradually from tiny to full size with organic deceleration */
+        /* Natural slow bloom: pops out gradually from tiny to full size with organic deceleration */
         @keyframes naturalPopOut {
           0% {
             opacity: 0;
@@ -137,7 +137,6 @@ function Hero() {
           animation: portraitPopUp 1.2s cubic-bezier(0.32, 1, 0.55, 1) 0.35s both;
         }
 
-        /* Natural cubic-bezier for a cushioned, slow pop expansion */
         .logo-emerge {
           animation: naturalPopOut var(--emerge-duration, 1.8s) cubic-bezier(0.19, 1, 0.22, 1) var(--emerge-delay, 1.2s) both;
         }
@@ -235,33 +234,32 @@ function Hero() {
 
             {/* ============================================================
                 TIER 1: INNER CIRCLE (4 Badges)
-                Inner badges emerge first with smoother, closer travel
                 ============================================================ */}
 
             {/* HTML: Upper Left */}
             <div 
               style={{ 
-                "--orig-x": "75px", 
-                "--orig-y": "75px", 
+                "--orig-x": "80px", 
+                "--orig-y": "80px", 
                 "--emerge-delay": "1.05s", 
                 "--emerge-duration": "1.55s" 
               }} 
-              className="logo-emerge absolute top-[21%] left-[22%] z-30 pointer-events-none"
+              className="logo-emerge absolute top-[19%] left-[17%] sm:left-[19%] z-30 pointer-events-none"
             >
               <div className="drift-b drop-shadow-[0_4px_10px_rgba(0,0,0,0.3)]">
-                <img src={LOGO_PATHS.html} alt="HTML" className="w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 object-contain" />
+                <img src={LOGO_PATHS.html} alt="HTML" className="w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 object-contain" />
               </div>
             </div>
 
-            {/* JavaScript: Upper Right (Slightly smaller on mobile) */}
+            {/* JavaScript: Upper Right */}
             <div 
               style={{ 
-                "--orig-x": "-75px", 
-                "--orig-y": "75px", 
+                "--orig-x": "-80px", 
+                "--orig-y": "80px", 
                 "--emerge-delay": "1.18s", 
                 "--emerge-duration": "1.7s" 
               }} 
-              className="logo-emerge absolute top-[22%] right-[20%] z-30 pointer-events-none"
+              className="logo-emerge absolute top-[19%] right-[17%] sm:right-[19%] z-30 pointer-events-none"
             >
               <div className="drift-a drop-shadow-[0_4px_10px_rgba(0,0,0,0.3)]">
                 <img src={LOGO_PATHS.javascript} alt="JavaScript" className="w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 object-contain" />
@@ -271,36 +269,35 @@ function Hero() {
             {/* CSS: Mid-Right */}
             <div 
               style={{ 
-                "--orig-x": "-100px", 
+                "--orig-x": "-105px", 
                 "--orig-y": "20px", 
                 "--emerge-delay": "1.12s", 
                 "--emerge-duration": "1.65s" 
               }} 
-              className="logo-emerge absolute top-[44%] right-[10%] z-30 pointer-events-none"
+              className="logo-emerge absolute top-[41%] right-[8%] sm:right-[9%] z-30 pointer-events-none"
             >
               <div className="drift-b drop-shadow-[0_4px_10px_rgba(33,99,243,0.4)]">
-                <img src={LOGO_PATHS.css} alt="CSS" className="w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 object-contain" />
+                <img src={LOGO_PATHS.css} alt="CSS" className="w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 object-contain" />
               </div>
             </div>
 
-            {/* PHP: Inside Inner Circle, directly above laptop */}
+            {/* PHP: Positioned exactly slightly above halfway between laptop and head */}
             <div 
               style={{ 
-                "--orig-x": "85px", 
+                "--orig-x": "90px", 
                 "--orig-y": "40px", 
                 "--emerge-delay": "1.25s", 
                 "--emerge-duration": "1.8s" 
               }} 
-              className="logo-emerge absolute top-[35%] left-[16%] z-30 pointer-events-none"
+              className="logo-emerge absolute top-[34%] sm:top-[37%] left-[12%] sm:left-[14%] z-30 pointer-events-none"
             >
               <div className="drift-a drop-shadow-[0_6px_14px_rgba(119,123,180,0.55)]">
-                <img src={LOGO_PATHS.php} alt="PHP" className="w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 object-contain" />
+                <img src={LOGO_PATHS.php} alt="PHP" className="w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 object-contain" />
               </div>
             </div>
 
             {/* ============================================================
                 TIER 2: OUTER RING LOGOS
-                Wider stagger with distinct speeds so each drifts into position independently
                 ============================================================ */}
 
             {/* Canva: Lower-Left */}
@@ -363,7 +360,7 @@ function Hero() {
               </div>
             </div>
 
-            {/* n8n: Top Center Apex (Slowest & softest float to the top) */}
+            {/* n8n: Top Center Apex */}
             <div 
               style={{ 
                 "--orig-x": "0px", 
