@@ -100,11 +100,23 @@ function Hero() {
           100% { opacity: 1; transform: translateY(0) scale(1); }
         }
 
-        @keyframes burstFromBack {
-          0% { opacity: 0; transform: translate(var(--tx, 0), var(--ty, 0)) scale(0); }
-          50% { opacity: 0.85; }
-          75% { opacity: 1; transform: translate(calc(var(--tx, 0) * -0.08), calc(var(--ty, 0) * -0.08)) scale(1.15); }
-          100% { opacity: 1; transform: translate(0px, 0px) scale(1); }
+        /* Natural, slow blooming pop up from behind the portrait with soft settling */
+        @keyframes emergeFromCenter {
+          0% {
+            opacity: 0;
+            transform: translate(var(--orig-x, 0), var(--orig-y, 0)) scale(0.12);
+          }
+          30% {
+            opacity: 0.7;
+          }
+          75% {
+            opacity: 1;
+            transform: translate(calc(var(--orig-x, 0) * -0.04), calc(var(--orig-y, 0) * -0.04)) scale(1.05);
+          }
+          100% {
+            opacity: 1;
+            transform: translate(0px, 0px) scale(1);
+          }
         }
 
         @keyframes subtleDriftA {
@@ -125,8 +137,8 @@ function Hero() {
           animation: portraitPopUp 1.2s cubic-bezier(0.32, 1, 0.55, 1) 0.35s both;
         }
 
-        .logo-burst {
-          animation: burstFromBack 1.1s cubic-bezier(0.34, 1.35, 0.64, 1) both;
+        .logo-emerge {
+          animation: emergeFromCenter var(--emerge-duration, 1.8s) cubic-bezier(0.22, 1.25, 0.36, 1) var(--emerge-delay, 1.2s) both;
         }
 
         .drift-a {
@@ -183,7 +195,6 @@ function Hero() {
               </a>
             </div>
 
-            {/* Mobile/Tablet Social Links: Tightened margin so bottom matches top visual padding */}
             <div className="flex lg:hidden mt-5 sm:mt-6 w-full justify-center min-[426px]:justify-start">
               <SocialLinks className="flex-row" />
             </div>
@@ -191,7 +202,6 @@ function Hero() {
         </div>
 
         {/* RIGHT COLUMN: Pop-Out Circle Canvas */}
-        {/* pt-14 sm:pt-16 lg:pt-12 creates exact headroom for n8n and the head across mobile, tablet, and desktop */}
         <div className="order-1 lg:order-2 lg:col-span-6 w-full flex items-center justify-center pt-14 sm:pt-16 md:pt-20 lg:pt-14 pb-2 lg:pb-0 overflow-visible">
           
           {/* Scaled Canvas container */}
@@ -224,32 +234,48 @@ function Hero() {
 
             {/* ============================================================
                 TIER 1: INNER CIRCLE (4 Badges)
+                Gentle, slightly faster emerge close to center
                 ============================================================ */}
 
             {/* HTML: Upper Left */}
             <div 
-              style={{ animationDelay: "1.05s", "--tx": "15px", "--ty": "15px" }} 
-              className="logo-burst absolute top-[21%] left-[22%] z-30 pointer-events-none"
+              style={{ 
+                "--orig-x": "75px", 
+                "--orig-y": "75px", 
+                "--emerge-delay": "1.15s", 
+                "--emerge-duration": "1.60s" 
+              }} 
+              className="logo-emerge absolute top-[21%] left-[22%] z-30 pointer-events-none"
             >
               <div className="drift-b drop-shadow-[0_4px_10px_rgba(0,0,0,0.3)]">
                 <img src={LOGO_PATHS.html} alt="HTML" className="w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 object-contain" />
               </div>
             </div>
 
-            {/* JavaScript: Upper Right */}
+            {/* JavaScript: Upper Right (Small on mobile) */}
             <div 
-              style={{ animationDelay: "1.10s", "--tx": "-15px", "--ty": "15px" }} 
-              className="logo-burst absolute top-[22%] right-[20%] z-30 pointer-events-none"
+              style={{ 
+                "--orig-x": "-75px", 
+                "--orig-y": "75px", 
+                "--emerge-delay": "1.25s", 
+                "--emerge-duration": "1.75s" 
+              }} 
+              className="logo-emerge absolute top-[22%] right-[20%] z-30 pointer-events-none"
             >
               <div className="drift-a drop-shadow-[0_4px_10px_rgba(0,0,0,0.3)]">
-                <img src={LOGO_PATHS.javascript} alt="JavaScript" className="w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 object-contain" />
+                <img src={LOGO_PATHS.javascript} alt="JavaScript" className="w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 object-contain" />
               </div>
             </div>
 
             {/* CSS: Mid-Right */}
             <div 
-              style={{ animationDelay: "1.15s", "--tx": "-20px", "--ty": "8px" }} 
-              className="logo-burst absolute top-[44%] right-[10%] z-30 pointer-events-none"
+              style={{ 
+                "--orig-x": "-100px", 
+                "--orig-y": "20px", 
+                "--emerge-delay": "1.35s", 
+                "--emerge-duration": "1.65s" 
+              }} 
+              className="logo-emerge absolute top-[44%] right-[10%] z-30 pointer-events-none"
             >
               <div className="drift-b drop-shadow-[0_4px_10px_rgba(33,99,243,0.4)]">
                 <img src={LOGO_PATHS.css} alt="CSS" className="w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 object-contain" />
@@ -258,8 +284,13 @@ function Hero() {
 
             {/* PHP: Inside Inner Circle, directly above the laptop */}
             <div 
-              style={{ animationDelay: "1.20s", "--tx": "15px", "--ty": "8px" }} 
-              className="logo-burst absolute top-[35%] left-[16%] z-30 pointer-events-none"
+              style={{ 
+                "--orig-x": "85px", 
+                "--orig-y": "40px", 
+                "--emerge-delay": "1.45s", 
+                "--emerge-duration": "1.80s" 
+              }} 
+              className="logo-emerge absolute top-[35%] left-[16%] z-30 pointer-events-none"
             >
               <div className="drift-a drop-shadow-[0_6px_14px_rgba(119,123,180,0.55)]">
                 <img src={LOGO_PATHS.php} alt="PHP" className="w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 object-contain" />
@@ -268,52 +299,78 @@ function Hero() {
 
             {/* ============================================================
                 TIER 2: OUTER RING LOGOS
+                Wider spread with individually tuned natural delays and slower travel speeds
                 ============================================================ */}
-
-            {/* Canva: Lower-Left */}
-            <div 
-              style={{ animationDelay: "1.25s", "--tx": "25px", "--ty": "-12px" }} 
-              className="logo-burst absolute top-[72%] -left-[10%] sm:-left-[12%] z-30 pointer-events-none"
-            >
-              <div className="drift-a drop-shadow-[0_6px_14px_rgba(0,196,204,0.4)]">
-                <img src={LOGO_PATHS.canva} alt="Canva" className="w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-11 lg:h-11 object-contain" />
-              </div>
-            </div>
-
-            {/* Git: Mid-Low Left */}
-            <div 
-              style={{ animationDelay: "1.30s", "--tx": "25px", "--ty": "0px" }} 
-              className="logo-burst absolute top-[48%] -left-[13%] sm:-left-[15%] -translate-y-1/2 z-30 pointer-events-none"
-            >
-              <div className="drift-b drop-shadow-[0_6px_14px_rgba(240,80,50,0.4)]">
-                <img src={LOGO_PATHS.git} alt="Git" className="w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-11 lg:h-11 object-contain" />
-              </div>
-            </div>
 
             {/* Figma: Mid-High Left */}
             <div 
-              style={{ animationDelay: "1.35s", "--tx": "25px", "--ty": "12px" }} 
-              className="logo-burst absolute top-[18%] -left-[10%] sm:-left-[12%] z-30 pointer-events-none"
+              style={{ 
+                "--orig-x": "145px", 
+                "--orig-y": "80px", 
+                "--emerge-delay": "1.50s", 
+                "--emerge-duration": "1.85s" 
+              }} 
+              className="logo-emerge absolute top-[18%] -left-[10%] sm:-left-[12%] z-30 pointer-events-none"
             >
               <div className="drift-a drop-shadow-[0_6px_14px_rgba(242,78,30,0.4)]">
                 <img src={LOGO_PATHS.figma} alt="Figma" className="w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-11 lg:h-11 object-contain" />
               </div>
             </div>
 
+            {/* Git: Mid-Low Left */}
+            <div 
+              style={{ 
+                "--orig-x": "155px", 
+                "--orig-y": "0px", 
+                "--emerge-delay": "1.60s", 
+                "--emerge-duration": "2.05s" 
+              }} 
+              className="logo-emerge absolute top-[48%] -left-[13%] sm:-left-[15%] -translate-y-1/2 z-30 pointer-events-none"
+            >
+              <div className="drift-b drop-shadow-[0_6px_14px_rgba(240,80,50,0.4)]">
+                <img src={LOGO_PATHS.git} alt="Git" className="w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-11 lg:h-11 object-contain" />
+              </div>
+            </div>
+
+            {/* Canva: Lower-Left */}
+            <div 
+              style={{ 
+                "--orig-x": "145px", 
+                "--orig-y": "-60px", 
+                "--emerge-delay": "1.70s", 
+                "--emerge-duration": "1.90s" 
+              }} 
+              className="logo-emerge absolute top-[72%] -left-[10%] sm:-left-[12%] z-30 pointer-events-none"
+            >
+              <div className="drift-a drop-shadow-[0_6px_14px_rgba(0,196,204,0.4)]">
+                <img src={LOGO_PATHS.canva} alt="Canva" className="w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-11 lg:h-11 object-contain" />
+              </div>
+            </div>
+
             {/* VS Code: Top-Left */}
             <div 
-              style={{ animationDelay: "1.40s", "--tx": "15px", "--ty": "25px" }} 
-              className="logo-burst absolute -top-[8%] sm:-top-[9%] left-[12%] z-30 pointer-events-none"
+              style={{ 
+                "--orig-x": "90px", 
+                "--orig-y": "140px", 
+                "--emerge-delay": "1.75s", 
+                "--emerge-duration": "1.75s" 
+              }} 
+              className="logo-emerge absolute -top-[8%] sm:-top-[9%] left-[12%] z-30 pointer-events-none"
             >
               <div className="drift-a drop-shadow-[0_6px_14px_rgba(0,122,204,0.4)]">
                 <img src={LOGO_PATHS.vscode} alt="VS Code" className="w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-11 lg:h-11 object-contain" />
               </div>
             </div>
 
-            {/* n8n: Top Center Apex */}
+            {/* n8n: Top Center Apex (Slow, majestic rise) */}
             <div 
-              style={{ animationDelay: "1.45s", "--tx": "0px", "--ty": "30px" }} 
-              className="logo-burst absolute -top-[19%] sm:-top-[20%] left-1/2 -translate-x-1/2 z-30 pointer-events-none"
+              style={{ 
+                "--orig-x": "0px", 
+                "--orig-y": "165px", 
+                "--emerge-delay": "1.85s", 
+                "--emerge-duration": "2.15s" 
+              }} 
+              className="logo-emerge absolute -top-[19%] sm:-top-[20%] left-1/2 -translate-x-1/2 z-30 pointer-events-none"
             >
               <div className="drift-b drop-shadow-[0_6px_16px_rgba(255,109,90,0.45)]">
                 <img src={LOGO_PATHS.n8n} alt="n8n" className="w-8 h-8 sm:w-10 sm:h-10 md:w-11 md:h-11 lg:w-12 lg:h-12 object-contain" />
@@ -322,8 +379,13 @@ function Hero() {
 
             {/* GitHub: Top-Right */}
             <div 
-              style={{ animationDelay: "1.50s", "--tx": "-15px", "--ty": "25px" }} 
-              className="logo-burst absolute -top-[8%] sm:-top-[9%] right-[12%] z-30 pointer-events-none"
+              style={{ 
+                "--orig-x": "-90px", 
+                "--orig-y": "140px", 
+                "--emerge-delay": "1.92s", 
+                "--emerge-duration": "1.85s" 
+              }} 
+              className="logo-emerge absolute -top-[8%] sm:-top-[9%] right-[12%] z-30 pointer-events-none"
             >
               <div className="drift-a drop-shadow-[0_6px_14px_rgba(24,23,23,0.4)]">
                 <img src={LOGO_PATHS.github} alt="GitHub" className="w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-11 lg:h-11 object-contain" />
@@ -332,8 +394,13 @@ function Hero() {
 
             {/* Postman: Mid-High Right */}
             <div 
-              style={{ animationDelay: "1.55s", "--tx": "-25px", "--ty": "12px" }} 
-              className="logo-burst absolute top-[18%] -right-[10%] sm:-right-[12%] z-30 pointer-events-none"
+              style={{ 
+                "--orig-x": "-145px", 
+                "--orig-y": "80px", 
+                "--emerge-delay": "1.98s", 
+                "--emerge-duration": "1.95s" 
+              }} 
+              className="logo-emerge absolute top-[18%] -right-[10%] sm:-right-[12%] z-30 pointer-events-none"
             >
               <div className="drift-b drop-shadow-[0_6px_14px_rgba(255,108,55,0.45)]">
                 <img src={LOGO_PATHS.postman} alt="Postman" className="w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-11 lg:h-11 object-contain" />
@@ -342,8 +409,13 @@ function Hero() {
 
             {/* MySQL: Mid-Right */}
             <div 
-              style={{ animationDelay: "1.60s", "--tx": "-25px", "--ty": "0px" }} 
-              className="logo-burst absolute top-[48%] -right-[13%] sm:-right-[15%] -translate-y-1/2 z-30 pointer-events-none"
+              style={{ 
+                "--orig-x": "-155px", 
+                "--orig-y": "0px", 
+                "--emerge-delay": "2.08s", 
+                "--emerge-duration": "2.10s" 
+              }} 
+              className="logo-emerge absolute top-[48%] -right-[13%] sm:-right-[15%] -translate-y-1/2 z-30 pointer-events-none"
             >
               <div className="drift-a drop-shadow-[0_6px_14px_rgba(0,117,143,0.45)]">
                 <img src={LOGO_PATHS.mysql} alt="MySQL" className="w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-11 lg:h-11 object-contain" />
@@ -352,8 +424,13 @@ function Hero() {
 
             {/* WordPress: Lower-Mid Right */}
             <div 
-              style={{ animationDelay: "1.65s", "--tx": "-25px", "--ty": "-12px" }} 
-              className="logo-burst absolute top-[72%] -right-[10%] sm:-right-[12%] z-30 pointer-events-none"
+              style={{ 
+                "--orig-x": "-145px", 
+                "--orig-y": "-60px", 
+                "--emerge-delay": "2.18s", 
+                "--emerge-duration": "1.90s" 
+              }} 
+              className="logo-emerge absolute top-[72%] -right-[10%] sm:-right-[12%] z-30 pointer-events-none"
             >
               <div className="drift-b drop-shadow-[0_6px_14px_rgba(0,116,156,0.4)]">
                 <img src={LOGO_PATHS.wordpress} alt="WordPress" className="w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-11 lg:h-11 object-contain" />
