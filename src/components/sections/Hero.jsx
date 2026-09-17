@@ -100,8 +100,8 @@ function Hero() {
           100% { opacity: 1; transform: translateY(0) scale(1); }
         }
 
-        /* Natural, slow blooming pop up from behind the portrait with soft settling */
-        @keyframes emergeFromCenter {
+        /* Natural, slow bloom: pops out gradually from tiny to full size with organic deceleration */
+        @keyframes naturalPopOut {
           0% {
             opacity: 0;
             transform: translate(var(--orig-x, 0), var(--orig-y, 0)) scale(0.12);
@@ -137,16 +137,17 @@ function Hero() {
           animation: portraitPopUp 1.2s cubic-bezier(0.32, 1, 0.55, 1) 0.35s both;
         }
 
+        /* Natural cubic-bezier for a cushioned, slow pop expansion */
         .logo-emerge {
-          animation: emergeFromCenter var(--emerge-duration, 1.8s) cubic-bezier(0.22, 1.25, 0.36, 1) var(--emerge-delay, 1.2s) both;
+          animation: naturalPopOut var(--emerge-duration, 1.8s) cubic-bezier(0.19, 1, 0.22, 1) var(--emerge-delay, 1.2s) both;
         }
 
         .drift-a {
-          animation: subtleDriftA 5.5s ease-in-out infinite;
+          animation: subtleDriftA 6s ease-in-out infinite;
         }
 
         .drift-b {
-          animation: subtleDriftB 6.2s ease-in-out infinite;
+          animation: subtleDriftB 6.8s ease-in-out infinite;
         }
       `}</style>
 
@@ -234,7 +235,7 @@ function Hero() {
 
             {/* ============================================================
                 TIER 1: INNER CIRCLE (4 Badges)
-                Gentle, slightly faster emerge close to center
+                Inner badges emerge first with smoother, closer travel
                 ============================================================ */}
 
             {/* HTML: Upper Left */}
@@ -242,8 +243,8 @@ function Hero() {
               style={{ 
                 "--orig-x": "75px", 
                 "--orig-y": "75px", 
-                "--emerge-delay": "1.15s", 
-                "--emerge-duration": "1.60s" 
+                "--emerge-delay": "1.05s", 
+                "--emerge-duration": "1.55s" 
               }} 
               className="logo-emerge absolute top-[21%] left-[22%] z-30 pointer-events-none"
             >
@@ -252,13 +253,13 @@ function Hero() {
               </div>
             </div>
 
-            {/* JavaScript: Upper Right (Small on mobile) */}
+            {/* JavaScript: Upper Right (Slightly smaller on mobile) */}
             <div 
               style={{ 
                 "--orig-x": "-75px", 
                 "--orig-y": "75px", 
-                "--emerge-delay": "1.25s", 
-                "--emerge-duration": "1.75s" 
+                "--emerge-delay": "1.18s", 
+                "--emerge-duration": "1.7s" 
               }} 
               className="logo-emerge absolute top-[22%] right-[20%] z-30 pointer-events-none"
             >
@@ -272,7 +273,7 @@ function Hero() {
               style={{ 
                 "--orig-x": "-100px", 
                 "--orig-y": "20px", 
-                "--emerge-delay": "1.35s", 
+                "--emerge-delay": "1.12s", 
                 "--emerge-duration": "1.65s" 
               }} 
               className="logo-emerge absolute top-[44%] right-[10%] z-30 pointer-events-none"
@@ -282,13 +283,13 @@ function Hero() {
               </div>
             </div>
 
-            {/* PHP: Inside Inner Circle, directly above the laptop */}
+            {/* PHP: Inside Inner Circle, directly above laptop */}
             <div 
               style={{ 
                 "--orig-x": "85px", 
                 "--orig-y": "40px", 
-                "--emerge-delay": "1.45s", 
-                "--emerge-duration": "1.80s" 
+                "--emerge-delay": "1.25s", 
+                "--emerge-duration": "1.8s" 
               }} 
               className="logo-emerge absolute top-[35%] left-[16%] z-30 pointer-events-none"
             >
@@ -299,15 +300,45 @@ function Hero() {
 
             {/* ============================================================
                 TIER 2: OUTER RING LOGOS
-                Wider spread with individually tuned natural delays and slower travel speeds
+                Wider stagger with distinct speeds so each drifts into position independently
                 ============================================================ */}
+
+            {/* Canva: Lower-Left */}
+            <div 
+              style={{ 
+                "--orig-x": "145px", 
+                "--orig-y": "-60px", 
+                "--emerge-delay": "1.42s", 
+                "--emerge-duration": "2.1s" 
+              }} 
+              className="logo-emerge absolute top-[72%] -left-[10%] sm:-left-[12%] z-30 pointer-events-none"
+            >
+              <div className="drift-a drop-shadow-[0_6px_14px_rgba(0,196,204,0.4)]">
+                <img src={LOGO_PATHS.canva} alt="Canva" className="w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-11 lg:h-11 object-contain" />
+              </div>
+            </div>
+
+            {/* Git: Mid-Low Left */}
+            <div 
+              style={{ 
+                "--orig-x": "155px", 
+                "--orig-y": "0px", 
+                "--emerge-delay": "1.28s", 
+                "--emerge-duration": "1.95s" 
+              }} 
+              className="logo-emerge absolute top-[48%] -left-[13%] sm:-left-[15%] -translate-y-1/2 z-30 pointer-events-none"
+            >
+              <div className="drift-b drop-shadow-[0_6px_14px_rgba(240,80,50,0.4)]">
+                <img src={LOGO_PATHS.git} alt="Git" className="w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-11 lg:h-11 object-contain" />
+              </div>
+            </div>
 
             {/* Figma: Mid-High Left */}
             <div 
               style={{ 
                 "--orig-x": "145px", 
                 "--orig-y": "80px", 
-                "--emerge-delay": "1.50s", 
+                "--emerge-delay": "1.34s", 
                 "--emerge-duration": "1.85s" 
               }} 
               className="logo-emerge absolute top-[18%] -left-[10%] sm:-left-[12%] z-30 pointer-events-none"
@@ -317,43 +348,13 @@ function Hero() {
               </div>
             </div>
 
-            {/* Git: Mid-Low Left */}
-            <div 
-              style={{ 
-                "--orig-x": "155px", 
-                "--orig-y": "0px", 
-                "--emerge-delay": "1.60s", 
-                "--emerge-duration": "2.05s" 
-              }} 
-              className="logo-emerge absolute top-[48%] -left-[13%] sm:-left-[15%] -translate-y-1/2 z-30 pointer-events-none"
-            >
-              <div className="drift-b drop-shadow-[0_6px_14px_rgba(240,80,50,0.4)]">
-                <img src={LOGO_PATHS.git} alt="Git" className="w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-11 lg:h-11 object-contain" />
-              </div>
-            </div>
-
-            {/* Canva: Lower-Left */}
-            <div 
-              style={{ 
-                "--orig-x": "145px", 
-                "--orig-y": "-60px", 
-                "--emerge-delay": "1.70s", 
-                "--emerge-duration": "1.90s" 
-              }} 
-              className="logo-emerge absolute top-[72%] -left-[10%] sm:-left-[12%] z-30 pointer-events-none"
-            >
-              <div className="drift-a drop-shadow-[0_6px_14px_rgba(0,196,204,0.4)]">
-                <img src={LOGO_PATHS.canva} alt="Canva" className="w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-11 lg:h-11 object-contain" />
-              </div>
-            </div>
-
             {/* VS Code: Top-Left */}
             <div 
               style={{ 
                 "--orig-x": "90px", 
                 "--orig-y": "140px", 
-                "--emerge-delay": "1.75s", 
-                "--emerge-duration": "1.75s" 
+                "--emerge-delay": "1.52s", 
+                "--emerge-duration": "2.15s" 
               }} 
               className="logo-emerge absolute -top-[8%] sm:-top-[9%] left-[12%] z-30 pointer-events-none"
             >
@@ -362,13 +363,13 @@ function Hero() {
               </div>
             </div>
 
-            {/* n8n: Top Center Apex (Slow, majestic rise) */}
+            {/* n8n: Top Center Apex (Slowest & softest float to the top) */}
             <div 
               style={{ 
                 "--orig-x": "0px", 
                 "--orig-y": "165px", 
-                "--emerge-delay": "1.85s", 
-                "--emerge-duration": "2.15s" 
+                "--emerge-delay": "1.48s", 
+                "--emerge-duration": "2.3s" 
               }} 
               className="logo-emerge absolute -top-[19%] sm:-top-[20%] left-1/2 -translate-x-1/2 z-30 pointer-events-none"
             >
@@ -382,8 +383,8 @@ function Hero() {
               style={{ 
                 "--orig-x": "-90px", 
                 "--orig-y": "140px", 
-                "--emerge-delay": "1.92s", 
-                "--emerge-duration": "1.85s" 
+                "--emerge-delay": "1.38s", 
+                "--emerge-duration": "2.0s" 
               }} 
               className="logo-emerge absolute -top-[8%] sm:-top-[9%] right-[12%] z-30 pointer-events-none"
             >
@@ -397,8 +398,8 @@ function Hero() {
               style={{ 
                 "--orig-x": "-145px", 
                 "--orig-y": "80px", 
-                "--emerge-delay": "1.98s", 
-                "--emerge-duration": "1.95s" 
+                "--emerge-delay": "1.45s", 
+                "--emerge-duration": "2.05s" 
               }} 
               className="logo-emerge absolute top-[18%] -right-[10%] sm:-right-[12%] z-30 pointer-events-none"
             >
@@ -412,8 +413,8 @@ function Hero() {
               style={{ 
                 "--orig-x": "-155px", 
                 "--orig-y": "0px", 
-                "--emerge-delay": "2.08s", 
-                "--emerge-duration": "2.10s" 
+                "--emerge-delay": "1.30s", 
+                "--emerge-duration": "1.9s" 
               }} 
               className="logo-emerge absolute top-[48%] -right-[13%] sm:-right-[15%] -translate-y-1/2 z-30 pointer-events-none"
             >
@@ -427,8 +428,8 @@ function Hero() {
               style={{ 
                 "--orig-x": "-145px", 
                 "--orig-y": "-60px", 
-                "--emerge-delay": "2.18s", 
-                "--emerge-duration": "1.90s" 
+                "--emerge-delay": "1.55s", 
+                "--emerge-duration": "2.2s" 
               }} 
               className="logo-emerge absolute top-[72%] -right-[10%] sm:-right-[12%] z-30 pointer-events-none"
             >
