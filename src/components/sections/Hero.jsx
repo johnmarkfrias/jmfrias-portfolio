@@ -138,7 +138,7 @@ function Hero() {
         }
       `}</style>
 
-      <Container className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+      <Container className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center">
         
         {/* LEFT COLUMN: Intro Content */}
         <div className="order-2 lg:order-1 lg:col-span-6 flex flex-col lg:flex-row items-start gap-6 lg:gap-12 w-full">
@@ -183,16 +183,19 @@ function Hero() {
               </a>
             </div>
 
-            <div className="flex lg:hidden mt-6 md:mt-8 w-full justify-center min-[426px]:justify-start">
+            {/* Mobile/Tablet Social Links: Tightened margin so bottom matches top visual padding */}
+            <div className="flex lg:hidden mt-5 sm:mt-6 w-full justify-center min-[426px]:justify-start">
               <SocialLinks className="flex-row" />
             </div>
           </div>
         </div>
 
         {/* RIGHT COLUMN: Pop-Out Circle Canvas */}
-        <div className="order-1 lg:order-2 lg:col-span-6 w-full flex items-center justify-center overflow-visible">
+        {/* pt-14 sm:pt-16 lg:pt-12 creates exact headroom for n8n and the head across mobile, tablet, and desktop */}
+        <div className="order-1 lg:order-2 lg:col-span-6 w-full flex items-center justify-center pt-14 sm:pt-16 md:pt-20 lg:pt-14 pb-2 lg:pb-0 overflow-visible">
+          
           {/* Scaled Canvas container */}
-          <div className="relative w-[270px] sm:w-[360px] md:w-[410px] lg:w-[460px] aspect-square flex items-center justify-center">
+          <div className="relative w-[260px] sm:w-[350px] md:w-[400px] lg:w-[450px] aspect-square flex items-center justify-center">
 
             {/* 1. Base Circle: Torso clipped inside */}
             <div className="anim-circle relative w-full h-full rounded-full bg-gradient-to-tr from-[#1e40af] via-[#235ff7] to-[#38bdf8] overflow-hidden flex items-end justify-center z-10 shadow-2xl shadow-blue-500/20">
@@ -264,7 +267,7 @@ function Hero() {
             </div>
 
             {/* ============================================================
-                TIER 2: OUTER RING LOGOS (Halfway gap: ~10-14px clean cushion)
+                TIER 2: OUTER RING LOGOS
                 ============================================================ */}
 
             {/* Canva: Lower-Left */}
@@ -307,7 +310,7 @@ function Hero() {
               </div>
             </div>
 
-            {/* n8n: Top Center Apex (Centered gap right above hair) */}
+            {/* n8n: Top Center Apex */}
             <div 
               style={{ animationDelay: "1.45s", "--tx": "0px", "--ty": "30px" }} 
               className="logo-burst absolute -top-[19%] sm:-top-[20%] left-1/2 -translate-x-1/2 z-30 pointer-events-none"
