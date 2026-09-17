@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { 
-  FaInstagram, 
+  FaViber, 
   FaLinkedinIn, 
   FaGithub, 
   FaReact, 
@@ -53,13 +53,13 @@ function Hero() {
   const SocialLinks = ({ className = "" }) => (
     <aside aria-label="Social Media Links" className={`flex items-center gap-4 lg:gap-9 ${className}`}>
       <a
-        href="https://instagram.com"
+        href="viber://chat?number=%2B639389381538"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Instagram"
-        className="w-10 h-10 rounded-lg bg-slate-900 text-white flex items-center justify-center text-lg hover:bg-blue-600 transition-colors shadow-sm shrink-0"
+        aria-label="Viber"
+        className="w-10 h-10 rounded-lg bg-slate-900 text-white flex items-center justify-center text-lg hover:bg-[#7360F2] transition-colors shadow-sm shrink-0"
       >
-        <FaInstagram />
+        <FaViber />
       </a>
       <a
         href="https://linkedin.com"
@@ -115,11 +115,6 @@ function Hero() {
           }
         }
 
-        /* 
-          Radial Bloom Explosion: 
-          Starts tucked directly behind chest/center (--tx, --ty offset to 0),
-          then propels outward to its target location with spring momentum.
-        */
         @keyframes burstFromBack {
           0% {
             opacity: 0;
@@ -245,11 +240,7 @@ function Hero() {
               />
             </div>
 
-            {/* ===============================================================
-                GROUP A: INSIDE CIRCLE (Burst out from chest center behind photo)
-            =============================================================== */}
-
-            {/* JavaScript: Bursts to top-right inside */}
+            {/* GROUP A: INSIDE CIRCLE */}
             <div 
               style={{ animationDelay: "1.10s", "--tx": "-95px", "--ty": "80px" }} 
               className="logo-burst absolute top-[19%] right-[11%] z-30 pointer-events-none"
@@ -259,7 +250,6 @@ function Hero() {
               </div>
             </div>
 
-            {/* HTML5: Bursts to top-left inside */}
             <div 
               style={{ animationDelay: "1.15s", "--tx": "95px", "--ty": "70px" }} 
               className="logo-burst absolute top-[23%] left-[10%] z-30 pointer-events-none"
@@ -269,7 +259,6 @@ function Hero() {
               </div>
             </div>
 
-            {/* n8n Automation: Bursts to mid-left inside */}
             <div 
               style={{ animationDelay: "1.20s", "--tx": "100px", "--ty": "30px" }} 
               className="logo-burst absolute top-[38%] left-[7%] z-30 pointer-events-none"
@@ -279,7 +268,6 @@ function Hero() {
               </div>
             </div>
 
-            {/* Git: Bursts to lower-left inside */}
             <div 
               style={{ animationDelay: "1.25s", "--tx": "100px", "--ty": "-10px" }} 
               className="logo-burst absolute top-[52%] left-[6%] z-30 pointer-events-none"
@@ -289,7 +277,6 @@ function Hero() {
               </div>
             </div>
 
-            {/* Figma: Bursts to lower-right inside */}
             <div 
               style={{ animationDelay: "1.30s", "--tx": "-100px", "--ty": "0px" }} 
               className="logo-burst absolute top-[50%] right-[6%] z-30 pointer-events-none"
@@ -299,11 +286,7 @@ function Hero() {
               </div>
             </div>
 
-            {/* ===============================================================
-                GROUP B: OUTSIDE CIRCLE (Burst out to orbital positions)
-            =============================================================== */}
-
-            {/* CSS3: Bursts up & left to upper flank */}
+            {/* GROUP B: OUTSIDE CIRCLE */}
             <div 
               style={{ animationDelay: "1.35s", "--tx": "130px", "--ty": "110px" }} 
               className="logo-burst absolute top-[6%] -left-3 sm:-left-5 lg:-left-6 z-30 pointer-events-none"
@@ -313,7 +296,6 @@ function Hero() {
               </div>
             </div>
 
-            {/* React.js: Bursts straight up & slightly left */}
             <div 
               style={{ animationDelay: "1.40s", "--tx": "80px", "--ty": "140px" }} 
               className="logo-burst absolute -top-5 sm:-top-8 left-[14%] sm:left-[16%] z-30 pointer-events-none"
@@ -323,7 +305,6 @@ function Hero() {
               </div>
             </div>
 
-            {/* Node.js: Bursts straight up & slightly right */}
             <div 
               style={{ animationDelay: "1.45s", "--tx": "-80px", "--ty": "140px" }} 
               className="logo-burst absolute -top-4 sm:-top-6 right-[14%] sm:right-[16%] z-30 pointer-events-none"
@@ -333,7 +314,6 @@ function Hero() {
               </div>
             </div>
 
-            {/* VS Code: Bursts up & right to upper flank */}
             <div 
               style={{ animationDelay: "1.50s", "--tx": "-130px", "--ty": "90px" }} 
               className="logo-burst absolute top-[14%] -right-6 sm:-right-10 z-30 pointer-events-none"
@@ -343,7 +323,6 @@ function Hero() {
               </div>
             </div>
 
-            {/* Tailwind CSS: Bursts directly sideways to mid-left */}
             <div 
               style={{ animationDelay: "1.55s", "--tx": "140px", "--ty": "35px" }} 
               className="logo-burst absolute top-[36%] -left-6 sm:-left-12 z-30 pointer-events-none"
@@ -353,7 +332,6 @@ function Hero() {
               </div>
             </div>
 
-            {/* PHP: Bursts directly sideways to mid-right */}
             <div 
               style={{ animationDelay: "1.60s", "--tx": "-140px", "--ty": "40px" }} 
               className="logo-burst absolute top-[34%] -right-6 sm:-right-12 z-30 pointer-events-none"

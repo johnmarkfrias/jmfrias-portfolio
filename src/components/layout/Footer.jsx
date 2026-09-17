@@ -2,8 +2,39 @@
 
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { 
+  FaInstagram, 
+  FaFacebookF, 
+  FaXTwitter, 
+  FaTiktok 
+} from "react-icons/fa6";
 import { navLinks, socials } from "../../data/socials";
-import logoFooter from "/public/assets/logo-footer.svg";
+import logoFooter from "/assets/logo-footer.svg";
+import threadsLogo from "/assets/threads-logo.svg";
+
+const renderSocialIcon = (id = "") => {
+  switch (id.toLowerCase()) {
+    case "instagram":
+      return <FaInstagram className="w-4 h-4" />;
+    case "facebook":
+      return <FaFacebookF className="w-4 h-4" />;
+    case "twitter":
+    case "x":
+      return <FaXTwitter className="w-3.5 h-3.5" />;
+    case "tiktok":
+      return <FaTiktok className="w-4 h-4" />;
+    case "threads":
+      return (
+        <img 
+          src={threadsLogo} 
+          alt="Threads" 
+          className="w-4 h-4 object-contain brightness-0 invert" 
+        />
+      );
+    default:
+      return null;
+  }
+};
 
 function Footer() {
   const [openSection, setOpenSection] = useState(null);
@@ -19,10 +50,10 @@ function Footer() {
     >
       <div className="max-w-[1440px] mx-auto px-[4%] 2xl:px-8">
         
-        {/* Main Footer Row: Inalis ang border-b sa mobile/tablet (border-b-0), ibinalik lang sa desktop (lg:border-b) */}
+        {/* Main Footer Row */}
         <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-0 lg:gap-8 pb-8 lg:pb-16 border-b-0 lg:border-b border-slate-800/80">
           
-          {/* Column 1: Brand Logo & Bio (Left side) */}
+          {/* Column 1: Brand Logo & Bio */}
           <div className="flex flex-col items-start text-left pb-6 lg:pb-0 w-full lg:w-fit max-w-sm">
             <Link 
               to="/" 
@@ -52,15 +83,15 @@ function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="w-9 h-9 rounded-full bg-slate-800/90 text-slate-300 flex items-center justify-center text-sm hover:bg-blue-600 hover:text-white transition-all shadow-sm"
+                  className="w-9 h-9 rounded-full bg-slate-800/90 text-slate-300 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all shadow-sm"
                 >
-                  {s.label[0]}
+                  {renderSocialIcon(s.id)}
                 </a>
               ))}
             </div>
           </div>
 
-          {/* Column 2: Quick Links (Inalis din ang border sa mobile) */}
+          {/* Column 2: Quick Links */}
           <div className="w-full lg:w-fit lg:mx-auto py-2.5 lg:py-0">
             <button
               type="button"
@@ -106,7 +137,7 @@ function Footer() {
             </div>
           </div>
 
-          {/* Column 3: Contacts (Inalis din ang border sa mobile) */}
+          {/* Column 3: Contacts */}
           <div className="w-full lg:w-fit py-2.5 lg:py-0">
             <button
               type="button"
@@ -162,7 +193,7 @@ function Footer() {
 
         </div>
 
-        {/* Sub-footer: flex-col-reverse sa mobile/tablet (nasa itaas ang Back to Top, nasa ilalim ang Copyright) */}
+        {/* Sub-footer */}
         <div className="pt-6 flex flex-col-reverse sm:flex-row justify-between items-center gap-4 text-xs text-slate-500">
           <p className="text-center sm:text-left">
             © {new Date().getFullYear()} John Mark Frias. All rights reserved.

@@ -3,9 +3,10 @@
 
 export const socials = [
   { id: "instagram", label: "Instagram", url: "https://instagram.com/" },
-  { id: "linkedin", label: "LinkedIn", url: "https://linkedin.com/" },
-  { id: "github", label: "GitHub", url: "https://github.com/" },
   { id: "facebook", label: "Facebook", url: "https://facebook.com/" },
+  { id: "twitter", label: "Twitter", url: "https://twitter.com/" },
+  { id: "tiktok", label: "TikTok", url: "https://tiktok.com/" },
+  { id: "threads", label: "Threads", url: "https://threads.net/" },
 ];
 
 export const navLinks = [
