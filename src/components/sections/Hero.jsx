@@ -244,7 +244,7 @@ function Hero() {
                 "--emerge-delay": "1.05s", 
                 "--emerge-duration": "1.55s" 
               }} 
-              className="logo-emerge absolute top-[19%] left-[17%] sm:left-[19%] z-30 pointer-events-none"
+              className="logo-emerge absolute top-[17%] left-[23%] sm:left-[22%] z-30 pointer-events-none"
             >
               <div className="drift-b drop-shadow-[0_4px_10px_rgba(0,0,0,0.3)]">
                 <img src={LOGO_PATHS.html} alt="HTML" className="w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 object-contain" />
@@ -289,7 +289,7 @@ function Hero() {
                 "--emerge-delay": "1.25s", 
                 "--emerge-duration": "1.8s" 
               }} 
-              className="logo-emerge absolute top-[34%] sm:top-[37%] left-[12%] sm:left-[14%] z-30 pointer-events-none"
+              className="logo-emerge absolute top-[32%] sm:top-[35%] left-[12%] sm:left-[14%] z-30 pointer-events-none"
             >
               <div className="drift-a drop-shadow-[0_6px_14px_rgba(119,123,180,0.55)]">
                 <img src={LOGO_PATHS.php} alt="PHP" className="w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 object-contain" />
