@@ -4,6 +4,8 @@ import { useState, useEffect, useCallback, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { projects } from "../../data/projects";
 import ProjectCard from "../common/ProjectCard";
+import Section from "../layout/Section";
+import Container from "../layout/Container";
 import SectionBadge from "../common/SectionBadge";
 
 function Projects() {
@@ -77,20 +79,22 @@ function Projects() {
   }, [isHovered, nextSlide]);
 
   return (
-    <section 
+    <Section 
       id="projects" 
-      aria-labelledby="projects-heading"
-      className="bg-blue-50/50 py-[60px] md:py-[80px] lg:py-[100px] xl:py-[120px] overflow-hidden"
+      aria-label="Projects Section"
+      className="bg-blue-50/50 overflow-hidden"
     >
-      <div className="max-w-[1440px] mx-auto px-[4%] 2xl:px-8">
+      <Container>
         
         {/* Two-Column Header Block */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 lg:gap-16 mb-12 md:mb-16">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 lg:gap-16 mb-8 md:mb-12">
           <div className="text-left shrink-0">
-            <SectionBadge>PROJECTS</SectionBadge>
+            <div className="-mb-2 sm:-mb-3">
+              <SectionBadge>PROJECTS</SectionBadge>
+            </div>
             <h2 
               id="projects-heading"
-              className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 mt-4 leading-tight tracking-tight"
+              className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 leading-tight tracking-tight"
             >
               What I've Built
             </h2>
@@ -221,8 +225,8 @@ function Projects() {
           </div>
         </div>
 
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 }
 

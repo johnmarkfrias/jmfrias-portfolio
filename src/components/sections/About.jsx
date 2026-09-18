@@ -41,7 +41,7 @@ function About() {
   };
 
   return (
-    <Section>
+    <Section className="bg-blue-50/50">
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 lg:gap-16 items-center">
 
@@ -49,7 +49,7 @@ function About() {
           <div className="w-full min-w-0 flex items-center justify-center px-2 sm:px-4">
             <div 
               aria-label="Interactive graduation portrait deck"
-              className="relative w-full max-w-[220px] sm:max-w-[320px] md:max-w-[400px] lg:max-w-[430px] aspect-[3/4] flex items-center justify-center [perspective:1200px]"
+              className="relative w-full max-w-[260px] sm:max-w-[340px] md:max-w-[400px] lg:max-w-[430px] aspect-[3/4] flex items-center justify-center [perspective:1200px]"
             >
               {PHOTOS.map((photo, index) => (
                 <div
@@ -57,7 +57,7 @@ function About() {
                   style={{
                     transitionTimingFunction: "cubic-bezier(0.34, 1.25, 0.64, 1)",
                   }}
-                  className={`absolute inset-0 rounded-2xl overflow-hidden border-2 bg-slate-900 transition-all duration-[900ms] will-change-transform select-none ${getCardStyle(
+                  className={`absolute inset-0 rounded-3xl overflow-hidden border-2 bg-slate-900 transition-all duration-[900ms] will-change-transform select-none ${getCardStyle(
                     index
                   )}`}
                 >
