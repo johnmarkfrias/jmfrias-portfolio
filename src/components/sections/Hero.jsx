@@ -292,7 +292,7 @@ function Hero() {
               className="logo-emerge absolute top-[30%] sm:top-[32%] left-[12%] sm:left-[14%] z-30 pointer-events-none"
             >
               <div className="drift-a drop-shadow-[0_6px_14px_rgba(119,123,180,0.55)]">
-                <img src={LOGO_PATHS.php} alt="PHP" className="w-7 h-7 sm:w-10 sm:h-10 md:w-10 md:h-10 lg:w-11 lg:h-11 object-contain" />
+                <img src={LOGO_PATHS.php} alt="PHP" className="w-7 h-7 sm:w-12 sm:h-12 md:w-10 md:h-10 lg:w-11 lg:h-11 object-contain" />
               </div>
             </div>
 
