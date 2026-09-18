@@ -10,6 +10,8 @@ import {
   FaRobot,
 } from "react-icons/fa";
 import { skills } from "../../data/skills";
+import Section from "../layout/Section";
+import Container from "../layout/Container";
 import SectionBadge from "../common/SectionBadge";
 
 const iconMap = {
@@ -49,20 +51,18 @@ function Skills() {
   const targetCategoryRoute = getCategoryRoute(activeSkill);
 
   return (
-    <section
-      id="skills"
-      aria-labelledby="skills-heading"
-      className="py-12 sm:py-16 md:py-20 lg:py-24 bg-white"
-    >
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 2xl:px-8">
+    <Section id="skills" aria-label="Skills & Stack Section" className="bg-white">
+      <Container>
         
         {/* Two-Column Header Block */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 lg:gap-16 mb-10 md:mb-16">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 lg:gap-16 mb-6 sm:mb-8 md:mb-10">
           <div className="text-left shrink-0">
-            <SectionBadge>SKILLS & STACK</SectionBadge>
+            <div className="-mb-2 sm:-mb-3">
+              <SectionBadge>SKILLS & STACK</SectionBadge>
+            </div>
             <h2
               id="skills-heading"
-              className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 mt-4 leading-tight tracking-tight"
+              className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mt-0 leading-tight tracking-tight"
             >
               Areas Of Expertise
             </h2>
@@ -159,8 +159,8 @@ function Skills() {
 
         </div>
 
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 }
 
