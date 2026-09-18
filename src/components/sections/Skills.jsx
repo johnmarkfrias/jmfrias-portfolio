@@ -40,6 +40,32 @@ const getCategoryRoute = (skill) => {
   return "/projects";
 };
 
+// Map each skill title to a matching professional inquiry subject for the contact form
+const getCollabSubject = (skill) => {
+  if (!skill) return "Project Collaboration";
+  const title = (skill.title || "").toLowerCase();
+
+  if (title.includes("full stack") || title.includes("web")) {
+    return "Full-Stack Development Inquiry";
+  }
+  if (title.includes("api") || title.includes("integration")) {
+    return "API Integration Inquiry";
+  }
+  if (title.includes("ui") || title.includes("ux")) {
+    return "UI/UX Design Inquiry";
+  }
+  if (title.includes("qa") || title.includes("testing")) {
+    return "QA Testing Inquiry";
+  }
+  if (title.includes("wordpress")) {
+    return "WordPress Customization Inquiry";
+  }
+  if (title.includes("ai") || title.includes("automation")) {
+    return "AI & Automation Inquiry";
+  }
+  return "Project Collaboration";
+};
+
 function Skills() {
   const [selectedSkillId, setSelectedSkillId] = useState(
     skills[0]?.id || null
@@ -49,6 +75,7 @@ function Skills() {
     skills.find((item) => item.id === selectedSkillId) || skills[0];
 
   const targetCategoryRoute = getCategoryRoute(activeSkill);
+  const collabSubject = getCollabSubject(activeSkill);
 
   return (
     <Section id="skills" aria-label="Skills & Stack Section" className="bg-white">
@@ -146,14 +173,25 @@ function Skills() {
               </div>
             )}
 
-            {/* Dynamic CTA Button: filters ProjectsPage by the selected skill */}
-            <div className="w-full md:w-auto mt-6 sm:mt-8">
-              <Link
-                to={targetCategoryRoute}
-                className="w-full md:w-auto flex md:inline-flex items-center justify-center px-5 py-3 rounded-lg text-sm sm:text-base font-semibold text-white bg-blue-600 hover:bg-blue-700 active:scale-95 transition-all shadow-sm text-center"
-              >
-                View Related Projects
-              </Link>
+            {/* Dynamic CTA Buttons: View Projects & Let's Collab */}
+            <div className="flex flex-col sm:flex-row items-center gap-3 w-full mt-6 sm:mt-8">
+              <div className="w-full sm:w-auto">
+                <Link
+                  to={targetCategoryRoute}
+                  className="w-full sm:w-auto flex items-center justify-center px-5 py-3 rounded-lg text-sm sm:text-base font-semibold text-white bg-blue-600 hover:bg-blue-700 active:scale-95 transition-all shadow-sm text-center"
+                >
+                  View Related Projects
+                </Link>
+              </div>
+
+              <div className="w-full sm:w-auto">
+                <Link
+                  to={`/contact?subject=${encodeURIComponent(collabSubject)}`}
+                  className="w-full sm:w-auto flex items-center justify-center px-5 py-3 rounded-lg text-sm sm:text-base font-semibold text-blue-600 bg-blue-50 hover:bg-blue-100 active:scale-95 transition-all border border-blue-200 text-center"
+                >
+                  Let's Collab
+                </Link>
+              </div>
             </div>
           </div>
 

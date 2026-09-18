@@ -61,10 +61,10 @@ function Navbar() {
           ))}
         </ul>
 
-        {/* DESKTOP CTA — removed the duplicate <Button> */}
+        {/* DESKTOP HIRE CTA — Includes query parameter to auto-select and scroll */}
         <div className="hidden lg:flex items-center">
           <Link
-            to="/contact"
+            to="/contact?subject=Job%20Opportunity%20(Hire%20Me)"
             className="bg-blue-600 text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-blue-700 transition-colors shadow-sm"
           >
             Hire JM Frias
@@ -143,9 +143,10 @@ function Navbar() {
           </ul>
         </div>
 
+        {/* MOBILE HIRE CTA */}
         <div className="w-full pt-4 shrink-0">
           <Link
-            to="/contact"
+            to="/contact?subject=Job%20Opportunity%20(Hire%20Me)"
             onClick={closeMenu}
             className="w-full block text-center bg-blue-600 text-white font-semibold py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors shadow-sm"
           >

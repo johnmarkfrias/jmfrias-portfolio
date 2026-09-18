@@ -2,6 +2,6 @@ export const ROLES = [
   "Full Stack Developer",
   "UI & UX Designer",
   "Graphic Designer",
-  "AI Automator",
+  "n8n Automation",
   "QA Tester",
 ];

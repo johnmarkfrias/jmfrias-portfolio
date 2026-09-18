@@ -1,10 +1,12 @@
 // src/pages/ContactPage.jsx
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import SectionBadge from "../components/common/SectionBadge";
 
 function ContactPage() {
+  const [searchParams] = useSearchParams();
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -13,6 +15,27 @@ function ContactPage() {
   });
 
   const emailAddress = "johnmarkm.frias@gmail.com";
+
+  // Automatically read query parameters, and scroll ONLY if it's specifically the "Hire Me" action
+  useEffect(() => {
+    const subjectParam = searchParams.get("subject");
+    if (subjectParam) {
+      setFormData((prev) => ({ ...prev, subject: subjectParam }));
+      
+      // Scroll to form only when triggered by the Hire button
+      if (subjectParam === "Job Opportunity (Hire Me)") {
+        const formElement = document.getElementById("contact-form-container");
+        if (formElement) {
+          setTimeout(() => {
+            formElement.scrollIntoView({ behavior: "smooth" });
+          }, 100);
+        }
+      }
+    } else {
+      // Regular Contact navigation stays at the top of the page
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [searchParams]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -23,7 +46,7 @@ function ContactPage() {
     const mailtoUrl = `mailto:${emailAddress}?subject=${encodeURIComponent(
       formData.subject || `Portfolio Inquiry from ${formData.fullName}`
     )}&body=${encodeURIComponent(
-      `Name: ${formData.fullName}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+      `Name: ${formData.fullName}\nEmail:${formData.email}\nInquiry Type: ${formData.subject}\n\nMessage:\n${formData.message}`
     )}`;
     window.location.href = mailtoUrl;
   };
@@ -47,8 +70,10 @@ function ContactPage() {
             
             {/* Left: Badge and Main Heading */}
             <div className="lg:col-span-7">
-              <SectionBadge>GET IN TOUCH</SectionBadge>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-extrabold text-slate-900 mt-4 tracking-tight leading-[1.12]">
+              <div className="-mb-2 sm:-mb-3">
+                <SectionBadge>GET IN TOUCH</SectionBadge>
+              </div>
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[52px] font-bold text-slate-900 mt-0 tracking-tight leading-[1.12]">
                 Let's talk about your next project.
               </h1>
             </div>
@@ -120,12 +145,16 @@ function ContactPage() {
 
             </div>
 
-            {/* Right Column: Contact Form */}
-            <div className="lg:col-span-7">
+            {/* Right Column: Contact Form Wrapper */}
+            <div id="contact-form-container" className="lg:col-span-7 scroll-mt-28">
               <form 
                 onSubmit={handleSubmit}
                 className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 md:p-10 shadow-sm space-y-5"
               >
+                <h3 className="text-xl font-bold text-slate-900 mb-1">
+                  Send me an email
+                </h3>
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   {/* Full Name */}
                   <div>
@@ -168,24 +197,45 @@ function ContactPage() {
                   </div>
                 </div>
 
-                {/* Subject */}
+                {/* Subject Dropdown */}
                 <div>
                   <label 
                     htmlFor="subject" 
                     className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-2"
                   >
-                    Subject <span className="text-blue-600">*</span>
+                    Subject / Inquiry Type <span className="text-blue-600">*</span>
                   </label>
-                  <input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    required
-                    value={formData.subject}
-                    onChange={handleChange}
-                    placeholder="New Website Project / Consultation"
-                    className="w-full bg-slate-50/70 border border-slate-200/90 rounded-xl px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 focus:bg-white transition-all"
-                  />
+                  <div className="relative">
+                    <select
+                      id="subject"
+                      name="subject"
+                      required
+                      value={formData.subject}
+                      onChange={handleChange}
+                      className="w-full bg-slate-50/70 border border-slate-200/90 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 focus:bg-white transition-all appearance-none cursor-pointer"
+                    >
+                      <option value="" disabled>
+                        Select inquiry type...
+                      </option>
+                      <option value="Job Opportunity (Hire Me)">Job Opportunity (Hire Me)</option>
+                      <option value="Project Collaboration">Project Collaboration</option>
+                      <option value="Part-Time Position">Part-Time Position</option>
+                      <option value="Freelance Project">Freelance Project</option>
+                      <option value="Full-Stack Development Inquiry">Full-Stack Development Inquiry</option>
+                      <option value="API Integration Inquiry">API Integration Inquiry</option>
+                      <option value="UI/UX Design Inquiry">UI/UX Design Inquiry</option>
+                      <option value="QA Testing Inquiry">QA Testing Inquiry</option>
+                      <option value="WordPress Customization Inquiry">WordPress Customization Inquiry</option>
+                      <option value="AI & Automation Inquiry">AI & Automation Inquiry</option>
+                      <option value="General Inquiry">General Inquiry</option>
+                    </select>
+                    {/* Custom dropdown arrow icon */}
+                    <div className="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-slate-500">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="m19 9-7 7-7-7" />
+                      </svg>
+                    </div>
+                  </div>
                 </div>
 
                 {/* Message */}
@@ -212,9 +262,9 @@ function ContactPage() {
                 <div className="pt-2">
                   <button
                     type="submit"
-                    className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 rounded-full text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 active:scale-95 transition-all shadow-xs"
+                    className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 rounded-full text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 active:scale-95 transition-all shadow-xs cursor-pointer"
                   >
-                    Send Message
+                    Submit
                   </button>
                 </div>
               </form>
