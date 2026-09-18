@@ -186,7 +186,7 @@ function Skills() {
 
               <div className="w-full sm:w-auto">
                 <Link
-                  to={`/contact?subject=${encodeURIComponent(collabSubject)}`}
+                  to={`/contact?subject=${encodeURIComponent(collabSubject)}#contact-form-container`}
                   className="w-full sm:w-auto flex items-center justify-center px-5 py-3 rounded-lg text-sm sm:text-base font-semibold text-blue-600 bg-blue-50 hover:bg-blue-100 active:scale-95 transition-all border border-blue-200 text-center"
                 >
                   Let's Collab
