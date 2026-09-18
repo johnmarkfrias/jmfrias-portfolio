@@ -4,8 +4,30 @@ import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
+import { Home, User, Cpu, FolderGit2, Mail } from "lucide-react";
 import { navLinks } from "../../data/socials";
 import logo from "/public/assets/JMFrias.dev.svg";
+
+// Map each nav label/path to an outline icon component
+const getNavLinkIcon = (label, isActive) => {
+  const strokeWidth = isActive ? 2.5 : 1.75;
+  const props = { className: "w-5 h-5 shrink-0", strokeWidth };
+
+  switch ((label || "").toLowerCase()) {
+    case "home":
+      return <Home {...props} />;
+    case "about":
+      return <User {...props} />;
+    case "skills":
+      return <Cpu {...props} />;
+    case "projects":
+      return <FolderGit2 {...props} />;
+    case "contact":
+      return <Mail {...props} />;
+    default:
+      return <Home {...props} />;
+  }
+};
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -61,7 +83,7 @@ function Navbar() {
           ))}
         </ul>
 
-        {/* DESKTOP HIRE CTA — Includes query parameter to auto-select and scroll */}
+        {/* DESKTOP HIRE CTA */}
         <div className="hidden lg:flex items-center">
           <Link
             to="/contact?subject=Job%20Opportunity%20(Hire%20Me)"
@@ -90,21 +112,22 @@ function Navbar() {
         aria-hidden="true"
       />
 
-      {/* OFF-CANVAS: fixed height + safe-area handling */}
+      {/* OFF-CANVAS: Side Navigation Drawer */}
       <aside
         aria-label="Navigation Drawer"
         className={`fixed top-0 left-0 h-[100dvh] w-[280px] sm:w-[320px] bg-white z-50 shadow-xl flex flex-col justify-between transition-transform duration-300 ease-in-out lg:hidden overflow-y-auto ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
         style={{
-          paddingTop: "1.5rem",
+          paddingTop: "1.75rem",
           paddingLeft: "1.5rem",
           paddingRight: "1.5rem",
-          paddingBottom: "max(1.5rem, env(safe-area-inset-bottom))",
+          paddingBottom: "max(1.75rem, env(safe-area-inset-bottom))",
         }}
       >
         <div className="w-full flex flex-col">
-          <div className="flex items-center justify-between pb-6">
+          {/* Header with Logo and Close button */}
+          <div className="flex items-center justify-between pb-8 border-b border-slate-100">
             <img
               src={logo}
               alt="JM Frias.dev"
@@ -122,21 +145,29 @@ function Navbar() {
             </button>
           </div>
 
-          <ul className="flex flex-col gap-5 pt-4">
+          {/* Nav Links with proper downward gap from logo header */}
+          <ul className="flex flex-col gap-6 pt-5">
             {navLinks.map((link) => (
               <li key={link.path}>
                 <NavLink
                   to={link.path}
                   onClick={closeMenu}
                   className={({ isActive }) =>
-                    `text-base tracking-wide block transition-colors ${
+                    `flex items-center gap-3.5 text-base tracking-wide transition-colors py-1 ${
                       isActive
-                        ? "text-blue-600 font-semibold"
-                        : "text-slate-800 hover:text-blue-600 font-normal"
+                        ? "text-blue-600 font-bold"
+                        : "text-slate-700 hover:text-blue-600 font-normal"
                     }`
                   }
                 >
-                  {link.label}
+                  {({ isActive }) => (
+                    <>
+                      <span className={isActive ? "text-blue-600" : "text-slate-500"}>
+                        {getNavLinkIcon(link.label, isActive)}
+                      </span>
+                      <span>{link.label}</span>
+                    </>
+                  )}
                 </NavLink>
               </li>
             ))}
@@ -144,11 +175,11 @@ function Navbar() {
         </div>
 
         {/* MOBILE HIRE CTA */}
-        <div className="w-full pt-4 shrink-0">
+        <div className="w-full pt-6 shrink-0 border-t border-slate-100 mt-6">
           <Link
             to="/contact?subject=Job%20Opportunity%20(Hire%20Me)"
             onClick={closeMenu}
-            className="w-full block text-center bg-blue-600 text-white font-semibold py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors shadow-sm"
+            className="w-full block text-center bg-blue-600 text-white font-semibold py-3.5 px-4 rounded-xl hover:bg-blue-700 transition-colors shadow-sm"
           >
             Hire JM Frias
           </Link>
