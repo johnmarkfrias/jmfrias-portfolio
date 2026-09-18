@@ -270,27 +270,28 @@ function ContactPage() {
                   ></textarea>
                 </div>
 
-                {/* Status Notifications */}
-                {status === "success" && (
-                  <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-700 text-sm font-medium">
-                    Thank you! Your message has been sent directly to my inbox. I'll get back to you soon.
+                {/* Submit Button & Status Notifications */}
+                <div className="pt-2 flex flex-col gap-4">
+                  <div>
+                    <button
+                      type="submit"
+                      disabled={status === "loading"}
+                      className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 rounded-full text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 disabled:opacity-60 active:scale-95 transition-all shadow-xs cursor-pointer"
+                    >
+                      {status === "loading" ? "Submitting..." : "Submit"}
+                    </button>
                   </div>
-                )}
-                {status === "error" && (
-                  <div className="p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-sm font-medium">
-                    Oops! Something went wrong sending your message. Please try again or email me directly at {recipientEmail}.
-                  </div>
-                )}
 
-                {/* Submit Button with Loading State */}
-                <div className="pt-2">
-                  <button
-                    type="submit"
-                    disabled={status === "loading"}
-                    className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 rounded-full text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 disabled:opacity-60 active:scale-95 transition-all shadow-xs cursor-pointer"
-                  >
-                    {status === "loading" ? "Submitting..." : "Submit"}
-                  </button>
+                  {status === "success" && (
+                    <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-700 text-sm font-medium">
+                      Thank you! Your message has been sent directly to my inbox. I'll get back to you soon.
+                    </div>
+                  )}
+                  {status === "error" && (
+                    <div className="p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-sm font-medium">
+                      Oops! Something went wrong sending your message. Please try again or email me directly at {recipientEmail}.
+                    </div>
+                  )}
                 </div>
               </form>
             </div>
