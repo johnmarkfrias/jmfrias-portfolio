@@ -134,14 +134,16 @@ function SkillsPage() {
         <link rel="canonical" href="https://jmfrias.dev/skills" />
       </Helmet>
 
-      <main className="w-full bg-white text-slate-900 pt-[100px] md:pt-[120px] pb-[80px] lg:pb-[120px] overflow-x-hidden">
+      <main className="w-full bg-white text-slate-900 pt-[90px] md:pt-[110px] pb-[60px] lg:pb-[100px] overflow-x-hidden">
         <Container>
           
-          {/* Header */}
-          <header className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-end mb-10 sm:mb-12 lg:mb-16 pb-8 border-b border-slate-100">
+          {/* Header Block: Tightened badge-to-heading spacing */}
+          <header className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-end mb-8 sm:mb-10 lg:mb-12 pb-6 sm:pb-8 border-b border-slate-100">
             <div className="lg:col-span-7 text-left">
-              <SectionBadge>SKILLS & STACK</SectionBadge>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-extrabold text-slate-900 mt-4 tracking-tight leading-[1.12]">
+              <div className="inline-block mb-2">
+                <SectionBadge>SKILLS & STACK</SectionBadge>
+              </div>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-extrabold text-slate-900 tracking-tight leading-[1.12]">
                 Areas Of Expertise
               </h1>
             </div>
@@ -153,12 +155,12 @@ function SkillsPage() {
           </header>
 
           {/* Section 1: Interactive Skills Selector & Description UI */}
-          <section aria-label="Interactive Areas of Expertise" className="mb-12 sm:mb-16 text-left">
+          <section aria-label="Interactive Areas of Expertise" className="mb-10 sm:mb-14 text-left">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-16 items-center">
               
               {/* 1. Cards Grid: Top on mobile/tablet (order-1), Right on desktop (lg:order-2) */}
               <div className="order-1 lg:order-2 lg:col-span-6">
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3.5 sm:gap-4">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
                   {skills.map((skill) => {
                     const IconComponent = iconMap[skill.icon] || FaLaptopCode;
                     const isSelected = activeSkill?.id === skill.id;
@@ -169,20 +171,20 @@ function SkillsPage() {
                         type="button"
                         onClick={() => setSelectedSkillId(skill.id)}
                         aria-pressed={isSelected}
-                        className={`group flex flex-col items-center justify-center text-center p-4 sm:p-6 rounded-2xl border transition-all duration-200 cursor-pointer min-h-[130px] sm:min-h-[160px] active:scale-95 ${
+                        className={`group flex flex-col items-center justify-center text-center p-4 sm:p-5 rounded-2xl border transition-all duration-200 cursor-pointer min-h-[120px] sm:min-h-[150px] active:scale-95 ${
                           isSelected
                             ? "bg-blue-600 border-blue-600 text-white shadow-lg shadow-blue-600/20"
                             : "bg-slate-50/60 border-slate-200 text-slate-700 hover:bg-blue-600 hover:border-blue-600 hover:text-white hover:shadow-lg hover:shadow-blue-600/20"
                         }`}
                       >
                         <div
-                          className={`w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center transition-colors mb-3 ${
+                          className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center transition-colors mb-2.5 sm:mb-3 ${
                             isSelected
                               ? "bg-white text-blue-600 shadow-sm"
                               : "bg-white text-slate-600 border border-slate-200 group-hover:bg-white group-hover:text-blue-600 group-hover:border-transparent group-hover:shadow-sm"
                           }`}
                         >
-                          <IconComponent className="w-5 h-5 transition-transform duration-200 group-hover:scale-110" />
+                          <IconComponent className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-200 group-hover:scale-110" />
                         </div>
 
                         <span
@@ -212,7 +214,7 @@ function SkillsPage() {
 
                 {/* Optional Tech Stack Badges */}
                 {activeSkill?.technologies && (
-                  <div className="flex flex-wrap gap-2 mt-5 sm:mt-6">
+                  <div className="flex flex-wrap gap-2 mt-4 sm:mt-5">
                     {activeSkill.technologies.map((tech, index) => (
                       <span
                         key={index}
@@ -225,7 +227,7 @@ function SkillsPage() {
                 )}
 
                 {/* Dynamic CTA Buttons: View Projects & Let's Collab */}
-                <div className="flex flex-col sm:flex-row items-center gap-3 w-full mt-6 sm:mt-8">
+                <div className="flex flex-col sm:flex-row items-center gap-3 w-full mt-5 sm:mt-7">
                   <div className="w-full sm:w-auto">
                     <Link
                       to={targetCategoryRoute}
@@ -249,22 +251,24 @@ function SkillsPage() {
             </div>
           </section>
 
-          {/* Section 2: Tools & Technologies (2 columns on mobile, 3 on tablet, 4 on desktop) */}
-          <section aria-label="Tools and Technologies" className="border-t border-slate-100 pt-10 sm:pt-12 text-left">
-            <div className="max-w-2xl mb-10">
-              <SectionBadge>STACK & TOOLS</SectionBadge>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-3 mb-2 tracking-tight">
+          {/* Section 2: Tools & Technologies (2 cols on mobile, 3 on tablet, 4 on desktop) */}
+          <section aria-label="Tools and Technologies" className="border-t border-slate-100 pt-8 sm:pt-10 text-left">
+            <div className="max-w-2xl mb-8 sm:mb-10">
+              <div className="inline-block mb-2">
+                <SectionBadge>STACK & TOOLS</SectionBadge>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
                 Tools & Technologies
               </h2>
-              <p className="text-sm sm:text-base text-slate-600">
+              <p className="text-sm sm:text-base text-slate-600 mt-2">
                 Languages, frameworks, database systems, and software tools I actively utilize.
               </p>
             </div>
 
-            <div className="space-y-10">
+            <div className="space-y-8 sm:space-y-10">
               {techCategories.map((group, groupIdx) => (
                 <div key={groupIdx}>
-                  <h3 className="text-xs sm:text-sm font-semibold text-slate-500 tracking-wider uppercase mb-4">
+                  <h3 className="text-xs sm:text-sm font-semibold text-slate-500 tracking-wider uppercase mb-3 sm:mb-4">
                     {group.category}
                   </h3>
 
