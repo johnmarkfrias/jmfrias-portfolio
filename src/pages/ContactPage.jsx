@@ -14,15 +14,16 @@ function ContactPage() {
     message: "",
   });
 
-  const emailAddress = "johnmarkm.frias@gmail.com";
+  const [status, setStatus] = useState("idle"); // "idle" | "loading" | "success" | "error"
+
+  const recipientEmail = "johnmarkm.frias@gmail.com";
 
   // Automatically read query parameters and scroll to form whenever a pre-filled subject is passed
   useEffect(() => {
     const subjectParam = searchParams.get("subject");
     if (subjectParam) {
       setFormData((prev) => ({ ...prev, subject: subjectParam }));
-      
-      // Smooth scroll to form container whenever an action button pre-fills the subject
+
       const formElement = document.getElementById("contact-form-container");
       if (formElement) {
         setTimeout(() => {
@@ -30,7 +31,6 @@ function ContactPage() {
         }, 100);
       }
     } else {
-      // Regular Contact navigation stays at the top of the page
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   }, [searchParams]);
@@ -39,14 +39,42 @@ function ContactPage() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  // Direct background submission via AJAX (No apps will pop up!)
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const mailtoUrl = `mailto:${emailAddress}?subject=${encodeURIComponent(
-      formData.subject || `Portfolio Inquiry from ${formData.fullName}`
-    )}&body=${encodeURIComponent(
-      `Name: ${formData.fullName}\nEmail:${formData.email}\nInquiry Type: ${formData.subject}\n\nMessage:\n${formData.message}`
-    )}`;
-    window.location.href = mailtoUrl;
+    setStatus("loading");
+
+    try {
+      const response = await fetch(`https://formsubmit.co/ajax/${recipientEmail}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          Name: formData.fullName,
+          Email: formData.email,
+          _subject: `[Portfolio Inquiry] ${formData.subject || "New Message"}`,
+          InquiryType: formData.subject,
+          Message: formData.message,
+        }),
+      });
+
+      if (response.ok) {
+        setStatus("success");
+        setFormData({
+          fullName: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        setStatus("error");
+      }
+    } catch (error) {
+      console.error("Submission failed:", error);
+      setStatus("error");
+    }
   };
 
   return (
@@ -63,10 +91,8 @@ function ContactPage() {
       <main className="w-full bg-white text-slate-900 pt-[100px] md:pt-[120px] pb-[80px] lg:pb-[120px] overflow-x-hidden">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 2xl:px-8 text-left">
           
-          {/* Header Block: 2-Column Split Header */}
+          {/* Header Block */}
           <header className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-end mb-12 sm:mb-16 lg:mb-20 pb-8 border-b border-slate-100">
-            
-            {/* Left: Badge and Main Heading */}
             <div className="lg:col-span-7">
               <div className="-mb-2 sm:-mb-3">
                 <SectionBadge>GET IN TOUCH</SectionBadge>
@@ -76,7 +102,6 @@ function ContactPage() {
               </h1>
             </div>
 
-            {/* Right: Subtitle Description */}
             <div className="lg:col-span-5 lg:pb-1">
               <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-xl">
                 Whether you need a custom WordPress site, front-end development, or full-stack web solutions, feel free to reach out directly or send a message below.
@@ -84,13 +109,11 @@ function ContactPage() {
             </div>
           </header>
 
-          {/* Main 2-Column Body: Info List & Form */}
+          {/* Main 2-Column Body */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
             
             {/* Left Column: Direct Info List */}
             <div className="lg:col-span-5 space-y-7 sm:space-y-8 lg:pt-2">
-              
-              {/* Email */}
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-2xl bg-sky-50 text-sky-500 flex items-center justify-center shrink-0 shadow-2xs">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
@@ -101,15 +124,14 @@ function ContactPage() {
                 <div>
                   <h3 className="text-base font-bold text-slate-900 leading-snug">Email</h3>
                   <a 
-                    href={`mailto:${emailAddress}`}
+                    href={`mailto:${recipientEmail}`}
                     className="text-sm text-slate-600 hover:text-blue-600 transition-colors mt-0.5 block break-all font-medium"
                   >
-                    {emailAddress}
+                    {recipientEmail}
                   </a>
                 </div>
               </div>
 
-              {/* Phone */}
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-2xl bg-sky-50 text-sky-500 flex items-center justify-center shrink-0 shadow-2xs">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
@@ -124,7 +146,6 @@ function ContactPage() {
                 </div>
               </div>
 
-              {/* Location */}
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-2xl bg-sky-50 text-sky-500 flex items-center justify-center shrink-0 shadow-2xs">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
@@ -140,10 +161,9 @@ function ContactPage() {
                   </p>
                 </div>
               </div>
-
             </div>
 
-            {/* Right Column: Contact Form Wrapper with ID */}
+            {/* Right Column: Contact Form */}
             <div id="contact-form-container" className="lg:col-span-7 scroll-mt-28">
               <form 
                 onSubmit={handleSubmit}
@@ -154,7 +174,6 @@ function ContactPage() {
                 </h3>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  {/* Full Name */}
                   <div>
                     <label 
                       htmlFor="fullName" 
@@ -174,7 +193,6 @@ function ContactPage() {
                     />
                   </div>
 
-                  {/* Email */}
                   <div>
                     <label 
                       htmlFor="email" 
@@ -227,7 +245,6 @@ function ContactPage() {
                       <option value="AI & Automation Inquiry">AI & Automation Inquiry</option>
                       <option value="General Inquiry">General Inquiry</option>
                     </select>
-                    {/* Custom dropdown arrow icon */}
                     <div className="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-slate-500">
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="m19 9-7 7-7-7" />
@@ -256,13 +273,26 @@ function ContactPage() {
                   ></textarea>
                 </div>
 
-                {/* Submit Action Button */}
+                {/* Status Notifications */}
+                {status === "success" && (
+                  <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-700 text-sm font-medium">
+                    Thank you! Your message has been sent directly to my inbox. I'll get back to you soon.
+                  </div>
+                )}
+                {status === "error" && (
+                  <div className="p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-sm font-medium">
+                    Oops! Something went wrong sending your message. Please try again or email me directly at {recipientEmail}.
+                  </div>
+                )}
+
+                {/* Submit Button with Loading State */}
                 <div className="pt-2">
                   <button
                     type="submit"
-                    className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 rounded-full text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 active:scale-95 transition-all shadow-xs cursor-pointer"
+                    disabled={status === "loading"}
+                    className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 rounded-full text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 disabled:opacity-60 active:scale-95 transition-all shadow-xs cursor-pointer"
                   >
-                    Submit
+                    {status === "loading" ? "Submitting..." : "Submit"}
                   </button>
                 </div>
               </form>
