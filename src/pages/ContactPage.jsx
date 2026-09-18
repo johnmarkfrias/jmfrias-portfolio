@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import Section from "../components/layout/Section";
+import Container from "../components/layout/Container";
 import SectionBadge from "../components/common/SectionBadge";
 
 function ContactPage() {
@@ -88,21 +90,19 @@ function ContactPage() {
         <link rel="canonical" href="https://jmfrias.dev/contact" />
       </Helmet>
 
-      <main className="w-full bg-white text-slate-900 pt-[100px] md:pt-[120px] pb-[80px] lg:pb-[120px] overflow-x-hidden">
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 2xl:px-8 text-left">
+      <Section id="contact-page" aria-label="Contact Page" className="bg-white text-slate-900 pb-[80px] lg:pb-[120px] overflow-x-hidden">
+        <Container>
           
-          {/* Header Block */}
-          <header className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-end mb-12 sm:mb-16 lg:mb-20 pb-8 border-b border-slate-100">
-            <div className="lg:col-span-7">
-              <div className="-mb-2 sm:-mb-3">
-                <SectionBadge>GET IN TOUCH</SectionBadge>
-              </div>
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[52px] font-bold text-slate-900 mt-0 tracking-tight leading-[1.12]">
+          {/* Header Block: Tightened badge and heading using flex container */}
+          <header className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-end mb-10 sm:mb-12 lg:mb-16 pb-8 border-b border-slate-100">
+            <div className="lg:col-span-7 text-left flex flex-col items-start gap-1">
+              <SectionBadge>GET IN TOUCH</SectionBadge>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-extrabold text-slate-900 tracking-tight leading-[1.12] m-0">
                 Let's talk about your next project.
               </h1>
             </div>
 
-            <div className="lg:col-span-5 lg:pb-1">
+            <div className="lg:col-span-5 lg:pb-1 text-left">
               <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-xl">
                 Whether you need a custom WordPress site, front-end development, or full-stack web solutions, feel free to reach out directly or send a message below.
               </p>
@@ -110,7 +110,7 @@ function ContactPage() {
           </header>
 
           {/* Main 2-Column Body */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start text-left">
             
             {/* Left Column: Direct Info List */}
             <div className="lg:col-span-5 space-y-7 sm:space-y-8 lg:pt-2">
@@ -297,8 +297,8 @@ function ContactPage() {
 
           </div>
 
-        </div>
-      </main>
+        </Container>
+      </Section>
     </>
   );
 }
