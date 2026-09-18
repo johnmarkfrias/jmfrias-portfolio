@@ -16,20 +16,18 @@ function ContactPage() {
 
   const emailAddress = "johnmarkm.frias@gmail.com";
 
-  // Automatically read query parameters, and scroll ONLY if it's specifically the "Hire Me" action
+  // Automatically read query parameters and scroll to form whenever a pre-filled subject is passed
   useEffect(() => {
     const subjectParam = searchParams.get("subject");
     if (subjectParam) {
       setFormData((prev) => ({ ...prev, subject: subjectParam }));
       
-      // Scroll to form only when triggered by the Hire button
-      if (subjectParam === "Job Opportunity (Hire Me)") {
-        const formElement = document.getElementById("contact-form-container");
-        if (formElement) {
-          setTimeout(() => {
-            formElement.scrollIntoView({ behavior: "smooth" });
-          }, 100);
-        }
+      // Smooth scroll to form container whenever an action button pre-fills the subject
+      const formElement = document.getElementById("contact-form-container");
+      if (formElement) {
+        setTimeout(() => {
+          formElement.scrollIntoView({ behavior: "smooth" });
+        }, 100);
       }
     } else {
       // Regular Contact navigation stays at the top of the page
@@ -145,7 +143,7 @@ function ContactPage() {
 
             </div>
 
-            {/* Right Column: Contact Form Wrapper */}
+            {/* Right Column: Contact Form Wrapper with ID */}
             <div id="contact-form-container" className="lg:col-span-7 scroll-mt-28">
               <form 
                 onSubmit={handleSubmit}
