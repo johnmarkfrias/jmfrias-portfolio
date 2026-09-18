@@ -124,12 +124,12 @@ function AboutPage() {
 
               <div>
                 <div className="flex items-baseline justify-between gap-2 mb-1">
-                  <h3 className="text-base font-bold text-slate-900">ICT in Web & Software Dev</h3>
+                  <h3 className="text-base font-bold text-slate-900">Information and Communication Strand</h3>
                   <span className="text-xs text-slate-400">2021 – 2025</span>
                 </div>
                 <p className="text-xs text-slate-500 mb-2">Ark Technological Institute</p>
                 <span className="inline-block text-xs font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded">
-                  High Honors
+                  With Honors
                 </span>
               </div>
             </div>
