@@ -141,7 +141,7 @@ function ContactPage() {
                 <div>
                   <h3 className="text-base font-bold text-slate-900 leading-snug">Phone</h3>
                   <p className="text-sm text-slate-600 mt-0.5 leading-relaxed font-medium">
-                    +63 947 534 8264 (Smart) / +63 994 496 1686 (Globe)
+                    +63 938 938 1538 (Smart)
                   </p>
                 </div>
               </div>
@@ -155,10 +155,7 @@ function ContactPage() {
                 </div>
                 <div>
                   <h3 className="text-base font-bold text-slate-900 leading-snug">Location</h3>
-                  <p className="text-sm text-slate-600 mt-0.5 leading-relaxed font-medium">
-                    Lucena City, Quezon &bull; Imus, Cavite<br />
-                    Philippines
-                  </p>
+                  <p className="text-sm text-slate-600 mt-0.5 leading-relaxed font-medium">Imus City, Cavite 4103</p>
                 </div>
               </div>
             </div>
