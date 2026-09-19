@@ -7,14 +7,14 @@ import { IoClose } from "react-icons/io5";
 import { 
   Home, 
   User, 
-  Cpu, 
-  FolderGit2, 
-  Mail 
+  Laptop, 
+  Folder, 
+  Phone 
 } from "lucide-react";
 import { navLinks } from "../../data/socials";
 import logo from "/public/assets/JMFrias.dev.svg";
 
-// Map each nav label/path to outline vs filled icon components matching the reference style
+// Map each nav label/path to outline vs filled icon components matching the requested icons
 const getNavLinkIcon = (label, isActive) => {
   const strokeWidth = isActive ? 2 : 1.75;
   const props = { className: "w-5 h-5 shrink-0", strokeWidth };
@@ -25,11 +25,11 @@ const getNavLinkIcon = (label, isActive) => {
     case "about":
       return isActive ? <User {...props} className="w-5 h-5 shrink-0 fill-blue-600 text-blue-600" /> : <User {...props} />;
     case "skills":
-      return isActive ? <Cpu {...props} className="w-5 h-5 shrink-0 fill-blue-600 text-blue-600" /> : <Cpu {...props} />;
+      return isActive ? <Laptop {...props} className="w-5 h-5 shrink-0 fill-blue-600 text-blue-600" /> : <Laptop {...props} />;
     case "projects":
-      return isActive ? <FolderGit2 {...props} className="w-5 h-5 shrink-0 fill-blue-600 text-blue-600" /> : <FolderGit2 {...props} />;
+      return isActive ? <Folder {...props} className="w-5 h-5 shrink-0 fill-blue-600 text-blue-600" /> : <Folder {...props} />;
     case "contact":
-      return isActive ? <Mail {...props} className="w-5 h-5 shrink-0 fill-blue-600 text-blue-600" /> : <Mail {...props} />;
+      return isActive ? <Phone {...props} className="w-5 h-5 shrink-0 fill-blue-600 text-blue-600" /> : <Phone {...props} />;
     default:
       return <Home {...props} />;
   }
@@ -104,7 +104,7 @@ function Navbar() {
           onClick={() => setIsOpen(true)}
           aria-label="Open navigation menu"
           aria-expanded={isOpen}
-          className="lg:hidden text-2xl text-slate-900 focus:outline-none"
+          className="lg:hidden w-9 h-9 flex items-center justify-center rounded-lg text-slate-900 hover:bg-slate-100 transition-colors focus:outline-none text-xl"
         >
           <FaBars />
         </button>
