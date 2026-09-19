@@ -23,13 +23,7 @@ const getNavLinkIcon = (label, isActive) => {
     case "home":
       return isActive ? <Home {...props} className="w-5 h-5 shrink-0 fill-blue-600 text-blue-600" /> : <Home {...props} />;
     case "about":
-      return isActive ? (
-        <span className="relative flex items-center justify-center w-5 h-5 shrink-0 text-blue-600">
-          <User {...props} className="w-5 h-5 fill-blue-600 text-blue-600" />
-        </span>
-      ) : (
-        <User {...props} />
-      );
+      return isActive ? <User {...props} className="w-5 h-5 shrink-0 fill-blue-600 text-blue-600 [mask-image:none]" style={{ strokeWidth: 0 }} fill="currentColor" /> : <User {...props} />;
     case "skills":
       return isActive ? <Laptop {...props} className="w-5 h-5 shrink-0 fill-blue-600 text-blue-600" /> : <Laptop {...props} />;
     case "projects":
@@ -157,7 +151,7 @@ function Navbar() {
             </button>
           </div>
 
-          {/* Nav Links with brand light blue active pill background, filled active icon, and regular font weight */}
+          {/* Nav Links with brand light blue active pill background, fully solid filled active icon, and regular font weight */}
           <ul className="flex flex-col gap-2 pt-6 sm:pt-8 pb-6 sm:pb-8">
             {navLinks.map((link) => (
               <li key={link.path}>
