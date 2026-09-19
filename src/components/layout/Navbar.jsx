@@ -14,24 +14,23 @@ import {
 import { navLinks } from "../../data/socials";
 import logo from "/public/assets/JMFrias.dev.svg";
 
-// Map each nav label/path to outline vs filled icon components matching the requested icons
+// Map each nav label/path to solid filled active icons with enhanced active sizing
 const getNavLinkIcon = (label, isActive) => {
-  const strokeWidth = isActive ? 2 : 1.75;
-  const props = { className: "w-5 h-5 shrink-0", strokeWidth };
+  const props = { className: "w-5 h-5 shrink-0" };
 
   switch ((label || "").toLowerCase()) {
     case "home":
-      return isActive ? <Home {...props} className="w-5 h-5 shrink-0 fill-blue-600 text-blue-600" /> : <Home {...props} />;
+      return isActive ? <Home {...props} className="w-[22px] h-[22px] shrink-0 fill-blue-600 text-blue-600" style={{ strokeWidth: 0 }} fill="currentColor" /> : <Home {...props} strokeWidth={1.75} />;
     case "about":
-      return isActive ? <User {...props} className="w-5 h-5 shrink-0 fill-blue-600 text-blue-600 [mask-image:none]" style={{ strokeWidth: 0 }} fill="currentColor" /> : <User {...props} />;
+      return isActive ? <User {...props} className="w-[22px] h-[22px] shrink-0 fill-blue-600 text-blue-600" style={{ strokeWidth: 0 }} fill="currentColor" /> : <User {...props} strokeWidth={1.75} />;
     case "skills":
-      return isActive ? <Laptop {...props} className="w-5 h-5 shrink-0 fill-blue-600 text-blue-600" /> : <Laptop {...props} />;
+      return isActive ? <Laptop {...props} className="w-[22px] h-[22px] shrink-0 fill-blue-600 text-blue-600" style={{ strokeWidth: 0 }} fill="currentColor" /> : <Laptop {...props} strokeWidth={1.75} />;
     case "projects":
-      return isActive ? <Folder {...props} className="w-5 h-5 shrink-0 fill-blue-600 text-blue-600" /> : <Folder {...props} />;
+      return isActive ? <Folder {...props} className="w-[22px] h-[22px] shrink-0 fill-blue-600 text-blue-600" style={{ strokeWidth: 0 }} fill="currentColor" /> : <Folder {...props} strokeWidth={1.75} />;
     case "contact":
-      return isActive ? <Phone {...props} className="w-5 h-5 shrink-0 fill-blue-600 text-blue-600" /> : <Phone {...props} />;
+      return isActive ? <Phone {...props} className="w-[22px] h-[22px] shrink-0 fill-blue-600 text-blue-600" style={{ strokeWidth: 0 }} fill="currentColor" /> : <Phone {...props} strokeWidth={1.75} />;
     default:
-      return <Home {...props} />;
+      return <Home {...props} strokeWidth={1.75} />;
   }
 };
 
@@ -151,7 +150,7 @@ function Navbar() {
             </button>
           </div>
 
-          {/* Nav Links with brand light blue active pill background, fully solid filled active icon, and regular font weight */}
+          {/* Nav Links with brand light blue active pill background, slightly bolder/larger filled active icons, and regular font weight */}
           <ul className="flex flex-col gap-2 pt-6 sm:pt-8 pb-6 sm:pb-8">
             {navLinks.map((link) => (
               <li key={link.path}>
@@ -168,7 +167,7 @@ function Navbar() {
                 >
                   {({ isActive }) => (
                     <>
-                      <span className={isActive ? "text-blue-600" : "text-slate-500"}>
+                      <span className={isActive ? "text-blue-600 flex items-center justify-center" : "text-slate-500 flex items-center justify-center"}>
                         {getNavLinkIcon(link.label, isActive)}
                       </span>
                       <span>{link.label}</span>
