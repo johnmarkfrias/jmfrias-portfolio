@@ -65,7 +65,7 @@ function Hero() {
         <FaViber />
       </a>
       <a
-        href="https://linkedin.com"
+        href="https://www.linkedin.com/in/john-mark-frias-456738371?utm_source=share_via&utm_content=profile&utm_medium=member_android"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="LinkedIn"
@@ -74,7 +74,7 @@ function Hero() {
         <FaLinkedinIn />
       </a>
       <a
-        href="https://github.com"
+        href="https://github.com/johnmarkfrias"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="GitHub"
@@ -246,7 +246,7 @@ function Hero() {
               }} 
               className="logo-emerge absolute top-[14%] left-[23%] sm:left-[22%] z-30 pointer-events-none"
             >
-              <div className="drift-b drop-shadow-[0_4px_10px_rgba(0,0,0,0.3)]">
+              <div className="drift-b drop-shadow-[0_4px_10px_rgba(228,77,38,0.45)]">
                 <img src={LOGO_PATHS.html} alt="HTML" className="w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 object-contain" />
               </div>
             </div>
@@ -261,7 +261,7 @@ function Hero() {
               }} 
               className="logo-emerge absolute top-[19%] right-[17%] sm:right-[19%] z-30 pointer-events-none"
             >
-              <div className="drift-a drop-shadow-[0_4px_10px_rgba(0,0,0,0.3)]">
+              <div className="drift-a drop-shadow-[0_4px_10px_rgba(247,223,30,0.45)]">
                 <img src={LOGO_PATHS.javascript} alt="JavaScript" className="w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 object-contain" />
               </div>
             </div>
@@ -276,12 +276,12 @@ function Hero() {
               }} 
               className="logo-emerge absolute top-[41%] right-[8%] sm:right-[9%] z-30 pointer-events-none"
             >
-              <div className="drift-b drop-shadow-[0_4px_10px_rgba(33,99,243,0.4)]">
+              <div className="drift-b drop-shadow-[0_4px_10px_rgba(38,162,225,0.45)]">
                 <img src={LOGO_PATHS.css} alt="CSS" className="w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 object-contain" />
               </div>
             </div>
 
-            {/* PHP: Positioned slightly above halfway (increased size) */}
+            {/* PHP: Positioned slightly above halfway (with a clean, balanced drop-shadow including a touch of white light for separation) */}
             <div 
               style={{ 
                 "--orig-x": "90px", 
@@ -291,7 +291,7 @@ function Hero() {
               }} 
               className="logo-emerge absolute top-[30%] sm:top-[32%] left-[12%] sm:left-[14%] z-30 pointer-events-none"
             >
-              <div className="drift-a drop-shadow-[0_6px_14px_rgba(119,123,180,0.55)]">
+              <div className="drift-a drop-shadow-[0_4px_10px_rgba(255,255,255,0.35)]">
                 <img src={LOGO_PATHS.php} alt="PHP" className="w-7 h-7 sm:w-12 sm:h-12 md:w-10 md:h-10 lg:w-11 lg:h-11 object-contain" />
               </div>
             </div>

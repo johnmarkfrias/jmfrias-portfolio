@@ -4,26 +4,37 @@ import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
-import { Home, User, Cpu, FolderGit2, Mail } from "lucide-react";
+import { 
+  Home, 
+  User, 
+  Cpu, 
+  FolderGit2, 
+  Mail,
+  HomeIcon,
+  UserCheck,
+  CpuIcon,
+  FolderGit2 as FolderGit2Filled,
+  MailCheck
+} from "lucide-react";
 import { navLinks } from "../../data/socials";
 import logo from "/public/assets/JMFrias.dev.svg";
 
-// Map each nav label/path to an outline icon component
+// Map each nav label/path to outline vs filled icon components matching the reference style
 const getNavLinkIcon = (label, isActive) => {
-  const strokeWidth = isActive ? 2.5 : 1.75;
+  const strokeWidth = isActive ? 2 : 1.75;
   const props = { className: "w-5 h-5 shrink-0", strokeWidth };
 
   switch ((label || "").toLowerCase()) {
     case "home":
-      return <Home {...props} />;
+      return isActive ? <Home {...props} className="w-5 h-5 shrink-0 fill-blue-600 text-blue-600" /> : <Home {...props} />;
     case "about":
-      return <User {...props} />;
+      return isActive ? <User {...props} className="w-5 h-5 shrink-0 fill-blue-600 text-blue-600" /> : <User {...props} />;
     case "skills":
-      return <Cpu {...props} />;
+      return isActive ? <Cpu {...props} className="w-5 h-5 shrink-0 fill-blue-600 text-blue-600" /> : <Cpu {...props} />;
     case "projects":
-      return <FolderGit2 {...props} />;
+      return isActive ? <FolderGit2 {...props} className="w-5 h-5 shrink-0 fill-blue-600 text-blue-600" /> : <FolderGit2 {...props} />;
     case "contact":
-      return <Mail {...props} />;
+      return isActive ? <Mail {...props} className="w-5 h-5 shrink-0 fill-blue-600 text-blue-600" /> : <Mail {...props} />;
     default:
       return <Home {...props} />;
   }
@@ -127,7 +138,7 @@ function Navbar() {
       >
         <div className="w-full flex flex-col">
           {/* Header with Logo and Close button */}
-          <div className="flex items-center justify-between pb-8 border-b border-slate-100">
+          <div className="flex items-center justify-between pb-8 sm:pb-10 border-b border-slate-100">
             <img
               src={logo}
               alt="JM Frias.dev"
@@ -145,18 +156,18 @@ function Navbar() {
             </button>
           </div>
 
-          {/* Nav Links with proper downward gap from logo header */}
-          <ul className="flex flex-col gap-6 pt-5">
+          {/* Nav Links with brand light blue active pill background, filled active icon, and regular font weight */}
+          <ul className="flex flex-col gap-2 pt-6 sm:pt-8 pb-6 sm:pb-8">
             {navLinks.map((link) => (
               <li key={link.path}>
                 <NavLink
                   to={link.path}
                   onClick={closeMenu}
                   className={({ isActive }) =>
-                    `flex items-center gap-3.5 text-base tracking-wide transition-colors py-1 ${
+                    `flex items-center gap-3.5 text-base tracking-wide transition-all py-3 px-4 rounded-xl font-normal ${
                       isActive
-                        ? "text-blue-600 font-bold"
-                        : "text-slate-700 hover:text-blue-600 font-normal"
+                        ? "bg-blue-50/80 text-blue-600"
+                        : "text-slate-700 hover:bg-slate-50 hover:text-blue-600"
                     }`
                   }
                 >
@@ -175,7 +186,7 @@ function Navbar() {
         </div>
 
         {/* MOBILE HIRE CTA */}
-        <div className="w-full pt-6 shrink-0 border-t border-slate-100 mt-6">
+        <div className="w-full pt-6 shrink-0 border-t border-slate-100 mt-auto">
           <Link
             to="/contact?subject=Job%20Opportunity%20(Hire%20Me)"
             onClick={closeMenu}
