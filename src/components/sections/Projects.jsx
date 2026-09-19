@@ -45,7 +45,6 @@ function Projects() {
   const prevSlide = () => {
     setIsTransitioning(true);
     if (currentIndex === 0) {
-      // Instantly jump to the clone, then slide backwards
       setIsTransitioning(false);
       setCurrentIndex(totalOriginal);
       requestAnimationFrame(() => {
@@ -59,7 +58,6 @@ function Projects() {
     }
   };
 
-  // Seamless jump without animation once clone is reached
   const handleTransitionEnd = () => {
     if (currentIndex >= totalOriginal) {
       setIsTransitioning(false);
@@ -77,6 +75,8 @@ function Projects() {
 
     return () => clearInterval(timer);
   }, [isHovered, nextSlide]);
+
+  const activeIndexNormalized = currentIndex % totalOriginal;
 
   return (
     <Section 
@@ -102,25 +102,12 @@ function Projects() {
 
           <div className="max-w-xl text-left">
             <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-              These are selected websites and applications I built on my own and with other teams. Browse my recent work to see how I can help with your next project.{" "}
+              These are selected live websites and applications I built on my own and with other teams. Browse my recent work to see how I can help with your next project.{" "}
               <Link
                 to="/projects"
-                className="group/link inline-flex items-center gap-1 font-semibold text-blue-600 hover:text-blue-700 underline underline-offset-4 decoration-blue-300 hover:decoration-blue-600 transition-colors whitespace-nowrap"
+                className="text-blue-600 hover:text-blue-700 font-normal transition-colors whitespace-nowrap"
               >
-                <span>See more projects</span>
-                <svg
-                  className="w-3.5 h-3.5 transition-transform duration-200 group-hover/link:translate-x-0.5"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M5 12h14" />
-                  <path d="m12 5 7 7-7 7" />
-                </svg>
+                See more projects
               </Link>
             </p>
           </div>
@@ -161,7 +148,7 @@ function Projects() {
           </div>
         </div>
 
-        {/* Bottom Bar: Arrow Controls on Left, Dots on Right */}
+        {/* Bottom Bar: Arrow Controls on Left, Clean Progress Indicator on Right */}
         <div className="flex items-center justify-between mt-8 md:mt-10 px-1">
           {/* Arrow Buttons */}
           <div className="flex items-center gap-2.5">
@@ -204,24 +191,22 @@ function Projects() {
             </button>
           </div>
 
-          {/* Dots / Pills Indicator */}
-          <div className="flex items-center gap-2">
-            {Array.from({ length: totalOriginal }).map((_, index) => (
-              <button
-                key={index}
-                type="button"
-                onClick={() => {
-                  setIsTransitioning(true);
-                  setCurrentIndex(index);
+          {/* Professional Slide Counter / Progress Indicator */}
+          <div className="flex items-center gap-3 text-sm font-medium text-slate-600 select-none">
+            <span className="font-bold text-slate-900">
+              {String(activeIndexNormalized + 1).padStart(2, "0")}
+            </span>
+            <div className="w-16 sm:w-24 h-1.5 bg-slate-200 rounded-full overflow-hidden">
+              <div 
+                className="h-full bg-blue-600 transition-all duration-500 ease-out rounded-full"
+                style={{
+                  width: `${((activeIndexNormalized + 1) / totalOriginal) * 100}%`
                 }}
-                aria-label={`Go to slide ${index + 1}`}
-                className={`h-2 rounded-full transition-all duration-500 ease-out cursor-pointer ${
-                  currentIndex % totalOriginal === index 
-                    ? "w-10 bg-blue-600 shadow-sm" 
-                    : "w-2 bg-slate-300 hover:bg-slate-400"
-                }`}
               />
-            ))}
+            </div>
+            <span className="text-slate-400">
+              {String(totalOriginal).padStart(2, "0")}
+            </span>
           </div>
         </div>
 

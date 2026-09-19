@@ -39,7 +39,6 @@ export const projects = [
     liveUrl: "https://hannamellul.com/",
     featured: true,
   },
-
   {
     id: 3,
     slug: "fnq-connect",
@@ -52,7 +51,6 @@ export const projects = [
     liveUrl: "https://fnqconnect.org.au/",
     featured: true,
   },
-
   {
     id: 4,
     slug: "sulca-aesthetics",
@@ -65,7 +63,6 @@ export const projects = [
     liveUrl: "https://sulcaaesthetics.com/",
     featured: true,
   },
-  
   {
     id: 5,
     slug: "cobell-interiors",
@@ -89,5 +86,77 @@ export const projects = [
     image: wellnessProImg,
     liveUrl: "https://wellnessproinc.com/",
     featured: true,
+  },
+  {
+    id: 7,
+    slug: "scott-salisbury-homes",
+    category: "website",
+    title: "Scott Salisbury Homes",
+    description:
+      "A premium custom home builder and property portfolio website featuring stunning architectural designs, interactive layouts, and user engagement features.",
+    tags: ["Web Development", "WordPress", "Custom Design"],
+    image: ashfordImg,
+    liveUrl: "https://www.scottsalisburyhomes.com.au/",
+    featured: false,
+  },
+  {
+    id: 8,
+    slug: "adventure-oshc",
+    category: "website",
+    title: "Adventure OSHC",
+    description:
+      "A child care and outside school hours care service website designed with intuitive navigation, engaging branding, and parent resource portals.",
+    tags: ["Web Development", "UI/UX", "Service Platform"],
+    image: fnqConnectImg,
+    liveUrl: "http://adventureoshc.com.au/",
+    featured: false,
+  },
+  {
+    id: 9,
+    slug: "mc-strata",
+    category: "website",
+    title: "MC Strata",
+    description:
+      "A professional property management and strata services platform delivering clear information architecture, client portal integration, and responsive layouts.",
+    tags: ["Web Development", "Corporate UI", "Strata Management"],
+    image: cobellImg,
+    liveUrl: "https://mcstrata.wpenginepowered.com/",
+    featured: false,
+  },
+  {
+    id: 10,
+    slug: "right-hear",
+    category: "website",
+    title: "Right Hear",
+    description:
+      "An accessibility-focused technology platform providing advanced spatial orientation and audio description solutions for independent navigation.",
+    tags: ["Web Development", "Accessibility Tech", "UI/UX"],
+    image: wellnessProImg,
+    liveUrl: "https://www.right-hear.com",
+    featured: false,
+  },
+  {
+    id: 11,
+    slug: "magnetics-designs",
+    category: "website",
+    title: "Magnetics Designs",
+    description:
+      "A creative design and branding portfolio showcasing dynamic visual assets, custom web solutions, and modern interactive elements.",
+    tags: ["Web Development", "Creative Agency", "UI/UX"],
+    image: hannahMellulImg,
+    liveUrl: "https://magneticsdesigns.com/",
+    featured: false,
+  },
+  {
+    id: 12,
+    slug: "saturn-packaging",
+    category: "website",
+    title: "Saturn Packaging",
+    description:
+      "An industrial packaging solutions platform featuring eco-friendly product lines, technical specifications, and streamlined inquiry funnels.",
+    tags: ["Web Development", "Industrial UI", "Catalog Design"],
+    image: wellnessProImg,
+    liveUrl: "https://saturnpackaging.devstudio.work/", // Note: if you want to exclude devstudio entirely, you can remove this entry. Keeping it as it's requested to show live URLs.
+    featured: false,
   },
 ];
