@@ -8,6 +8,7 @@ import Section from "../components/layout/Section";
 import Container from "../components/layout/Container";
 import SectionBadge from "../components/common/SectionBadge";
 import Button from "../components/common/Button";
+import { ROLES } from "../data/roles";
 
 const PHOTOS = [
   { src: "/assets/gradpic.jpg", alt: "John Mark Frias graduation portrait 1" },
@@ -54,6 +55,11 @@ const CERTIFICATES = [
 function AboutPage() {
   const [activeIndex, setActiveIndex] = useState(0);
 
+  // Typewriter states for role animation
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [currentText, setCurrentText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+
   // Carousel states for certificates
   const [certIndex, setCertIndex] = useState(0);
   const [itemsPerView, setItemsPerView] = useState(3);
@@ -79,6 +85,30 @@ function AboutPage() {
 
     return () => clearInterval(interval);
   }, []);
+
+  // Typewriter effect hook matching Hero section
+  useEffect(() => {
+    const fullText = ROLES[roleIndex] || "";
+    let timeout;
+
+    if (!isDeleting && currentText === fullText) {
+      timeout = setTimeout(() => setIsDeleting(true), 3000);
+    } else if (isDeleting && currentText === "") {
+      setIsDeleting(false);
+      setRoleIndex((prev) => (prev + 1) % ROLES.length);
+    } else {
+      const speed = isDeleting ? 70 : 90;
+      timeout = setTimeout(() => {
+        setCurrentText((prev) =>
+          isDeleting
+            ? fullText.substring(0, prev.length - 1)
+            : fullText.substring(0, prev.length + 1)
+        );
+      }, speed);
+    }
+
+    return () => clearTimeout(timeout);
+  }, [currentText, isDeleting, roleIndex]);
 
   // Handle responsive items per view for certificate carousel
   useEffect(() => {
@@ -222,14 +252,15 @@ function AboutPage() {
                   <SectionBadge>ABOUT ME</SectionBadge>
                 </div>
                 
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 mt-2 mb-3 tracking-tight leading-[1.12]">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 mt-2 mb-2 tracking-tight leading-[1.12]">
                   John Mark M. Frias
                 </h1>
 
-                <p className="text-sm font-semibold text-blue-600 mb-4 flex items-center gap-2">
-                  <span>Web Developer</span>
-                  <span>&bull;</span>
-                  <span>Lucena City, Quezon / Cavite</span>
+                {/* Changing roles typewriter animation */}
+                <p className="text-base sm:text-lg md:text-xl text-blue-600 font-semibold mb-4 sm:mb-5 flex items-center justify-start min-h-[1.75rem] md:min-h-[2rem]">
+                  <span>&lt;/{currentText}</span>
+                  <span className="inline-block w-[2px] h-4 sm:h-5 bg-blue-600 ml-1 animate-pulse" />
+                  <span>&gt;</span>
                 </p>
 
                 <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-4">
@@ -337,7 +368,7 @@ function AboutPage() {
                     </div>
                     <p className="text-xs font-semibold text-slate-700 mb-2">Cavite State University - Imus Campus</p>
                     <span className="inline-block text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200/60 px-3 py-1 rounded-full">
-                      Cum Laude Honors
+                      Cum Laude
                     </span>
                   </div>
 
