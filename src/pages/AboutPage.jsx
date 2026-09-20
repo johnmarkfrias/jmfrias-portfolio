@@ -18,35 +18,35 @@ const PHOTOS = [
 
 const CERTIFICATES = [
   {
-    id: "dcit-chatgpt",
+    id: "cert-1",
+    image: "/assets/certificates/2nd%20Semester%20AY%202022%20-%202023.png",
+  },
+  {
+    id: "cert-2",
+    image: "/assets/certificates/1st%20Semester%20AY%202023%20-%202024.jpg",
+  },
+  {
+    id: "cert-3",
     image: "/assets/certificates/DCIT-Learn-ChatGPT-Certificate.png",
   },
   {
-    id: "2nd-sem-2022-2023",
-    image: "/assets/certificates/2nd%20Semester%20AY%202022%20-%202023.jpg",
-  },
-  {
-    id: "2nd-sem-2021-2022",
+    id: "cert-4",
     image: "/assets/certificates/2nd%20Semester%20AY%202021%20-%202022.jpg",
   },
   {
-    id: "1st-sem-2024-2025",
+    id: "cert-5",
     image: "/assets/certificates/1st%20Semester%20AY%202024%20-%202025.jpg",
   },
   {
-    id: "1st-sem-2023-2024",
-    image: "/assets/certificates/1st%20Semester%20AY%202023%20-%202024.png",
-  },
-  {
-    id: "1st-sem-2022-2023",
+    id: "cert-6",
     image: "/assets/certificates/1st%20Semester%20AY%202022%20-%202023.png",
   },
   {
-    id: "1st-sem-2021-2022",
+    id: "cert-7",
     image: "/assets/certificates/1st%20Semester%20AY%202021%20-%202022.jpg",
   },
   {
-    id: "dcit-graphic-design",
+    id: "cert-8",
     image: "/assets/certificates/DCIT-Graphic-Design-Certificate.png",
   },
 ];
