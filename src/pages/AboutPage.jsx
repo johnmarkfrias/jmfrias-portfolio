@@ -405,7 +405,6 @@ function AboutPage() {
                 }}
               >
                 {displayCertificates.map((cert, idx) => {
-                  // Find the exact original index in CERTIFICATES array for the lightbox viewer
                   const originalIndex = CERTIFICATES.findIndex((c) => c.id === cert.id);
                   return (
                     <div 
@@ -499,11 +498,11 @@ function AboutPage() {
 
       </main>
 
-      {/* Lightbox Modal Overlay (UI/UX Styled Backdrop with Soft Shadow & Controls) */}
+      {/* Lightbox Modal Overlay (Frosted Glass with Proper Opacity & Soft Shadow) */}
       {lightboxIndex !== null && (
         <div 
           onClick={() => setLightboxIndex(null)}
-          className="fixed inset-0 z-50 bg-slate-950/75 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 transition-all duration-300 animate-fadeIn"
+          className="fixed inset-0 z-50 bg-slate-900/80 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 transition-all duration-300 animate-fadeIn"
         >
           {/* Close Button */}
           <button
@@ -535,15 +534,15 @@ function AboutPage() {
             <HiChevronRight className="w-7 h-7" />
           </button>
 
-          {/* Modal Content Box with Refined Shadow and Rounded Framing */}
+          {/* Modal Content Box with Refined Shadow and Clean Framing */}
           <div 
             onClick={(e) => e.stopPropagation()}
-            className="relative max-w-5xl max-h-[85vh] w-full flex flex-col items-center bg-slate-900/40 p-2 sm:p-4 rounded-3xl border border-white/10 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.6)]"
+            className="relative max-w-5xl max-h-[85vh] w-full flex flex-col items-center bg-slate-900/60 p-3 sm:p-5 rounded-3xl border border-white/10 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] backdrop-blur-xl"
           >
             <img
               src={CERTIFICATES[lightboxIndex].image}
               alt={CERTIFICATES[lightboxIndex].title}
-              className="max-w-full max-h-[72vh] object-contain rounded-2xl shadow-2xl select-none"
+              className="max-w-full max-h-[70vh] object-contain rounded-2xl shadow-2xl select-none"
             />
             <div className="mt-4 text-center">
               <h3 className="text-white text-base sm:text-lg font-semibold tracking-wide">
