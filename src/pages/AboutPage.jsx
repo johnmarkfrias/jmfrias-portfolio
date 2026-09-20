@@ -19,48 +19,35 @@ const PHOTOS = [
 const CERTIFICATES = [
   {
     id: "dcit-chatgpt",
-    title: "DCIT Learn ChatGPT Certificate",
     image: "/assets/certificates/DCIT-Learn-ChatGPT-Certificate.png",
   },
   {
-    id: "dcit-graphic-design",
-    title: "DCIT Graphic Design Certificate",
-    image: "/assets/certificates/DCII-Graphic-Design-Certificate.png",
-  },
-  {
-    id: "2nd-sem-2022-2023-png",
-    title: "2nd Semester AY 2022 - 2023",
-    image: "/assets/certificates/2nd%20Semester%20AY%202022%20-%202023.png",
-  },
-  {
-    id: "2nd-sem-2022-2023-jpg",
-    title: "2nd Semester AY 2022 - 2023 (Alt)",
-    image: "/assets/certificates/2nd%20Semester%20AY%202022%20-%202023.png",
+    id: "2nd-sem-2022-2023",
+    image: "/assets/certificates/2nd%20Semester%20AY%202022%20-%202023.jpg",
   },
   {
     id: "2nd-sem-2021-2022",
-    title: "2nd Semester AY 2021 - 2022",
     image: "/assets/certificates/2nd%20Semester%20AY%202021%20-%202022.jpg",
   },
   {
     id: "1st-sem-2024-2025",
-    title: "1st Semester AY 2024 - 2025",
     image: "/assets/certificates/1st%20Semester%20AY%202024%20-%202025.jpg",
   },
   {
     id: "1st-sem-2023-2024",
-    title: "1st Semester AY 2023 - 2024",
-    image: "/assets/certificates/1st%20Semester%20AY%202023%20%202024.png",
+    image: "/assets/certificates/1st%20Semester%20AY%202023%20-%202024.png",
   },
   {
     id: "1st-sem-2022-2023",
-    title: "1st Semester AY 2022 - 2023",
     image: "/assets/certificates/1st%20Semester%20AY%202022%20-%202023.png",
   },
   {
     id: "1st-sem-2021-2022",
-    title: "1st Semester AY 2021 - 2022",
     image: "/assets/certificates/1st%20Semester%20AY%202021%20-%202022.jpg",
+  },
+  {
+    id: "dcit-graphic-design",
+    image: "/assets/certificates/DCIT-Graphic-Design-Certificate.png",
   },
 ];
 
@@ -414,12 +401,12 @@ function AboutPage() {
                     >
                       <div 
                         onClick={() => setLightboxIndex(originalIndex)}
-                        className="group bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col h-full cursor-pointer"
+                        className="group bg-white rounded-none overflow-hidden border border-slate-200/80 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col h-full cursor-pointer"
                       >
                         <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
                           <img
                             src={cert.image}
-                            alt={cert.title}
+                            alt=""
                             loading="lazy"
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out pointer-events-none"
                           />
@@ -433,7 +420,7 @@ function AboutPage() {
 
             {/* Bottom Bar: Arrow Controls on Left, Clean Progress Indicator on Right */}
             <div className="flex items-center justify-between mt-8 md:mt-10 px-1">
-              {/* Arrow Buttons */}
+              {/* Arrow Controls */}
               <div className="flex items-center gap-2.5">
                 <button
                   type="button"
@@ -474,7 +461,7 @@ function AboutPage() {
                 </button>
               </div>
 
-              {/* Professional Slide Counter / Progress Indicator */}
+              {/* Slide Counter / Progress Indicator */}
               <div className="flex items-center gap-3 text-sm font-medium text-slate-600 select-none">
                 <span className="font-bold text-slate-900">
                   {String(activeCertNormalized + 1).padStart(2, "0")}
@@ -498,7 +485,7 @@ function AboutPage() {
 
       </main>
 
-      {/* Lightbox Modal Overlay (Frosted Glass with Proper Opacity & Soft Shadow) */}
+      {/* Lightbox Modal Overlay (Square Corners, Clean Professional Look) */}
       {lightboxIndex !== null && (
         <div 
           onClick={() => setLightboxIndex(null)}
@@ -534,24 +521,16 @@ function AboutPage() {
             <HiChevronRight className="w-7 h-7" />
           </button>
 
-          {/* Modal Content Box with Refined Shadow and Clean Framing */}
+          {/* Modal Content Box (Square Corners) */}
           <div 
             onClick={(e) => e.stopPropagation()}
-            className="relative max-w-5xl max-h-[85vh] w-full flex flex-col items-center bg-slate-900/60 p-3 sm:p-5 rounded-3xl border border-white/10 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] backdrop-blur-xl"
+            className="relative max-w-5xl max-h-[85vh] w-full flex flex-col items-center bg-slate-900/60 p-3 sm:p-5 rounded-none border border-white/10 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] backdrop-blur-xl"
           >
             <img
               src={CERTIFICATES[lightboxIndex].image}
-              alt={CERTIFICATES[lightboxIndex].title}
-              className="max-w-full max-h-[70vh] object-contain rounded-2xl shadow-2xl select-none"
+              alt=""
+              className="max-w-full max-h-[75vh] object-contain rounded-none shadow-2xl select-none"
             />
-            <div className="mt-4 text-center">
-              <h3 className="text-white text-base sm:text-lg font-semibold tracking-wide">
-                {CERTIFICATES[lightboxIndex].title}
-              </h3>
-              <p className="text-slate-400 text-xs sm:text-sm mt-1">
-                Certificate {lightboxIndex + 1} of {CERTIFICATES.length}
-              </p>
-            </div>
           </div>
         </div>
       )}
