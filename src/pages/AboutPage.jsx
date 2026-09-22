@@ -12,7 +12,7 @@ import { ROLES } from "../data/roles";
 
 const PHOTOS = [
   { src: "/assets/gradpic.jpg", alt: "John Mark Frias graduation portrait 1" },
-  { src: "/assets/gradpic2.JPG", alt: "John Mark Frias graduation portrait 2" },
+  { src: "/assets/gradpic2.jpg", alt: "John Mark Frias graduation portrait 2" },
   { src: "/assets/gradpic3.jpg", alt: "John Mark Frias graduation portrait 3" },
   { src: "/assets/gradpic4.jpg", alt: "John Mark Frias graduation portrait 4" },
 ];
@@ -279,8 +279,8 @@ function AboutPage() {
                   I graduated <span className="font-semibold text-slate-900">Cum Laude</span> with a Bachelor of Science in Information Technology from Cavite State University – Imus Campus. I enjoy turning client ideas into functional digital solutions through solo projects and team collaborations.
                 </p>
 
-                {/* Action Buttons using default Button Component */}
-                <div className="flex flex-wrap items-center gap-3 w-full sm:w-auto">
+                {/* Action Buttons using default Button Component with stacked full-width layout on mobile */}
+                <div className="flex flex-col sm:flex-row items-center gap-3 w-full [&>a]:w-full [&>a]:sm:w-auto [&>button]:w-full [&>button]:sm:w-auto">
                   <Button href="/cv.pdf" variant="primary">
                     Download CV
                   </Button>
