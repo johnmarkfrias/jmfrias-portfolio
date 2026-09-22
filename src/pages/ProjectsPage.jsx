@@ -3,6 +3,7 @@
 import { useEffect, useState, useMemo } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link, useSearchParams } from "react-router-dom";
+import { HiXMark, HiChevronLeft, HiChevronRight } from "react-icons/hi2";
 import { projects, projectCategories } from "../data/projects";
 import ProjectCard from "../components/common/ProjectCard";
 import SectionBadge from "../components/common/SectionBadge";
@@ -34,6 +35,9 @@ function ProjectsPage() {
 
   const [activeCategory, setActiveCategory] = useState(initialCategory);
 
+  // Lightbox modal state for graphic designs / projects
+  const [lightboxIndex, setLightboxIndex] = useState(null);
+
   // Panatilihing synced kapag nagbago ang URL param
   useEffect(() => {
     setActiveCategory(initialCategory);
@@ -45,7 +49,8 @@ function ProjectsPage() {
       searchParams.delete("category");
       setSearchParams(searchParams);
     } else {
-      setSearchParams({ category: id });
+      searchParams.set("category", id);
+      setSearchParams(searchParams);
     }
   };
 
@@ -58,13 +63,24 @@ function ProjectsPage() {
             cleanString(project.category) === cleanString(activeCategory)
         );
 
+  // Lightbox navigation handlers
+  const handleNextLightbox = (e) => {
+    e.stopPropagation();
+    setLightboxIndex((prev) => (prev + 1) % filteredProjects.length);
+  };
+
+  const handlePrevLightbox = (e) => {
+    e.stopPropagation();
+    setLightboxIndex((prev) => (prev - 1 + filteredProjects.length) % filteredProjects.length);
+  };
+
   return (
     <>
       <Helmet>
-        <title>Projects | John Mark M. Frias - Web Developer</title>
+        <title>Projects | John Mark M. Frias - Web Developer & Designer</title>
         <meta
           name="description"
-          content="Browse client websites and development projects built by John Mark M. Frias, focusing on WordPress, custom layouts, and performance."
+          content="Browse client websites, UI/UX designs, and graphic design assets created by John Mark M. Frias."
         />
         <link rel="canonical" href="https://jmfrias.dev/projects" />
       </Helmet>
@@ -84,7 +100,7 @@ function ProjectsPage() {
 
               <div className="lg:col-span-5 lg:pb-1">
                 <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-xl">
-                  These are selected websites and applications I built on my own and with other teams. Each project is developed with a focus on clean layouts, speed, responsive design, and Core Web Vitals.
+                  Explore selected websites, UI/UX platforms, and graphic design creative assets built across independent projects and professional team collaborations[cite: 7].
                 </p>
               </div>
             </header>
@@ -114,8 +130,12 @@ function ProjectsPage() {
             <section aria-label="Projects Grid">
               {filteredProjects.length > 0 ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
-                  {filteredProjects.map((project) => (
-                    <div key={project.id} className="h-full">
+                  {filteredProjects.map((project, idx) => (
+                    <div 
+                      key={project.id} 
+                      className="h-full cursor-pointer"
+                      onClick={() => setLightboxIndex(idx)}
+                    >
                       <ProjectCard
                         title={project.title}
                         description={project.description}
@@ -139,10 +159,10 @@ function ProjectsPage() {
             <section className="mt-16 sm:mt-24 p-8 sm:p-10 rounded-3xl bg-blue-50/70 border border-blue-100 flex flex-col md:flex-row items-center justify-between gap-6">
               <div>
                 <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-1">
-                  Have a project or website in mind?
+                  Have a project or design in mind?
                 </h2>
                 <p className="text-xs sm:text-sm text-slate-600">
-                  Let's discuss your design requirements, content structure, and technical features.
+                  Let's discuss your web development requirements, UI layouts, and branding assets.
                 </p>
               </div>
               <Link
@@ -156,6 +176,61 @@ function ProjectsPage() {
           </Container>
         </Section>
       </main>
+
+      {/* Lightbox Modal Overlay (Matching AboutPage Certificate Lightbox Look & Feel) */}
+      {lightboxIndex !== null && filteredProjects[lightboxIndex] && (
+        <div 
+          onClick={() => setLightboxIndex(null)}
+          className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 transition-all duration-300 animate-fadeIn"
+        >
+          {/* Close Button */}
+          <button
+            type="button"
+            onClick={() => setLightboxIndex(null)}
+            aria-label="Close modal"
+            className="absolute top-5 right-5 z-50 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center backdrop-blur-md transition-all active:scale-95 cursor-pointer shadow-lg"
+          >
+            <HiXMark className="w-6 h-6" />
+          </button>
+
+          {/* Previous Button */}
+          <button
+            type="button"
+            onClick={handlePrevLightbox}
+            aria-label="Previous image"
+            className="absolute left-4 sm:left-8 z-50 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center backdrop-blur-md transition-all active:scale-95 cursor-pointer shadow-lg"
+          >
+            <HiChevronLeft className="w-7 h-7" />
+          </button>
+
+          {/* Next Button */}
+          <button
+            type="button"
+            onClick={handleNextLightbox}
+            aria-label="Next image"
+            className="absolute right-4 sm:right-8 z-50 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center backdrop-blur-md transition-all active:scale-95 cursor-pointer shadow-lg"
+          >
+            <HiChevronRight className="w-7 h-7" />
+          </button>
+
+          {/* Modal Content Box (Clean, Eye-Ease Presentation) */}
+          <div 
+            onClick={(e) => e.stopPropagation()}
+            className="relative max-w-5xl max-h-[85vh] w-full flex flex-col items-center bg-slate-900/40 p-3 sm:p-5 rounded-none border border-white/10 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.3)] backdrop-blur-md"
+          >
+            <img
+              src={filteredProjects[lightboxIndex].image}
+              alt={filteredProjects[lightboxIndex].title}
+              className="max-w-full max-h-[75vh] object-contain rounded-none shadow-2xl select-none"
+            />
+            <div className="mt-3 text-center text-white">
+              <h3 className="text-base sm:text-lg font-semibold">
+                {filteredProjects[lightboxIndex].title}
+              </h3>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }

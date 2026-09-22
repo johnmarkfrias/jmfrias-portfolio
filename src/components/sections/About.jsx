@@ -8,9 +8,9 @@ import Button from "../common/Button";
 
 const PHOTOS = [
   { src: "/assets/gradpic.jpg", alt: "John Mark Frias graduation portrait 1" },
-  { src: "/assets/gradpic2.png", alt: "John Mark Frias graduation portrait 2" },
+  { src: "/assets/gradpic2.JPG", alt: "John Mark Frias graduation portrait 2" },
   { src: "/assets/gradpic3.jpg", alt: "John Mark Frias graduation portrait 3" },
-  { src: "/assets/gradpic4.JPG", alt: "John Mark Frias graduation portrait 4" },
+  { src: "/assets/gradpic4.jpg", alt: "John Mark Frias graduation portrait 4" },
 ];
 
 function About() {

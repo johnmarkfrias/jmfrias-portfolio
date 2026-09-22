@@ -3,11 +3,11 @@
 
 const baseStyles =
   "inline-flex flex-col justify-center items-center font-semibold rounded-lg transition-colors text-sm whitespace-nowrap " +
-  "px-5 py-2.5 " +          // Mobile
+  "px-5 py-3 " +          // Mobile
   "sm:px-6 sm:py-3 " +       // Small mobile / small tablet
   "md:px-7 md:py-3.5 " +     // Tablet
   "lg:px-8 lg:py-4 " +       // Laptop
-  "xl:px-10 xl:py-5";        // Desktop
+  "xl:px-8 xl:py-4";        // Desktop
 
 const variantStyles = {
   primary: "bg-blue-600 text-white hover:bg-blue-700",

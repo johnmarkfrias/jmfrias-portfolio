@@ -1,12 +1,5 @@
 // src/data/projects.js
 
-import ashfordImg from "/public/assets/ashford.png";
-import hannahMellulImg from "/public/assets/hannah-mellul.png";
-import fnqConnectImg from "/public/assets/fnq-connect.png";
-import sulcaImg from "/public/assets/sulca.png";
-import cobellImg from "/public/assets/cobell.png";
-import wellnessProImg from "/public/assets/wellness-pro.png";
-
 export const projectCategories = [
   { id: "all", label: "All Projects" },
   { id: "website", label: "Website Development" },
@@ -15,6 +8,7 @@ export const projectCategories = [
 ];
 
 export const projects = [
+  // --- WEBSITE DEVELOPMENT & UI/UX ---
   {
     id: 1,
     slug: "ashford-homes-ohio",
@@ -23,7 +17,7 @@ export const projects = [
     description:
       "A property showcase and custom home builder website featuring rich floor plans, community details, and client lead generation.",
     tags: ["Web Development", "Responsive Layout", "Real Estate UI"],
-    image: ashfordImg,
+    image: "/assets/projects/web-development/ashford.png",
     liveUrl: "https://www.ashfordhomesohio.com/",
     featured: true,
   },
@@ -35,7 +29,7 @@ export const projects = [
     description:
       "An elegant personal brand and portfolio platform designed to present creative work with modern typography and fluid interactions.",
     tags: ["Web Development", "UI/UX Design", "Responsive Layout"],
-    image: hannahMellulImg,
+    image: "/assets/projects/web-development/hannah-mellul.png",
     liveUrl: "https://hannamellul.com/",
     featured: true,
   },
@@ -47,7 +41,7 @@ export const projects = [
     description:
       "A community-centered regional platform focused on resource accessibility, seamless user navigation, and clear organization of information.",
     tags: ["Web Development", "Accessibility", "Tailwind CSS"],
-    image: fnqConnectImg,
+    image: "/assets/projects/web-development/fnq-connect.png",
     liveUrl: "https://fnqconnect.org.au/",
     featured: true,
   },
@@ -59,7 +53,7 @@ export const projects = [
     description:
       "A modern medical aesthetics website providing client booking clarity, service breakdowns, and high-trust clinic branding.",
     tags: ["Front-End Development", "UI/UX", "Brand Experience"],
-    image: sulcaImg,
+    image: "/assets/projects/web-development/sulca.png",
     liveUrl: "https://sulcaaesthetics.com/",
     featured: true,
   },
@@ -71,7 +65,7 @@ export const projects = [
     description:
       "A sophisticated interior design showcase website highlighting premium residential and commercial spaces with seamless visual storytelling.",
     tags: ["WordPress", "Responsive Web Design", "UI/UX"],
-    image: cobellImg,
+    image: "/assets/projects/web-development/cobell.png",
     liveUrl: "https://cobellinteriors.com/",
     featured: true,
   },
@@ -83,7 +77,7 @@ export const projects = [
     description:
       "A healthcare and wellness distribution platform featuring detailed product catalogs, client solutions, and responsive brand design.",
     tags: ["Web Development", "Healthcare UI", "Responsive Design"],
-    image: wellnessProImg,
+    image: "/assets/projects/web-development/wellness-pro.png",
     liveUrl: "https://wellnessproinc.com/",
     featured: true,
   },
@@ -95,7 +89,7 @@ export const projects = [
     description:
       "A premium custom home builder and property portfolio website featuring stunning architectural designs, interactive layouts, and user engagement features.",
     tags: ["Web Development", "WordPress", "Custom Design"],
-    image: ashfordImg,
+    image: "/assets/projects/web-development/ashford.png",
     liveUrl: "https://www.scottsalisburyhomes.com.au/",
     featured: false,
   },
@@ -107,7 +101,7 @@ export const projects = [
     description:
       "A child care and outside school hours care service website designed with intuitive navigation, engaging branding, and parent resource portals.",
     tags: ["Web Development", "UI/UX", "Service Platform"],
-    image: fnqConnectImg,
+    image: "/assets/projects/web-development/fnq-connect.png",
     liveUrl: "http://adventureoshc.com.au/",
     featured: false,
   },
@@ -119,7 +113,7 @@ export const projects = [
     description:
       "A professional property management and strata services platform delivering clear information architecture, client portal integration, and responsive layouts.",
     tags: ["Web Development", "Corporate UI", "Strata Management"],
-    image: cobellImg,
+    image: "/assets/projects/web-development/cobell.png",
     liveUrl: "https://mcstrata.wpenginepowered.com/",
     featured: false,
   },
@@ -131,7 +125,7 @@ export const projects = [
     description:
       "An accessibility-focused technology platform providing advanced spatial orientation and audio description solutions for independent navigation.",
     tags: ["Web Development", "Accessibility Tech", "UI/UX"],
-    image: wellnessProImg,
+    image: "/assets/projects/web-development/wellness-pro.png",
     liveUrl: "https://www.right-hear.com",
     featured: false,
   },
@@ -143,7 +137,7 @@ export const projects = [
     description:
       "A creative design and branding portfolio showcasing dynamic visual assets, custom web solutions, and modern interactive elements.",
     tags: ["Web Development", "Creative Agency", "UI/UX"],
-    image: hannahMellulImg,
+    image: "/assets/projects/web-development/hannah-mellul.png",
     liveUrl: "https://magneticsdesigns.com/",
     featured: false,
   },
@@ -155,8 +149,190 @@ export const projects = [
     description:
       "An industrial packaging solutions platform featuring eco-friendly product lines, technical specifications, and streamlined inquiry funnels.",
     tags: ["Web Development", "Industrial UI", "Catalog Design"],
-    image: wellnessProImg,
-    liveUrl: "https://saturnpackaging.devstudio.work/", // Note: if you want to exclude devstudio entirely, you can remove this entry. Keeping it as it's requested to show live URLs.
+    image: "/assets/projects/web-development/wellness-pro.png",
+    liveUrl: "https://saturnpackaging.devstudio.work/",
     featured: false,
+  },
+
+  // --- GRAPHIC DESIGN WORKS ---[cite: 7]
+  {
+    id: 13,
+    slug: "wellness-pro-18th-annual-scientific-meet",
+    category: "graphic-design",
+    title: "Wellness PRO - 18th Annual Scientific Meeting",
+    description:
+      "Official event branding and promotional graphic asset created for Wellness PRO Inc.'s participation in the 18th Annual Scientific Meeting[cite: 7].",
+    tags: ["Graphic Design", "Event Branding", "Promotional Poster"],
+    image: "/assets/projects/graphic-designs/wellness-pro-18th-annual-scientific-meeting-congress-poster.png",
+    liveUrl: "",
+    featured: true,
+  },
+  {
+    id: 14,
+    slug: "wellness-pro-seca-354-digital-baby-scale",
+    category: "graphic-design",
+    title: "Seca 354 Digital Baby Scale Product Creative",
+    description:
+      "Detailed medical product showcase graphic highlighting specifications, features, and clinical benefits for Seca digital baby scales[cite: 7].",
+    tags: ["Graphic Design", "Product Marketing", "Medical UI"],
+    image: "/assets/projects/graphic-designs/wellness-pro-seca-354-digital-baby-scale-banner.png",
+    liveUrl: "",
+    featured: true,
+  },
+  {
+    id: 15,
+    slug: "wellness-pro-dost-fnri-seminar-series",
+    category: "graphic-design",
+    title: "DOST-FNRI Seminar Series Poster",
+    description:
+      "Educational and promotional event collateral designed for medical distribution partnerships during the DOST-FNRI seminar series[cite: 7].",
+    tags: ["Graphic Design", "Seminar Collateral", "Print Design"],
+    image: "/assets/projects/graphic-designs/wellness-pro-dost-fnri-seminar-series-poster.jpg",
+    liveUrl: "",
+    featured: false,
+  },
+  {
+    id: 16,
+    slug: "wellness-pro-pps-next-gen-pediatrics",
+    category: "graphic-design",
+    title: "PPS Next-Gen Pediatrics Social Graphic",
+    description:
+      "Targeted digital marketing graphic created for the Philippine Pediatric Society convention exhibition[cite: 7].",
+    tags: ["Graphic Design", "Social Media Art", "Healthcare Branding"],
+    image: "/assets/projects/graphic-designs/wellness-pro-pps-next-gen-pediatrics-social-media-post.png",
+    liveUrl: "",
+    featured: false,
+  },
+  {
+    id: 17,
+    slug: "wellness-pro-nutrition-congress-email",
+    category: "graphic-design",
+    title: "Nutrition Congress Campaign Flyer",
+    description:
+      "High-engagement campaign collateral and flyer designed for medical product campaigns at nutrition congress events[cite: 7].",
+    tags: ["Graphic Design", "Campaign Flyer", "Digital Banner"],
+    image: "/assets/projects/graphic-designs/wellness-pro-nutrition-congress-email-campaign-flyer.png",
+    liveUrl: "",
+    featured: false,
+  },
+  {
+    id: 18,
+    slug: "james-pokemon-custom-graphic-banner",
+    category: "graphic-design",
+    title: "Custom Pokémon Graphic Banner",
+    description:
+      "Creative custom digital illustration and banner design showcasing personal artistic layout and typography styling[cite: 7].",
+    tags: ["Graphic Design", "Digital Illustration", "Banner Art"],
+    image: "/assets/projects/graphic-designs/james-pokemon-custom-graphic-banner.jpg",
+    liveUrl: "",
+    featured: false,
+  },
+  {
+    id: 19,
+    slug: "john-mark-frias-cvsu-cum-laude-honor",
+    category: "graphic-design",
+    title: "CvSU-Imus Cum Laude Recognition Feature",
+    description:
+      "Official typography and visual layout asset celebrating academic excellence and Latin honor recognition at Cavite State University[cite: 7].",
+    tags: ["Graphic Design", "Typography", "Editorial Layout"],
+    image: "/assets/projects/graphic-designs/john-mark-frias-cvsu-imus-cum-laude-honor-graphic.png",
+    liveUrl: "",
+    featured: false,
+  },
+  {
+    id: 20,
+    slug: "wellness-pro-blood-pressure-monitor",
+    category: "graphic-design",
+    title: "Blood Pressure Monitor Product Showcase",
+    description:
+      "Marketing collateral and product presentation layout emphasizing clinical accuracy and ergonomic medical device design[cite: 7].",
+    tags: ["Graphic Design", "Product Catalog", "Healthcare UI"],
+    image: "/assets/projects/graphic-designs/wellness-pro-and-blood-pressure-monitors-banner.jpg",
+    liveUrl: "",
+    featured: false,
+  },
+  {
+    id: 21,
+    slug: "wellness-pro-sinapi-chest-drain",
+    category: "graphic-design",
+    title: "Sinapi Chest Drain Medical Spec Sheet",
+    description:
+      "Technical product flyer and graphic layout detailing specialized hospital equipment functionality and safety features[cite: 7].",
+    tags: ["Graphic Design", "Technical Flyer", "Medical Devices"],
+    image: "/assets/projects/graphic-designs/wellness-pro-sinapi-chest-drain-medical-banner.jpg",
+    liveUrl: "",
+    featured: false,
+  },
+ {
+    id: 22,
+    slug: "wellness-pro-axis-500-mobile-operating",
+    category: "graphic-design",
+    title: "Axis 500 Mobile Operating Table Creative",
+    description:
+      "Promotional banner highlighting surgical equipment capabilities and ergonomic clinical advantages.",
+    tags: ["Graphic Design", "Equipment Showcase", "Marketing Asset"],
+    image: "/assets/projects/graphic-designs/wellness-pro-axis-500-mobile-operating-table-banner.jpg", // Changed from .png to .jpg
+    liveUrl: "",
+    featured: false,
+  },
+  {
+    id: 23,
+    slug: "wellness-pro-good-friday-social-media",
+    category: "graphic-design",
+    title: "Good Friday Corporate Social Media Art",
+    description:
+      "Holiday observance graphic creative designed for company social media channels and client engagement[cite: 7].",
+    tags: ["Graphic Design", "Social Media Art", "Corporate Branding"],
+    image: "/assets/projects/graphic-designs/wellness-pro-good-friday-social-media-post.png",
+    liveUrl: "",
+    featured: false,
+  },
+  {
+    id: 24,
+    slug: "wellness-pro-seca-787-medical-scale",
+    category: "graphic-design",
+    title: "Seca 787 Medical Column Scale Banner",
+    description:
+      "High-resolution product feature graphic created for digital catalogs and promotional medical displays[cite: 7].",
+    tags: ["Graphic Design", "Catalog Design", "Medical Equipment"],
+    image: "/assets/projects/graphic-designs/wellness-pro-seca-787-medical-scale-banner.png",
+    liveUrl: "",
+    featured: false,
+  },
+  {
+    id: 25,
+    slug: "john-mark-frias-graduation-portrait",
+    category: "graphic-design",
+    title: "John Mark Frias Graduation Portrait Layout",
+    description:
+      "Professional formal graduation photo edit and commemorative portfolio layout composition[cite: 7].",
+    tags: ["Graphic Design", "Photo Retouching", "Branding Asset"],
+    image: "/assets/projects/graphic-designs/john-mark-frias-graduation-portrait.png",
+    liveUrl: "",
+    featured: false,
+  },
+  {
+    id: 26,
+    slug: "national-childrens-month-poster",
+    category: "graphic-design",
+    title: "National Children's Month Awareness Poster",
+    description:
+      "Vibrant community awareness poster design focused on youth empowerment, education, and modern illustrative layout[cite: 7].",
+    tags: ["Graphic Design", "Campaign Poster", "Illustration"],
+    image: "/assets/projects/graphic-designs/national-childrens-month-poster.png",
+    liveUrl: "",
+    featured: false,
+  },
+  {
+    id: 27,
+    slug: "wellness-pro-pafp-annual-convention-banner",
+    category: "graphic-design",
+    title: "PAFP 64th Annual Convention Booth Banner",
+    description:
+      "Official promotional booth banner and event collateral designed for Wellness PRO Inc. at the Philippine Academy of Family Physicians 64th Annual Convention.",
+    tags: ["Graphic Design", "Event Branding", "Promotional Poster"],
+    image: "/assets/projects/graphic-designs/wellness-pro-pafp-annual-convention-banner.png",
+    liveUrl: "",
+    featured: true,
   },
 ];

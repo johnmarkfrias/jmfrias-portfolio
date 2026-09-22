@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { navLinks } from "../../data/socials";
 import logo from "/public/assets/JMFrias.dev.svg";
+import Button from "../common/Button";
 
 // Map each nav label/path to solid filled active icons with enhanced active sizing
 const getNavLinkIcon = (label, isActive) => {
@@ -62,16 +63,18 @@ function Navbar() {
           className="flex items-center select-none"
           aria-label="JM Frias.dev Home"
         >
+          {/* Logo made properly bigger on laptop/desktop views (lg:h-8) */}
           <img
             src={logo}
             alt="JM Frias.dev"
             width="150"
             height="36"
-            className="h-5.5 sm:h-6 md:h-6 w-auto object-contain"
+            className="h-5.5 sm:h-6 md:h-6 lg:h-8 w-auto object-contain"
           />
         </Link>
 
-        <ul className="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-700">
+        {/* Menu gap expanded on laptop and desktop screens (lg:gap-10 xl:gap-12) */}
+        <ul className="hidden lg:flex items-center gap-8 lg:gap-10 xl:gap-12 text-sm font-medium text-slate-700">
           {navLinks.map((link) => (
             <li key={link.path}>
               <NavLink
@@ -88,14 +91,11 @@ function Navbar() {
           ))}
         </ul>
 
-        {/* DESKTOP HIRE CTA */}
+        {/* DESKTOP HIRE CTA using Button Component */}
         <div className="hidden lg:flex items-center">
-          <Link
-            to="/contact?subject=Job%20Opportunity%20(Hire%20Me)"
-            className="bg-blue-600 text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-blue-700 transition-colors shadow-sm"
-          >
+          <Button href="/contact?subject=Job%20Opportunity%20(Hire%20Me)" variant="primary">
             Hire JM Frias
-          </Link>
+          </Button>
         </div>
 
         <button
@@ -150,7 +150,7 @@ function Navbar() {
             </button>
           </div>
 
-          {/* Nav Links with brand light blue active pill background, slightly bolder/larger filled active icons, and regular font weight */}
+          {/* Nav Links with brand light blue active pill background */}
           <ul className="flex flex-col gap-2 pt-6 sm:pt-8 pb-6 sm:pb-8">
             {navLinks.map((link) => (
               <li key={link.path}>
@@ -179,15 +179,11 @@ function Navbar() {
           </ul>
         </div>
 
-        {/* MOBILE HIRE CTA */}
-        <div className="w-full pt-6 shrink-0 border-t border-slate-100 mt-auto">
-          <Link
-            to="/contact?subject=Job%20Opportunity%20(Hire%20Me)"
-            onClick={closeMenu}
-            className="w-full block text-center bg-blue-600 text-white font-semibold py-3.5 px-4 rounded-xl hover:bg-blue-700 transition-colors shadow-sm"
-          >
+        {/* MOBILE HIRE CTA using Button Component */}
+        <div className="w-full pt-6 shrink-0 border-t border-slate-100 mt-auto [&>a]:w-full [&>a]:justify-center">
+          <Button href="/contact?subject=Job%20Opportunity%20(Hire%20Me)" variant="primary" onClick={closeMenu}>
             Hire JM Frias
-          </Link>
+          </Button>
         </div>
       </aside>
     </header>

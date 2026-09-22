@@ -12,12 +12,28 @@ import { ROLES } from "../data/roles";
 
 const PHOTOS = [
   { src: "/assets/gradpic.jpg", alt: "John Mark Frias graduation portrait 1" },
-  { src: "/assets/gradpic2.png", alt: "John Mark Frias graduation portrait 2" },
+  { src: "/assets/gradpic2.JPG", alt: "John Mark Frias graduation portrait 2" },
   { src: "/assets/gradpic3.jpg", alt: "John Mark Frias graduation portrait 3" },
-  { src: "/assets/gradpic4.JPG", alt: "John Mark Frias graduation portrait 4" },
+  { src: "/assets/gradpic4.jpg", alt: "John Mark Frias graduation portrait 4" },
 ];
 
 const CERTIFICATES = [
+  // 1. DCIT Learn ChatGPT Certificate
+  {
+    id: "cert-3",
+    image: "/assets/certificates/DCIT-Learn-ChatGPT-Certificate.png",
+  },
+  // 2. DCIT Graphic Design Certificate
+  {
+    id: "cert-8",
+    image: "/assets/certificates/DCIT-Graphic-Design-Certificate.png",
+  },
+  // 3. Guidance Coordinator System - Best Web Design
+  {
+    id: "cert-9",
+    image: "/assets/certificates/guidance-coordinator-system-best-web-design.webp",
+  },
+  // Remaining certificates follow after
   {
     id: "cert-1",
     image: "/assets/certificates/2nd%20Semester%20AY%202022%20-%202023.png",
@@ -25,10 +41,6 @@ const CERTIFICATES = [
   {
     id: "cert-2",
     image: "/assets/certificates/1st%20Semester%20AY%202023%20-%202024.jpg",
-  },
-  {
-    id: "cert-3",
-    image: "/assets/certificates/DCIT-Learn-ChatGPT-Certificate.png",
   },
   {
     id: "cert-4",
@@ -45,10 +57,6 @@ const CERTIFICATES = [
   {
     id: "cert-7",
     image: "/assets/certificates/1st%20Semester%20AY%202021%20-%202022.jpg",
-  },
-  {
-    id: "cert-8",
-    image: "/assets/certificates/DCIT-Graphic-Design-Certificate.png",
   },
 ];
 
@@ -271,20 +279,14 @@ function AboutPage() {
                   I graduated <span className="font-semibold text-slate-900">Cum Laude</span> with a Bachelor of Science in Information Technology from Cavite State University – Imus Campus. I enjoy turning client ideas into functional digital solutions through solo projects and team collaborations.
                 </p>
 
+                {/* Action Buttons using default Button Component */}
                 <div className="flex flex-wrap items-center gap-3 w-full sm:w-auto">
-                  <div className="w-full sm:w-auto sm:min-w-[160px] text-center [&>a]:w-full [&>a]:justify-center [&>button]:w-full [&>button]:justify-center">
-                    <Button href="/cv.pdf" variant="primary">
-                      Download CV
-                    </Button>
-                  </div>
-                  <div className="w-full sm:w-auto sm:min-w-[160px] text-center [&>a]:w-full [&>a]:justify-center [&>button]:w-full [&>button]:justify-center">
-                    <Link
-                      to="/skills"
-                      className="inline-flex items-center justify-center text-sm font-semibold text-slate-700 hover:text-blue-600 px-5 py-2.5 rounded-full border border-slate-300 hover:border-blue-600 transition-colors bg-white shadow-xs"
-                    >
-                      View Skills & Stack
-                    </Link>
-                  </div>
+                  <Button href="/cv.pdf" variant="primary">
+                    Download CV
+                  </Button>
+                  <Button href="/skills" variant="outline">
+                    View Skills & Stack
+                  </Button>
                 </div>
               </div>
 
@@ -516,11 +518,11 @@ function AboutPage() {
 
       </main>
 
-      {/* Lightbox Modal Overlay (Square Corners, Clean Professional Look) */}
+      {/* Lightbox Modal Overlay (Soft, Eye-Ease Backdrop with Subtle Glassmorphism) */}
       {lightboxIndex !== null && (
         <div 
           onClick={() => setLightboxIndex(null)}
-          className="fixed inset-0 z-50 bg-slate-900/80 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 transition-all duration-300 animate-fadeIn"
+          className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 transition-all duration-300 animate-fadeIn"
         >
           {/* Close Button */}
           <button
@@ -552,10 +554,10 @@ function AboutPage() {
             <HiChevronRight className="w-7 h-7" />
           </button>
 
-          {/* Modal Content Box (Square Corners) */}
+          {/* Modal Content Box (Clean, Elegant Presentation) */}
           <div 
             onClick={(e) => e.stopPropagation()}
-            className="relative max-w-5xl max-h-[85vh] w-full flex flex-col items-center bg-slate-900/60 p-3 sm:p-5 rounded-none border border-white/10 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] backdrop-blur-xl"
+            className="relative max-w-5xl max-h-[85vh] w-full flex flex-col items-center bg-slate-900/40 p-3 sm:p-5 rounded-none border border-white/10 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.3)] backdrop-blur-md"
           >
             <img
               src={CERTIFICATES[lightboxIndex].image}
