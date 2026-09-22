@@ -25,6 +25,9 @@ const LOGO_PATHS = {
   php: "/assets/hero-logos/php.svg",
 };
 
+// Exact path to your PDF file inside public/assets/
+const CV_PATH = "/assets/CV%20John%20Mark%20Frias.pdf";
+
 function Hero() {
   const [roleIndex, setRoleIndex] = useState(0);
   const [currentText, setCurrentText] = useState("");
@@ -100,7 +103,6 @@ function Hero() {
           100% { opacity: 1; transform: translateY(0) scale(1); }
         }
 
-        /* Natural slow bloom: pops out gradually from tiny to full size with organic deceleration */
         @keyframes naturalPopOut {
           0% {
             opacity: 0;
@@ -179,19 +181,19 @@ function Hero() {
 
             <div className="w-full sm:w-auto flex items-center justify-start gap-3">
               <div className="flex-1 sm:flex-none sm:w-auto sm:min-w-[240px] text-center [&>a]:w-full [&>a]:justify-center [&>button]:w-full [&>button]:justify-center">
-                <Button href="/cv.pdf" variant="primary">
+                <Button href={CV_PATH} variant="primary" download="CV_John_Mark_Frias.pdf">
                   Download CV
                 </Button>
               </div>
 
               <a
-                href="/cv.pdf"
+                href={CV_PATH}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Preview CV"
                 className="inline-flex items-center justify-center shrink-0 hover:opacity-85 transition-opacity"
               >
-                <img src={eyeButtonSvg} alt="View CV" className="w-11 h-11 block object-contain select-none" />
+                <img src={eyeButtonSvg} alt="View CV" className="w-11 h-11 sm:w-[50px] sm:h-[50px] block object-contain select-none" />
               </a>
             </div>
 
@@ -204,10 +206,9 @@ function Hero() {
         {/* RIGHT COLUMN: Pop-Out Circle Canvas */}
         <div className="order-1 lg:order-2 lg:col-span-6 w-full flex items-center justify-center pt-14 sm:pt-16 md:pt-20 lg:pt-14 pb-2 lg:pb-0 overflow-visible">
           
-          {/* Scaled Canvas container */}
           <div className="relative w-[260px] sm:w-[350px] md:w-[400px] lg:w-[450px] aspect-square flex items-center justify-center">
 
-            {/* 1. Base Circle: Torso clipped inside */}
+            {/* 1. Base Circle */}
             <div className="anim-circle relative w-full h-full rounded-full bg-gradient-to-tr from-[#1e40af] via-[#235ff7] to-[#38bdf8] overflow-hidden flex items-end justify-center z-10 shadow-2xl shadow-blue-500/20">
               <img
                 src={heroPhoto}
@@ -232,204 +233,80 @@ function Hero() {
               />
             </div>
 
-            {/* ============================================================
-                TIER 1: INNER CIRCLE (4 Badges)
-                ============================================================ */}
-
-            {/* HTML: Upper Left */}
-            <div 
-              style={{ 
-                "--orig-x": "80px", 
-                "--orig-y": "80px", 
-                "--emerge-delay": "1.05s", 
-                "--emerge-duration": "1.55s" 
-              }} 
-              className="logo-emerge absolute top-[14%] left-[23%] sm:left-[22%] z-30 pointer-events-none"
-            >
-              <div className="drift-b drop-shadow-[0_4px_10px_rgba(228,77,38,0.45)]">
+            {/* Badges & Logos */}
+            <div style={{ "--orig-x": "80px", "--orig-y": "80px", "--emerge-delay": "1.05s", "--emerge-duration": "1.55s" }} className="logo-emerge absolute top-[14%] left-[23%] sm:left-[22%] z-30 pointer-events-none">
+              <div className="drift-b">
                 <img src={LOGO_PATHS.html} alt="HTML" className="w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 object-contain" />
               </div>
             </div>
 
-            {/* JavaScript: Upper Right */}
-            <div 
-              style={{ 
-                "--orig-x": "-80px", 
-                "--orig-y": "80px", 
-                "--emerge-delay": "1.18s", 
-                "--emerge-duration": "1.7s" 
-              }} 
-              className="logo-emerge absolute top-[19%] right-[17%] sm:right-[19%] z-30 pointer-events-none"
-            >
-              <div className="drift-a drop-shadow-[0_4px_10px_rgba(247,223,30,0.45)]">
+            <div style={{ "--orig-x": "-80px", "--orig-y": "80px", "--emerge-delay": "1.18s", "--emerge-duration": "1.7s" }} className="logo-emerge absolute top-[19%] right-[17%] sm:right-[19%] z-30 pointer-events-none">
+              <div className="drift-a">
                 <img src={LOGO_PATHS.javascript} alt="JavaScript" className="w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 object-contain" />
               </div>
             </div>
 
-            {/* CSS: Mid-Right */}
-            <div 
-              style={{ 
-                "--orig-x": "-105px", 
-                "--orig-y": "20px", 
-                "--emerge-delay": "1.12s", 
-                "--emerge-duration": "1.65s" 
-              }} 
-              className="logo-emerge absolute top-[41%] right-[8%] sm:right-[9%] z-30 pointer-events-none"
-            >
-              <div className="drift-b drop-shadow-[0_4px_10px_rgba(38,162,225,0.45)]">
+            <div style={{ "--orig-x": "-105px", "--orig-y": "20px", "--emerge-delay": "1.12s", "--emerge-duration": "1.65s" }} className="logo-emerge absolute top-[41%] right-[8%] sm:right-[9%] z-30 pointer-events-none">
+              <div className="drift-b">
                 <img src={LOGO_PATHS.css} alt="CSS" className="w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 object-contain" />
               </div>
             </div>
 
-            {/* PHP: Positioned slightly above halfway (with a clean, balanced drop-shadow including a touch of white light for separation) */}
-            <div 
-              style={{ 
-                "--orig-x": "90px", 
-                "--orig-y": "40px", 
-                "--emerge-delay": "1.25s", 
-                "--emerge-duration": "1.8s" 
-              }} 
-              className="logo-emerge absolute top-[30%] sm:top-[32%] left-[12%] sm:left-[14%] z-30 pointer-events-none"
-            >
-              <div className="drift-a drop-shadow-[0_4px_10px_rgba(255,255,255,0.35)]">
+            <div style={{ "--orig-x": "90px", "--orig-y": "40px", "--emerge-delay": "1.25s", "--emerge-duration": "1.8s" }} className="logo-emerge absolute top-[30%] sm:top-[32%] left-[12%] sm:left-[14%] z-30 pointer-events-none">
+              <div className="drift-a">
                 <img src={LOGO_PATHS.php} alt="PHP" className="w-7 h-7 sm:w-12 sm:h-12 md:w-10 md:h-10 lg:w-11 lg:h-11 object-contain" />
               </div>
             </div>
 
-            {/* ============================================================
-                TIER 2: OUTER RING LOGOS
-                ============================================================ */}
-
-            {/* Canva: Lower-Left */}
-            <div 
-              style={{ 
-                "--orig-x": "145px", 
-                "--orig-y": "-60px", 
-                "--emerge-delay": "1.42s", 
-                "--emerge-duration": "2.1s" 
-              }} 
-              className="logo-emerge absolute top-[72%] -left-[10%] sm:-left-[12%] z-30 pointer-events-none"
-            >
+            <div style={{ "--orig-x": "145px", "--orig-y": "-60px", "--emerge-delay": "1.42s", "--emerge-duration": "2.1s" }} className="logo-emerge absolute top-[72%] -left-[10%] sm:-left-[12%] z-30 pointer-events-none">
               <div className="drift-a drop-shadow-[0_6px_14px_rgba(0,196,204,0.4)]">
                 <img src={LOGO_PATHS.canva} alt="Canva" className="w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-11 lg:h-11 object-contain" />
               </div>
             </div>
 
-            {/* Git: Mid-Low Left */}
-            <div 
-              style={{ 
-                "--orig-x": "155px", 
-                "--orig-y": "0px", 
-                "--emerge-delay": "1.28s", 
-                "--emerge-duration": "1.95s" 
-              }} 
-              className="logo-emerge absolute top-[48%] -left-[13%] sm:-left-[15%] -translate-y-1/2 z-30 pointer-events-none"
-            >
+            <div style={{ "--orig-x": "155px", "--orig-y": "0px", "--emerge-delay": "1.28s", "--emerge-duration": "1.95s" }} className="logo-emerge absolute top-[48%] -left-[13%] sm:-left-[15%] -translate-y-1/2 z-30 pointer-events-none">
               <div className="drift-b drop-shadow-[0_6px_14px_rgba(240,80,50,0.4)]">
                 <img src={LOGO_PATHS.git} alt="Git" className="w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-11 lg:h-11 object-contain" />
               </div>
             </div>
 
-            {/* Figma: Mid-High Left */}
-            <div 
-              style={{ 
-                "--orig-x": "145px", 
-                "--orig-y": "80px", 
-                "--emerge-delay": "1.34s", 
-                "--emerge-duration": "1.85s" 
-              }} 
-              className="logo-emerge absolute top-[18%] -left-[10%] sm:-left-[12%] z-30 pointer-events-none"
-            >
+            <div style={{ "--orig-x": "145px", "--orig-y": "80px", "--emerge-delay": "1.34s", "--emerge-duration": "1.85s" }} className="logo-emerge absolute top-[18%] -left-[10%] sm:-left-[12%] z-30 pointer-events-none">
               <div className="drift-a drop-shadow-[0_6px_14px_rgba(242,78,30,0.4)]">
                 <img src={LOGO_PATHS.figma} alt="Figma" className="w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-11 lg:h-11 object-contain" />
               </div>
             </div>
 
-            {/* VS Code: Top-Left */}
-            <div 
-              style={{ 
-                "--orig-x": "90px", 
-                "--orig-y": "140px", 
-                "--emerge-delay": "1.52s", 
-                "--emerge-duration": "2.15s" 
-              }} 
-              className="logo-emerge absolute -top-[8%] sm:-top-[9%] left-[12%] z-30 pointer-events-none"
-            >
+            <div style={{ "--orig-x": "90px", "--orig-y": "140px", "--emerge-delay": "1.52s", "--emerge-duration": "2.15s" }} className="logo-emerge absolute -top-[8%] sm:-top-[9%] left-[12%] z-30 pointer-events-none">
               <div className="drift-a drop-shadow-[0_6px_14px_rgba(0,122,204,0.4)]">
                 <img src={LOGO_PATHS.vscode} alt="VS Code" className="w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-11 lg:h-11 object-contain" />
               </div>
             </div>
 
-            {/* n8n: Top Center Apex */}
-            <div 
-              style={{ 
-                "--orig-x": "0px", 
-                "--orig-y": "165px", 
-                "--emerge-delay": "1.48s", 
-                "--emerge-duration": "2.3s" 
-              }} 
-              className="logo-emerge absolute -top-[19%] sm:-top-[20%] left-1/2 -translate-x-1/2 z-30 pointer-events-none"
-            >
+            <div style={{ "--orig-x": "0px", "--orig-y": "165px", "--emerge-delay": "1.48s", "--emerge-duration": "2.3s" }} className="logo-emerge absolute -top-[19%] sm:-top-[20%] left-1/2 -translate-x-1/2 z-30 pointer-events-none">
               <div className="drift-b drop-shadow-[0_6px_16px_rgba(255,109,90,0.45)]">
                 <img src={LOGO_PATHS.n8n} alt="n8n" className="w-8 h-8 sm:w-10 sm:h-10 md:w-11 md:h-11 lg:w-12 lg:h-12 object-contain" />
               </div>
             </div>
 
-            {/* GitHub: Top-Right */}
-            <div 
-              style={{ 
-                "--orig-x": "-90px", 
-                "--orig-y": "140px", 
-                "--emerge-delay": "1.38s", 
-                "--emerge-duration": "2.0s" 
-              }} 
-              className="logo-emerge absolute -top-[8%] sm:-top-[9%] right-[12%] z-30 pointer-events-none"
-            >
+            <div style={{ "--orig-x": "-90px", "--orig-y": "140px", "--emerge-delay": "1.38s", "--emerge-duration": "2.0s" }} className="logo-emerge absolute -top-[8%] sm:-top-[9%] right-[12%] z-30 pointer-events-none">
               <div className="drift-a drop-shadow-[0_6px_14px_rgba(24,23,23,0.4)]">
                 <img src={LOGO_PATHS.github} alt="GitHub" className="w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-11 lg:h-11 object-contain" />
               </div>
             </div>
 
-            {/* Postman: Mid-High Right */}
-            <div 
-              style={{ 
-                "--orig-x": "-145px", 
-                "--orig-y": "80px", 
-                "--emerge-delay": "1.45s", 
-                "--emerge-duration": "2.05s" 
-              }} 
-              className="logo-emerge absolute top-[18%] -right-[10%] sm:-right-[12%] z-30 pointer-events-none"
-            >
+            <div style={{ "--orig-x": "-145px", "--orig-y": "80px", "--emerge-delay": "1.45s", "--emerge-duration": "2.05s" }} className="logo-emerge absolute top-[18%] -right-[10%] sm:-right-[12%] z-30 pointer-events-none">
               <div className="drift-b drop-shadow-[0_6px_14px_rgba(255,108,55,0.45)]">
                 <img src={LOGO_PATHS.postman} alt="Postman" className="w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-11 lg:h-11 object-contain" />
               </div>
             </div>
 
-            {/* MySQL: Mid-Right */}
-            <div 
-              style={{ 
-                "--orig-x": "-155px", 
-                "--orig-y": "0px", 
-                "--emerge-delay": "1.30s", 
-                "--emerge-duration": "1.9s" 
-              }} 
-              className="logo-emerge absolute top-[48%] -right-[13%] sm:-right-[15%] -translate-y-1/2 z-30 pointer-events-none"
-            >
+            <div style={{ "--orig-x": "-155px", "--orig-y": "0px", "--emerge-delay": "1.30s", "--emerge-duration": "1.9s" }} className="logo-emerge absolute top-[48%] -right-[13%] sm:-right-[15%] -translate-y-1/2 z-30 pointer-events-none">
               <div className="drift-a drop-shadow-[0_6px_14px_rgba(0,117,143,0.45)]">
                 <img src={LOGO_PATHS.mysql} alt="MySQL" className="w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-11 lg:h-11 object-contain" />
               </div>
             </div>
 
-            {/* WordPress: Lower-Mid Right */}
-            <div 
-              style={{ 
-                "--orig-x": "-145px", 
-                "--orig-y": "-60px", 
-                "--emerge-delay": "1.55s", 
-                "--emerge-duration": "2.2s" 
-              }} 
-              className="logo-emerge absolute top-[72%] -right-[10%] sm:-right-[12%] z-30 pointer-events-none"
-            >
+            <div style={{ "--orig-x": "-145px", "--orig-y": "-60px", "--emerge-delay": "1.55s", "--emerge-duration": "2.2s" }} className="logo-emerge absolute top-[72%] -right-[10%] sm:-right-[12%] z-30 pointer-events-none">
               <div className="drift-b drop-shadow-[0_6px_14px_rgba(0,116,156,0.4)]">
                 <img src={LOGO_PATHS.wordpress} alt="WordPress" className="w-7 h-7 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-11 lg:h-11 object-contain" />
               </div>
