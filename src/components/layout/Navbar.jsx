@@ -4,34 +4,58 @@ import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
-import { 
-  Home, 
-  User, 
-  Laptop, 
-  Folder, 
-  Phone 
-} from "lucide-react";
 import { navLinks } from "../../data/socials";
 import logo from "/public/assets/JMFrias.dev.svg";
 import Button from "../common/Button";
 
-// Map each nav label/path to solid filled active icons with enhanced active sizing
+// Import your custom icon SVGs from public assets
+import homeIcon from "/public/assets/side-nav-icons/home.svg";
+import homeFilledIcon from "/public/assets/side-nav-icons/home-filled.svg";
+import aboutIcon from "/public/assets/side-nav-icons/about.svg";
+import aboutFilledIcon from "/public/assets/side-nav-icons/about-filled.svg";
+import skillsIcon from "/public/assets/side-nav-icons/skills.svg";
+import skillsFilledIcon from "/public/assets/side-nav-icons/skills-filled.svg";
+import projectIcon from "/public/assets/side-nav-icons/project.svg";
+import projectFilledIcon from "/public/assets/side-nav-icons/project-filled.svg";
+import contactIcon from "/public/assets/side-nav-icons/contact.svg";
+import contactFilledIcon from "/public/assets/side-nav-icons/contact-filled.svg";
+
+// Renders an SVG as a CSS mask so it inherits `currentColor` from its parent
+const IconMask = ({ src, className = "" }) => (
+  <span
+    aria-hidden="true"
+    className={`inline-block shrink-0 ${className}`}
+    style={{
+      backgroundColor: "currentColor",
+      WebkitMaskImage: `url(${src})`,
+      maskImage: `url(${src})`,
+      WebkitMaskRepeat: "no-repeat",
+      maskRepeat: "no-repeat",
+      WebkitMaskPosition: "center",
+      maskPosition: "center",
+      WebkitMaskSize: "contain",
+      maskSize: "contain",
+    }}
+  />
+);
+
+// Helper function to render the correct active/inactive icon file
 const getNavLinkIcon = (label, isActive) => {
-  const props = { className: "w-5 h-5 shrink-0" };
+  const className = "w-[22px] h-[22px]";
 
   switch ((label || "").toLowerCase()) {
     case "home":
-      return isActive ? <Home {...props} className="w-[22px] h-[22px] shrink-0 fill-blue-600 text-blue-600" style={{ strokeWidth: 0 }} fill="currentColor" /> : <Home {...props} strokeWidth={1.75} />;
+      return <IconMask src={isActive ? homeFilledIcon : homeIcon} className={className} />;
     case "about":
-      return isActive ? <User {...props} className="w-[22px] h-[22px] shrink-0 fill-blue-600 text-blue-600" style={{ strokeWidth: 0 }} fill="currentColor" /> : <User {...props} strokeWidth={1.75} />;
+      return <IconMask src={isActive ? aboutFilledIcon : aboutIcon} className={className} />;
     case "skills":
-      return isActive ? <Laptop {...props} className="w-[22px] h-[22px] shrink-0 fill-blue-600 text-blue-600" style={{ strokeWidth: 0 }} fill="currentColor" /> : <Laptop {...props} strokeWidth={1.75} />;
+      return <IconMask src={isActive ? skillsFilledIcon : skillsIcon} className={className} />;
     case "projects":
-      return isActive ? <Folder {...props} className="w-[22px] h-[22px] shrink-0 fill-blue-600 text-blue-600" style={{ strokeWidth: 0 }} fill="currentColor" /> : <Folder {...props} strokeWidth={1.75} />;
+      return <IconMask src={isActive ? projectFilledIcon : projectIcon} className={className} />;
     case "contact":
-      return isActive ? <Phone {...props} className="w-[22px] h-[22px] shrink-0 fill-blue-600 text-blue-600" style={{ strokeWidth: 0 }} fill="currentColor" /> : <Phone {...props} strokeWidth={1.75} />;
+      return <IconMask src={isActive ? contactFilledIcon : contactIcon} className={className} />;
     default:
-      return <Home {...props} strokeWidth={1.75} />;
+      return <IconMask src={homeIcon} className={className} />;
   }
 };
 
@@ -63,7 +87,6 @@ function Navbar() {
           className="flex items-center select-none"
           aria-label="JM Frias.dev Home"
         >
-          {/* Logo made properly bigger on laptop/desktop views (lg:h-8) */}
           <img
             src={logo}
             alt="JM Frias.dev"
@@ -73,7 +96,7 @@ function Navbar() {
           />
         </Link>
 
-        {/* Menu gap expanded on laptop and desktop screens (lg:gap-10 xl:gap-12) */}
+        {/* Desktop Links */}
         <ul className="hidden lg:flex items-center gap-8 lg:gap-10 xl:gap-12 text-sm font-medium text-slate-700">
           {navLinks.map((link) => (
             <li key={link.path}>
@@ -91,7 +114,7 @@ function Navbar() {
           ))}
         </ul>
 
-        {/* DESKTOP HIRE CTA using Button Component */}
+        {/* DESKTOP HIRE CTA */}
         <div className="hidden lg:flex items-center">
           <Button href="/contact?subject=Job%20Opportunity%20(Hire%20Me)" variant="primary">
             Hire JM Frias
@@ -131,7 +154,6 @@ function Navbar() {
         }}
       >
         <div className="w-full flex flex-col">
-          {/* Header with Logo and Close button aligned properly */}
           <div className="flex items-center justify-between pb-6 sm:pb-8 border-b border-slate-100">
             <img
               src={logo}
@@ -150,7 +172,7 @@ function Navbar() {
             </button>
           </div>
 
-          {/* Nav Links with brand light blue active pill background */}
+          {/* Mobile Nav Links with Active State Color Sync */}
           <ul className="flex flex-col gap-2 pt-6 sm:pt-8 pb-6 sm:pb-8">
             {navLinks.map((link) => (
               <li key={link.path}>
@@ -160,14 +182,14 @@ function Navbar() {
                   className={({ isActive }) =>
                     `flex items-center gap-3.5 text-base tracking-wide transition-all py-3 px-4 rounded-xl font-normal ${
                       isActive
-                        ? "bg-blue-50/80 text-blue-600"
+                        ? "bg-blue-50/80 text-blue-600 font-medium"
                         : "text-slate-700 hover:bg-slate-50 hover:text-blue-600"
                     }`
                   }
                 >
                   {({ isActive }) => (
                     <>
-                      <span className={isActive ? "text-blue-600 flex items-center justify-center" : "text-slate-500 flex items-center justify-center"}>
+                      <span className={`flex items-center justify-center ${isActive ? "text-blue-600" : "text-slate-500"}`}>
                         {getNavLinkIcon(link.label, isActive)}
                       </span>
                       <span>{link.label}</span>
@@ -179,7 +201,7 @@ function Navbar() {
           </ul>
         </div>
 
-        {/* MOBILE HIRE CTA using Button Component */}
+        {/* MOBILE HIRE CTA */}
         <div className="w-full pt-6 shrink-0 border-t border-slate-100 mt-auto [&>a]:w-full [&>a]:justify-center">
           <Button href="/contact?subject=Job%20Opportunity%20(Hire%20Me)" variant="primary" onClick={closeMenu}>
             Hire JM Frias
