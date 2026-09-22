@@ -103,7 +103,7 @@ function Navbar() {
           onClick={() => setIsOpen(true)}
           aria-label="Open navigation menu"
           aria-expanded={isOpen}
-          className="lg:hidden w-9 h-9 flex items-center justify-center rounded-lg text-slate-900 hover:bg-slate-100 transition-colors focus:outline-none text-xl"
+          className="lg:hidden w-11 h-11 flex items-center justify-center rounded-lg text-slate-900 hover:bg-slate-100 transition-colors focus:outline-none text-2xl"
         >
           <FaBars />
         </button>
