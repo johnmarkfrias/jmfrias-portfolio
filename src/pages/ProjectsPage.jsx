@@ -136,13 +136,44 @@ function ProjectsPage() {
                       className="h-full cursor-pointer"
                       onClick={() => setLightboxIndex(idx)}
                     >
-                      <ProjectCard
-                        title={project.title}
-                        description={project.description}
-                        tags={project.tags}
-                        image={project.image}
-                        liveUrl={project.liveUrl}
-                      />
+                      {project.category === "graphic-design" ? (
+                        // Custom uncropped fit layout for Graphic Design cards
+                        <div className="group bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col h-full">
+                          <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-50 flex items-center justify-center p-3">
+                            <img
+                              src={project.image}
+                              alt={project.title}
+                              loading="lazy"
+                              className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-500 ease-out pointer-events-none"
+                            />
+                          </div>
+                          <div className="p-5 flex flex-col flex-grow">
+                            <h3 className="text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors mb-2">
+                              {project.title}
+                            </h3>
+                            <p className="text-xs sm:text-sm text-slate-600 line-clamp-2 mb-4">
+                              {project.description}
+                            </p>
+                            {project.tags && (
+                              <div className="flex flex-wrap gap-1.5 mt-auto">
+                                {project.tags.map((tag, tIdx) => (
+                                  <span key={tIdx} className="px-2 py-0.5 text-[11px] font-medium rounded-md bg-slate-100 text-slate-600">
+                                    {tag}
+                                  </span>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      ) : (
+                        <ProjectCard
+                          title={project.title}
+                          description={project.description}
+                          tags={project.tags}
+                          image={project.image}
+                          liveUrl={project.liveUrl}
+                        />
+                      )}
                     </div>
                   ))}
                 </div>
@@ -177,7 +208,7 @@ function ProjectsPage() {
         </Section>
       </main>
 
-      {/* Lightbox Modal Overlay (Matching AboutPage Certificate Lightbox Look & Feel) */}
+      {/* Lightbox Modal Overlay */}
       {lightboxIndex !== null && filteredProjects[lightboxIndex] && (
         <div 
           onClick={() => setLightboxIndex(null)}
@@ -213,7 +244,7 @@ function ProjectsPage() {
             <HiChevronRight className="w-7 h-7" />
           </button>
 
-          {/* Modal Content Box (Clean, Eye-Ease Presentation) */}
+          {/* Modal Content Box */}
           <div 
             onClick={(e) => e.stopPropagation()}
             className="relative max-w-5xl max-h-[85vh] w-full flex flex-col items-center bg-slate-900/40 p-3 sm:p-5 rounded-none border border-white/10 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.3)] backdrop-blur-md"
