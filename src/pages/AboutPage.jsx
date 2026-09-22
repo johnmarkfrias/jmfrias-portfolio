@@ -284,7 +284,7 @@ function AboutPage() {
                 {/* Action Buttons using default Button Component with stacked full-width layout on mobile */}
                 <div className="flex flex-col sm:flex-row items-center gap-3 w-full [&>a]:w-full [&>a]:sm:w-auto [&>button]:w-full [&>button]:sm:w-auto">
                   <Button href={CV_PATH} variant="primary" download="CV_John_Mark_Frias.pdf">
-                    Download CV
+                    Preview CV
                   </Button>
                   <Button href="/skills" variant="outline">
                     View Skills & Stack

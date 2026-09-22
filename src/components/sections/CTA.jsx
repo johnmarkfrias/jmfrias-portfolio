@@ -5,6 +5,8 @@ import Container from "../layout/Container";
 import SectionBadge from "../common/SectionBadge";
 import Button from "../common/Button";
 
+const CV_PATH = "/assets/CV%20John%20Mark%20Frias.pdf";
+
 function CTA() {
   return (
     <Section id="cta" aria-label="CTA Section" className="bg-white">
@@ -28,11 +30,16 @@ function CTA() {
             between.
           </p>
 
-          {/* Action Buttons: Full-width stacked sa mobile (<640px), compact inline sa tablet at desktop */}
+          {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row justify-center items-center gap-3 w-full max-w-sm sm:max-w-none mx-auto">
             <div className="w-full sm:w-auto sm:min-w-[160px] text-center [&>a]:w-full [&>a]:justify-center [&>button]:w-full [&>button]:justify-center">
-              <Button href="/cv.pdf" variant="primary">
-                Download CV
+              <Button 
+                href={CV_PATH} 
+                variant="primary" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                Preview CV
               </Button>
             </div>
             

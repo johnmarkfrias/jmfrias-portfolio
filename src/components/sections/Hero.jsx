@@ -56,6 +56,26 @@ function Hero() {
     return () => clearTimeout(timeout);
   }, [currentText, isDeleting, roleIndex]);
 
+  // Blob-based direct download handler to prevent browser tab preview redirect
+  const handleDownloadCV = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch(CV_PATH);
+      const blob = await response.blob();
+      const blobUrl = window.URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = blobUrl;
+      link.download = "CV_John_Mark_Frias.pdf";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(blobUrl);
+    } catch (error) {
+      console.error("Download failed:", error);
+      window.open(CV_PATH, "_blank");
+    }
+  };
+
   const SocialLinks = ({ className = "" }) => (
     <aside aria-label="Social Media Links" className={`flex items-center gap-4 lg:gap-9 ${className}`}>
       <a
@@ -181,7 +201,7 @@ function Hero() {
 
             <div className="w-full sm:w-auto flex items-center justify-start gap-3">
               <div className="flex-1 sm:flex-none sm:w-auto sm:min-w-[240px] text-center [&>a]:w-full [&>a]:justify-center [&>button]:w-full [&>button]:justify-center">
-                <Button href={CV_PATH} variant="primary" download="CV_John_Mark_Frias.pdf">
+                <Button href={CV_PATH} variant="primary" onClick={handleDownloadCV}>
                   Download CV
                 </Button>
               </div>
