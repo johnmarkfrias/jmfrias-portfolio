@@ -183,7 +183,7 @@ function SkillsPage() {
             {/* Header Block: Tightened badge and heading using flex container */}
             <header className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-end mb-10 sm:mb-12 lg:mb-16 pb-8 border-b border-slate-100">
               <div className="lg:col-span-7 text-left flex flex-col items-start gap-1">
-                <SectionBadge>SKILLS & STACK</SectionBadge>
+                <SectionBadge>SKILLS</SectionBadge>
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-extrabold text-slate-900 tracking-tight leading-[1.12] m-0">
                   Areas Of Expertise
                 </h1>

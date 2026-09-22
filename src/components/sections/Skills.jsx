@@ -41,27 +41,31 @@ const getCategoryRoute = (skill) => {
   return "/projects";
 };
 
-// Map each skill title to a matching professional inquiry subject for the contact form
+// Map each skill title to an exact matching professional inquiry subject from ContactPage options
 const getCollabSubject = (skill) => {
   if (!skill) return "Project Collaboration";
   const title = (skill.title || "").toLowerCase();
+  const id = (skill.id || "").toLowerCase();
 
-  if (title.includes("full stack") || title.includes("web")) {
+  if (title.includes("full stack") || title.includes("web") || id.includes("stack")) {
     return "Full-Stack Development Inquiry";
   }
-  if (title.includes("api") || title.includes("integration")) {
+  if (title.includes("api") || title.includes("integration") || id.includes("api") || id.includes("integration")) {
     return "API Integration Inquiry";
   }
-  if (title.includes("ui") || title.includes("ux")) {
+  if (title.includes("ui") || title.includes("ux") || id.includes("ui-ux")) {
     return "UI/UX Design Inquiry";
   }
-  if (title.includes("qa") || title.includes("testing")) {
+  if (title.includes("graphic") || title.includes("graphic") || id.includes("graphic") || id.includes("design")) {
+    return "Graphic Design Inquiry";
+  }
+  if (title.includes("qa") || title.includes("testing") || id.includes("qa") || id.includes("testing")) {
     return "QA Testing Inquiry";
   }
-  if (title.includes("wordpress")) {
+  if (title.includes("wordpress") || id.includes("wordpress")) {
     return "WordPress Customization Inquiry";
   }
-  if (title.includes("ai") || title.includes("automation")) {
+  if (title.includes("ai") || title.includes("automation") || id.includes("ai") || id.includes("automation")) {
     return "AI & Automation Inquiry";
   }
   return "Project Collaboration";
@@ -86,7 +90,7 @@ function Skills() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 lg:gap-16 mb-6 sm:mb-8 md:mb-10">
           <div className="text-left shrink-0">
             <div className="-mb-2 sm:-mb-3">
-              <SectionBadge>SKILLS & STACK</SectionBadge>
+              <SectionBadge>SKILLS</SectionBadge>
             </div>
             <h2
               id="skills-heading"

@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { HiMail, HiPhone, HiLocationMarker } from "react-icons/hi";
 import Section from "../components/layout/Section";
 import Container from "../components/layout/Container";
 import SectionBadge from "../components/common/SectionBadge";
@@ -85,7 +86,7 @@ function ContactPage() {
         <title>Contact | John Mark M. Frias - Web Developer</title>
         <meta
           name="description"
-          content="Get in touch with John Mark M. Frias for web development, WordPress builds, UI design, or collaboration inquiries."
+          content="Get in touch with John Mark M. Frias for web development, full-stack apps, UI/UX design, or collaboration inquiries."
         />
         <link rel="canonical" href="https://jmfrias.dev/contact" />
       </Helmet>
@@ -97,15 +98,15 @@ function ContactPage() {
             {/* Header Block */}
             <header className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-end mb-10 sm:mb-12 lg:mb-16 pb-8 border-b border-slate-100">
               <div className="lg:col-span-7 text-left flex flex-col items-start gap-1">
-                <SectionBadge>GET IN TOUCH</SectionBadge>
+                <SectionBadge>Contact</SectionBadge>
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-extrabold text-slate-900 tracking-tight leading-[1.12] m-0">
-                  Let's talk about your next project.
+                  Let's build something great together.
                 </h1>
               </div>
 
               <div className="lg:col-span-5 lg:pb-1 text-left">
                 <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-xl">
-                  Whether you need a custom WordPress site, front-end development, or full-stack web solutions, feel free to reach out directly or send a message below.
+                  Whether you need full-stack web development, custom applications, UI/UX prototyping, or graphic design solutions, feel free to reach out directly or send a message below.
                 </p>
               </div>
             </header>
@@ -116,11 +117,8 @@ function ContactPage() {
               {/* Left Column: Direct Info List with Clickable Phone & Location */}
               <div className="lg:col-span-5 space-y-7 sm:space-y-8 lg:pt-2">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-2xl bg-sky-50 text-sky-500 flex items-center justify-center shrink-0 shadow-2xs">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
-                      <rect width="20" height="16" x="2" y="4" rx="2" />
-                      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-                    </svg>
+                  <div className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 shadow-2xs">
+                    <HiMail className="w-5 h-5" />
                   </div>
                   <div>
                     <h3 className="text-base font-bold text-slate-900 leading-snug">Email</h3>
@@ -134,10 +132,8 @@ function ContactPage() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-2xl bg-sky-50 text-sky-500 flex items-center justify-center shrink-0 shadow-2xs">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
-                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-                    </svg>
+                  <div className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 shadow-2xs">
+                    <HiPhone className="w-5 h-5" />
                   </div>
                   <div>
                     <h3 className="text-base font-bold text-slate-900 leading-snug">Phone</h3>
@@ -151,11 +147,8 @@ function ContactPage() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-2xl bg-sky-50 text-sky-500 flex items-center justify-center shrink-0 shadow-2xs">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
-                      <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
-                      <circle cx="12" cy="10" r="3" />
-                    </svg>
+                  <div className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 shadow-2xs">
+                    <HiLocationMarker className="w-5 h-5" />
                   </div>
                   <div>
                     <h3 className="text-base font-bold text-slate-900 leading-snug">Location</h3>
@@ -175,17 +168,17 @@ function ContactPage() {
               <div id="contact-form-container" className="lg:col-span-7 scroll-mt-28">
                 <form 
                   onSubmit={handleSubmit}
-                  className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 md:p-10 shadow-sm space-y-5"
+                  className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 md:p-10 shadow-sm space-y-6"
                 >
-                  <h3 className="text-xl font-bold text-slate-900 mb-1">
-                    Send me an email
+                  <h3 className="text-2xl sm:text-[26px] font-extrabold text-slate-900 tracking-tight">
+                    Send me a message
                   </h3>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-2">
                     <div>
                       <label 
                         htmlFor="fullName" 
-                        className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-2"
+                        className="block text-xs font-semibold text-slate-700 mb-2"
                       >
                         Full Name <span className="text-blue-600">*</span>
                       </label>
@@ -204,7 +197,7 @@ function ContactPage() {
                     <div>
                       <label 
                         htmlFor="email" 
-                        className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-2"
+                        className="block text-xs font-semibold text-slate-700 mb-2"
                       >
                         Email Address <span className="text-blue-600">*</span>
                       </label>
@@ -225,7 +218,7 @@ function ContactPage() {
                   <div>
                     <label 
                       htmlFor="subject" 
-                      className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-2"
+                      className="block text-xs font-semibold text-slate-700 mb-2"
                     >
                       Subject / Inquiry Type <span className="text-blue-600">*</span>
                     </label>
@@ -248,6 +241,7 @@ function ContactPage() {
                         <option value="Full-Stack Development Inquiry">Full-Stack Development Inquiry</option>
                         <option value="API Integration Inquiry">API Integration Inquiry</option>
                         <option value="UI/UX Design Inquiry">UI/UX Design Inquiry</option>
+                        <option value="Graphic Design Inquiry">Graphic Design Inquiry</option>
                         <option value="QA Testing Inquiry">QA Testing Inquiry</option>
                         <option value="WordPress Customization Inquiry">WordPress Customization Inquiry</option>
                         <option value="AI & Automation Inquiry">AI & Automation Inquiry</option>
@@ -265,7 +259,7 @@ function ContactPage() {
                   <div>
                     <label 
                       htmlFor="message" 
-                      className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-2"
+                      className="block text-xs font-semibold text-slate-700 mb-2"
                     >
                       Message <span className="text-blue-600">*</span>
                     </label>

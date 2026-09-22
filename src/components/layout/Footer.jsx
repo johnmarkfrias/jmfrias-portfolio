@@ -63,10 +63,10 @@ function Footer() {
         <Container>
           
           {/* Main Footer Row */}
-          <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-0 lg:gap-8 pb-8 lg:pb-16 border-b-0 lg:border-b border-slate-800/80">
+          <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-8 lg:gap-8 pb-8 lg:pb-16 border-b-0 lg:border-b border-slate-800/80">
             
             {/* Column 1: Brand Logo & Bio */}
-            <div className="flex flex-col items-start text-left pb-6 lg:pb-0 w-full lg:w-fit max-w-sm">
+            <div className="flex flex-col items-start text-left pb-2 lg:pb-0 w-full lg:w-fit max-w-sm">
               <Link 
                 to="/" 
                 className="inline-block mb-4 select-none" 
@@ -120,104 +120,116 @@ function Footer() {
               </div>
             </div>
 
-            {/* Column 2: Quick Links */}
-            <div className="w-full lg:w-fit lg:mx-auto py-2.5 lg:py-0 border-b border-slate-800/80 lg:border-none">
-              <button
-                type="button"
-                onClick={() => toggleAccordion("quick-links")}
-                className="w-full flex items-center justify-between lg:justify-start py-3 lg:py-0 text-left font-semibold text-base sm:text-lg lg:cursor-default lg:mb-4 focus:outline-none"
-                aria-expanded={openSection === "quick-links"}
-              >
-                <span>Quick Links</span>
-                <svg
-                  className={`w-4 h-4 text-slate-400 transition-transform duration-300 lg:hidden ${
-                    openSection === "quick-links" ? "rotate-180" : "rotate-0"
-                  }`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <polyline points="6 9 12 15 18 9" />
-                </svg>
-              </button>
+            {/* Tablet & Desktop Layout Wrapper for Quick Links and Contacts (2 columns side by side on md/tablet, row on lg) */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:flex lg:justify-between gap-8 w-full lg:w-fit lg:mx-auto">
 
-              <div
-                className={`overflow-hidden transition-all duration-300 ease-in-out lg:!max-h-none lg:!opacity-100 ${
-                  openSection === "quick-links"
-                    ? "max-h-60 opacity-100 pb-3 lg:pb-0 pt-1 lg:pt-0"
-                    : "max-h-0 opacity-0"
-                }`}
-              >
-                <ul className="space-y-2.5 text-sm text-slate-400">
-                  {navLinks.map((link) => (
-                    <li key={link.path}>
-                      <Link
-                        to={link.path}
+              {/* Column 2: Quick Links */}
+              <div className="w-full lg:w-fit py-0 border-b sm:border-b-0 border-slate-800/80 pb-6 sm:pb-0">
+                <button
+                  type="button"
+                  onClick={() => toggleAccordion("quick-links")}
+                  className="w-full flex items-center justify-between sm:justify-start py-0 sm:py-0 text-left font-semibold text-base sm:text-lg sm:cursor-default sm:mb-4 focus:outline-none md:pointer-events-none lg:pointer-events-auto"
+                  aria-expanded={openSection === "quick-links"}
+                >
+                  <span>Quick Links</span>
+                  <svg
+                    className={`w-4 h-4 text-slate-400 transition-transform duration-300 sm:hidden ${
+                      openSection === "quick-links" ? "rotate-180" : "rotate-0"
+                    }`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <polyline points="6 9 12 15 18 9" />
+                  </svg>
+                </button>
+
+                <div
+                  className={`overflow-hidden transition-all duration-300 ease-in-out sm:!max-h-none sm:!opacity-150 sm:!block ${
+                    openSection === "quick-links"
+                      ? "max-h-60 opacity-100 pt-3 sm:pt-0"
+                      : "max-h-0 opacity-0 sm:opacity-100"
+                  }`}
+                >
+                  <ul className="space-y-2.5 text-sm text-slate-400 sm:pl-0 pl-3">
+                    {navLinks.map((link) => (
+                      <li key={link.path}>
+                        <Link
+                          to={link.path}
+                          className="hover:text-white transition-colors block py-0.5 whitespace-nowrap"
+                        >
+                          {link.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              {/* Column 3: Contacts */}
+              <div className="w-full lg:w-fit py-0 border-b sm:border-b-0 border-slate-800/80 pb-6 sm:pb-0">
+                <button
+                  type="button"
+                  onClick={() => toggleAccordion("contacts")}
+                  className="w-full flex items-center justify-between sm:justify-start py-0 sm:py-0 text-left font-semibold text-base sm:text-lg sm:cursor-default sm:mb-4 focus:outline-none md:pointer-events-none lg:pointer-events-auto"
+                  aria-expanded={openSection === "contacts"}
+                >
+                  <span>Contacts</span>
+                  <svg
+                    className={`w-4 h-4 text-slate-400 transition-transform duration-300 sm:hidden ${
+                      openSection === "contacts" ? "rotate-180" : "rotate-0"
+                    }`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <polyline points="6 9 12 15 18 9" />
+                  </svg>
+                </button>
+
+                <div
+                  className={`overflow-hidden transition-all duration-300 ease-in-out sm:!max-h-none sm:!opacity-150 sm:!block ${
+                    openSection === "contacts"
+                      ? "max-h-60 opacity-100 pt-3 sm:pt-0 pb-6 sm:pb-0"
+                      : "max-h-0 opacity-0 sm:opacity-100"
+                  }`}
+                >
+                  <ul className="space-y-2.5 text-sm text-slate-400 sm:pl-0 pl-3">
+                    <li>
+                      <a href="tel:+639389381538" className="hover:text-white transition-colors block py-0.5 whitespace-nowrap">
+                        +63 938 938 1538 (Smart)
+                      </a>
+                    </li>
+                    <li>
+                      <a href="tel:+639175057898" className="hover:text-white transition-colors block py-0.5 whitespace-nowrap">
+                        +63 917 505 7898 (Globe)
+                      </a>
+                    </li>
+                    <li>
+                      <a href="mailto:johnmarkm.frias@gmail.com" className="hover:text-white transition-colors block py-0.5 whitespace-nowrap">
+                        johnmarkm.frias@gmail.com
+                      </a>
+                    </li>
+                    <li>
+                      <a 
+                        href="https://maps.google.com/?q=Imus+City,+Cavite,+Philippines" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
                         className="hover:text-white transition-colors block py-0.5 whitespace-nowrap"
                       >
-                        {link.label}
-                      </Link>
+                        Imus City, Cavite Philippines
+                      </a>
                     </li>
-                  ))}
-                </ul>
+                  </ul>
+                </div>
               </div>
-            </div>
 
-            {/* Column 3: Contacts */}
-            <div className="w-full lg:w-fit py-2.5 lg:py-0">
-              <button
-                type="button"
-                onClick={() => toggleAccordion("contacts")}
-                className="w-full flex items-center justify-between lg:justify-start py-3 lg:py-0 text-left font-semibold text-base sm:text-lg lg:cursor-default lg:mb-4 focus:outline-none"
-                aria-expanded={openSection === "contacts"}
-              >
-                <span>Contacts</span>
-                <svg
-                  className={`w-4 h-4 text-slate-400 transition-transform duration-300 lg:hidden ${
-                    openSection === "contacts" ? "rotate-180" : "rotate-0"
-                  }`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <polyline points="6 9 12 15 18 9" />
-                </svg>
-              </button>
-
-              <div
-                className={`overflow-hidden transition-all duration-300 ease-in-out lg:!max-h-none lg:!opacity-100 ${
-                  openSection === "contacts"
-                    ? "max-h-60 opacity-100 pb-3 lg:pb-0 pt-1 lg:pt-0"
-                    : "max-h-0 opacity-0"
-                }`}
-              >
-                <ul className="space-y-2.5 text-sm text-slate-400">
-                  <li>
-                    <a href="tel:+639389381538" className="hover:text-white transition-colors block py-0.5 whitespace-nowrap">
-                      +63 938 938 1538 (Smart)
-                    </a>
-                  </li>
-                  <li>
-                    <a href="tel:+639175057898" className="hover:text-white transition-colors block py-0.5 whitespace-nowrap">
-                      +63 917 505 7898 (Globe)
-                    </a>
-                  </li>
-                  <li>
-                    <a href="mailto:johnmarkm.frias@gmail.com" className="hover:text-white transition-colors block py-0.5 whitespace-nowrap">
-                      johnmarkm.frias@gmail.com
-                    </a>
-                  </li>
-                  <li className="py-0.5 text-slate-400 whitespace-nowrap">
-                    Lucena City, Quezon
-                  </li>
-                </ul>
-              </div>
             </div>
 
           </div>
