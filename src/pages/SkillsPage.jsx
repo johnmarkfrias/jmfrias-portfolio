@@ -14,6 +14,7 @@ import { skills, techCategories } from "../data/skills";
 import Section from "../components/layout/Section";
 import Container from "../components/layout/Container";
 import SectionBadge from "../components/common/SectionBadge";
+import Button from "../components/common/Button";
 
 const iconMap = {
   FaLaptopCode,
@@ -266,25 +267,18 @@ function SkillsPage() {
                     </div>
                   )}
 
-                  {/* Dynamic CTA Buttons */}
-                  <div className="flex flex-col sm:flex-row items-center gap-3 w-full mt-6 sm:mt-8">
-                    <div className="w-full sm:w-auto">
-                      <Link
-                        to={targetCategoryRoute}
-                        className="w-full sm:w-auto flex items-center justify-center px-5 py-3 rounded-lg text-sm sm:text-base font-semibold text-white bg-blue-600 hover:bg-blue-700 active:scale-95 transition-all shadow-sm text-center"
-                      >
-                        View Related Projects
-                      </Link>
-                    </div>
+                  {/* Dynamic CTA Buttons using the Button Component with full width on mobile */}
+                  <div className="flex flex-col sm:flex-row items-center gap-3 w-full mt-6 sm:mt-8 [&>a]:w-full [&>a]:sm:w-auto [&>button]:w-full [&>button]:sm:w-auto">
+                    <Button href={targetCategoryRoute} variant="primary">
+                      View Related Projects
+                    </Button>
 
-                    <div className="w-full sm:w-auto">
-                      <Link
-                        to={`/contact?subject=${encodeURIComponent(collabSubject)}#contact-form-container`}
-                        className="w-full sm:w-auto flex items-center justify-center px-5 py-3 rounded-lg text-sm sm:text-base font-semibold text-blue-600 bg-blue-50 hover:bg-blue-100 active:scale-95 transition-all border border-blue-200 text-center"
-                      >
-                        Let's Collab
-                      </Link>
-                    </div>
+                    <Button 
+                      href={`/contact?subject=${encodeURIComponent(collabSubject)}#contact-form-container`} 
+                      variant="outline"
+                    >
+                      Let's Collab
+                    </Button>
                   </div>
                 </div>
 

@@ -100,7 +100,7 @@ function ProjectsPage() {
 
               <div className="lg:col-span-5 lg:pb-1">
                 <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-xl">
-                  Explore selected websites, UI/UX platforms, and graphic design creative assets built across independent projects and professional team collaborations[cite: 7].
+                  Explore selected websites, UI/UX platforms, and graphic design creative assets built across independent projects and professional team collaborations.
                 </p>
               </div>
             </header>
@@ -137,7 +137,6 @@ function ProjectsPage() {
                       onClick={() => setLightboxIndex(idx)}
                     >
                       {project.category === "graphic-design" ? (
-                        // Custom uncropped fit layout for Graphic Design cards
                         <div className="group bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col h-full">
                           <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-50 flex items-center justify-center p-3">
                             <img
@@ -254,11 +253,6 @@ function ProjectsPage() {
               alt={filteredProjects[lightboxIndex].title}
               className="max-w-full max-h-[75vh] object-contain rounded-none shadow-2xl select-none"
             />
-            <div className="mt-3 text-center text-white">
-              <h3 className="text-base sm:text-lg font-semibold">
-                {filteredProjects[lightboxIndex].title}
-              </h3>
-            </div>
           </div>
         </div>
       )}
