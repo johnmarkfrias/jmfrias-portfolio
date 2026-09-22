@@ -55,7 +55,7 @@ function Navbar() {
     <header className="w-full bg-white border-b border-slate-200 sticky top-0 z-50">
       <nav
         aria-label="Main Navigation"
-        className="max-w-[1440px] mx-auto flex items-center justify-between px-[4%] 2xl:px-8 py-[calc(1rem+1px)] sm:py-4"
+        className="max-w-[1440px] mx-auto flex items-center justify-between px-[4%] 2xl:px-8 py-3 sm:py-4"
       >
         <Link
           to="/"
