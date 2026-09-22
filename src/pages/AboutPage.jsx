@@ -8,6 +8,7 @@ import Section from "../components/layout/Section";
 import Container from "../components/layout/Container";
 import SectionBadge from "../components/common/SectionBadge";
 import Button from "../components/common/Button";
+import eyeButtonSvg from "/public/assets/eye-button.svg";
 import { ROLES } from "../data/roles";
 
 const PHOTOS = [
@@ -281,9 +282,14 @@ function AboutPage() {
                   I graduated <span className="font-semibold text-slate-900">Cum Laude</span> with a Bachelor of Science in Information Technology from Cavite State University – Imus Campus. I enjoy turning client ideas into functional digital solutions through solo projects and team collaborations.
                 </p>
 
-                {/* Action Buttons using default Button Component with stacked full-width layout on mobile */}
+                {/* Action Buttons: Preview CV & View Skills */}
                 <div className="flex flex-col sm:flex-row items-center gap-3 w-full [&>a]:w-full [&>a]:sm:w-auto [&>button]:w-full [&>button]:sm:w-auto">
-                  <Button href={CV_PATH} variant="primary" download="CV_John_Mark_Frias.pdf">
+                  <Button 
+                    href={CV_PATH} 
+                    variant="primary" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                  >
                     Preview CV
                   </Button>
                   <Button href="/skills" variant="outline">
@@ -542,7 +548,7 @@ function AboutPage() {
 
       </main>
 
-      {/* Lightbox Modal Overlay (Soft, Eye-Ease Backdrop with Subtle Glassmorphism) */}
+      {/* Lightbox Modal Overlay */}
       {lightboxIndex !== null && (
         <div 
           onClick={() => setLightboxIndex(null)}
@@ -578,7 +584,7 @@ function AboutPage() {
             <HiChevronRight className="w-7 h-7" />
           </button>
 
-          {/* Modal Content Box (Clean, Elegant Presentation) */}
+          {/* Modal Content Box */}
           <div 
             onClick={(e) => e.stopPropagation()}
             className="relative max-w-5xl max-h-[85vh] w-full flex flex-col items-center bg-slate-900/40 p-3 sm:p-5 rounded-none border border-white/10 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.3)] backdrop-blur-md"
