@@ -158,7 +158,7 @@ function ContactPage() {
                       rel="noopener noreferrer"
                       className="text-sm text-slate-600 hover:text-blue-600 transition-colors mt-0.5 block font-medium"
                     >
-                      Imus City, Cavite Philippines
+                      Imus City, Cavite, Philippines
                     </a>
                   </div>
                 </div>

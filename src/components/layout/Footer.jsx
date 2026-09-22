@@ -223,7 +223,7 @@ function Footer() {
                         rel="noopener noreferrer" 
                         className="hover:text-white transition-colors block py-0.5 whitespace-nowrap"
                       >
-                        Imus City, Cavite Philippines
+                        Imus City, Cavite, Philippines
                       </a>
                     </li>
                   </ul>

@@ -16,7 +16,7 @@ export const projects = [
     title: "Ashford Homes Ohio",
     description:
       "A property showcase and custom home builder website featuring rich floor plans, community details, and client lead generation.",
-    tags: ["Web Development", "Responsive Layout", "Real Estate UI"],
+    tags: ["WordPress", "Elementor", "PHP", "JavaScript", "CSS", "HTML"],
     image: "/assets/projects/web-development/ashford.png",
     liveUrl: "https://www.ashfordhomesohio.com/",
     featured: true,
@@ -28,7 +28,7 @@ export const projects = [
     title: "Hanna Mellul",
     description:
       "An elegant personal brand and portfolio platform designed to present creative work with modern typography and fluid interactions.",
-    tags: ["Web Development", "UI/UX Design", "Responsive Layout"],
+    tags: ["WordPress", "Elementor", "PHP", "JavaScript", "CSS", "HTML"],
     image: "/assets/projects/web-development/hannah-mellul.png",
     liveUrl: "https://hannamellul.com/",
     featured: true,
@@ -40,7 +40,7 @@ export const projects = [
     title: "FNQ Connect",
     description:
       "A community-centered regional platform focused on resource accessibility, seamless user navigation, and clear organization of information.",
-    tags: ["Web Development", "Accessibility", "Tailwind CSS"],
+    tags: ["WordPress", "Elementor", "PHP", "JavaScript", "CSS", "HTML"],
     image: "/assets/projects/web-development/fnq-connect.png",
     liveUrl: "https://fnqconnect.org.au/",
     featured: true,
@@ -52,7 +52,7 @@ export const projects = [
     title: "Sulca Aesthetics",
     description:
       "A modern medical aesthetics website providing client booking clarity, service breakdowns, and high-trust clinic branding.",
-    tags: ["Front-End Development", "UI/UX", "Brand Experience"],
+    tags: ["WordPress", "Elementor", "PHP", "JavaScript", "CSS", "HTML"],
     image: "/assets/projects/web-development/sulca.png",
     liveUrl: "https://sulcaaesthetics.com/",
     featured: true,
@@ -64,7 +64,7 @@ export const projects = [
     title: "Cobell Interiors",
     description:
       "A sophisticated interior design showcase website highlighting premium residential and commercial spaces with seamless visual storytelling.",
-    tags: ["WordPress", "Responsive Web Design", "UI/UX"],
+    tags: ["WordPress", "Elementor", "PHP", "JavaScript", "CSS", "HTML"],
     image: "/assets/projects/web-development/cobell.png",
     liveUrl: "https://cobellinteriors.com/",
     featured: true,
@@ -76,7 +76,7 @@ export const projects = [
     title: "Wellness PRO Incorporated",
     description:
       "A healthcare and wellness distribution platform featuring detailed product catalogs, client solutions, and responsive brand design.",
-    tags: ["Web Development", "Healthcare UI", "Responsive Design"],
+    tags: ["WordPress", "Elementor", "PHP", "JavaScript", "CSS", "HTML"],
     image: "/assets/projects/web-development/wellness-pro.png",
     liveUrl: "https://wellnessproinc.com/",
     featured: true,
@@ -88,7 +88,7 @@ export const projects = [
     title: "Scott Salisbury Homes",
     description:
       "A premium custom home builder and property portfolio website featuring stunning architectural designs, interactive layouts, and user engagement features.",
-    tags: ["Web Development", "WordPress", "Custom Design"],
+    tags: ["WordPress", "Elementor", "PHP", "JavaScript", "CSS", "HTML"],
     image: "/assets/projects/web-development/ashford.png",
     liveUrl: "https://www.scottsalisburyhomes.com.au/",
     featured: false,
@@ -100,7 +100,7 @@ export const projects = [
     title: "Adventure OSHC",
     description:
       "A child care and outside school hours care service website designed with intuitive navigation, engaging branding, and parent resource portals.",
-    tags: ["Web Development", "UI/UX", "Service Platform"],
+    tags: ["WordPress", "Elementor", "PHP", "JavaScript", "CSS", "HTML"],
     image: "/assets/projects/web-development/fnq-connect.png",
     liveUrl: "http://adventureoshc.com.au/",
     featured: false,
@@ -112,7 +112,7 @@ export const projects = [
     title: "MC Strata",
     description:
       "A professional property management and strata services platform delivering clear information architecture, client portal integration, and responsive layouts.",
-    tags: ["Web Development", "Corporate UI", "Strata Management"],
+    tags: ["WordPress", "Elementor", "PHP", "JavaScript", "CSS", "HTML"],
     image: "/assets/projects/web-development/cobell.png",
     liveUrl: "https://mcstrata.wpenginepowered.com/",
     featured: false,
@@ -124,7 +124,7 @@ export const projects = [
     title: "Right Hear",
     description:
       "An accessibility-focused technology platform providing advanced spatial orientation and audio description solutions for independent navigation.",
-    tags: ["Web Development", "Accessibility Tech", "UI/UX"],
+    tags: ["WordPress", "Elementor", "PHP", "JavaScript", "CSS", "HTML"],
     image: "/assets/projects/web-development/wellness-pro.png",
     liveUrl: "https://www.right-hear.com",
     featured: false,
@@ -136,7 +136,7 @@ export const projects = [
     title: "Magnetics Designs",
     description:
       "A creative design and branding portfolio showcasing dynamic visual assets, custom web solutions, and modern interactive elements.",
-    tags: ["Web Development", "Creative Agency", "UI/UX"],
+    tags: ["WordPress", "Elementor", "PHP", "JavaScript", "CSS", "HTML"],
     image: "/assets/projects/web-development/hannah-mellul.png",
     liveUrl: "https://magneticsdesigns.com/",
     featured: false,
@@ -148,20 +148,20 @@ export const projects = [
     title: "Saturn Packaging",
     description:
       "An industrial packaging solutions platform featuring eco-friendly product lines, technical specifications, and streamlined inquiry funnels.",
-    tags: ["Web Development", "Industrial UI", "Catalog Design"],
+    tags: ["WordPress", "Elementor", "PHP", "JavaScript", "CSS", "HTML"],
     image: "/assets/projects/web-development/wellness-pro.png",
     liveUrl: "https://saturnpackaging.devstudio.work/",
     featured: false,
   },
 
-  // --- GRAPHIC DESIGN WORKS ---[cite: 7]
+  // --- GRAPHIC DESIGN WORKS ---
   {
     id: 13,
     slug: "wellness-pro-18th-annual-scientific-meet",
     category: "graphic-design",
     title: "Wellness PRO - 18th Annual Scientific Meeting",
     description:
-      "Official event branding and promotional graphic asset created for Wellness PRO Inc.'s participation in the 18th Annual Scientific Meeting[cite: 7].",
+      "Official event branding and promotional graphic asset created for Wellness PRO Inc.'s participation in the 18th Annual Scientific Meeting.",
     tags: ["Graphic Design", "Event Branding", "Promotional Poster"],
     image: "/assets/projects/graphic-designs/wellness-pro-18th-annual-scientific-meeting-congress-poster.png",
     liveUrl: "",
@@ -173,7 +173,7 @@ export const projects = [
     category: "graphic-design",
     title: "Seca 354 Digital Baby Scale Product Creative",
     description:
-      "Detailed medical product showcase graphic highlighting specifications, features, and clinical benefits for Seca digital baby scales[cite: 7].",
+      "Detailed medical product showcase graphic highlighting specifications, features, and clinical benefits for Seca digital baby scales.",
     tags: ["Graphic Design", "Product Marketing", "Medical UI"],
     image: "/assets/projects/graphic-designs/wellness-pro-seca-354-digital-baby-scale-banner.png",
     liveUrl: "",
@@ -185,7 +185,7 @@ export const projects = [
     category: "graphic-design",
     title: "DOST-FNRI Seminar Series Poster",
     description:
-      "Educational and promotional event collateral designed for medical distribution partnerships during the DOST-FNRI seminar series[cite: 7].",
+      "Educational and promotional event collateral designed for medical distribution partnerships during the DOST-FNRI seminar series.",
     tags: ["Graphic Design", "Seminar Collateral", "Print Design"],
     image: "/assets/projects/graphic-designs/wellness-pro-dost-fnri-seminar-series-poster.jpg",
     liveUrl: "",
@@ -197,7 +197,7 @@ export const projects = [
     category: "graphic-design",
     title: "PPS Next-Gen Pediatrics Social Graphic",
     description:
-      "Targeted digital marketing graphic created for the Philippine Pediatric Society convention exhibition[cite: 7].",
+      "Targeted digital marketing graphic created for the Philippine Pediatric Society convention exhibition.",
     tags: ["Graphic Design", "Social Media Art", "Healthcare Branding"],
     image: "/assets/projects/graphic-designs/wellness-pro-pps-next-gen-pediatrics-social-media-post.png",
     liveUrl: "",
@@ -209,7 +209,7 @@ export const projects = [
     category: "graphic-design",
     title: "Nutrition Congress Campaign Flyer",
     description:
-      "High-engagement campaign collateral and flyer designed for medical product campaigns at nutrition congress events[cite: 7].",
+      "High-engagement campaign collateral and flyer designed for medical product campaigns at nutrition congress events.",
     tags: ["Graphic Design", "Campaign Flyer", "Digital Banner"],
     image: "/assets/projects/graphic-designs/wellness-pro-nutrition-congress-email-campaign-flyer.png",
     liveUrl: "",
@@ -221,7 +221,7 @@ export const projects = [
     category: "graphic-design",
     title: "Custom Pokémon Graphic Banner",
     description:
-      "Creative custom digital illustration and banner design showcasing personal artistic layout and typography styling[cite: 7].",
+      "Creative custom digital illustration and banner design showcasing personal artistic layout and typography styling.",
     tags: ["Graphic Design", "Digital Illustration", "Banner Art"],
     image: "/assets/projects/graphic-designs/james-pokemon-custom-graphic-banner.jpg",
     liveUrl: "",
@@ -233,7 +233,7 @@ export const projects = [
     category: "graphic-design",
     title: "CvSU-Imus Cum Laude Recognition Feature",
     description:
-      "Official typography and visual layout asset celebrating academic excellence and Latin honor recognition at Cavite State University[cite: 7].",
+      "Official typography and visual layout asset celebrating academic excellence and Latin honor recognition at Cavite State University.",
     tags: ["Graphic Design", "Typography", "Editorial Layout"],
     image: "/assets/projects/graphic-designs/john-mark-frias-cvsu-imus-cum-laude-honor-graphic.png",
     liveUrl: "",
@@ -245,7 +245,7 @@ export const projects = [
     category: "graphic-design",
     title: "Blood Pressure Monitor Product Showcase",
     description:
-      "Marketing collateral and product presentation layout emphasizing clinical accuracy and ergonomic medical device design[cite: 7].",
+      "Marketing collateral and product presentation layout emphasizing clinical accuracy and ergonomic medical device design.",
     tags: ["Graphic Design", "Product Catalog", "Healthcare UI"],
     image: "/assets/projects/graphic-designs/wellness-pro-and-blood-pressure-monitors-banner.jpg",
     liveUrl: "",
@@ -257,13 +257,13 @@ export const projects = [
     category: "graphic-design",
     title: "Sinapi Chest Drain Medical Spec Sheet",
     description:
-      "Technical product flyer and graphic layout detailing specialized hospital equipment functionality and safety features[cite: 7].",
+      "Technical product flyer and graphic layout detailing specialized hospital equipment functionality and safety features.",
     tags: ["Graphic Design", "Technical Flyer", "Medical Devices"],
     image: "/assets/projects/graphic-designs/wellness-pro-sinapi-chest-drain-medical-banner.jpg",
     liveUrl: "",
     featured: false,
   },
- {
+  {
     id: 22,
     slug: "wellness-pro-axis-500-mobile-operating",
     category: "graphic-design",
@@ -271,7 +271,7 @@ export const projects = [
     description:
       "Promotional banner highlighting surgical equipment capabilities and ergonomic clinical advantages.",
     tags: ["Graphic Design", "Equipment Showcase", "Marketing Asset"],
-    image: "/assets/projects/graphic-designs/wellness-pro-axis-500-mobile-operating-table-banner.jpg", // Changed from .png to .jpg
+    image: "/assets/projects/graphic-designs/wellness-pro-axis-500-mobile-operating-table-banner.jpg",
     liveUrl: "",
     featured: false,
   },
@@ -281,7 +281,7 @@ export const projects = [
     category: "graphic-design",
     title: "Good Friday Corporate Social Media Art",
     description:
-      "Holiday observance graphic creative designed for company social media channels and client engagement[cite: 7].",
+      "Holiday observance graphic creative designed for company social media channels and client engagement.",
     tags: ["Graphic Design", "Social Media Art", "Corporate Branding"],
     image: "/assets/projects/graphic-designs/wellness-pro-good-friday-social-media-post.png",
     liveUrl: "",
@@ -293,7 +293,7 @@ export const projects = [
     category: "graphic-design",
     title: "Seca 787 Medical Column Scale Banner",
     description:
-      "High-resolution product feature graphic created for digital catalogs and promotional medical displays[cite: 7].",
+      "High-resolution product feature graphic created for digital catalogs and promotional medical displays.",
     tags: ["Graphic Design", "Catalog Design", "Medical Equipment"],
     image: "/assets/projects/graphic-designs/wellness-pro-seca-787-medical-scale-banner.png",
     liveUrl: "",
@@ -305,7 +305,7 @@ export const projects = [
     category: "graphic-design",
     title: "John Mark Frias Graduation Portrait Layout",
     description:
-      "Professional formal graduation photo edit and commemorative portfolio layout composition[cite: 7].",
+      "Professional formal graduation photo edit and commemorative portfolio layout composition.",
     tags: ["Graphic Design", "Photo Retouching", "Branding Asset"],
     image: "/assets/projects/graphic-designs/john-mark-frias-graduation-portrait.png",
     liveUrl: "",
@@ -317,7 +317,7 @@ export const projects = [
     category: "graphic-design",
     title: "National Children's Month Awareness Poster",
     description:
-      "Vibrant community awareness poster design focused on youth empowerment, education, and modern illustrative layout[cite: 7].",
+      "Vibrant community awareness poster design focused on youth empowerment, education, and modern illustrative layout.",
     tags: ["Graphic Design", "Campaign Poster", "Illustration"],
     image: "/assets/projects/graphic-designs/national-childrens-month-poster.png",
     liveUrl: "",
