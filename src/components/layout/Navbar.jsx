@@ -8,55 +8,69 @@ import { navLinks } from "../../data/socials";
 import logo from "/public/assets/JMFrias.dev.svg";
 import Button from "../common/Button";
 
-// Import your custom icon SVGs from public assets
+// New side navigation SVG icons
 import homeIcon from "/public/assets/side-nav-icons/home.svg";
 import homeFilledIcon from "/public/assets/side-nav-icons/home-filled.svg";
+
 import aboutIcon from "/public/assets/side-nav-icons/about.svg";
 import aboutFilledIcon from "/public/assets/side-nav-icons/about-filled.svg";
+
 import skillsIcon from "/public/assets/side-nav-icons/skills.svg";
 import skillsFilledIcon from "/public/assets/side-nav-icons/skills-filled.svg";
+
 import projectIcon from "/public/assets/side-nav-icons/project.svg";
 import projectFilledIcon from "/public/assets/side-nav-icons/project-filled.svg";
+
 import contactIcon from "/public/assets/side-nav-icons/contact.svg";
 import contactFilledIcon from "/public/assets/side-nav-icons/contact-filled.svg";
 
-// Renders an SVG as a CSS mask so it inherits `currentColor` from its parent
-const IconMask = ({ src, className = "" }) => (
-  <span
-    aria-hidden="true"
-    className={`inline-block shrink-0 ${className}`}
-    style={{
-      backgroundColor: "currentColor",
-      WebkitMaskImage: `url(${src})`,
-      maskImage: `url(${src})`,
-      WebkitMaskRepeat: "no-repeat",
-      maskRepeat: "no-repeat",
-      WebkitMaskPosition: "center",
-      maskPosition: "center",
-      WebkitMaskSize: "contain",
-      maskSize: "contain",
-    }}
-  />
-);
-
-// Helper function to render the correct active/inactive icon file
+// Returns the correct SVG file for each navigation item.
+// Normal = outline icon
+// Active = filled icon
 const getNavLinkIcon = (label, isActive) => {
-  const className = "w-[22px] h-[22px]";
+  let icon;
 
   switch ((label || "").toLowerCase()) {
     case "home":
-      return <IconMask src={isActive ? homeFilledIcon : homeIcon} className={className} />;
+      icon = isActive ? homeFilledIcon : homeIcon;
+      break;
+
     case "about":
-      return <IconMask src={isActive ? aboutFilledIcon : aboutIcon} className={className} />;
+      icon = isActive ? aboutFilledIcon : aboutIcon;
+      break;
+
     case "skills":
-      return <IconMask src={isActive ? skillsFilledIcon : skillsIcon} className={className} />;
+      icon = isActive ? skillsFilledIcon : skillsIcon;
+      break;
+
     case "projects":
-      return <IconMask src={isActive ? projectFilledIcon : projectIcon} className={className} />;
+      icon = isActive ? projectFilledIcon : projectIcon;
+      break;
+
     case "contact":
-      return <IconMask src={isActive ? contactFilledIcon : contactIcon} className={className} />;
+      icon = isActive ? contactFilledIcon : contactIcon;
+      break;
+
     default:
-      return <IconMask src={homeIcon} className={className} />;
+      icon = isActive ? homeFilledIcon : homeIcon;
   }
+
+  return (
+    <span
+      aria-hidden="true"
+      className="w-5 h-5 shrink-0 inline-block bg-current"
+      style={{
+        WebkitMaskImage: `url("${icon}")`,
+        maskImage: `url("${icon}")`,
+        WebkitMaskRepeat: "no-repeat",
+        maskRepeat: "no-repeat",
+        WebkitMaskPosition: "center",
+        maskPosition: "center",
+        WebkitMaskSize: "contain",
+        maskSize: "contain",
+      }}
+    />
+  );
 };
 
 function Navbar() {
@@ -70,6 +84,7 @@ function Navbar() {
     } else {
       document.body.style.overflow = "auto";
     }
+
     return () => {
       document.body.style.overflow = "auto";
     };
@@ -87,6 +102,7 @@ function Navbar() {
           className="flex items-center select-none"
           aria-label="JM Frias.dev Home"
         >
+          {/* Logo made properly bigger on laptop/desktop views (lg:h-8) */}
           <img
             src={logo}
             alt="JM Frias.dev"
@@ -96,7 +112,7 @@ function Navbar() {
           />
         </Link>
 
-        {/* Desktop Links */}
+        {/* Menu gap expanded on laptop and desktop screens (lg:gap-10 xl:gap-12) */}
         <ul className="hidden lg:flex items-center gap-8 lg:gap-10 xl:gap-12 text-sm font-medium text-slate-700">
           {navLinks.map((link) => (
             <li key={link.path}>
@@ -114,9 +130,12 @@ function Navbar() {
           ))}
         </ul>
 
-        {/* DESKTOP HIRE CTA */}
+        {/* DESKTOP HIRE CTA using Button Component */}
         <div className="hidden lg:flex items-center">
-          <Button href="/contact?subject=Job%20Opportunity%20(Hire%20Me)" variant="primary">
+          <Button
+            href="/contact?subject=Job%20Opportunity%20(Hire%20Me)"
+            variant="primary"
+          >
             Hire JM Frias
           </Button>
         </div>
@@ -134,7 +153,9 @@ function Navbar() {
 
       <div
         className={`fixed inset-0 bg-black/40 z-50 transition-opacity duration-300 lg:hidden ${
-          isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          isOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
         }`}
         onClick={closeMenu}
         aria-hidden="true"
@@ -154,6 +175,7 @@ function Navbar() {
         }}
       >
         <div className="w-full flex flex-col">
+          {/* Header with Logo and Close button aligned properly */}
           <div className="flex items-center justify-between pb-6 sm:pb-8 border-b border-slate-100">
             <img
               src={logo}
@@ -162,6 +184,7 @@ function Navbar() {
               height="32"
               className="h-5.5 sm:h-6 w-auto object-contain"
             />
+
             <button
               type="button"
               onClick={closeMenu}
@@ -172,7 +195,7 @@ function Navbar() {
             </button>
           </div>
 
-          {/* Mobile Nav Links with Active State Color Sync */}
+          {/* Nav Links with brand light blue active pill background */}
           <ul className="flex flex-col gap-2 pt-6 sm:pt-8 pb-6 sm:pb-8">
             {navLinks.map((link) => (
               <li key={link.path}>
@@ -182,16 +205,25 @@ function Navbar() {
                   className={({ isActive }) =>
                     `flex items-center gap-3.5 text-base tracking-wide transition-all py-3 px-4 rounded-xl font-normal ${
                       isActive
-                        ? "bg-blue-50/80 text-blue-600 font-medium"
+                        ? "bg-blue-50/80 text-blue-600"
                         : "text-slate-700 hover:bg-slate-50 hover:text-blue-600"
                     }`
                   }
                 >
                   {({ isActive }) => (
                     <>
-                      <span className={`flex items-center justify-center ${isActive ? "text-blue-600" : "text-slate-500"}`}>
+                      {/* SVG icon uses currentColor */}
+                      <span
+                        className={
+                          isActive
+                            ? "text-blue-600 flex items-center justify-center"
+                            : "text-slate-500 flex items-center justify-center"
+                        }
+                      >
                         {getNavLinkIcon(link.label, isActive)}
                       </span>
+
+                      {/* Navigation text */}
                       <span>{link.label}</span>
                     </>
                   )}
@@ -201,9 +233,13 @@ function Navbar() {
           </ul>
         </div>
 
-        {/* MOBILE HIRE CTA */}
+        {/* MOBILE HIRE CTA using Button Component */}
         <div className="w-full pt-6 shrink-0 border-t border-slate-100 mt-auto [&>a]:w-full [&>a]:justify-center">
-          <Button href="/contact?subject=Job%20Opportunity%20(Hire%20Me)" variant="primary" onClick={closeMenu}>
+          <Button
+            href="/contact?subject=Job%20Opportunity%20(Hire%20Me)"
+            variant="primary"
+            onClick={closeMenu}
+          >
             Hire JM Frias
           </Button>
         </div>
