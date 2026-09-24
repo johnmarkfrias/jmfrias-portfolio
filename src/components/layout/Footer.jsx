@@ -124,11 +124,11 @@ function Footer() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 lg:gap-28 w-full lg:w-auto">
 
               {/* Column 2: Quick Links */}
-              <div className="w-full lg:w-fit py-0 border-b sm:border-b-0 border-slate-800/80 pb-6 sm:pb-0">
+              <div className="w-full lg:w-fit py-0 border-b sm:border-b-0 border-slate-800/80">
                 <button
                   type="button"
                   onClick={() => toggleAccordion("quick-links")}
-                  className="w-full flex items-center justify-between sm:justify-start py-0 sm:py-0 text-left font-semibold text-base sm:text-lg sm:cursor-default sm:mb-4 focus:outline-none md:pointer-events-none lg:pointer-events-auto"
+                  className="w-full flex items-center justify-between sm:justify-start py-4 sm:py-0 text-left font-semibold text-base sm:text-lg sm:cursor-default sm:mb-4 focus:outline-none md:pointer-events-none lg:pointer-events-auto"
                   aria-expanded={openSection === "quick-links"}
                 >
                   <span>Quick Links</span>
@@ -150,7 +150,7 @@ function Footer() {
                 <div
                   className={`overflow-hidden transition-all duration-300 ease-in-out sm:!max-h-none sm:!opacity-150 sm:!block ${
                     openSection === "quick-links"
-                      ? "max-h-60 opacity-100 pt-3 sm:pt-0"
+                      ? "max-h-60 opacity-100 pb-4 sm:pb-0"
                       : "max-h-0 opacity-0 sm:opacity-100"
                   }`}
                 >
@@ -170,11 +170,11 @@ function Footer() {
               </div>
 
               {/* Column 3: Contacts */}
-              <div className="w-full lg:w-fit py-0 border-b sm:border-b-0 border-slate-800/80 pb-6 sm:pb-0">
+              <div className="w-full lg:w-fit py-0 border-b sm:border-b-0 border-slate-800/80">
                 <button
                   type="button"
                   onClick={() => toggleAccordion("contacts")}
-                  className="w-full flex items-center justify-between sm:justify-start py-0 sm:py-0 text-left font-semibold text-base sm:text-lg sm:cursor-default sm:mb-4 focus:outline-none md:pointer-events-none lg:pointer-events-auto"
+                  className="w-full flex items-center justify-between sm:justify-start py-4 sm:py-0 text-left font-semibold text-base sm:text-lg sm:cursor-default sm:mb-4 focus:outline-none md:pointer-events-none lg:pointer-events-auto"
                   aria-expanded={openSection === "contacts"}
                 >
                   <span>Contacts</span>
@@ -196,7 +196,7 @@ function Footer() {
                 <div
                   className={`overflow-hidden transition-all duration-300 ease-in-out sm:!max-h-none sm:!opacity-150 sm:!block ${
                     openSection === "contacts"
-                      ? "max-h-60 opacity-100 pt-3 sm:pt-0 pb-6 sm:pb-0"
+                      ? "max-h-60 opacity-100 pb-4 sm:pb-0"
                       : "max-h-0 opacity-0 sm:opacity-100"
                   }`}
                 >
