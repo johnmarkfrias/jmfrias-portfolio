@@ -153,6 +153,30 @@ export const projects = [
     liveUrl: "https://saturnpackaging.devstudio.work/",
     featured: false,
   },
+  {
+    id: 33,
+    slug: "jk-custom-homes",
+    category: "website",
+    title: "J&K Custom Homes",
+    description:
+      "A luxury custom home builder and residential showcase platform featuring custom architectural portfolio galleries, community developments, and client inquiry funnels.",
+    tags: ["WordPress", "Elementor", "PHP", "MySQL", "JavaScript", "CSS", "HTML"],
+    image: "/assets/projects/web-development/j&k-cutom-homes.jpg",
+    liveUrl: "https://www.jkcustomhomes.net/",
+    featured: false,
+  },
+  {
+    id: 34,
+    slug: "page-speed-optimized",
+    category: "website",
+    title: "PageSpeed Optimized",
+    description:
+      "A specialized WordPress performance optimization service platform featuring Core Web Vitals audits, speed enhancement funnels, and performance benchmarking.",
+    tags: ["WordPress", "Elementor", "PHP", "MySQL", "JavaScript", "CSS", "HTML"],
+    image: "/assets/projects/web-development/page-speed-optimized.jpg",
+    liveUrl: "https://pagespeedoptimized.io/",
+    featured: false,
+  },
 
   // --- UI / UX DESIGN ---
   {
@@ -165,7 +189,7 @@ export const projects = [
     tags: ["Prototype", "Medical UI", "Figma"],
     image: "/assets/projects/ui-ux-designs/wellness-pro-inc-prototype.jpg",
     liveUrl:
-      "https://www.figma.com/proto/bwKgbPskqnJuJdnAyvlIXS/Wellness-PRO-Incorporated-%7C-Web-Design-by-JM-Frias?t=O1Y6R88GDORhcjuu-0&scaling=scale-down-width&content-scaling=fixed&page-id=0%3A1&node-id=1262-6038&starting-point-node-id=1262%3A6038&hide-ui=1",
+      "https://www.figma.com/proto/npU0xAsx2qv8sMN5qXfKsy/Wellness-PRO-Incorporated-%7C-Web-Design-by-JM-Frias?node-id=1-2&p=f&t=KZKjzRMZ2EAyFpnV-0&scaling=scale-down-width&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A2&hide-ui=1",
     featured: true,
   },
   {
@@ -311,30 +335,6 @@ export const projects = [
     tags: ["Graphic Design", "Event Branding", "Social Media Art"],
     image: "/assets/projects/graphic-designs/wellness-pro-ansap-58th-midyear-convention-social-media.png",
     liveUrl: "",
-    featured: false,
-  },
-  {
-    id: 33,
-    slug: "jk-custom-homes",
-    category: "website",
-    title: "J&K Custom Homes",
-    description:
-      "A luxury custom home builder and residential showcase platform featuring custom architectural portfolio galleries, community developments, and client inquiry funnels.",
-    tags: ["WordPress", "Elementor", "PHP", "MySQL", "JavaScript", "CSS", "HTML"],
-    image: "/assets/projects/web-development/j&k-cutom-homes.jpg",
-    liveUrl: "https://www.jkcustomhomes.net/",
-    featured: false,
-  },
-  {
-    id: 34,
-    slug: "page-speed-optimized",
-    category: "website",
-    title: "PageSpeed Optimized",
-    description:
-      "A specialized WordPress performance optimization service platform featuring Core Web Vitals audits, speed enhancement funnels, and performance benchmarking.",
-    tags: ["WordPress", "Elementor", "PHP", "MySQL", "JavaScript", "CSS", "HTML"],
-    image: "/assets/projects/web-development/page-speed-optimized.jpg",
-    liveUrl: "https://pagespeedoptimized.io/",
     featured: false,
   },
   // Remaining Graphic Design Works
