@@ -373,7 +373,7 @@ function AboutPage() {
                   <div className="relative">
                     <div className="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full border-2 border-blue-600 bg-white" />
                     <div className="flex flex-wrap items-baseline justify-between gap-2 mb-1">
-                      <h4 className="text-base font-bold text-slate-900">BS Information Technology</h4>
+                      <h4 className="text-base font-bold text-slate-900">Bachelor of Science in Information Technology</h4>
                       <span className="text-xs font-medium text-slate-500 bg-slate-200/60 px-2.5 py-1 rounded-full">2021 – 2025</span>
                     </div>
                     <p className="text-xs font-semibold text-slate-700 mb-2">Cavite State University - Imus Campus</p>

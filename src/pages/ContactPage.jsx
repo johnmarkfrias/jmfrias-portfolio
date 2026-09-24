@@ -220,7 +220,7 @@ function ContactPage() {
                       htmlFor="subject" 
                       className="block text-xs font-semibold text-slate-700 mb-2"
                     >
-                      Subject / Inquiry Type <span className="text-blue-600">*</span>
+                      Subject <span className="text-blue-600">*</span>
                     </label>
                     <div className="relative">
                       <select

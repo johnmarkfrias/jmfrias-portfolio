@@ -186,7 +186,7 @@ function Hero() {
             </p>
 
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[42px] xl:text-[48px] font-extrabold text-slate-900 mb-2 leading-tight tracking-tight">
-              JOHN MARK M. FRIAS
+              John Mark M. Frias
             </h1>
 
             <p className="text-base sm:text-lg md:text-xl text-blue-600 font-semibold mb-4 sm:mb-5 flex items-center justify-start min-h-[1.75rem] md:min-h-[2rem]">
@@ -200,7 +200,7 @@ function Hero() {
             </p>
 
             <div className="w-full sm:w-auto flex items-center justify-start gap-3">
-              <div className="flex-1 sm:flex-none sm:w-auto sm:min-w-[240px] text-center [&>a]:w-full [&>a]:justify-center [&>button]:w-full [&>button]:justify-center">
+              <div className="flex-1 sm:flex-none sm:w-auto sm:min-w-[300px] text-center [&>a]:w-full [&>a]:justify-center [&>button]:w-full [&>button]:justify-center">
                 <Button href={CV_PATH} variant="primary" onClick={handleDownloadCV}>
                   Download CV
                 </Button>
