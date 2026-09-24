@@ -165,7 +165,7 @@ function Projects() {
                         src={project.image}
                         alt={project.title}
                         loading="lazy"
-                        className="max-w-full max-h-full object-contain transform group-hover:scale-105 transition-transform duration-500 ease-out pointer-events-none drop-shadow-sm"
+                        className="max-w-full max-h-full object-contain transform group-hover:scale-105 transition-transform duration-500 ease-out pointer-events-none"
                       />
 
                       <div className="absolute bottom-3 right-3 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 ease-out pointer-events-none">

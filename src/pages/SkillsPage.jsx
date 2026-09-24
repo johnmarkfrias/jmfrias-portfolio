@@ -9,6 +9,8 @@ import {
   FaBug,
   FaPaintBrush,
   FaRobot,
+  FaProjectDiagram,
+  FaNetworkWired,
 } from "react-icons/fa";
 import { skills, techCategories } from "../data/skills";
 import Section from "../components/layout/Section";
@@ -22,6 +24,8 @@ const iconMap = {
   FaBug,
   FaPaintBrush,
   FaRobot,
+  FaProjectDiagram,
+  FaNetworkWired,
 };
 
 // Map each skill title/id to the matching project category filter
@@ -30,15 +34,35 @@ const getCategoryRoute = (skill) => {
   const title = (skill.title || "").toLowerCase();
   const id = (skill.id || "").toLowerCase();
 
-  if (title.includes("full stack") || title.includes("web") || id.includes("stack")) {
+  // Web Development, API Integration, n8n Automation, and QA all direct to Website category
+  if (
+    title.includes("full stack") ||
+    title.includes("web") ||
+    id.includes("stack") ||
+    title.includes("api") ||
+    title.includes("integration") ||
+    id.includes("api") ||
+    title.includes("n8n") ||
+    title.includes("automation") ||
+    id.includes("automation") ||
+    title.includes("qa") ||
+    title.includes("quality") ||
+    title.includes("testing") ||
+    id.includes("qa")
+  ) {
     return "/projects?category=website";
   }
+
+  // UI / UX Design
   if (title.includes("ui") || title.includes("ux") || id.includes("ui-ux")) {
     return "/projects?category=ui-ux";
   }
+
+  // Graphic Design
   if (title.includes("graphic") || id.includes("graphic")) {
     return "/projects?category=graphic-design";
   }
+
   return "/projects";
 };
 
@@ -203,7 +227,14 @@ function SkillsPage() {
                 <div className="order-1 lg:order-2 lg:col-span-6">
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-3.5 sm:gap-4">
                     {skills.map((skill) => {
-                      const IconComponent = iconMap[skill.icon] || FaLaptopCode;
+                      const isApiIntegration =
+                        (skill.title || "").toLowerCase().includes("api") ||
+                        (skill.id || "").toLowerCase().includes("api");
+
+                      const IconComponent = isApiIntegration
+                        ? FaProjectDiagram
+                        : iconMap[skill.icon] || FaLaptopCode;
+
                       const isSelected = activeSkill?.id === skill.id;
 
                       return (

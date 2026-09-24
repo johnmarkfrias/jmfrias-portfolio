@@ -89,7 +89,7 @@ export const projects = [
     description:
       "A premium custom home builder and property portfolio website featuring stunning architectural designs, interactive layouts, and user engagement features.",
     tags: ["WordPress", "Elementor", "PHP", "MySQL", "JavaScript", "CSS", "HTML"],
-    image: "/assets/projects/web-development/ashford.png",
+    image: "/assets/projects/web-development/scottsalisbury-homes.jpg",
     liveUrl: "https://www.scottsalisburyhomes.com.au/",
     featured: false,
   },
@@ -101,7 +101,7 @@ export const projects = [
     description:
       "A child care and outside school hours care service website designed with intuitive navigation, engaging branding, and parent resource portals.",
     tags: ["WordPress", "Elementor", "PHP", "MySQL", "JavaScript", "CSS", "HTML"],
-    image: "/assets/projects/web-development/fnq-connect.png",
+    image: "/assets/projects/web-development/adventure-oshc.jpg",
     liveUrl: "http://adventureoshc.com.au/",
     featured: false,
   },
@@ -113,7 +113,7 @@ export const projects = [
     description:
       "A professional property management and strata services platform delivering clear information architecture, client portal integration, and responsive layouts.",
     tags: ["WordPress", "Elementor", "PHP", "MySQL", "JavaScript", "CSS", "HTML"],
-    image: "/assets/projects/web-development/cobell.png",
+    image: "/assets/projects/web-development/mc-cormacks.jpg",
     liveUrl: "https://mcstrata.wpenginepowered.com/",
     featured: false,
   },
@@ -125,7 +125,7 @@ export const projects = [
     description:
       "An accessibility-focused technology platform providing advanced spatial orientation and audio description solutions for independent navigation.",
     tags: ["WordPress", "Elementor", "PHP", "MySQL", "JavaScript", "CSS", "HTML"],
-    image: "/assets/projects/web-development/wellness-pro.png",
+    image: "/assets/projects/web-development/right-hear.jpg",
     liveUrl: "https://www.right-hear.com",
     featured: false,
   },
@@ -137,7 +137,7 @@ export const projects = [
     description:
       "A creative design and branding portfolio showcasing dynamic visual assets, custom web solutions, and modern interactive elements.",
     tags: ["WordPress", "Elementor", "PHP", "MySQL", "JavaScript", "CSS", "HTML"],
-    image: "/assets/projects/web-development/hannah-mellul.png",
+    image: "/assets/projects/web-development/magnetics.jpg",
     liveUrl: "https://magneticsdesigns.com/",
     featured: false,
   },
@@ -149,7 +149,7 @@ export const projects = [
     description:
       "An industrial packaging solutions platform featuring eco-friendly product lines, technical specifications, and streamlined inquiry funnels.",
     tags: ["WordPress", "Elementor", "PHP", "MySQL", "JavaScript", "CSS", "HTML"],
-    image: "/assets/projects/web-development/wellness-pro.png",
+    image: "/assets/projects/web-development/saturn-packaging.jpg",
     liveUrl: "https://saturnpackaging.devstudio.work/",
     featured: false,
   },
@@ -164,7 +164,8 @@ export const projects = [
       "Interactive Figma prototype and design system showcasing user flow layouts, wireframes, and responsive medical distribution platform screens.",
     tags: ["Prototype", "Medical UI", "Figma"],
     image: "/assets/projects/ui-ux-designs/wellness-pro-inc-prototype.jpg",
-    liveUrl: "https://www.figma.com/proto/bwKgbPskqnJuJdnAyvlIXS/Wellness-PRO-Incorporated-%7C-Web-Design-by-JM-Frias?t=O1Y6R88GDORhcjuu-0&scaling=scale-down-width&content-scaling=fixed&page-id=0%3A1&node-id=1262-6038&starting-point-node-id=1262%3A6038&hide-ui=1",
+    liveUrl:
+      "https://www.figma.com/proto/bwKgbPskqnJuJdnAyvlIXS/Wellness-PRO-Incorporated-%7C-Web-Design-by-JM-Frias?t=O1Y6R88GDORhcjuu-0&scaling=scale-down-width&content-scaling=fixed&page-id=0%3A1&node-id=1262-6038&starting-point-node-id=1262%3A6038&hide-ui=1",
     featured: true,
   },
   {
@@ -176,7 +177,8 @@ export const projects = [
       "Interactive Figma prototype and e-commerce ordering system UI designed for gaming merchandise, computer hardware, and digital services platforms.",
     tags: ["Prototype", "Ordering System", "Figma"],
     image: "/assets/projects/ui-ux-designs/gameplanet-prototype.jpg",
-    liveUrl: "https://www.figma.com/proto/joPe3s0KuNDnMKKUn9nw6k/GAMEPLANET-Ordering-System-Prototype?node-id=303-2&t=RGvCtJbsrdxH10Cj-0&scaling=scale-down-width&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=303%3A2&hide-ui=1",
+    liveUrl:
+      "https://www.figma.com/proto/joPe3s0KuNDnMKKUn9nw6k/GAMEPLANET-Ordering-System-Prototype?node-id=303-2&t=RGvCtJbsrdxH10Cj-0&scaling=scale-down-width&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=303%3A2&hide-ui=1",
     featured: true,
   },
 

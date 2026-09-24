@@ -190,7 +190,7 @@ function ProjectsPage() {
                             src={project.image}
                             alt={project.title}
                             loading="lazy"
-                            className="max-w-full max-h-full object-contain transform group-hover:scale-105 transition-transform duration-500 ease-out pointer-events-none drop-shadow-sm"
+                            className="max-w-full max-h-full object-contain transform group-hover:scale-105 transition-transform duration-500 ease-out pointer-events-none"
                           />
 
                           {/* Uniform Action Pill across all project types */}
