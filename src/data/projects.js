@@ -313,6 +313,30 @@ export const projects = [
     liveUrl: "",
     featured: false,
   },
+  {
+    id: 33,
+    slug: "jk-custom-homes",
+    category: "website",
+    title: "J&K Custom Homes",
+    description:
+      "A luxury custom home builder and residential showcase platform featuring custom architectural portfolio galleries, community developments, and client inquiry funnels.",
+    tags: ["WordPress", "Elementor", "PHP", "MySQL", "JavaScript", "CSS", "HTML"],
+    image: "/assets/projects/web-development/j&k-cutom-homes.jpg",
+    liveUrl: "https://www.jkcustomhomes.net/",
+    featured: false,
+  },
+  {
+    id: 34,
+    slug: "page-speed-optimized",
+    category: "website",
+    title: "PageSpeed Optimized",
+    description:
+      "A specialized WordPress performance optimization service platform featuring Core Web Vitals audits, speed enhancement funnels, and performance benchmarking.",
+    tags: ["WordPress", "Elementor", "PHP", "MySQL", "JavaScript", "CSS", "HTML"],
+    image: "/assets/projects/web-development/page-speed-optimized.jpg",
+    liveUrl: "https://pagespeedoptimized.io/",
+    featured: false,
+  },
   // Remaining Graphic Design Works
   {
     id: 13,
