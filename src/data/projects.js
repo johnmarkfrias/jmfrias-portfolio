@@ -8,7 +8,7 @@ export const projectCategories = [
 ];
 
 export const projects = [
-  // --- WEBSITE DEVELOPMENT & UI/UX ---
+  // --- WEBSITE DEVELOPMENT ---
   {
     id: 1,
     slug: "ashford-homes-ohio",
@@ -16,7 +16,7 @@ export const projects = [
     title: "Ashford Homes Ohio",
     description:
       "A property showcase and custom home builder website featuring rich floor plans, community details, and client lead generation.",
-    tags: ["WordPress", "Elementor", "PHP", "JavaScript", "CSS", "HTML"],
+    tags: ["WordPress", "Elementor", "PHP", "MySQL", "JavaScript", "CSS", "HTML"],
     image: "/assets/projects/web-development/ashford.png",
     liveUrl: "https://www.ashfordhomesohio.com/",
     featured: true,
@@ -24,11 +24,11 @@ export const projects = [
   {
     id: 2,
     slug: "hanna-mellul",
-    category: "ui-ux",
+    category: "website",
     title: "Hanna Mellul",
     description:
       "An elegant personal brand and portfolio platform designed to present creative work with modern typography and fluid interactions.",
-    tags: ["WordPress", "Elementor", "PHP", "JavaScript", "CSS", "HTML"],
+    tags: ["WordPress", "Elementor", "PHP", "MySQL", "JavaScript", "CSS", "HTML"],
     image: "/assets/projects/web-development/hannah-mellul.png",
     liveUrl: "https://hannamellul.com/",
     featured: true,
@@ -40,7 +40,7 @@ export const projects = [
     title: "FNQ Connect",
     description:
       "A community-centered regional platform focused on resource accessibility, seamless user navigation, and clear organization of information.",
-    tags: ["WordPress", "Elementor", "PHP", "JavaScript", "CSS", "HTML"],
+    tags: ["WordPress", "Elementor", "PHP", "MySQL", "JavaScript", "CSS", "HTML"],
     image: "/assets/projects/web-development/fnq-connect.png",
     liveUrl: "https://fnqconnect.org.au/",
     featured: true,
@@ -52,7 +52,7 @@ export const projects = [
     title: "Sulca Aesthetics",
     description:
       "A modern medical aesthetics website providing client booking clarity, service breakdowns, and high-trust clinic branding.",
-    tags: ["WordPress", "Elementor", "PHP", "JavaScript", "CSS", "HTML"],
+    tags: ["WordPress", "Elementor", "PHP", "MySQL", "JavaScript", "CSS", "HTML"],
     image: "/assets/projects/web-development/sulca.png",
     liveUrl: "https://sulcaaesthetics.com/",
     featured: true,
@@ -60,11 +60,11 @@ export const projects = [
   {
     id: 5,
     slug: "cobell-interiors",
-    category: "ui-ux",
+    category: "website",
     title: "Cobell Interiors",
     description:
       "A sophisticated interior design showcase website highlighting premium residential and commercial spaces with seamless visual storytelling.",
-    tags: ["WordPress", "Elementor", "PHP", "JavaScript", "CSS", "HTML"],
+    tags: ["WordPress", "Elementor", "PHP", "MySQL", "JavaScript", "CSS", "HTML"],
     image: "/assets/projects/web-development/cobell.png",
     liveUrl: "https://cobellinteriors.com/",
     featured: true,
@@ -76,7 +76,7 @@ export const projects = [
     title: "Wellness PRO Incorporated",
     description:
       "A healthcare and wellness distribution platform featuring detailed product catalogs, client solutions, and responsive brand design.",
-    tags: ["WordPress", "Elementor", "PHP", "JavaScript", "CSS", "HTML"],
+    tags: ["WordPress", "Elementor", "PHP", "MySQL", "JavaScript", "CSS", "HTML"],
     image: "/assets/projects/web-development/wellness-pro.png",
     liveUrl: "https://wellnessproinc.com/",
     featured: true,
@@ -88,7 +88,7 @@ export const projects = [
     title: "Scott Salisbury Homes",
     description:
       "A premium custom home builder and property portfolio website featuring stunning architectural designs, interactive layouts, and user engagement features.",
-    tags: ["WordPress", "Elementor", "PHP", "JavaScript", "CSS", "HTML"],
+    tags: ["WordPress", "Elementor", "PHP", "MySQL", "JavaScript", "CSS", "HTML"],
     image: "/assets/projects/web-development/ashford.png",
     liveUrl: "https://www.scottsalisburyhomes.com.au/",
     featured: false,
@@ -100,7 +100,7 @@ export const projects = [
     title: "Adventure OSHC",
     description:
       "A child care and outside school hours care service website designed with intuitive navigation, engaging branding, and parent resource portals.",
-    tags: ["WordPress", "Elementor", "PHP", "JavaScript", "CSS", "HTML"],
+    tags: ["WordPress", "Elementor", "PHP", "MySQL", "JavaScript", "CSS", "HTML"],
     image: "/assets/projects/web-development/fnq-connect.png",
     liveUrl: "http://adventureoshc.com.au/",
     featured: false,
@@ -112,7 +112,7 @@ export const projects = [
     title: "MC Strata",
     description:
       "A professional property management and strata services platform delivering clear information architecture, client portal integration, and responsive layouts.",
-    tags: ["WordPress", "Elementor", "PHP", "JavaScript", "CSS", "HTML"],
+    tags: ["WordPress", "Elementor", "PHP", "MySQL", "JavaScript", "CSS", "HTML"],
     image: "/assets/projects/web-development/cobell.png",
     liveUrl: "https://mcstrata.wpenginepowered.com/",
     featured: false,
@@ -124,7 +124,7 @@ export const projects = [
     title: "Right Hear",
     description:
       "An accessibility-focused technology platform providing advanced spatial orientation and audio description solutions for independent navigation.",
-    tags: ["WordPress", "Elementor", "PHP", "JavaScript", "CSS", "HTML"],
+    tags: ["WordPress", "Elementor", "PHP", "MySQL", "JavaScript", "CSS", "HTML"],
     image: "/assets/projects/web-development/wellness-pro.png",
     liveUrl: "https://www.right-hear.com",
     featured: false,
@@ -136,7 +136,7 @@ export const projects = [
     title: "Magnetics Designs",
     description:
       "A creative design and branding portfolio showcasing dynamic visual assets, custom web solutions, and modern interactive elements.",
-    tags: ["WordPress", "Elementor", "PHP", "JavaScript", "CSS", "HTML"],
+    tags: ["WordPress", "Elementor", "PHP", "MySQL", "JavaScript", "CSS", "HTML"],
     image: "/assets/projects/web-development/hannah-mellul.png",
     liveUrl: "https://magneticsdesigns.com/",
     featured: false,
@@ -148,10 +148,24 @@ export const projects = [
     title: "Saturn Packaging",
     description:
       "An industrial packaging solutions platform featuring eco-friendly product lines, technical specifications, and streamlined inquiry funnels.",
-    tags: ["WordPress", "Elementor", "PHP", "JavaScript", "CSS", "HTML"],
+    tags: ["WordPress", "Elementor", "PHP", "MySQL", "JavaScript", "CSS", "HTML"],
     image: "/assets/projects/web-development/wellness-pro.png",
     liveUrl: "https://saturnpackaging.devstudio.work/",
     featured: false,
+  },
+
+  // --- UI / UX DESIGN ---
+  {
+    id: 28,
+    slug: "wellness-pro-incorporated-ui-ux",
+    category: "ui-ux",
+    title: "Wellness PRO Incorporated - UI/UX Design",
+    description:
+      "Interactive Figma prototype and design system showcasing user flow layouts, wireframes, and responsive medical distribution platform screens.",
+    tags: ["Prototype", "Medical UI", "Figma"],
+    image: "/assets/projects/ui-ux-designs/wellness-pro-inc-prototype.jpg",
+    liveUrl: "https://www.figma.com/proto/bwKgbPskqnJuJdnAyvlIXS/Wellness-PRO-Incorporated-%7C-Web-Design-by-JM-Frias?t=O1Y6R88GDORhcjuu-0&scaling=scale-down-width&content-scaling=fixed&page-id=0%3A1&node-id=1262-6038&starting-point-node-id=1262%3A6038&hide-ui=1",
+    featured: true,
   },
 
   // --- GRAPHIC DESIGN WORKS ---

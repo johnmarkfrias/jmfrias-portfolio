@@ -39,18 +39,18 @@ function ProjectsPage() {
   // Lightbox modal state for graphic designs / projects
   const [lightboxIndex, setLightboxIndex] = useState(null);
 
-  // Determine items per page based on window width
-  const [itemsPerPage, setItemsPerPage] = useState(6);
+  // Determine items per page based on window width (9 for desktop, 6 for tablet, 5 for mobile)
+  const [itemsPerPage, setItemsPerPage] = useState(9);
 
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
       if (width < 768) {
-        setItemsPerPage(3); // Mobile: 3 projects
+        setItemsPerPage(5); // Mobile: 5 projects
       } else if (width < 1024) {
-        setItemsPerPage(5); // Tablet: 5 projects
+        setItemsPerPage(6); // Tablet: 6 projects
       } else {
-        setItemsPerPage(6); // Laptop/Desktop: 6 projects
+        setItemsPerPage(9); // Laptop/Desktop: 9 projects
       }
     };
 
@@ -177,7 +177,7 @@ function ProjectsPage() {
                         className="h-full cursor-pointer"
                         onClick={() => setLightboxIndex(absoluteIdx)}
                       >
-                        {project.category === "graphic-design" ? (
+                        {project.category === "graphic-design" || project.category === "ui-ux" ? (
                           <div className="group bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col h-full">
                             <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-50 flex items-center justify-center p-3">
                               <img
@@ -197,7 +197,7 @@ function ProjectsPage() {
                               {project.tags && (
                                 <div className="flex flex-wrap gap-1.5 mt-auto">
                                   {project.tags.map((tag, tIdx) => (
-                                    <span key={tIdx} className="px-2 py-0.5 text-[11px] font-medium rounded-md bg-slate-100 text-slate-600">
+                                    <span key={tIdx} className="px-2 py-0.5 text-[11px] font-medium rounded-md bg-blue-50 text-blue-600">
                                       {tag}
                                     </span>
                                   ))}
@@ -227,15 +227,16 @@ function ProjectsPage() {
               )}
             </section>
 
-            {/* Fully Responsive & Left-Aligned Pagination Controls */}
+            {/* UX Best-Practice Pagination Controls (Left Aligned, Clean Adaptive Layout) */}
             {totalPages > 1 && (
               <nav aria-label="Pagination" className="flex items-center justify-start flex-wrap gap-1.5 sm:gap-2 mt-10 sm:mt-16">
+                
                 {/* Prev Button */}
                 <button
                   type="button"
                   onClick={() => handlePageChange(currentPage - 1)}
                   disabled={currentPage === 1}
-                  className={`px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-semibold border transition-all select-none ${
+                  className={`px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-semibold border transition-all select-none ${
                     currentPage === 1
                       ? "bg-slate-50 text-slate-300 border-slate-100 cursor-not-allowed"
                       : "bg-white text-slate-600 border-slate-200 hover:border-blue-500 hover:text-blue-600 active:scale-95 shadow-xs"
@@ -244,13 +245,14 @@ function ProjectsPage() {
                   Prev
                 </button>
 
-                {/* Page Numbers */}
+                {/* Adaptive Page Numbers */}
                 {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => {
-                  const isNear = Math.abs(pageNum - currentPage) <= 1 || pageNum === 1 || pageNum === totalPages;
+                  const distance = Math.abs(pageNum - currentPage);
+                  const isNear = distance <= 1 || pageNum === 1 || pageNum === totalPages;
                   
                   if (!isNear) {
                     if (pageNum === 2 || pageNum === totalPages - 1) {
-                      return <span key={pageNum} className="px-1.5 sm:px-2 text-slate-400 font-medium text-xs sm:text-sm">...</span>;
+                      return <span key={pageNum} className="px-1 text-slate-400 font-medium text-xs sm:text-sm">...</span>;
                     }
                     return null;
                   }
@@ -277,7 +279,7 @@ function ProjectsPage() {
                   type="button"
                   onClick={() => handlePageChange(currentPage + 1)}
                   disabled={currentPage === totalPages}
-                  className={`px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-semibold border transition-all select-none ${
+                  className={`px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-semibold border transition-all select-none ${
                     currentPage === totalPages
                       ? "bg-slate-50 text-slate-300 border-slate-100 cursor-not-allowed"
                       : "bg-white text-slate-700 border-slate-200 hover:border-blue-500 hover:text-blue-600 active:scale-95 shadow-xs"
@@ -285,6 +287,7 @@ function ProjectsPage() {
                 >
                   Next
                 </button>
+
               </nav>
             )}
 
