@@ -171,14 +171,53 @@ function ProjectsPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
                   {currentProjects.map((project) => {
                     const absoluteIdx = filteredProjects.findIndex((p) => p.id === project.id);
+                    const hasLiveUrl = project.liveUrl && project.liveUrl.trim() !== "";
+
                     return (
                       <div 
                         key={project.id} 
                         className="h-full cursor-pointer"
-                        onClick={() => setLightboxIndex(absoluteIdx)}
+                        onClick={() => {
+                          if (!hasLiveUrl) {
+                            setLightboxIndex(absoluteIdx);
+                          }
+                        }}
                       >
-                        {project.category === "graphic-design" || project.category === "ui-ux" ? (
-                          <div className="group bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col h-full">
+                        {hasLiveUrl ? (
+                          <a 
+                            href={project.liveUrl} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="group bg-white rounded-2xl overflow-hidden border border-slate-200/85 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col h-full block"
+                          >
+                            <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-50 flex items-center justify-center p-3">
+                              <img
+                                src={project.image}
+                                alt={project.title}
+                                loading="lazy"
+                                className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-500 ease-out pointer-events-none"
+                              />
+                            </div>
+                            <div className="p-4 sm:p-5 flex flex-col flex-grow">
+                              <h3 className="text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors mb-2">
+                                {project.title}
+                              </h3>
+                              <p className="text-xs sm:text-sm text-slate-600 line-clamp-2 mb-4">
+                                {project.description}
+                              </p>
+                              {project.tags && (
+                                <div className="flex flex-wrap gap-1.5 mt-auto">
+                                  {project.tags.map((tag, tIdx) => (
+                                    <span key={tIdx} className="px-2 py-0.5 text-[11px] font-medium rounded-md bg-blue-50 text-blue-600">
+                                      {tag}
+                                    </span>
+                                  ))}
+                                </div>
+                              )}
+                            </div>
+                          </a>
+                        ) : project.category === "graphic-design" || project.category === "ui-ux" ? (
+                          <div className="group bg-white rounded-2xl overflow-hidden border border-slate-200/85 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col h-full">
                             <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-50 flex items-center justify-center p-3">
                               <img
                                 src={project.image}
