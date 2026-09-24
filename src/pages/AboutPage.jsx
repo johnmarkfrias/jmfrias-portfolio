@@ -274,7 +274,7 @@ function AboutPage() {
               {/* Column 2: Text Content */}
               <div className="lg:col-span-7 flex flex-col items-start text-left w-full min-w-0">
                 <div className="mb-2">
-                  <SectionBadge>ABOUT ME</SectionBadge>
+                  <SectionBadge>ABOUT</SectionBadge>
                 </div>
                 
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 mt-2 mb-2 tracking-tight leading-[1.12]">
@@ -351,7 +351,7 @@ function AboutPage() {
                       <h4 className="text-base sm:text-lg font-bold text-slate-900 leading-snug">
                         Web Developer
                       </h4>
-                      <span className="text-[11px] sm:text-xs font-medium text-slate-500 bg-slate-200/60 px-2.5 py-0.5 sm:py-1 rounded-full w-fit">
+                      <span className="text-[11px] sm:text-xs font-medium text-slate-500 bg-slate-200/60 px-2.5 py-0.5 sm:py-1 rounded-full w-fit whitespace-nowrap shrink-0">
                         Jan 2026 – Jul 2026
                       </span>
                     </div>
@@ -363,7 +363,7 @@ function AboutPage() {
                       <li>Automated workflows with n8n, integrating WordPress, CRMs, and APIs to cut manual work and save hours weekly</li>
                       <li>Used Claude (AI) to speed up development - code review, debugging, and documentation</li>
                       <li>Managed sprints in Asana, aligning design, dev, and QA teams to hit deadlines</li>
-                      <li>Conducted QA and testing cross-browser checks, bug tracking, and post-launch validation</li>
+                      <li>Performed QA, cross-browser compatibility, and responsiveness testing, along with bug tracking and post-launch validation</li>
                       <li>Implemented technical SEO schema markup, semantic HTML, and Core Web Vitals optimization</li>
                     </ul>
                   </div>
@@ -373,9 +373,9 @@ function AboutPage() {
                     <div className="absolute -left-[27px] sm:-left-[31px] top-1 sm:top-1.5 w-3.5 h-3.5 rounded-full border-2 border-blue-600 bg-white" />
                     <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-1">
                       <h4 className="text-base sm:text-lg font-bold text-slate-900 leading-snug">
-                        Web Developer
+                        Web Developer (Internship)
                       </h4>
-                      <span className="text-[11px] sm:text-xs font-medium text-slate-500 bg-slate-200/60 px-2.5 py-0.5 sm:py-1 rounded-full w-fit">
+                      <span className="text-[11px] sm:text-xs font-medium text-slate-500 bg-slate-200/60 px-2.5 py-0.5 sm:py-1 rounded-full w-fit whitespace-nowrap shrink-0">
                         Mar 2025 – Jun 2025
                       </span>
                     </div>
@@ -408,36 +408,36 @@ function AboutPage() {
                     <div className="absolute -left-[27px] sm:-left-[31px] top-1 sm:top-1.5 w-3.5 h-3.5 rounded-full border-2 border-blue-600 bg-white" />
                     <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-1">
                       <h4 className="text-base sm:text-lg font-bold text-slate-900 leading-snug">
-                        Bachelor of Science in Information Technology
+                        Bachelor Of Science In Information Technology
                       </h4>
-                      <span className="text-[11px] sm:text-xs font-medium text-slate-500 bg-slate-200/60 px-2.5 py-0.5 sm:py-1 rounded-full w-fit">
-                        2021 – 2025
+                      <span className="text-[11px] sm:text-xs font-medium text-slate-500 bg-slate-200/60 px-2.5 py-0.5 sm:py-1 rounded-full w-fit whitespace-nowrap shrink-0">
+                        Sep 2021 – Sep 2025
                       </span>
                     </div>
-                    <p className="text-xs sm:text-sm font-semibold text-slate-700 mb-2 sm:mb-2.5">
-                      Cavite State University - Imus Campus
+                    <p className="text-xs sm:text-sm font-semibold text-blue-600 mb-2 sm:mb-2.5">
+                      Cavite State University &bull; Imus City, Cavite
                     </p>
                     <span className="inline-block text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200/60 px-3 py-0.5 sm:py-1 rounded-full">
-                      Cum Laude
+                      Graduated as Cum Laude
                     </span>
                   </div>
 
                   {/* Senior High / Vocational */}
                   <div className="relative text-left">
                     <div className="absolute -left-[27px] sm:-left-[31px] top-1 sm:top-1.5 w-3.5 h-3.5 rounded-full border-2 border-blue-600 bg-white" />
-                    <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-1">
+                    <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 sm:gap-4 mb-1">
                       <h4 className="text-base sm:text-lg font-bold text-slate-900 leading-snug">
-                        Information and Communication Technology
+                        Information And Communication Technology
                       </h4>
-                      <span className="text-[11px] sm:text-xs font-medium text-slate-500 bg-slate-200/60 px-2.5 py-0.5 sm:py-1 rounded-full w-fit">
-                        2019 – 2021
+                      <span className="text-[11px] sm:text-xs font-medium text-slate-500 bg-slate-200/60 px-2.5 py-0.5 sm:py-1 rounded-full w-fit whitespace-nowrap shrink-0">
+                        Jun 2019 – Jun 2021
                       </span>
                     </div>
-                    <p className="text-xs sm:text-sm font-semibold text-slate-700 mb-2 sm:mb-2.5">
-                      Ark Technological Institute
+                    <p className="text-xs sm:text-sm font-semibold text-blue-600 mb-2 sm:mb-2.5">
+                      Ark Technological Institute Education System Incorporated &bull; Lucena City, Quezon
                     </p>
                     <span className="inline-block text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200/60 px-3 py-0.5 sm:py-1 rounded-full">
-                      With Honors
+                      Graduated as With Honors
                     </span>
                   </div>
                 </div>
@@ -448,13 +448,12 @@ function AboutPage() {
         </Section>
 
         {/* Certificates & Achievements Section with Lightbox Modal */}
-        <Section aria-label="Certificates and Honors">
+        <Section aria-label="Certificates and Honors" className="pb-6 sm:pb-8 lg:pb-10">
           <Container>
             
             {/* Section Header */}
             <div className="max-w-3xl text-left mb-8 sm:mb-12">
-              <SectionBadge>CREDENTIALS</SectionBadge>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mt-2 mb-2 sm:mb-3">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-2 sm:mb-3">
                 Certificates & Academic Honors
               </h2>
               <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
@@ -570,7 +569,7 @@ function AboutPage() {
         </Section>
 
         {/* Call-to-action Footer Notice */}
-        <Section aria-label="Call to Action" className="py-10 sm:py-12">
+        <Section aria-label="Call to Action" className="pt-2 sm:pt-4 pb-12 sm:pb-16">
           <Container>
             <div className="p-6 sm:p-10 rounded-3xl bg-blue-50/70 border border-blue-100 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 text-left">
               <div>
