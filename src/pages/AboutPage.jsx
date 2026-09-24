@@ -34,7 +34,22 @@ const CERTIFICATES = [
     id: "cert-9",
     image: "/assets/certificates/guidance-coordinator-system-best-web-design.webp",
   },
-  // Remaining certificates follow after
+  // 4. Certificate of Recognition - Academic Excellence (With High Honors)
+  {
+    id: "cert-10",
+    image: "/assets/certificates/certificate-recognition-academic-excellence-high-honors.jpg",
+  },
+  // 5. Certificate of Academic Excellence (CvSU With Honors)
+  {
+    id: "cert-11",
+    image: "/assets/certificates/certificate-academic-excellence-cvsu-honors.jpg",
+  },
+  // 6. Certificate of Internship
+  {
+    id: "cert-12",
+    image: "/assets/certificates/certificate-of-internship-john-mark-frias.jpg",
+  },
+  // Semester Academic Recognitions
   {
     id: "cert-1",
     image: "/assets/certificates/2nd%20Semester%20AY%202022%20-%202023.png",
@@ -445,10 +460,10 @@ function AboutPage() {
                         className="group bg-white rounded-none overflow-hidden border border-slate-200/80 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col h-full cursor-pointer"
                       >
                         <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
-                          <img
-                            src={cert.image}
-                            alt=""
-                            loading="lazy"
+                          <img 
+                            src={cert.image} 
+                            alt="" 
+                            loading="lazy" 
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out pointer-events-none"
                           />
                         </div>
@@ -589,9 +604,9 @@ function AboutPage() {
             onClick={(e) => e.stopPropagation()}
             className="relative max-w-5xl max-h-[85vh] w-full flex flex-col items-center bg-slate-900/40 p-3 sm:p-5 rounded-none border border-white/10 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.3)] backdrop-blur-md"
           >
-            <img
-              src={CERTIFICATES[lightboxIndex].image}
-              alt=""
+            <img 
+              src={CERTIFICATES[lightboxIndex].image} 
+              alt="" 
               className="max-w-full max-h-[75vh] object-contain rounded-none shadow-2xl select-none"
             />
           </div>

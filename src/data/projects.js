@@ -181,18 +181,7 @@ export const projects = [
   },
 
   // --- GRAPHIC DESIGN WORKS ---
-  {
-    id: 13,
-    slug: "wellness-pro-18th-annual-scientific-meet",
-    category: "graphic-design",
-    title: "Wellness PRO - 18th Annual Scientific Meeting",
-    description:
-      "Official event branding and promotional graphic asset created for Wellness PRO Inc.'s participation in the 18th Annual Scientific Meeting.",
-    tags: ["Graphic Design", "Event Branding", "Promotional Poster"],
-    image: "/assets/projects/graphic-designs/wellness-pro-18th-annual-scientific-meeting-congress-poster.png",
-    liveUrl: "",
-    featured: true,
-  },
+  // 1. Seca 354
   {
     id: 14,
     slug: "wellness-pro-seca-354-digital-baby-scale",
@@ -205,18 +194,20 @@ export const projects = [
     liveUrl: "",
     featured: true,
   },
+  // 2. CvSU Recognition
   {
-    id: 15,
-    slug: "wellness-pro-dost-fnri-seminar-series",
+    id: 19,
+    slug: "john-mark-frias-cvsu-cum-laude-honor",
     category: "graphic-design",
-    title: "DOST-FNRI Seminar Series Poster",
+    title: "CvSU-Imus Cum Laude Recognition Feature",
     description:
-      "Educational and promotional event collateral designed for medical distribution partnerships during the DOST-FNRI seminar series.",
-    tags: ["Graphic Design", "Seminar Collateral", "Print Design"],
-    image: "/assets/projects/graphic-designs/wellness-pro-dost-fnri-seminar-series-poster.jpg",
+      "Official typography and visual layout asset celebrating academic excellence and Latin honor recognition at Cavite State University.",
+    tags: ["Graphic Design", "Typography", "Editorial Layout"],
+    image: "/assets/projects/graphic-designs/john-mark-frias-cvsu-imus-cum-laude-honor-graphic.png",
     liveUrl: "",
     featured: false,
   },
+  // 3. PPS
   {
     id: 16,
     slug: "wellness-pro-pps-next-gen-pediatrics",
@@ -229,18 +220,20 @@ export const projects = [
     liveUrl: "",
     featured: false,
   },
+  // 4. National Children's Month
   {
-    id: 17,
-    slug: "wellness-pro-nutrition-congress-email",
+    id: 26,
+    slug: "national-childrens-month-poster",
     category: "graphic-design",
-    title: "Nutrition Congress Campaign Flyer",
+    title: "National Children's Month Awareness Poster",
     description:
-      "High-engagement campaign collateral and flyer designed for medical product campaigns at nutrition congress events.",
-    tags: ["Graphic Design", "Campaign Flyer", "Digital Banner"],
-    image: "/assets/projects/graphic-designs/wellness-pro-nutrition-congress-email-campaign-flyer.png",
+      "Vibrant community awareness poster design focused on youth empowerment, education, and modern illustrative layout.",
+    tags: ["Graphic Design", "Campaign Poster", "Illustration"],
+    image: "/assets/projects/graphic-designs/national-childrens-month-poster.png",
     liveUrl: "",
     featured: false,
   },
+  // 5. James
   {
     id: 18,
     slug: "james-pokemon-custom-graphic-banner",
@@ -253,17 +246,83 @@ export const projects = [
     liveUrl: "",
     featured: false,
   },
+  // 6. FNRI
   {
-    id: 19,
-    slug: "john-mark-frias-cvsu-cum-laude-honor",
+    id: 15,
+    slug: "wellness-pro-dost-fnri-seminar-series",
     category: "graphic-design",
-    title: "CvSU-Imus Cum Laude Recognition Feature",
+    title: "DOST-FNRI Seminar Series Poster",
     description:
-      "Official typography and visual layout asset celebrating academic excellence and Latin honor recognition at Cavite State University.",
-    tags: ["Graphic Design", "Typography", "Editorial Layout"],
-    image: "/assets/projects/graphic-designs/john-mark-frias-cvsu-imus-cum-laude-honor-graphic.png",
+      "Educational and promotional event collateral designed for medical distribution partnerships during the DOST-FNRI seminar series.",
+    tags: ["Graphic Design", "Seminar Collateral", "Print Design"],
+    image: "/assets/projects/graphic-designs/wellness-pro-dost-fnri-seminar-series-poster.jpg",
     liveUrl: "",
     featured: false,
+  },
+  // 7. All Souls' Day
+  {
+    id: 30,
+    slug: "wellness-pro-all-souls-day-social-media",
+    category: "graphic-design",
+    title: "All Souls' Day Corporate Observance Post",
+    description:
+      "Commemorative corporate social media visual asset designed with ambient lighting, candle illustration, and floral accents.",
+    tags: ["Graphic Design", "Social Media Art", "Corporate Branding"],
+    image: "/assets/projects/graphic-designs/wellness-pro-all-souls-day-social-media.png",
+    liveUrl: "",
+    featured: false,
+  },
+  // 8. Nutrition Congress
+  {
+    id: 17,
+    slug: "wellness-pro-nutrition-congress-email",
+    category: "graphic-design",
+    title: "Nutrition Congress Campaign Flyer",
+    description:
+      "High-engagement campaign collateral and flyer designed for medical product campaigns at nutrition congress events.",
+    tags: ["Graphic Design", "Campaign Flyer", "Digital Banner"],
+    image: "/assets/projects/graphic-designs/wellness-pro-nutrition-congress-email-campaign-flyer.png",
+    liveUrl: "",
+    featured: false,
+  },
+  // 9. All Saints' Day
+  {
+    id: 31,
+    slug: "wellness-pro-all-saints-day-social-media",
+    category: "graphic-design",
+    title: "All Saints' Day Corporate Social Media Art",
+    description:
+      "Solemn holiday commemorative graphic post created for company social media channels and audience engagement.",
+    tags: ["Graphic Design", "Social Media Art", "Corporate Branding"],
+    image: "/assets/projects/graphic-designs/wellness-pro-all-saints-day-social-media.png",
+    liveUrl: "",
+    featured: false,
+  },
+  // 10. ANSAP 58th Midyear Convention
+  {
+    id: 32,
+    slug: "wellness-pro-ansap-58th-midyear-convention-social-media",
+    category: "graphic-design",
+    title: "ANSAP 58th Midyear Convention Social Graphic",
+    description:
+      "Promotional convention post design for ANSAP 58th Midyear Convention delegation held at Waterfront Cebu City.",
+    tags: ["Graphic Design", "Event Branding", "Social Media Art"],
+    image: "/assets/projects/graphic-designs/wellness-pro-ansap-58th-midyear-convention-social-media.png",
+    liveUrl: "",
+    featured: false,
+  },
+  // Remaining Graphic Design Works
+  {
+    id: 13,
+    slug: "wellness-pro-18th-annual-scientific-meet",
+    category: "graphic-design",
+    title: "Wellness PRO - 18th Annual Scientific Meeting",
+    description:
+      "Official event branding and promotional graphic asset created for Wellness PRO Inc.'s participation in the 18th Annual Scientific Meeting.",
+    tags: ["Graphic Design", "Event Branding", "Promotional Poster"],
+    image: "/assets/projects/graphic-designs/wellness-pro-18th-annual-scientific-meeting-congress-poster.png",
+    liveUrl: "",
+    featured: true,
   },
   {
     id: 20,
@@ -334,18 +393,6 @@ export const projects = [
       "Professional formal graduation photo edit and commemorative portfolio layout composition.",
     tags: ["Graphic Design", "Photo Retouching", "Branding Asset"],
     image: "/assets/projects/graphic-designs/john-mark-frias-graduation-portrait.png",
-    liveUrl: "",
-    featured: false,
-  },
-  {
-    id: 26,
-    slug: "national-childrens-month-poster",
-    category: "graphic-design",
-    title: "National Children's Month Awareness Poster",
-    description:
-      "Vibrant community awareness poster design focused on youth empowerment, education, and modern illustrative layout.",
-    tags: ["Graphic Design", "Campaign Poster", "Illustration"],
-    image: "/assets/projects/graphic-designs/national-childrens-month-poster.png",
     liveUrl: "",
     featured: false,
   },
