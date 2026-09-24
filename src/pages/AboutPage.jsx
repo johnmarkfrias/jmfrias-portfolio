@@ -8,7 +8,6 @@ import Section from "../components/layout/Section";
 import Container from "../components/layout/Container";
 import SectionBadge from "../components/common/SectionBadge";
 import Button from "../components/common/Button";
-import eyeButtonSvg from "/public/assets/eye-button.svg";
 import { ROLES } from "../data/roles";
 
 const PHOTOS = [
@@ -321,8 +320,8 @@ function AboutPage() {
         <Section aria-label="Experience and Education Timeline" className="bg-blue-50/50">
           <Container>
             
-            <div className="max-w-3xl text-left mb-12">
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-3">
+            <div className="max-w-3xl text-left mb-8 sm:mb-12">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-2 sm:mb-3">
                 Professional Background & Expertise
               </h2>
               <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
@@ -330,44 +329,63 @@ function AboutPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
+            {/* Single column on mobile and tablet (md), 2 columns on desktop (lg) */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 lg:gap-16">
               
               {/* Experience Column */}
               <section aria-label="Work Experience">
-                <div className="flex items-center gap-3 mb-8">
-                  <div className="text-blue-600 text-2xl sm:text-[28px] flex items-center justify-center">
+                <div className="flex items-center gap-2.5 sm:gap-3 mb-5 sm:mb-8">
+                  <div className="text-blue-600 text-xl sm:text-2xl lg:text-[28px] flex items-center justify-center">
                     <HiBriefcase />
                   </div>
-                  <h3 className="text-2xl font-extrabold text-slate-900 tracking-tight">
+                  <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
                     Experience
                   </h3>
                 </div>
 
-                <div className="space-y-8 border-l-2 border-slate-200 pl-6 ml-3">
-                  <div className="relative">
-                    <div className="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full border-2 border-blue-600 bg-white" />
-                    <div className="flex flex-wrap items-baseline justify-between gap-2 mb-1">
-                      <h4 className="text-base font-bold text-slate-900">Web Developer</h4>
-                      <span className="text-xs font-medium text-slate-500 bg-slate-200/60 px-2.5 py-1 rounded-full">Jan 2026 – Jul 2026</span>
+                <div className="space-y-6 sm:space-y-8 border-l-2 border-slate-200 pl-5 sm:pl-6 ml-2 sm:ml-3">
+                  {/* Archicoders */}
+                  <div className="relative text-left">
+                    <div className="absolute -left-[27px] sm:-left-[31px] top-1 sm:top-1.5 w-3.5 h-3.5 rounded-full border-2 border-blue-600 bg-white" />
+                    <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-1">
+                      <h4 className="text-base sm:text-lg font-bold text-slate-900 leading-snug">
+                        Web Developer
+                      </h4>
+                      <span className="text-[11px] sm:text-xs font-medium text-slate-500 bg-slate-200/60 px-2.5 py-0.5 sm:py-1 rounded-full w-fit">
+                        Jan 2026 – Jul 2026
+                      </span>
                     </div>
-                    <p className="text-xs font-semibold text-blue-600 mb-3">Archicoders &bull; Imus, Cavite</p>
-                    <ul className="text-xs sm:text-sm text-slate-600 space-y-2 list-disc list-outside ml-4 leading-relaxed">
-                      <li>Built and migrated 20+ WordPress sites with custom post types and REST APIs.</li>
-                      <li>Automated workflows with n8n across CRMs and web applications.</li>
-                      <li>Applied technical SEO, semantic HTML, and Core Web Vitals speed optimization.</li>
+                    <p className="text-xs sm:text-sm font-semibold text-blue-600 mb-2 sm:mb-3">
+                      Archicoders &bull; Imus City, Cavite
+                    </p>
+                    <ul className="text-xs sm:text-sm text-slate-600 space-y-1.5 sm:space-y-2 list-disc list-outside ml-4 leading-relaxed">
+                      <li>Develop and migrated WordPress sites across dev, staging, and production - using custom post types, taxonomies, and REST APIs to boost speed and scalability</li>
+                      <li>Automated workflows with n8n, integrating WordPress, CRMs, and APIs to cut manual work and save hours weekly</li>
+                      <li>Used Claude (AI) to speed up development - code review, debugging, and documentation</li>
+                      <li>Managed sprints in Asana, aligning design, dev, and QA teams to hit deadlines</li>
+                      <li>Conducted QA and testing cross-browser checks, bug tracking, and post-launch validation</li>
+                      <li>Implemented technical SEO schema markup, semantic HTML, and Core Web Vitals optimization</li>
                     </ul>
                   </div>
 
-                  <div className="relative">
-                    <div className="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full border-2 border-blue-600 bg-white" />
-                    <div className="flex flex-wrap items-baseline justify-between gap-2 mb-1">
-                      <h4 className="text-base font-bold text-slate-900">Web Developer (Intern)</h4>
-                      <span className="text-xs font-medium text-slate-500 bg-slate-200/60 px-2.5 py-1 rounded-full">Mar 2025 – Jun 2025</span>
+                  {/* Wellness PRO Incorporated */}
+                  <div className="relative text-left">
+                    <div className="absolute -left-[27px] sm:-left-[31px] top-1 sm:top-1.5 w-3.5 h-3.5 rounded-full border-2 border-blue-600 bg-white" />
+                    <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-1">
+                      <h4 className="text-base sm:text-lg font-bold text-slate-900 leading-snug">
+                        Web Developer
+                      </h4>
+                      <span className="text-[11px] sm:text-xs font-medium text-slate-500 bg-slate-200/60 px-2.5 py-0.5 sm:py-1 rounded-full w-fit">
+                        Mar 2025 – Jun 2025
+                      </span>
                     </div>
-                    <p className="text-xs font-semibold text-blue-600 mb-3">Wellness PRO Inc. &bull; Pasig City</p>
-                    <ul className="text-xs sm:text-sm text-slate-600 space-y-2 list-disc list-outside ml-4 leading-relaxed">
-                      <li>Maintained company website built on WordPress with custom components.</li>
-                      <li>Worked in agile sprints and collaborated using Figma and Canva.</li>
+                    <p className="text-xs sm:text-sm font-semibold text-blue-600 mb-2 sm:mb-3">
+                      Wellness PRO Incorporated &bull; Pasig City, Metro Manila
+                    </p>
+                    <ul className="text-xs sm:text-sm text-slate-600 space-y-1.5 sm:space-y-2 list-disc list-outside ml-4 leading-relaxed">
+                      <li>Developed and maintained a company website using WordPress with custom plugins and themes.</li>
+                      <li>Gained experience in visual asset creation by leveraging Figma to develop user-centered prototypes. Additionally, produced various marketing materials using Canva, including email campaigns, social media posts, and promotional assets to support business outreach.</li>
+                      <li>Provided administrative support including data encoding, records management, and office coordination alongside web development duties. Handled phone inquiries and on-site support during professional conventions.</li>
                     </ul>
                   </div>
                 </div>
@@ -375,36 +393,50 @@ function AboutPage() {
 
               {/* Education Column */}
               <section aria-label="Education">
-                <div className="flex items-center gap-3 mb-8">
-                  <div className="text-blue-600 text-2xl sm:text-[28px] flex items-center justify-center">
+                <div className="flex items-center gap-2.5 sm:gap-3 mb-5 sm:mb-8">
+                  <div className="text-blue-600 text-xl sm:text-2xl lg:text-[28px] flex items-center justify-center">
                     <HiAcademicCap />
                   </div>
-                  <h3 className="text-2xl font-extrabold text-slate-900 tracking-tight">
+                  <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
                     Education
                   </h3>
                 </div>
 
-                <div className="space-y-8 border-l-2 border-slate-200 pl-6 ml-3">
-                  <div className="relative">
-                    <div className="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full border-2 border-blue-600 bg-white" />
-                    <div className="flex flex-wrap items-baseline justify-between gap-2 mb-1">
-                      <h4 className="text-base font-bold text-slate-900">Bachelor of Science in Information Technology</h4>
-                      <span className="text-xs font-medium text-slate-500 bg-slate-200/60 px-2.5 py-1 rounded-full">2021 – 2025</span>
+                <div className="space-y-6 sm:space-y-8 border-l-2 border-slate-200 pl-5 sm:pl-6 ml-2 sm:ml-3">
+                  {/* College */}
+                  <div className="relative text-left">
+                    <div className="absolute -left-[27px] sm:-left-[31px] top-1 sm:top-1.5 w-3.5 h-3.5 rounded-full border-2 border-blue-600 bg-white" />
+                    <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-1">
+                      <h4 className="text-base sm:text-lg font-bold text-slate-900 leading-snug">
+                        Bachelor of Science in Information Technology
+                      </h4>
+                      <span className="text-[11px] sm:text-xs font-medium text-slate-500 bg-slate-200/60 px-2.5 py-0.5 sm:py-1 rounded-full w-fit">
+                        2021 – 2025
+                      </span>
                     </div>
-                    <p className="text-xs font-semibold text-slate-700 mb-2">Cavite State University - Imus Campus</p>
-                    <span className="inline-block text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200/60 px-3 py-1 rounded-full">
+                    <p className="text-xs sm:text-sm font-semibold text-slate-700 mb-2 sm:mb-2.5">
+                      Cavite State University - Imus Campus
+                    </p>
+                    <span className="inline-block text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200/60 px-3 py-0.5 sm:py-1 rounded-full">
                       Cum Laude
                     </span>
                   </div>
 
-                  <div className="relative">
-                    <div className="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full border-2 border-blue-600 bg-white" />
-                    <div className="flex flex-wrap items-baseline justify-between gap-2 mb-1">
-                      <h4 className="text-base font-bold text-slate-900">Information and Communication Technology</h4>
-                      <span className="text-xs font-medium text-slate-500 bg-slate-200/60 px-2.5 py-1 rounded-full">2019 – 2021</span>
+                  {/* Senior High / Vocational */}
+                  <div className="relative text-left">
+                    <div className="absolute -left-[27px] sm:-left-[31px] top-1 sm:top-1.5 w-3.5 h-3.5 rounded-full border-2 border-blue-600 bg-white" />
+                    <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-1">
+                      <h4 className="text-base sm:text-lg font-bold text-slate-900 leading-snug">
+                        Information and Communication Technology
+                      </h4>
+                      <span className="text-[11px] sm:text-xs font-medium text-slate-500 bg-slate-200/60 px-2.5 py-0.5 sm:py-1 rounded-full w-fit">
+                        2019 – 2021
+                      </span>
                     </div>
-                    <p className="text-xs font-semibold text-slate-700 mb-2">Ark Technological Institute</p>
-                    <span className="inline-block text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200/60 px-3 py-1 rounded-full">
+                    <p className="text-xs sm:text-sm font-semibold text-slate-700 mb-2 sm:mb-2.5">
+                      Ark Technological Institute
+                    </p>
+                    <span className="inline-block text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200/60 px-3 py-0.5 sm:py-1 rounded-full">
                       With Honors
                     </span>
                   </div>
@@ -420,9 +452,9 @@ function AboutPage() {
           <Container>
             
             {/* Section Header */}
-            <div className="max-w-3xl text-left mb-12">
+            <div className="max-w-3xl text-left mb-8 sm:mb-12">
               <SectionBadge>CREDENTIALS</SectionBadge>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mt-2 mb-3">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mt-2 mb-2 sm:mb-3">
                 Certificates & Academic Honors
               </h2>
               <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
@@ -452,7 +484,7 @@ function AboutPage() {
                   return (
                     <div 
                       key={`${cert.id}-${idx}`}
-                      className="px-3 shrink-0"
+                      className="px-2.5 sm:px-3 shrink-0"
                       style={{ width: `${100 / itemsPerView}%` }}
                     >
                       <div 
@@ -475,8 +507,7 @@ function AboutPage() {
             </div>
 
             {/* Bottom Bar: Arrow Controls on Left, Clean Progress Indicator on Right */}
-            <div className="flex items-center justify-between mt-8 md:mt-10 px-1">
-              {/* Arrow Controls */}
+            <div className="flex items-center justify-between mt-6 sm:mt-10 px-1">
               <div className="flex items-center gap-2.5">
                 <button
                   type="button"
@@ -517,7 +548,6 @@ function AboutPage() {
                 </button>
               </div>
 
-              {/* Slide Counter / Progress Indicator */}
               <div className="flex items-center gap-3 text-sm font-medium text-slate-600 select-none">
                 <span className="font-bold text-slate-900">
                   {String(activeCertNormalized + 1).padStart(2, "0")}
@@ -540,9 +570,9 @@ function AboutPage() {
         </Section>
 
         {/* Call-to-action Footer Notice */}
-        <Section aria-label="Call to Action" className="py-12">
+        <Section aria-label="Call to Action" className="py-10 sm:py-12">
           <Container>
-            <div className="p-8 sm:p-10 rounded-3xl bg-blue-50/70 border border-blue-100 flex flex-col md:flex-row items-center justify-between gap-6 text-left">
+            <div className="p-6 sm:p-10 rounded-3xl bg-blue-50/70 border border-blue-100 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 text-left">
               <div>
                 <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-1">
                   Have a project or design in mind?
@@ -553,7 +583,7 @@ function AboutPage() {
               </div>
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center px-6 py-3 rounded-full text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 active:scale-95 transition-all shadow-xs shrink-0"
+                className="inline-flex items-center justify-center px-6 py-3 rounded-full text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 active:scale-95 transition-all shadow-xs shrink-0 w-full sm:w-auto"
               >
                 Get In Touch
               </Link>
@@ -569,7 +599,6 @@ function AboutPage() {
           onClick={() => setLightboxIndex(null)}
           className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 transition-all duration-300 animate-fadeIn"
         >
-          {/* Close Button */}
           <button
             type="button"
             onClick={() => setLightboxIndex(null)}
@@ -579,7 +608,6 @@ function AboutPage() {
             <HiXMark className="w-6 h-6" />
           </button>
 
-          {/* Previous Button */}
           <button
             type="button"
             onClick={handlePrevLightbox}
@@ -589,7 +617,6 @@ function AboutPage() {
             <HiChevronLeft className="w-7 h-7" />
           </button>
 
-          {/* Next Button */}
           <button
             type="button"
             onClick={handleNextLightbox}
@@ -599,7 +626,6 @@ function AboutPage() {
             <HiChevronRight className="w-7 h-7" />
           </button>
 
-          {/* Modal Content Box */}
           <div 
             onClick={(e) => e.stopPropagation()}
             className="relative max-w-5xl max-h-[85vh] w-full flex flex-col items-center bg-slate-900/40 p-3 sm:p-5 rounded-none border border-white/10 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.3)] backdrop-blur-md"
