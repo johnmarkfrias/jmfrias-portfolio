@@ -120,8 +120,8 @@ function Footer() {
               </div>
             </div>
 
-            {/* Tablet & Desktop Layout Wrapper for Quick Links and Contacts (2 columns side by side on md/tablet, row on lg) */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:flex lg:justify-between gap-8 w-full lg:w-fit lg:mx-auto">
+            {/* Tablet & Desktop Layout Wrapper */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 lg:gap-28 w-full lg:w-auto">
 
               {/* Column 2: Quick Links */}
               <div className="w-full lg:w-fit py-0 border-b sm:border-b-0 border-slate-800/80 pb-6 sm:pb-0">
@@ -159,7 +159,7 @@ function Footer() {
                       <li key={link.path}>
                         <Link
                           to={link.path}
-                          className="hover:text-white transition-colors block py-0.5 whitespace-nowrap"
+                          className="hover:text-sky-400 transition-colors block py-0.5 whitespace-nowrap"
                         >
                           {link.label}
                         </Link>
@@ -202,17 +202,17 @@ function Footer() {
                 >
                   <ul className="space-y-2.5 text-sm text-slate-400 sm:pl-0 pl-3">
                     <li>
-                      <a href="tel:+639389381538" className="hover:text-white transition-colors block py-0.5 whitespace-nowrap">
+                      <a href="tel:+639389381538" className="hover:text-sky-400 transition-colors block py-0.5 whitespace-nowrap">
                         +63 938 938 1538 (Smart)
                       </a>
                     </li>
                     <li>
-                      <a href="tel:+639175057898" className="hover:text-white transition-colors block py-0.5 whitespace-nowrap">
+                      <a href="tel:+639175057898" className="hover:text-sky-400 transition-colors block py-0.5 whitespace-nowrap">
                         +63 917 505 7898 (Globe)
                       </a>
                     </li>
                     <li>
-                      <a href="mailto:johnmarkm.frias@gmail.com" className="hover:text-white transition-colors block py-0.5 whitespace-nowrap">
+                      <a href="mailto:johnmarkm.frias@gmail.com" className="hover:text-sky-400 transition-colors block py-0.5 whitespace-nowrap">
                         johnmarkm.frias@gmail.com
                       </a>
                     </li>
@@ -221,7 +221,7 @@ function Footer() {
                         href="https://maps.google.com/?q=Imus+City,+Cavite,+Philippines" 
                         target="_blank" 
                         rel="noopener noreferrer" 
-                        className="hover:text-white transition-colors block py-0.5 whitespace-nowrap"
+                        className="hover:text-sky-400 transition-colors block py-0.5 whitespace-nowrap"
                       >
                         Imus City, Cavite, Philippines
                       </a>
@@ -241,7 +241,7 @@ function Footer() {
             </p>
             <a 
               href="#top" 
-              className="hover:text-white transition-colors flex items-center gap-1.5 py-1 select-none"
+              className="hover:text-sky-400 transition-colors flex items-center gap-1.5 py-1 select-none"
             >
               <span>Back To Top</span>
               <span aria-hidden="true">↑</span>

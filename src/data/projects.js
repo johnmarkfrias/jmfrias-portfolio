@@ -167,6 +167,18 @@ export const projects = [
     liveUrl: "https://www.figma.com/proto/bwKgbPskqnJuJdnAyvlIXS/Wellness-PRO-Incorporated-%7C-Web-Design-by-JM-Frias?t=O1Y6R88GDORhcjuu-0&scaling=scale-down-width&content-scaling=fixed&page-id=0%3A1&node-id=1262-6038&starting-point-node-id=1262%3A6038&hide-ui=1",
     featured: true,
   },
+  {
+    id: 29,
+    slug: "gameplanet-ordering-system-prototype",
+    category: "ui-ux",
+    title: "GAMEPLANET - Ordering System Prototype",
+    description:
+      "Interactive Figma prototype and e-commerce ordering system UI designed for gaming merchandise, computer hardware, and digital services platforms.",
+    tags: ["Prototype", "Ordering System", "Figma"],
+    image: "/assets/projects/ui-ux-designs/gameplanet-prototype.jpg",
+    liveUrl: "https://www.figma.com/proto/joPe3s0KuNDnMKKUn9nw6k/GAMEPLANET-Ordering-System-Prototype?node-id=303-2&t=RGvCtJbsrdxH10Cj-0&scaling=scale-down-width&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=303%3A2&hide-ui=1",
+    featured: true,
+  },
 
   // --- GRAPHIC DESIGN WORKS ---
   {
