@@ -1,6 +1,3 @@
-// src/components/common/Button.jsx
-// Reusable Button component. Ginagamit sa Hero, About, at CTA sections.
-
 const baseStyles =
   "inline-flex flex-col justify-center items-center font-semibold rounded-lg transition-colors text-sm whitespace-nowrap " +
   "px-5 py-3 " +          // Mobile

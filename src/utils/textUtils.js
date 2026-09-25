@@ -1,0 +1,1 @@
+export const cleanString = (str = "") => str.toLowerCase().replace(/[^a-z0-9]/g, "");
