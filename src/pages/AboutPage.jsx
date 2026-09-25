@@ -88,7 +88,7 @@ function AboutPage() {
                     Preview CV
                   </Button>
                   <Button href="/skills" variant="outline">
-                    View Skills & Stack
+                    My Skills & Stack
                   </Button>
                 </div>
               </div>
