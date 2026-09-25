@@ -289,11 +289,11 @@ function AboutPage() {
                 </p>
 
                 <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-4">
-                  I am a 23-year-old Full-Stack Web Developer born in Lucena City, Quezon, focused on building responsive, scalable, and user-centered web applications. With experience developing and migrating 20+ WordPress sites, I focus on clean code, strong SEO basics, and reliable performance.
+                  I am a 23-year-old Full-Stack Web Developer born in Lucena City, Quezon, focused on building responsive, scalable, and user-centered web applications. My passion for development began during my ICT studies, where I built my first web project.
                 </p>
 
                 <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-8">
-                  I graduated <span className="font-semibold text-slate-900">Cum Laude</span> with a Bachelor of Science in Information Technology from Cavite State University – Imus Campus. I enjoy turning client ideas into functional digital solutions through solo projects and team collaborations.
+                  I graduated <span className="font-semibold text-slate-900">Cum Laude</span> with a Bachelor of Science in Information Technology from Cavite State University – Imus Campus. I am passionate about continuous learning and creating reliable, efficient, and practical digital solutions for real-world needs.
                 </p>
 
                 {/* Action Buttons: Preview CV & View Skills */}
