@@ -214,7 +214,7 @@ function SkillsPage() {
               </div>
               <div className="lg:col-span-5 lg:pb-1 text-left">
                 <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-xl">
-                  Delivering complete digital solutions across every phase — from initial concept and prototype to deployment, testing, and automation.
+                  Bridging aesthetics and engineering — crafting intuitive UI/UX layouts, graphic design assets, and robust web applications with seamless automation.
                 </p>
               </div>
             </header>

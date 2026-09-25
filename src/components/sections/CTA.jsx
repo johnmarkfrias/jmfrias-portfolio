@@ -22,7 +22,7 @@ function CTA() {
             id="cta-heading"
             className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight tracking-tight text-white"
           >
-            Let's Build Something Together
+            Let's build something great together.
           </h2>
           
           <p className="text-sm sm:text-base text-slate-300 w-full lg:max-w-xl mx-auto mt-3 sm:mt-4 mb-8 sm:mb-10 leading-relaxed">

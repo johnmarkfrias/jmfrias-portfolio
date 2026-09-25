@@ -93,12 +93,12 @@ function About() {
             <div className="w-full sm:w-auto flex flex-col sm:flex-row items-center gap-3">
               <div className="w-full sm:w-auto sm:min-w-[160px] text-center [&>a]:w-full [&>a]:justify-center [&>button]:w-full [&>button]:justify-center">
                 <Button href="/about" variant="primary">
-                  Read More
+                  Get to Know Me
                 </Button>
               </div>
               <div className="w-full sm:w-auto sm:min-w-[160px] text-center [&>a]:w-full [&>a]:justify-center [&>button]:w-full [&>button]:justify-center">
                 <Button href="/projects" variant="outline">
-                  View Projects
+                  See Projects
                 </Button>
               </div>
             </div>
