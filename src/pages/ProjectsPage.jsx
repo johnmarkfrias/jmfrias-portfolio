@@ -103,7 +103,7 @@ function ProjectsPage() {
   return (
     <>
       <Helmet>
-        <title>Projects | John Mark M. Frias - Web Developer & Designer</title>
+        <title>Projects | John Mark M. Frias - Full Stack Developer</title>
         <meta
           name="description"
           content="Browse client websites, UI/UX designs, and graphic design assets created by John Mark M. Frias."

@@ -1,5 +1,3 @@
-// src/pages/AboutPage.jsx
-
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
@@ -36,7 +34,7 @@ function AboutPage() {
   return (
     <>
       <Helmet>
-        <title>About | John Mark M. Frias - Web Developer & Designer</title>
+        <title>About | John Mark M. Frias - Full Stack Developer</title>
         <meta
           name="description"
           content="Learn more about John Mark M. Frias, a Web Developer specializing in custom WordPress solutions, REST APIs, React, and Core Web Vitals performance."

@@ -33,7 +33,7 @@ function SkillsPage() {
   return (
     <>
       <Helmet>
-        <title>Skills & Stack | John Mark M. Frias - Web Developer</title>
+        <title>Skills | John Mark M. Frias - Full Stack Developer</title>
         <meta
           name="description"
           content="Explore the technical skills, development capabilities, and complete software tools utilized by John Mark M. Frias."
