@@ -130,7 +130,7 @@ function ProjectsPage() {
             {/* Header */}
             <header className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-end mb-10 sm:mb-12 pb-8 border-b border-slate-100">
               <div className="lg:col-span-7">
-                <SectionBadge>PORTFOLIO</SectionBadge>
+                <SectionBadge>PROJECTS</SectionBadge>
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-extrabold text-slate-900 mt-2 tracking-tight leading-[1.12]">
                   What I've Built
                 </h1>

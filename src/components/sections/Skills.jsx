@@ -126,7 +126,7 @@ function Skills() {
 
           <div className="max-w-xl text-left">
             <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-              Delivering complete digital solutions across every phase — from initial concept and prototype to deployment, testing, and automation.
+              Bridging aesthetics and engineering — crafting intuitive UI/UX layouts, graphic design assets, and robust web applications with seamless automation.
             </p>
           </div>
         </div>

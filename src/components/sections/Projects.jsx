@@ -116,7 +116,7 @@ function Projects() {
 
             <div className="max-w-xl text-left">
               <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-                Explore a selection of live web applications, responsive UI/UX designs, and brand visuals I’ve built independently and with teams. Browse through to see how I bridge design and development.{" "}
+                Explore selected websites, UI/UX platforms, and graphic design creative assets built across independent projects and professional team collaborations.{" "}
                 <Link
                   to="/projects"
                   className="text-blue-600 hover:text-blue-700 font-normal transition-colors whitespace-nowrap"
