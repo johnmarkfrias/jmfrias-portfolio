@@ -25,7 +25,7 @@ function ContactPage() {
   return (
     <>
       <Helmet>
-        <title>Contact | John Mark M. Frias - Web Developer</title>
+        <title>Contact | John Mark M. Frias - Full Stack Developer</title>
         <meta
           name="description"
           content="Get in touch with John Mark M. Frias for web development, full-stack apps, UI/UX design, or collaboration inquiries."

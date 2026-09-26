@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useMemo } from "react";
 import { Helmet } from "react-helmet-async";
-import { Link, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 
 import { projects, projectCategories } from "../data/projects";
 import { cleanString } from "../utils/textUtils";
@@ -11,6 +11,7 @@ import Section from "../components/layout/Section";
 import Container from "../components/layout/Container";
 import SectionBadge from "../components/common/SectionBadge";
 import ImageLightbox from "../components/common/ImageLightbox";
+import ProjectCTA from "../components/common/ProjectCTA";
 
 import ProjectCard from "../components/projects/ProjectCard";
 import ProjectCategoryTabs from "../components/projects/ProjectCategoryTabs";
@@ -20,7 +21,6 @@ function ProjectsPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const categoryParam = searchParams.get("category");
 
-  // Hanapin ang tamang category ID base sa param sa URL
   const initialCategory = useMemo(() => {
     if (!categoryParam) return "all";
 
@@ -41,17 +41,12 @@ function ProjectsPage() {
   const [lightboxIndex, setLightboxIndex] = useState(null);
   const [itemsPerPage, setItemsPerPage] = useState(9);
 
-  // Responsive items per page
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
-      if (width < 768) {
-        setItemsPerPage(5);
-      } else if (width < 1024) {
-        setItemsPerPage(6);
-      } else {
-        setItemsPerPage(9);
-      }
+      if (width < 768) setItemsPerPage(5);
+      else if (width < 1024) setItemsPerPage(6);
+      else setItemsPerPage(9);
     };
 
     handleResize();
@@ -59,7 +54,6 @@ function ProjectsPage() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Sync category state when URL changes
   useEffect(() => {
     setActiveCategory(initialCategory);
     setCurrentPage(1);
@@ -167,28 +161,13 @@ function ProjectsPage() {
               onPageChange={handlePageChange}
             />
 
-            {/* Call-to-action Footer Notice */}
-            <section className="mt-16 sm:mt-24 p-8 sm:p-10 rounded-3xl bg-blue-50/70 border border-blue-100 flex flex-col md:flex-row items-center justify-between gap-6">
-              <div>
-                <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-1">
-                  Have a project or design in mind?
-                </h2>
-                <p className="text-xs sm:text-sm text-slate-600">
-                  Let's discuss your web development requirements, UI layouts, and branding assets.
-                </p>
-              </div>
-              <Link
-                to="/contact"
-                className="inline-flex items-center justify-center px-6 py-3 rounded-full text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 active:scale-95 transition-all shadow-xs shrink-0"
-              >
-                Get In Touch
-              </Link>
-            </section>
+            {/* Reusable Call-to-action */}
+            <ProjectCTA />
           </Container>
         </Section>
       </main>
 
-      {/* Reusable Image Lightbox Component */}
+      {/* Lightbox */}
       <ImageLightbox
         items={filteredProjects}
         index={lightboxIndex}

@@ -1,5 +1,6 @@
+// src/pages/AboutPage.jsx
+
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { HiBriefcase, HiAcademicCap } from "react-icons/hi2";
 
@@ -7,6 +8,7 @@ import Section from "../components/layout/Section";
 import Container from "../components/layout/Container";
 import SectionBadge from "../components/common/SectionBadge";
 import Button from "../components/common/Button";
+import ProjectCTA from "../components/common/ProjectCTA";
 
 import PhotoDeck from "../components/about/PhotoDeck";
 import CertificatesCarousel from "../components/about/CertificatesCarousel";
@@ -21,7 +23,7 @@ function AboutPage() {
   const [lightboxIndex, setLightboxIndex] = useState(null);
 
   useEffect(() => {
-    document.title = "About | John Mark M. Frias - Web Developer & Designer";
+    document.title = "About | John Mark M. Frias - Full Stack Developer";
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
       metaDesc.setAttribute(
@@ -108,7 +110,6 @@ function AboutPage() {
               </p>
             </div>
 
-            {/* Single column on mobile and tablet (md), 2 columns on desktop (lg) */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 lg:gap-16">
               {/* Experience Column */}
               <section aria-label="Work Experience">
@@ -199,32 +200,14 @@ function AboutPage() {
               isLightboxOpen={lightboxIndex !== null}
               onSelectCertificate={(idx) => setLightboxIndex(idx)}
             />
-          </Container>
-        </Section>
 
-        {/* Call-to-action Footer Notice */}
-        <Section aria-label="Call to Action" className="pt-2 sm:pt-4 pb-12 sm:pb-16">
-          <Container>
-            <div className="p-6 sm:p-10 rounded-3xl bg-blue-50/70 border border-blue-100 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 text-left">
-              <div>
-                <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-1">
-                  Have a project or design in mind?
-                </h2>
-                <p className="text-xs sm:text-sm text-slate-600">
-                  Let's discuss your web development requirements, UI layouts, and branding assets.
-                </p>
-              </div>
-              <Link
-                to="/contact"
-                className="inline-flex items-center justify-center px-6 py-3 rounded-full text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 active:scale-95 transition-all shadow-xs shrink-0 w-full sm:w-auto"
-              >
-                Get In Touch
-              </Link>
-            </div>
+            {/* Reusable Call-to-action */}
+            <ProjectCTA />
           </Container>
         </Section>
       </main>
 
+      {/* Lightbox */}
       <ImageLightbox
         items={CERTIFICATES}
         index={lightboxIndex}

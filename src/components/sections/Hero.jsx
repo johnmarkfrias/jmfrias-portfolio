@@ -23,7 +23,7 @@ function Hero() {
   };
 
   return (
-    <Section id="home" aria-label="Hero Section" className="overflow-visible">
+    <Section id="home" aria-label="Hero Section" className="bg-blue-50/50 overflow-visible">
       <style>{`
         @keyframes circleEntrance {
           0% { opacity: 0; transform: scale(0.35); }
