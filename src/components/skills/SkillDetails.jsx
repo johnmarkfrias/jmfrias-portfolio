@@ -9,7 +9,7 @@ export default function SkillDetails({ activeSkill, isDark = false }) {
 
   return (
     <div
-      className={`order-2 lg:order-1 lg:col-span-6 flex flex-col justify-end text-left border-0 md:border-l-4 md:border-blue-500 pl-0 md:pl-8 py-0 md:py-1`}
+      className="order-2 lg:order-1 lg:col-span-6 flex flex-col justify-end text-left border-0 md:border-l-4 md:border-blue-500 pl-0 md:pl-8 py-0 md:py-1"
     >
       <h3
         className={`text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight transition-all duration-200 ${
@@ -45,7 +45,7 @@ export default function SkillDetails({ activeSkill, isDark = false }) {
         </div>
       )}
 
-      {/* CTA Buttons */}
+      {/* CTA Buttons using the default Button component with white border */}
       <div className="flex flex-col sm:flex-row items-center gap-3 w-full mt-6 sm:mt-8 [&>a]:w-full [&>a]:sm:w-auto [&>button]:w-full [&>button]:sm:w-auto">
         <Button href={targetCategoryRoute} variant="primary">
           View Related Projects
@@ -53,8 +53,8 @@ export default function SkillDetails({ activeSkill, isDark = false }) {
 
         <Button
           href={`/contact?subject=${encodeURIComponent(collabSubject)}#contact-form-container`}
-          variant={isDark ? "secondary" : "outline"}
-          className={isDark ? "border-slate-700 text-white hover:bg-slate-800" : ""}
+          variant="outline"
+          className="border-white/80 text-white bg-transparent hover:bg-white/10 hover:border-white rounded-xl"
         >
           Let's Collab
         </Button>

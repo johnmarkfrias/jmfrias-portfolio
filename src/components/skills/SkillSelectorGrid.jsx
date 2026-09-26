@@ -37,10 +37,13 @@ export default function SkillSelectorGrid({ selectedSkillId, onSelectSkill, isDa
           const isSelected = selectedSkillId === skill.id;
 
           const baseInactiveClass = isDark
-            ? "bg-slate-900/60 border-slate-800/80 text-slate-300 hover:bg-blue-600 hover:border-blue-500 hover:text-white hover:shadow-lg hover:shadow-blue-600/30"
+            ? "bg-slate-900/50 border-slate-800 text-slate-400 hover:bg-slate-800/80 hover:border-slate-700 hover:text-white"
             : "bg-slate-50/60 border-slate-200 text-slate-700 hover:bg-blue-700 hover:border-blue-700 hover:text-white hover:shadow-lg hover:shadow-blue-700/20";
 
-          const activeClass = "bg-blue-600 border-blue-500 text-white shadow-xl shadow-blue-600/30 -translate-y-0.5";
+          // Clean, solid active state without neon glow glare
+          const activeClass = isDark
+            ? "bg-blue-600 border-blue-500/80 text-white shadow-md shadow-blue-900/30"
+            : "bg-blue-700 border-blue-700 text-white shadow-md";
 
           return (
             <button
@@ -55,13 +58,13 @@ export default function SkillSelectorGrid({ selectedSkillId, onSelectSkill, isDa
               <div
                 className={`w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center transition-colors mb-3 ${
                   isSelected
-                    ? "bg-white text-blue-600 shadow-sm"
+                    ? "bg-white text-blue-600 shadow-xs"
                     : isDark
-                    ? "bg-slate-800/90 text-blue-400 border border-slate-700/60 group-hover:bg-white group-hover:text-blue-600 group-hover:border-transparent"
+                    ? "bg-slate-800/70 text-slate-400 border border-slate-700/50 group-hover:bg-slate-700 group-hover:text-white"
                     : "bg-white text-slate-600 border border-slate-200 group-hover:bg-white group-hover:text-blue-700 group-hover:border-transparent group-hover:shadow-sm"
                 }`}
               >
-                <IconComponent className="w-5 h-5 transition-transform duration-200 group-hover:scale-110" />
+                <IconComponent className="w-5 h-5 transition-transform duration-200 group-hover:scale-105" />
               </div>
 
               <span className="text-xs sm:text-sm font-semibold transition-colors leading-tight">
