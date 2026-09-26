@@ -45,7 +45,7 @@ export default function SkillDetails({ activeSkill, isDark = false }) {
         </div>
       )}
 
-      {/* CTA Buttons using the default Button component with white border */}
+      {/* CTA Buttons using default Button radius */}
       <div className="flex flex-col sm:flex-row items-center gap-3 w-full mt-6 sm:mt-8 [&>a]:w-full [&>a]:sm:w-auto [&>button]:w-full [&>button]:sm:w-auto">
         <Button href={targetCategoryRoute} variant="primary">
           View Related Projects
@@ -54,7 +54,11 @@ export default function SkillDetails({ activeSkill, isDark = false }) {
         <Button
           href={`/contact?subject=${encodeURIComponent(collabSubject)}#contact-form-container`}
           variant="outline"
-          className="border-white/80 text-white bg-transparent hover:bg-white/10 hover:border-white rounded-xl"
+          className={
+            isDark
+              ? "border-white/80 text-white bg-transparent hover:bg-white/10 hover:border-white"
+              : ""
+          }
         >
           Let's Collab
         </Button>
