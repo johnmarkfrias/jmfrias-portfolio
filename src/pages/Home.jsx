@@ -1,8 +1,3 @@
-// src/pages/Home.jsx
-// Ito ang pinagsasamahan ng lahat ng homepage sections.
-// Ang Helmet dito ay para sa SEO meta tags (title, description) na
-// unique kada page — kailangan mo munang i-install: npm install react-helmet-async
-
 import { Helmet } from "react-helmet-async";
 import Hero from "../components/sections/Hero";
 import About from "../components/sections/About";

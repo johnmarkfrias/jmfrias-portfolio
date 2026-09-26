@@ -1,5 +1,3 @@
-// src/pages/SkillsPage.jsx
-
 import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 

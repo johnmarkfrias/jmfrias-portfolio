@@ -1,5 +1,3 @@
-// src/components/sections/Skills.jsx
-
 import { useState } from "react";
 import { skills } from "../../data/skills";
 import Section from "../layout/Section";

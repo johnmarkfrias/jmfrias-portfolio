@@ -1,5 +1,3 @@
-// src/components/skills/SkillDetails.jsx
-
 import Button from "../common/Button";
 import { getCategoryRoute, getCollabSubject } from "../../utils/skillsUtils";
 

@@ -1,5 +1,3 @@
-// src/components/projects/ProjectCategoryTabs.jsx
-
 import { projectCategories } from "../../data/projects";
 
 export default function ProjectCategoryTabs({ activeCategory, onCategoryChange }) {

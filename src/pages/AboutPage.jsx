@@ -1,5 +1,3 @@
-// src/pages/AboutPage.jsx
-
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { HiBriefcase, HiAcademicCap } from "react-icons/hi2";

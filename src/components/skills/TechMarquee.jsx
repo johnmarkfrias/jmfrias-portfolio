@@ -1,5 +1,3 @@
-// src/components/skills/TechMarquee.jsx
-
 import { techCategories } from "../../data/skills";
 import { getTechLogoPath } from "../../utils/skillsUtils";
 

@@ -1,5 +1,3 @@
-// src/pages/ProjectsPage.jsx
-
 import { useEffect, useState, useMemo } from "react";
 import { Helmet } from "react-helmet-async";
 import { useSearchParams } from "react-router-dom";

@@ -1,5 +1,3 @@
-// src/components/projects/ProjectCard.jsx
-
 import { cleanString } from "../../utils/textUtils";
 
 export default function ProjectCard({ project, onOpenLightbox }) {

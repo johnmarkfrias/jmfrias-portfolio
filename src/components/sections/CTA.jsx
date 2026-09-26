@@ -1,5 +1,3 @@
-// src/components/sections/CTA.jsx
-
 import Section from "../layout/Section";
 import Container from "../layout/Container";
 import SectionBadge from "../common/SectionBadge";

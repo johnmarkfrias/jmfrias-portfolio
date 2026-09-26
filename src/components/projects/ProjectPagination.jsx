@@ -1,5 +1,3 @@
-// src/components/projects/ProjectPagination.jsx
-
 export default function ProjectPagination({ currentPage, totalPages, onPageChange }) {
   if (totalPages <= 1) return null;
 

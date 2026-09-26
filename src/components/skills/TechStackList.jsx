@@ -1,5 +1,3 @@
-// src/components/skills/TechStackList.jsx
-
 import { techCategories } from "../../data/skills";
 import { getOrderedItems, isFullWidthOnMobile, getTechLogoPath } from "../../utils/skillsUtils";
 

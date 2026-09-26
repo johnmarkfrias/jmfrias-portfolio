@@ -1,5 +1,3 @@
-// src/components/skills/SkillSelectorGrid.jsx
-
 import {
   FaLaptopCode,
   FaPencilRuler,

@@ -1,5 +1,3 @@
-// src/components/common/SocialLinks.jsx
-
 import { FaViber, FaLinkedinIn, FaGithub } from "react-icons/fa";
 
 export default function SocialLinks({ className = "" }) {
