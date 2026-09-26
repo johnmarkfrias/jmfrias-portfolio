@@ -1,5 +1,3 @@
-// src/components/sections/Hero.jsx
-
 import Section from "../layout/Section";
 import Container from "../layout/Container";
 import Button from "../common/Button";
@@ -13,6 +11,7 @@ import { downloadFile } from "../../utils/fileUtils";
 
 const HERO_PHOTO_PATH = "/assets/hero.png";
 const EYE_BUTTON_SVG = "/assets/eye-button.svg";
+const FULL_NAME = "John Mark M. Frias";
 
 function Hero() {
   const currentText = useTypewriter(ROLES);
@@ -89,8 +88,9 @@ function Hero() {
               Hello, My Name Is
             </p>
 
+            {/* H1 Heading */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[42px] xl:text-[48px] font-extrabold text-slate-900 mb-2 leading-tight tracking-tight">
-              John Mark M. Frias
+              {FULL_NAME}
             </h1>
 
             <p className="text-base sm:text-lg md:text-xl text-blue-600 font-semibold mb-4 sm:mb-5 flex items-center justify-start min-h-[1.75rem] md:min-h-[2rem]">
@@ -138,7 +138,7 @@ function Hero() {
             <div className="anim-circle relative w-full h-full rounded-full bg-gradient-to-tr from-[#1e40af] via-[#235ff7] to-[#38bdf8] overflow-hidden flex items-end justify-center z-10 shadow-2xl shadow-blue-500/20">
               <img
                 src={HERO_PHOTO_PATH}
-                alt="John Mark Frias"
+                alt={FULL_NAME}
                 className="anim-portrait h-[115%] w-auto max-w-none object-contain block pointer-events-none select-none"
               />
             </div>
@@ -159,7 +159,7 @@ function Hero() {
               />
             </div>
 
-            {/* Badges & Logos mapped cleanly */}
+            {/* Badges & Logos */}
             {HERO_TECH_LOGOS.map((logo) => (
               <div
                 key={logo.name}

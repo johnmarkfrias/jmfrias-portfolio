@@ -45,8 +45,8 @@ function AboutPage() {
       </Helmet>
 
       <main className="w-full bg-white text-slate-900 overflow-x-hidden">
-        {/* Profile Intro Section */}
-        <Section aria-label="Profile Introduction" className="bg-white">
+        {/* 1. Profile Intro Section: Light Blue Background */}
+        <Section aria-label="Profile Introduction" className="bg-blue-50/50">
           <Container>
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-12 lg:gap-16 items-center">
               {/* Column 1: Interactive Image Deck */}
@@ -98,8 +98,8 @@ function AboutPage() {
           </Container>
         </Section>
 
-        {/* Experience & Education Section */}
-        <Section aria-label="Experience and Education Timeline" className="bg-blue-50/50">
+        {/* 2. Experience & Education Section: White Background */}
+        <Section aria-label="Experience and Education Timeline" className="bg-white">
           <Container>
             <div className="max-w-3xl text-left mb-8 sm:mb-12">
               <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-2 sm:mb-3">
@@ -114,7 +114,8 @@ function AboutPage() {
               {/* Experience Column */}
               <section aria-label="Work Experience">
                 <div className="flex items-center gap-2.5 sm:gap-3 mb-5 sm:mb-8">
-                  <div className="text-blue-600 text-xl sm:text-2xl lg:text-[28px] flex items-center justify-center">
+                  {/* Icon matching heading text color */}
+                  <div className="text-slate-900 text-xl sm:text-2xl lg:text-[28px] flex items-center justify-center">
                     <HiBriefcase />
                   </div>
                   <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
@@ -150,7 +151,8 @@ function AboutPage() {
               {/* Education Column */}
               <section aria-label="Education">
                 <div className="flex items-center gap-2.5 sm:gap-3 mb-5 sm:mb-8">
-                  <div className="text-blue-600 text-xl sm:text-2xl lg:text-[28px] flex items-center justify-center">
+                  {/* Icon matching heading text color */}
+                  <div className="text-slate-900 text-xl sm:text-2xl lg:text-[28px] flex items-center justify-center">
                     <HiAcademicCap />
                   </div>
                   <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
@@ -184,8 +186,8 @@ function AboutPage() {
           </Container>
         </Section>
 
-        {/* Certificates & Achievements Section with Lightbox Modal */}
-        <Section aria-label="Certificates and Honors" className="pb-6 sm:pb-8 lg:pb-10">
+        {/* 3. Certificates & Achievements Section: White Background */}
+        <Section aria-label="Certificates and Honors" className="bg-white pb-6 sm:pb-8 lg:pb-10">
           <Container>
             <div className="max-w-3xl text-left mb-8 sm:mb-12">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-2 sm:mb-3">
