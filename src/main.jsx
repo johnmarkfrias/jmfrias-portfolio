@@ -1,7 +1,3 @@
-// src/main.jsx
-// Entry point ng buong app. Dito naka-wrap ang App sa loob ng
-// BrowserRouter (para gumana ang routing) at HelmetProvider (para sa SEO tags).
-
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
