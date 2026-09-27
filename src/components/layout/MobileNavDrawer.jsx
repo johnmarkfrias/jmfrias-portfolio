@@ -52,7 +52,7 @@ export default function MobileNavDrawer({ isOpen, onClose, logoSrc }) {
                   onClick={onClose}
                   className={({ isActive }) =>
                     `flex items-center gap-3.5 text-base tracking-wide transition-all py-3 px-4 rounded-xl font-normal ${
-                      isActive ? "bg-blue-50/80 text-blue-600 font-semibold" : "text-slate-700 hover:bg-slate-50 hover:text-blue-600"
+                      isActive ? "bg-blue-50/80 text-blue-600" : "text-slate-700 hover:bg-slate-50 hover:text-blue-600"
                     }`
                   }
                 >
