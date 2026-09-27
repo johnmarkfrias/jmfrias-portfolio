@@ -99,20 +99,21 @@ function AboutPage() {
         {/* 2. Experience & Education Section: White Background */}
         <Section aria-label="Experience and Education Timeline" className="bg-white">
           <Container>
-            <div className="max-w-3xl text-left mb-8 sm:mb-12">
+            {/* Header: Widened container & refined text to guarantee a clean 2-line description */}
+            <div className="max-w-4xl text-left mb-8 sm:mb-12">
               <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-2 sm:mb-3">
                 Professional Background & Expertise
               </h2>
-              <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-                A comprehensive overview of my technical experience in full-stack web development, frontend engineering, UI/UX design, workflow automation, and academic credentials in Information Technology.
+              <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-3xl">
+                A comprehensive overview of my technical experience in full-stack web development, frontend engineering, UI/UX design, workflow automation, and academic credentials in IT.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 lg:gap-16">
+            {/* Timelines: Increased spacing with lg:gap-20 xl:gap-28 */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 xl:gap-28">
               {/* Experience Column */}
               <section aria-label="Work Experience">
                 <div className="flex items-center gap-2.5 sm:gap-3 mb-5 sm:mb-8">
-                  {/* Icon matching heading text color */}
                   <div className="text-slate-900 text-xl sm:text-2xl lg:text-[28px] flex items-center justify-center">
                     <HiBriefcase />
                   </div>
@@ -149,7 +150,6 @@ function AboutPage() {
               {/* Education Column */}
               <section aria-label="Education">
                 <div className="flex items-center gap-2.5 sm:gap-3 mb-5 sm:mb-8">
-                  {/* Icon matching heading text color */}
                   <div className="text-slate-900 text-xl sm:text-2xl lg:text-[28px] flex items-center justify-center">
                     <HiAcademicCap />
                   </div>

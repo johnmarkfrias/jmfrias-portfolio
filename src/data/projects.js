@@ -208,8 +208,6 @@ export const projects = [
 
   // --- GRAPHIC DESIGN WORKS ---
   // 1. Seca 354
-  // --- GRAPHIC DESIGN WORKS ---
-  // 1. Seca 354
   {
     id: 14,
     slug: "wellness-pro-seca-354-digital-baby-scale",
@@ -261,7 +259,7 @@ export const projects = [
     liveUrl: "",
     featured: false,
   },
-  // 5. All Saints' Day (Moved here)
+  // 9. All Saints' Day
   {
     id: 31,
     slug: "wellness-pro-all-saints-day-social-media",
@@ -313,7 +311,7 @@ export const projects = [
     liveUrl: "",
     featured: false,
   },
-  // 9. James (Moved here)
+  // 5. James
   {
     id: 18,
     slug: "james-pokemon-custom-graphic-banner",
@@ -339,6 +337,104 @@ export const projects = [
     liveUrl: "",
     featured: false,
   },
+  // Remaining Graphic Design Works
+  {
+    id: 13,
+    slug: "wellness-pro-18th-annual-scientific-meet",
+    category: "graphic-design",
+    title: "Wellness PRO - 18th Annual Scientific Meeting",
+    description:
+      "Official event branding and promotional graphic asset created for Wellness PRO Inc.'s participation in the 18th Annual Scientific Meeting.",
+    tags: ["Graphic Design", "Event Branding", "Promotional Poster"],
+    image: "/assets/projects/graphic-designs/wellness-pro-18th-annual-scientific-meeting-congress-poster.png",
+    liveUrl: "",
+    featured: true,
+  },
+  {
+    id: 20,
+    slug: "wellness-pro-blood-pressure-monitor",
+    category: "graphic-design",
+    title: "Blood Pressure Monitor Product Showcase",
+    description:
+      "Marketing collateral and product presentation layout emphasizing clinical accuracy and ergonomic medical device design.",
+    tags: ["Graphic Design", "Product Catalog", "Healthcare UI"],
+    image: "/assets/projects/graphic-designs/wellness-pro-and-blood-pressure-monitors-banner.jpg",
+    liveUrl: "",
+    featured: false,
+  },
+  {
+    id: 21,
+    slug: "wellness-pro-sinapi-chest-drain",
+    category: "graphic-design",
+    title: "Sinapi Chest Drain Medical Spec Sheet",
+    description:
+      "Technical product flyer and graphic layout detailing specialized hospital equipment functionality and safety features.",
+    tags: ["Graphic Design", "Technical Flyer", "Medical Devices"],
+    image: "/assets/projects/graphic-designs/wellness-pro-sinapi-chest-drain-medical-banner.jpg",
+    liveUrl: "",
+    featured: false,
+  },
+  {
+    id: 22,
+    slug: "wellness-pro-axis-500-mobile-operating",
+    category: "graphic-design",
+    title: "Axis 500 Mobile Operating Table Creative",
+    description:
+      "Promotional banner highlighting surgical equipment capabilities and ergonomic clinical advantages.",
+    tags: ["Graphic Design", "Equipment Showcase", "Marketing Asset"],
+    image: "/assets/projects/graphic-designs/wellness-pro-axis-500-mobile-operating-table-banner.jpg",
+    liveUrl: "",
+    featured: false,
+  },
+  {
+    id: 23,
+    slug: "wellness-pro-good-friday-social-media",
+    category: "graphic-design",
+    title: "Good Friday Corporate Social Media Art",
+    description:
+      "Holiday observance graphic creative designed for company social media channels and client engagement.",
+    tags: ["Graphic Design", "Social Media Art", "Corporate Branding"],
+    image: "/assets/projects/graphic-designs/wellness-pro-good-friday-social-media-post.png",
+    liveUrl: "",
+    featured: false,
+  },
+  {
+    id: 24,
+    slug: "wellness-pro-seca-787-medical-scale",
+    category: "graphic-design",
+    title: "Seca 787 Medical Column Scale Banner",
+    description:
+      "High-resolution product feature graphic created for digital catalogs and promotional medical displays.",
+    tags: ["Graphic Design", "Catalog Design", "Medical Equipment"],
+    image: "/assets/projects/graphic-designs/wellness-pro-seca-787-medical-scale-banner.png",
+    liveUrl: "",
+    featured: false,
+  },
+  {
+    id: 25,
+    slug: "john-mark-frias-graduation-portrait",
+    category: "graphic-design",
+    title: "John Mark Frias Graduation Portrait Layout",
+    description:
+      "Professional formal graduation photo edit and commemorative portfolio layout composition.",
+    tags: ["Graphic Design", "Photo Retouching", "Branding Asset"],
+    image: "/assets/projects/graphic-designs/john-mark-frias-graduation-portrait.png",
+    liveUrl: "",
+    featured: false,
+  },
+  {
+    id: 27,
+    slug: "wellness-pro-pafp-annual-convention-banner",
+    category: "graphic-design",
+    title: "PAFP 64th Annual Convention Booth Banner",
+    description:
+      "Official promotional booth banner and event collateral designed for Wellness PRO Inc. at the Philippine Academy of Family Physicians 64th Annual Convention.",
+    tags: ["Graphic Design", "Event Branding", "Promotional Poster"],
+    image: "/assets/projects/graphic-designs/wellness-pro-pafp-annual-convention-banner.png",
+    liveUrl: "",
+    featured: true,
+  },
+
   {
     id: 35,
     slug: "pinoy-recipe-planner",
