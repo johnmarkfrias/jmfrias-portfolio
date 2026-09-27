@@ -247,7 +247,7 @@ export const projects = [
     id: 31,
     slug: "wellness-pro-all-saints-day-social-media",
     category: "graphic-design",
-    title: "All Saints' Day Corporate Social Media Art",
+    title: "All Saints' Day",
     description:
       "A respectful holiday greeting poster created for company social media pages during All Saints' Day.",
     tags: ["Social Media Post", "Canva"],
@@ -295,7 +295,7 @@ export const projects = [
     id: 30,
     slug: "wellness-pro-all-souls-day-social-media",
     category: "graphic-design",
-    title: "All Souls' Day Corporate Observance Post",
+    title: "All Souls' Day",
     description:
       "A warm and reflective memorial image designed with candle accents for social media remembrance.",
     tags: ["Social Media Post", "Canva"],
@@ -343,7 +343,7 @@ export const projects = [
     id: 32,
     slug: "wellness-pro-ansap-58th-midyear-convention-social-media",
     category: "graphic-design",
-    title: "ANSAP 58th Midyear Convention",
+    title: "ANSAP 58th Midyear",
     description:
       "A conference announcement graphic letting attendees know where to find the product display booth in Cebu.",
     tags: ["Social Media Post", "Annual Convention", "Canva"],
@@ -367,7 +367,7 @@ export const projects = [
     id: 20,
     slug: "wellness-pro-blood-pressure-monitor",
     category: "graphic-design",
-    title: "AND Blood Pressure Monitor Product",
+    title: "AND Blood Pressure Monitor Products",
     description:
       "A clean website banner formatted for phones and tablets to highlight reliable digital blood pressure monitors.",
     tags: ["Website Mobile & Tablet Banner", "Canva"],
