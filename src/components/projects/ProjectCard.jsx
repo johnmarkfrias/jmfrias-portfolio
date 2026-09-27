@@ -18,7 +18,7 @@ export default function ProjectCard({ project, onOpenLightbox }) {
 
   const cardInnerContent = (
     <>
-      <div className="relative aspect-[4/3] w-full overflow-hidden bg-white flex items-center justify-center p-3">
+      <div className="relative aspect-[4/3] w-full overflow-hidden bg-white flex items-center justify-center p-3 shrink-0">
         <img
           src={project.image}
           alt={project.title}
@@ -41,7 +41,7 @@ export default function ProjectCard({ project, onOpenLightbox }) {
           </div>
         )}
 
-        {/* Uniform Action Pill (only shown when a live link or lightbox action exists) */}
+        {/* Uniform Action Pill */}
         {!isWebsiteWithoutLink && (
           <div className="absolute bottom-3 right-3 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 ease-out pointer-events-none z-10">
             <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold text-white bg-blue-600 shadow-md">
@@ -78,16 +78,15 @@ export default function ProjectCard({ project, onOpenLightbox }) {
         )}
       </div>
 
-      <div className="p-4 sm:p-5 flex flex-col flex-grow">
+      <div className="p-4 sm:p-5 flex flex-col flex-1">
         <h3 className="text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors duration-200 mb-2">
           {project.title}
         </h3>
-        {/* line-clamp-2 removed here so the description is fully visible */}
         <p className="text-xs sm:text-sm text-slate-600 mb-4 leading-relaxed">
           {project.description}
         </p>
         {project.tags && (
-          <div className="flex flex-wrap gap-1.5 mt-auto">
+          <div className="flex flex-wrap gap-1.5 mt-auto pt-2">
             {project.tags.map((tag, tIdx) => (
               <span
                 key={tIdx}
@@ -103,10 +102,10 @@ export default function ProjectCard({ project, onOpenLightbox }) {
   );
 
   const cardContainerClass =
-    "group relative bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.04)] hover:shadow-[0_16px_32px_-8px_rgba(35,95,247,0.14)] hover:border-blue-500/50 hover:-translate-y-1.5 transition-all duration-300 ease-out flex flex-col h-full";
+    "group relative bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.04)] hover:shadow-[0_16px_32px_-8px_rgba(35,95,247,0.14)] hover:border-blue-500/50 hover:-translate-y-1.5 transition-all duration-300 ease-out flex flex-col w-full h-full flex-1";
 
   return (
-    <div className="h-full">
+    <div className="h-full w-full flex flex-col flex-1">
       {isGraphic ? (
         <div
           onClick={onOpenLightbox}
