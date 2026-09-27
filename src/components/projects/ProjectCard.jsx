@@ -82,7 +82,8 @@ export default function ProjectCard({ project, onOpenLightbox }) {
         <h3 className="text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors duration-200 mb-2">
           {project.title}
         </h3>
-        <p className="text-xs sm:text-sm text-slate-600 line-clamp-2 mb-4 leading-relaxed">
+        {/* line-clamp-2 removed here so the description is fully visible */}
+        <p className="text-xs sm:text-sm text-slate-600 mb-4 leading-relaxed">
           {project.description}
         </p>
         {project.tags && (
