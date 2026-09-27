@@ -183,7 +183,7 @@ export const projects = [
     category: "website",
     title: "Pinoy Recipe Planner",
     description:
-      "A recipe web app that lets users search Filipino dishes, save favorite meals, and automatically generate printable grocery shopping lists.",
+      "A Filipino recipe web app integrated with TheMealDB's free recipe API that lets users search dishes, save favorite meals, and automatically generate printable grocery shopping lists.",
     tags: ["Blazor", "C#", ".NET Framework", "Bootstrap"],
     image: "/assets/projects/web-development/pinoy-recipe-app.jpg",
     liveUrl: "",
@@ -197,7 +197,7 @@ export const projects = [
     category: "ui-ux",
     title: "Wellness PRO Incorporated",
     description:
-      "A clickable website prototype designed for hospitals and clinics to easily browse medical machines and request price quotes.",
+      "A modern interactive web prototype enabling healthcare facilities to easily discover medical equipment, technical product details, and request pricing.",
     tags: ["Prototype", "Medical UI", "Figma"],
     image: "/assets/projects/ui-ux-designs/wellness-pro-inc-prototype.jpg",
     liveUrl:
@@ -210,7 +210,7 @@ export const projects = [
     category: "ui-ux",
     title: "GAMEPLANET Merchandise Store",
     description:
-      "A user-friendly online store prototype designed for gamers to browse merchandise, select computer gear, and complete quick checkouts.",
+      "A web-based e-commerce store prototype featuring an intuitive layout for exploring merchandise, computers, tablets, and tech accessories with a fast checkout flow.",
     tags: ["Prototype", "Retail Tech UI", "Figma"],
     image: "/assets/projects/ui-ux-designs/gameplanet-prototype.jpg",
     liveUrl:
